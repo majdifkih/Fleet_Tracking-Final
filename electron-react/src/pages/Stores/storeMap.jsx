@@ -113,36 +113,8 @@ function Store() {
       method: "Cash on Delivery",
       status: "NonREG",
     },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "REG",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "REG",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "REG",
-    },
+   
+ 
   ];
 
 
@@ -221,11 +193,12 @@ function Store() {
         <div className="storetab">
         <div className="listTitlestore">Stores <span>(20)</span></div>
         <a href="#">Voir tout</a>
+        </div>
         <div className="input">        <div class="input-icone">
 <input type="Search" placeholder="Search..."/>
 <i><SearchIcon/></i>
 </div></div>
-</div>
+
         </div>
         <TableMap rows={rows}/>
         

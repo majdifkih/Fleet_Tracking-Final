@@ -163,11 +163,12 @@ function FullTable(props) {
                 alt=""/>
                 
                 </StyledTableCell>
-                <StyledTableCell  className={`icons ${icon}`} >
+                <StyledTableCell className="line"  >
+                  <div className={`icons ${icon}`}>
                   <i className="material-icons"  >border_color</i>
                   <i class="material-icons">info_outline</i>
                   <i class="material-icons">pin_drop</i>
-                
+                  </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
               </StyledTableRow>
             ))}

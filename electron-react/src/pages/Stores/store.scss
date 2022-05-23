@@ -60,12 +60,14 @@ border-radius: 10px;
 .storetabHead{
   display: flex;
   flex-direction: column;
+  
 .storetab {
   display: flex;
   gap: 50%;
   font-weight:bold;
   color: black;  
   font-size: 90%;
+  padding-bottom: 7%;
   span{
     font-size: 64%;
     color: gray;
@@ -80,6 +82,32 @@ border-radius: 10px;
     font-size: 88%;
     color: rgb(12, 128, 200);
   }
+}
+input[type=Search]{
+  height:30px;
+
+padding-right: 15%;
+border-radius: 5px;
+background: #c3cad2;
+}
+
+  
+.input-icone{
+  display: flex;
+position:relative; }
+.input-icone i{
+position:absolute; 
+left: 70%; 
+
+padding:4px 8px; 
+color:#838481; }
+
+  input[type=Search]:hover {
+  background: #f2f2f2; }
+
+.material-icons{
+ 
+ font-size: 120%;
 }
 }
 

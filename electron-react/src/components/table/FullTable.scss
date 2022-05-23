@@ -22,36 +22,41 @@
   
   .reguliere {
    
-    border-radius: 20%;
+    border-radius: 5px;
     text-align: center;
     font-size: 80%;
     font-weight: bold;
     margin-left: 3%;
-    padding: 1% 2% 1% 2%;
+   
     color: white;
     width: 10%;
     &.Reg { 
       background: #29CC97;
+      padding: 1% 2% 1% 2%;
     }
     &.NonReg {
       background: #FEC400;
+      padding: 1% 2% 1% 2%;
     }
     &.Online { 
       background: #29CC97;
-      
+      padding: 1% 2% 1% 2%;
     }
     &.Offline {
       background: #FEC400;
-      
+      padding: 1% 2% 1% 2%;
     }
     
   }
   img{
     padding-right: 2%;
   }
-  
-  .icons{display: flex;
+  .line{
+    display: flex;
     justify-content: flex-end;
+  .icons{
+    display: flex;
+    
     &.non { 
       visibility: hidden;
     }
@@ -61,4 +66,5 @@
       
     }
   }
+}
   }

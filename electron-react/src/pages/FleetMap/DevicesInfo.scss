@@ -12,20 +12,20 @@
     .headfleet{
       display: flex;
       gap: 60%;
-      padding-bottom: 1%;
+          padding-bottom: 1%;    
     .titledeviceinfo{
-        display: flex;
-        
-        font-weight:bold;
-        color: black;
-        
-        font-size: 122%;
+      display: flex;
+      gap: 10%;
+      font-weight:bold;
+      color: black;
+      
+      font-size: 122%;
         input[type=Search]{
           height:30px;
-          margin-left: 2%; 
-          padding-right: 3%;
-          border-radius: 5px;
-          background: #c3cad2;
+      
+      padding-right: 30%;
+      border-radius: 5px;
+      background: #c3cad2;
         }
         
           
@@ -34,10 +34,10 @@
         position:relative; }
         .input-icone i{
         position:absolute; 
-        left: 80%; 
-        
-        padding:4px 8px; 
-        color:#838481; }
+        left: 108%; 
+      
+      padding:4px 8px; 
+      color:#838481; }
       
           input[type=Search]:hover {
           background: #f2f2f2; }
@@ -50,15 +50,13 @@
         .del{
         
           display: flex;
-          font-size: 77%;
-          color: #fff;
-          padding: 0.2% 1% 0.2%;
-          background: #FF7A7A;
-          border-radius: 5px;
-          border: none;
-          
-          
-          
+      font-size: 100%;
+      color: #fff;
+      padding: 0.5% 1% 0.5%;
+      background: #FF7A7A;
+      border-radius: 5px;
+      border: none;
+      align-items: center;
         }
       }
     .info{
@@ -171,7 +169,7 @@
   
     border-radius: 5px;
     margin-right: 2%;
-
+width: 55%;
 
 
 .reguliere {

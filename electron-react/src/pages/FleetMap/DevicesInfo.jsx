@@ -303,12 +303,12 @@ import TableMap from "../../components/table/TableMap";
         <a href="#">Voir tout</a>
         
         </div>
-<TableMap rows={rowss.slice(0,4)} />
+<TableMap rows={rows.slice(0,4)} />
 </div>
 </div>
   </div>
   <div className="tabdevic">
-  <FullTable rows={rows} type="oui" title="Livreur" stat="Online" icon="non" />
+  <FullTable rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" />
   </div>
   </div>
   </div>

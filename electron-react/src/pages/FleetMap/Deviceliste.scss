@@ -61,44 +61,7 @@
     }
   }
 
-.tabdevice{
-  
- 
-  
-  
-  border-radius: 10px;
-  
-  margin-right: 2%;
-  
 
-
-.reguliere {
-   
-  border-radius: 4px;
-  font-size: 80%;
-  font-weight: bold;
-  color: white;
-  &.Online { 
-    background: #29CC97;
-    padding: 1% 2% 1%;
-  }
-  &.Offline {
-    
-    background: #FEC400;
-    
-    padding: 1% 2% 1%;
-    
-  }
-  
-}
-img{
-  padding-right: 2%;
-}
-
-.icons{display: flex;
-  justify-content: flex-end;
-}
-}
 }
 }
 

@@ -1,0 +1,64 @@
+.tabdevice{
+  
+ 
+  
+  
+    border-radius: 10px;
+    
+    margin-right: 2%;
+    .radio{
+      margin-right: 3%;    }
+  
+    .circle {
+        &.non { 
+          visibility: hidden;
+        }
+        &.oui {
+          
+          visibility: visible;
+          
+        }
+  }
+  
+  .reguliere {
+   
+    border-radius: 20%;
+    text-align: center;
+    font-size: 80%;
+    font-weight: bold;
+    margin-left: 3%;
+    padding: 1% 2% 1% 2%;
+    color: white;
+    width: 10%;
+    &.Reg { 
+      background: #29CC97;
+    }
+    &.NonReg {
+      background: #FEC400;
+    }
+    &.Online { 
+      background: #29CC97;
+      
+    }
+    &.Offline {
+      background: #FEC400;
+      
+    }
+    
+  }
+  img{
+    padding-right: 2%;
+  }
+  
+  .icons{display: flex;
+    justify-content: flex-end;
+    &.non { 
+      visibility: hidden;
+    }
+    &.oui {
+      
+      visibility: visible;
+      
+    }
+  }
+  }

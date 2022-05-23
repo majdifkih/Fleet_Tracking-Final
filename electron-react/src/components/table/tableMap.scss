@@ -1,0 +1,38 @@
+.tableMap {
+.radio{
+  margin-right: 3%;
+}
+  
+    .status {
+      font-size: 95%;
+      border-radius: 5px;
+      
+      &.Online {
+        color: white;
+        padding: 3% 10% 3% 10%;
+        background: #29CC97;
+      }
+      &.Offline {
+        color: white;
+        background: #FEC400;
+        padding: 3% 10% 3% 10%;
+      }
+      &.REG {
+        color: white;
+        padding: 3% 30% 3% 30%;
+        background: #29CC97;
+      }
+      &.NonREG {
+        color: white;
+        background: #FEC400;
+        padding: 3% 15% 3% 15%;
+      }
+    }
+    
+   
+  }
+  
+  input{
+    border: none;
+    outline:none; 
+   }

@@ -1,10 +1,10 @@
 import Home from "./pages/home/Home";
-// import Login from "./pages/login/Login";
-// import Store from "./pages/store/storeMap";
-// import StoreTable from "./pages/store/StoreTable";
-// import FleetMap from "./pages/FleetMap/FleetMap";
-// import DeviceListe from "./pages/FleetMap/Deviceliste";
-// import DeviceInfo from "./pages/FleetMap/DevicesInfo";
+import Login from "./pages/login/Login";
+import Store from "./pages/store/storeMap";
+import StoreTable from "./pages/store/StoreTable";
+import FleetMap from "./pages/FleetMap/FleetMap";
+import DeviceListe from "./pages/FleetMap/Deviceliste";
+import DeviceInfo from "./pages/FleetMap/DevicesInfo";
 import { HashRouter, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,12 +15,12 @@ function App() {
         <Routes>
           <Route path="/">
             <Route index element={<Home />} />
-            {/* <Route path="login" element={<Login />} />
+            <Route path="login" element={<Login />} />
             <Route path="fleet/map" element={<FleetMap />}/>
             <Route path="store" element={<Store />}/>
             <Route path="storetable" element={<StoreTable />}/>
             <Route path="devicelist" element={<DeviceListe/>} />
-            <Route path="deviceinfo" element={<DeviceInfo/>}/> */}
+            <Route path="deviceinfo" element={<DeviceInfo/>}/>
             </Route>
         </Routes>
       </HashRouter>

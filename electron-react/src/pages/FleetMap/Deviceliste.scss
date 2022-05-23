@@ -15,7 +15,7 @@
   
 .titledevice{
     display: flex;
-    gap: 2%;
+    gap: 10%;
     font-weight:bold;
     color: black;
     
@@ -23,7 +23,7 @@
     input[type=Search]{
       height:30px;
       
-      padding-right: 3%;
+      padding-right: 30%;
       border-radius: 5px;
       background: #c3cad2;
     }
@@ -34,7 +34,7 @@
       position:relative; }
       .input-icone i{
       position:absolute; 
-      left: 80%; 
+      left: 108%; 
       
       padding:4px 8px; 
       color:#838481; }
@@ -49,9 +49,9 @@
     }
     .del{
       display: flex;
-      font-size: 77%;
+      font-size: 100%;
       color: #fff;
-      padding: 0.2% 1% 0.2%;
+      padding: 0.5% 1% 0.5%;
       background: #FF7A7A;
       border-radius: 5px;
       border: none;

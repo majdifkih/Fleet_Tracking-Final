@@ -35,7 +35,7 @@ flex-direction: column;
       color: black;
       font-weight: bold;
       span{
-        font-size: 63%;
+        font-size: 80%;
         opacity: 0.3;
       }
     }
@@ -53,35 +53,48 @@ flex-direction: column;
 
     background: #fff;
     margin-right: 2%;
-    padding-right: 5%;
+
     padding: 1%;
     
-    padding-bottom: 6%;
+   
     
     border-radius: 10px;
     
-    .listTitle {
+    .headTab{
       display: flex;
-      gap: 44%;
+      flex-direction: column;
+      
+    
+    .listTitleApp {
+      display: flex;
+      gap: 40%;
       font-weight:bold;
       color: black;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
       font-size: 90%;
+      padding: 4px;
       span{
         font-size: 64%;
         color: gray;
       }
-      .fleettitle{
+      .listTitle{
         display: flex;
         flex-direction: column;
+       
       }
       a{
-        text-align:right;
         text-decoration: none;
-        font-size: 88%;
+        text-align:right;
+        font-size: 90%;
         color: rgb(12, 128, 200);
       }
     }
+    .tableCell{
+      display: flex;
+      justify-content: space-between;
+      padding: 0% 10% 0% 3%;
+    }
+  }
     
   }
 }

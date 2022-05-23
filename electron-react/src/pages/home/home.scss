@@ -1,49 +1,48 @@
-body{
-  background: #f6f3f3;
-}
-
 .home {
   display: flex;
-
-
+  background: #e6e9eb;
+  gap:2%;
+  .side{
+    flex-wrap: wrap;
+  }
   .homeContainer {
     display: flex;
     flex-direction: column;
     width: 100%;
-    .nav{
-      flex-wrap: wrap;
+    
+    .over{
+    
+      font-size: 143%;
+      font-weight:600;
+      padding-bottom: 1%;
     }
-    .body{
+.body{
+  display: flex;
+ 
+justify-content: space-between;
+margin-right: 2%;
+}
+  .leftt
+  {
+    display: flex;
+    flex-direction: column;
+    gap: 6%;
+    flex-grow: 3;
+    
+    .widgets {
       display: flex;
-      justify-content: space-between;
-    }
-    .center{
-      display: flex;
-      flex-direction: column;
-      flex: 1;
-    }
-    .widgets,
-    .charts {
-      display: flex;
-      padding: 20px;
-      gap: 20px;
-      
-    }
-    .charts {
-      padding: 5px 20px;
-      flex-direction: column;
-    }
-
-
-
+      gap: 5.2%;
      
-   .right 
+    }}
+
+
+    
+   .rightt 
    {
      display: flex;
      flex-direction: column;
-     gap: 1%;
+     gap: 6%;
      flex-grow: 1;
-     padding: 20px;
     .listContainer {
       -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
       box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
@@ -53,41 +52,41 @@ body{
       padding: 3px;
       
       border-radius: 10px;
-      
-      
-      .listTitle {
+      .headTab{
         display: flex;
         flex-direction: column;
+        gap: 6%;
+      
+      .listTitleApp {
+        display: flex;
+        gap: 44%;
         font-weight:bold;
         color: black;
-        margin-bottom: 10px;
+        margin-bottom: 14px;
         font-size: 90%;
-        padding-right: 3% ;
-        padding-top: 3%;
-        padding-left: 3%;
-        .tableCell{
-          display: flex;
-          justify-content: space-between;
-          margin-top: 15px;
-        
-        }
+        padding: 4px;
         span{
           font-size: 64%;
           color: gray;
         }
-        .fleettitle{
+        .listTitle{
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
          
         }
         a{
-          text-align:right;
           text-decoration: none;
-          font-size: 88%;
+          text-align:right;
+          font-size: 90%;
           color: rgb(12, 128, 200);
         }
       }
-      
+      .tableCell{
+        display: flex;
+        justify-content: space-between;
+        padding: 0% 10% 0% 3%;
+      }
+    }
     }
     .listContainer2 {
       -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
@@ -95,7 +94,7 @@ body{
       padding: 4px;
       background: #fff;
       border-radius: 10px;
-      padding-bottom: 29%;
+      padding-bottom: 6%;
      
       
      
@@ -103,6 +102,6 @@ body{
       
     }
     
-  }
-  }
+  }}
+  
 }

@@ -1,20 +1,17 @@
 .toggled {
   overflow-x: hidden;
-  background-color: #0b0909;
-  font-family:Verdana, Geneva, Tahoma, sans-serif; }
-  padding-left:250px;
-
-
+  padding-left: 250px;
+   }
+    
 #wrapper {
-  padding-left: 222px;
   -webkit-transition: all 0.5s ease;
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  
 }
 
 #sidebar-wrapper {
-  z-index: 1000;
   position: fixed;
   width: 0;
   height: 100%;
@@ -34,6 +31,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  
 }
 
 .sidebar-nav li {
@@ -59,101 +57,9 @@
   background: rgba(255, 255, 255, 0.2);
   color:#fff;
 }
-  
 
-  .btn{
-    margin-left: 10px;
-    margin-top: 10px;
-  
-  }
-  #check{
-    display: none;
-
-}
-label #btn,label #cancel{
-    position:absolute;
-    cursor: pointer;
-    background: #a66c2e;
-    border-radius: 3px;
-}
-label #btn{
-    left: 40px;
-    top: 25px;
-    font-size: 35px;
-    color: #fff;
-    padding: 6px 12px;
-    transition: all .5s;
-}
-#btn{
-  background: red;
-}
-label  #cancel {
-    z-index: 1111;
-    left: 195px;
-    top: 17px;
-    font-size: 30px;
-    color: #efeff1;
-    padding: 9px 9px;
-    transition: all .5s ease;
-}
-#check:checked ~ #sidebar-wrapper{
- transform: translate(0);
-}
-#check:checked ~ #sidebar-wrapper #btn{
- display: none;
- }
-#check:checked ~ label #btn{
-
-  left: 250px;
-  opacity: 0;
-  pointer-events: none;
-}
-#check:checked ~ label #cancel{
-
-  left: 195px;
-  
-}
-#check input{
-  -webkit-appearance:none ;
-  visibility: hidden;
-  display: none;
-}
-#check span {
-  position: absolute;
-  right: -40px;
-  top: 30px;
-  font-size: 25px;
-  border-radius: 3%;
-  color: #fff;
-  padding: 3px 8px ;
-  cursor: pointer;
-  background: #000;
-}
-
- 
-@media(min-width:768px) {
-  #wrapper {
-    padding-left: 0;
-  }
-  #wrapper.toggled {
-    padding-left: 250px;
-    
-  }
-  #sidebar-wrapper {
-    width: 0;
-  }
+@media(min-width:768px ) {
   #wrapper.toggled #sidebar-wrapper {
     width: 250px;
   }
-  #page-content-wrapper {
-    padding: 20px;
-    position: relative;
-  }
- 
-
 }
-  
-  
-
-  
-

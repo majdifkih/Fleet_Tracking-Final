@@ -1,24 +1,26 @@
 import "./sidebar.css";
 import { Link } from "react-router-dom";
-
-
+import log from './qlog1.jpg'
+import clock from './clock.jpg'
+import watch from './watch.jpg'
+import gps from './gps.jpg'
+import user from './user.jpg'
+import user1 from './user1.jpg'
+import setting from './setting.jpg'
+import logout from './logout.jpg'
 
 const Sidebar = () => {
  
   return (
     <div id="wrapper" className="toggled">
-        <input type="checkbox" id="check"/>
         <div id="sidebar-wrapper">
         
-       
           <ul className="sidebar-nav">
-       
-     
             <br />
             <br />
             &nbsp; &nbsp; &nbsp;
             <img
-              src="%PUBLIC_URL%../../../qlog1.JPG"
+              src={log}
               className="circle"
               width="200"
               height="40"
@@ -29,7 +31,7 @@ const Sidebar = () => {
             <li>
             <Link to="/" >
             <img
-              src="%PUBLIC_URL%../../../watch.JPG"
+              src={clock}
               className="circle"
               width="20"
               height="20"
@@ -39,7 +41,7 @@ const Sidebar = () => {
             <li>
             <Link to="/devicelist" >
             <img
-              src="%PUBLIC_URL%../../../watch.JPG"
+              src={watch}
               className="circle"
               width="20"
               height="20"
@@ -47,10 +49,10 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
-            <Link to="/fleet/map">
+            <Link to="/fleet">
                    
             <img
-              src="%PUBLIC_URL%../../../gps.JPG"
+              src={gps}
               className="circle"
               width="20"
               height="20"
@@ -60,7 +62,7 @@ const Sidebar = () => {
             <li>
             <Link to="/store" >
             <img
-              src="%PUBLIC_URL%../../../clock.JPG"
+              src={user}
               className="circle"
               width="17"
               height="17"
@@ -70,7 +72,7 @@ const Sidebar = () => {
             <li>
             <Link to="/storetable" >
             <img
-              src="%PUBLIC_URL%../../../setting.JPG"
+              src={setting}
               className="circle"
               width="17"
               height="17"
@@ -78,9 +80,9 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
-              <Link to="/" >
+              <Link to="/store" >
               <img
-              src="%PUBLIC_URL%../../../user.JPG"
+              src={user}
               className="circle"
               width="17"
               height="17"
@@ -91,7 +93,7 @@ const Sidebar = () => {
            
               <Link to="/deviceinfo" >
               <img
-              src="%PUBLIC_URL%../../../user1.JPG"
+              src={user1}
               className="circle"
               width="17"
               height="17"
@@ -102,7 +104,7 @@ const Sidebar = () => {
             <li>
             <Link to="/logout" >
             <img
-              src="%PUBLIC_URL%../../../logout.JPG"
+              src={logout}
               className="circle"
               width="20"
               height="20"
@@ -116,7 +118,3 @@ const Sidebar = () => {
 };
 
 export default Sidebar;
-
-
-
-

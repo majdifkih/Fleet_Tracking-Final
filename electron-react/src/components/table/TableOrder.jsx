@@ -47,28 +47,30 @@ const TableOrder = () => {
       method: "Cash on Delivery",
       status: "Pending",
     },
+    {
+      id: 2342353,
+      product: "Redragon S101",
+      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 35,
+      method: "Cash on Delivery",
+      status: "Pending",
+    },
     
   ];
   return (
     <div className="featured">
-      <div className="top">
-        
-        
-        
-      </div>
-      <div className="bottom">
-
+      
+      
       <div className="title">   
-    <div className="listTitle">Demandes
-    </div>
-    <div className="voir">
-     <a href="#">Voir tout</a>
-  
-    </div>
-    </div>
-    <span className="tolal">Total:60</span>
+      <div className="titleDema">Demandes 
+        <span className="tolal">Total:60</span>
+        </div>
+        <a href="#">Voir tout</a>
+        </div>
 
-      <TableContainer  className="table1">
+      <TableContainer  className="tab">
       <Table  aria-label="simple table">
       
         <TableBody>
@@ -81,7 +83,7 @@ const TableOrder = () => {
               <TableCell className="tableCell">{row.customer}</TableCell>
               
               <TableCell className="tableCell" align="right">
-                <span className="trait"><a href="#">Traiter</a></span>
+              <a href="#" className="trait">Traiter</a>
               </TableCell>
             </TableRow>
           ))}
@@ -89,7 +91,7 @@ const TableOrder = () => {
       </Table>
     </TableContainer>
         
-      </div>
+      
     </div>
   );
 };

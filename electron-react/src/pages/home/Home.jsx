@@ -6,9 +6,7 @@ import TableOrder from "../../components/table/TableOrder";
 import Chart from "../../components/chart/Chart";
 import TableMap from "../../components/table/TableMap";
 import AddBoxIcon from '@mui/icons-material/AddBox';
-
 const Home = () => {
-
   const rows = [
     {
       id: 1143155,
@@ -130,76 +128,66 @@ const Home = () => {
       method: "Cash on Delivery",
       status: "Online",
     },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "Online",
+    },
   ];
   return (
     <div className="home">
-      <Sidebar />
+      <div className="side"><Sidebar/>
+</div>
       <div className="homeContainer">
-        <div className="nav"><Navbar /></div>
-        
+        <Navbar/>
+        <span className="over">Overview</span>
+
         <div className="body">
-          <div className="center">
-            <div className="widgets">
-                <Widget type="chauffer" />
-                <Widget type="demande" />
-                <Widget type="Avertissements" />
-                <Widget type="apareil" />
-              </div>
-            <div className="charts">
-            
-            <Chart title="Revenue" aspect={2 / 1} />
-            
-          
-          
-            </div>  
-          </div>
-          
-          <div className="right">
-
-          <div className="listContainer">
-                  
-
-
-                  <div className="listTitle" >
-                         <div className="fleettitle">
-                           Appareilles
-                           <a href="#">Voir tout</a>
-                           
-                            </div>
-                            <span>(20)</span>
-                           <div className="head">
-                          
-                         
-                        <div className="tableCell">
-                          <input placeholder='Ajout une appareille' />
-                        <a href="#"><AddBoxIcon  fontSize="small" color="action" /> </a>
-                        </div>
-                           </div>
-                       
-              
-               
-                
-                
-              
-            </div>
-            <TableMap rows={rows.slice(0,3)} />
-          <div className="tableContainer2">
-          <div className="listTitle"></div>
-          
-          </div>
-          </div>
-          <TableOrder />
-          </div>
-
-            
-          
-          
-            
-           
+          <div className="leftt">
+        <div className="widgets">
+          <Widget type="demande" />
+          <Widget type="active" />
+          <Widget type="avertissement" />
+          <Widget type="apareil" />
         </div>
-        
-      
+        <div className="charts">
        
+         <div className="char"> <Chart  title="Revenues  " /></div>
+        
+        </div>
+          </div>
+ <div className="rightt">
+
+        
+        <div className="listContainer">
+        <div className="headTab" >
+        <div className="listTitleApp">
+          <div className="listTitle" >Appareilles <span>(20)</span></div>
+        <a href="#">Voir tout</a>
+  
+        </div>
+        <div className="tableCell"><input placeholder='Ajout une appareille' />
+        
+        <a href="#"><AddBoxIcon  fontSize="small" color="action" /></a>
+        </div>
+        </div>
+        <TableMap rows={rows.slice(0,3)} />
+        
+      </div>
+      
+      <div className="listContainer2">
+        
+      <TableOrder />
+      </div>
+      </div>
+        </div>
+
+    
       </div>
     </div>
   );

@@ -1,23 +1,25 @@
 .chart{
-  flex:1;
   -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
   box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-  padding-left: 20px;
-  
+  width: 94%;
   color: gray;
   border-radius: 10px;
 background: #fff;
-margin-bottom: 150px;
 display: flex;
-gap: 1px;
-
-flex-direction: row;
+gap: 1%;
+height: 423px;
 .courbe {
-  flex: 3;
-  margin-top: 25px;
+ 
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+  width: 250%;
 }
   .title {
-    margin-bottom:20px;
+    display: flex;
+  flex-direction: column;
+  
+  margin-left:2%;
     color: black;
     font-weight: bold;
     span{
@@ -27,17 +29,20 @@ flex-direction: row;
   }
 
  
-  .table {
+  .table1 {
     border-left:1px solid rgb(189, 185, 185);
-      flex: 1;
-       
-      padding-top: 10px;
-     
+    
+
+      
    
     .tableCell{
-      
+     display: flex;
+     flex-direction: column;
+     gap: 22%;
      font-size: 66%;
-     padding: 2.4%;
+     padding: 10%;
+     font-weight: bold;
+     
      text-align: center;
      .span1{
         opacity: 0.7;

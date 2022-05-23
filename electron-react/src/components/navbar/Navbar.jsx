@@ -1,8 +1,13 @@
 import "./navbar.scss";
+
+import img from "./photo.jpg"
+
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 
 
+
 const Navbar = () => {
+  
 
   return (
     <div className="navbar">
@@ -25,7 +30,7 @@ const Navbar = () => {
           </div>
           <div className="item">
             <img
-              src="%PUBLIC_URL%../../../photo.JPG"
+              src={img}
               alt=""
               className="avatar"
             />

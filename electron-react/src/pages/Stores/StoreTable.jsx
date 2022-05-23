@@ -1,220 +1,232 @@
-import "./StoreTable.scss";
-import * as React from 'react';
-import PropTypes from 'prop-types';
-import { styled } from '@mui/material/styles';
-import Table from '@mui/material/Table';
-import { useTheme } from '@mui/material/styles';
-import TableBody from '@mui/material/TableBody';
-import TableCell, { tableCellClasses } from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Paper from '@mui/material/Paper';
-import SearchIcon from '@mui/icons-material/Search';
-import DeleteIcon from '@mui/icons-material/Delete';
+import "./store.scss"
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import TableFooter from '@mui/material/TableFooter';
-import Box from '@mui/material/Box';
-import TablePagination from '@mui/material/TablePagination';
-import IconButton from '@mui/material/IconButton';
-import FirstPageIcon from '@mui/icons-material/FirstPage';
-import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
-import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
-import LastPageIcon from '@mui/icons-material/LastPage';
-const StyledTableCell = styled(TableCell)(({ theme }) => ({
-  [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.white,
-    color: theme.palette.common.black,
-    
-  },
-  [`&.${tableCellClasses.body}`]: {
-    fontSize: 13,
-    borderBottom: "none",
+import TableMap from "../../components/table/TableMap";
+import SearchIcon from '@mui/icons-material/Search';
 
-  },
-}));
+import {
+  Box,
+  Flex,
+  SkeletonText,
+} from '@chakra-ui/react'
 
-const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
-  },
-  // hide last border
-  '&:last-child td, &:last-child th': {
-   
-  },
-}));
-function TablePaginationActions(props) {
-  const theme = useTheme();
-  const { count, page, rowsPerPage, onPageChange } = props;
+import {
+  useJsApiLoader,
+  GoogleMap,
+  Marker,
 
-  const handleFirstPageButtonClick = (event) => {
-    onPageChange(event, 0);
-  };
+} from '@react-google-maps/api'
 
-  const handleBackButtonClick = (event) => {
-    onPageChange(event, page - 1);
-  };
+const center = { lat: 35.523916, lng: 11.030870 }
 
-  const handleNextButtonClick = (event) => {
-    onPageChange(event, page + 1);
-  };
+function Store() {
+  const rows = [
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+    {
+      id: 2235235,
+      product: "Playstation 5",
+      img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "Michael Doe",
+      date: "1 March",
+      amount: 900,
+      method: "REG Payment",
+      status: "NonREG",
+    },
+    {
+      id: 2342353,
+      product: "Redragon S101",
+      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 35,
+      method: "Cash on Delivery",
+      status: "NonREG",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+    {
+      id: 2342353,
+      product: "Redragon S101",
+      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 35,
+      method: "Cash on Delivery",
+      status: "NonREG",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+    {
+      id: 2342353,
+      product: "Redragon S101",
+      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 35,
+      method: "Cash on Delivery",
+      status: "NonREG",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "REG",
+    },
+  ];
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey:"AIzaSyBetB4HIZtbvPihf1OFkUkZhRdtw9-5U8s",
+    libraries: ['places'],
+  })
 
-  const handleLastPageButtonClick = (event) => {
-    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
-  };
 
-  return (
-    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
-      <IconButton
-        onClick={handleFirstPageButtonClick}
-        disabled={page === 0}
-        aria-label="first page"
-      >
-        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
-      </IconButton>
-      <IconButton
-        onClick={handleBackButtonClick}
-        disabled={page === 0}
-        aria-label="previous page"
-      >
-        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
-      </IconButton>
-      <IconButton
-        onClick={handleNextButtonClick}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="next page"
-      >
-        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
-      </IconButton>
-      <IconButton
-        onClick={handleLastPageButtonClick}
-        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
-        aria-label="last page"
-      >
-        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
-      </IconButton>
-    </Box>
-  );
-}
 
-TablePaginationActions.propTypes = {
-  count: PropTypes.number.isRequired,
-  onPageChange: PropTypes.func.isRequired,
-  page: PropTypes.number.isRequired,
-  rowsPerPage: PropTypes.number.isRequired,
-};
-function createData(name, status) {
-  return { name, status };
-}
 
-const rows = [
-  createData('Frozen yoghurt','NonReg'),
-  createData('Ice cream sandwich','Reg'),
-  createData('Eclair','Reg'),
-  createData('Cupcake','Reg'),
-  createData('Gingerbread','NonReg'),
-  createData('Frozen yoghurt','NonReg'),
-  createData('Ice cream sandwich','Reg'),
-  createData('Eclair','Reg'),
-  createData('Cupcake','Reg'),
-  createData('Gingerbread','NonReg'),
-  createData('Frozen yoghurt','NonReg'),
-  createData('Ice cream sandwich','Reg'),
-  createData('Eclair','Reg'),
-  createData('Cupcake','Reg'),
-  createData('Gingerbread','NonReg'),
-];
- function StoreTable() {
-  const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  if (!isLoaded) {
+    return <SkeletonText />
+  }
 
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
-
-  return (
-
-  <div className="tabmain">
-    <div className="side"><Sidebar/></div>
-    <div className="tabcenter">
-    <Navbar/>
-
-<div className="headtab">
-      <div className="titletab">
-      Stores
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
-      <i><SearchIcon/></i></div>
-</div>
-<button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
-
-</div>
-
-  <div className="tabstore">
-  <TableContainer component={Paper}>
-      <Table sx={{ minWidth: "100%" }} aria-label="customized table">
-        <TableHead>
-          <TableRow className="row" >
-              
-            <StyledTableCell  align="left" ><input type="radio" name="store"/><label for="store">Nom de Store</label></StyledTableCell>
-            
-            <StyledTableCell  align="right">Reguliere?</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            <StyledTableRow className="row" key={row.name}>
-              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="store"/><label for="name">{row.name}</label>
-                
-              </StyledTableCell>
-              <StyledTableCell  className="icons">
-                <i className="material-icons"  >border_color</i>
-                <i class="material-icons">info_outline</i>
-                <i class="material-icons">pin_drop</i>
-              
-              <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
-            </StyledTableRow>
-          ))}
-          
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={3}
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
-          </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
-  </div>
-  </div>
-  </div>
   
-  );
+  return (
+    <div className="home">
+    <Sidebar />
+    <div className="homeContainer">
+      <div className="nav"><Navbar />
+      <span className="titlemap">Stores</span>
+      </div>
+    <div className="mapcontainer">
+    <div className="mapmain">
+        
+    <div className="map">
+        
+    <div className="mapContainer">
+      
+          
+     <Flex 
+      direction='column'
+      border={1}
+      h='80vh'
+      w='100%'
+
+      p='10'
+    >
+      <div className="title">Map<br/><span>Stores</span></div>
+      <Box   h='90%' w='90%' p={4}>
+        {/* Google Map Box */}
+        <GoogleMap
+          center={center}
+          zoom={8}
+          mapContainerStyle={{ width: '100%', height: '100%' }}
+          options={{
+            zoomControl: true,
+            streetViewControl: true,
+            mapTypeControl: true,
+            fullscreenControl: true,
+          }}
+        >
+          <Marker position={center}
+          icon ={
+       {     
+            url:"%PUBLIC_URL%../../../store.png",
+            scaledSize: new window.google.maps.Size(50,50)
+            
+        }
+        } />
+          
+        </GoogleMap>
+      </Box>
+     
+    </Flex>
+    </div>
+    </div>
+    </div>
+    <div className="liststore">
+        <div className="storetab">
+        <div className="listTitlestore">Stores <span>(20)</span></div>
+        <a href="#">Voir tout</a>
+        
+        </div>
+        <div className="input">        <div class="input-icone">
+<input type="Search" placeholder="Search..."/>
+<i><SearchIcon/></i>
+</div></div>
+
+
+        <TableMap rows={rows}/>
+        
+        </div>
+    </div>
+   </div></div>
+  )
 }
-export default StoreTable
+
+export default Store

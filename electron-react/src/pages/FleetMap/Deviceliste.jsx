@@ -1,8 +1,5 @@
-import "./TabDevices.scss";
+import "./Deviceliste.scss";
 import * as React from 'react';
-import engine from './engine.png'
-import tires from './tires.png'
-import oil from './oil.png'
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -13,7 +10,10 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-
+import SearchIcon from '@mui/icons-material/Search';
+import DeleteIcon from '@mui/icons-material/Delete';
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
 import TableFooter from '@mui/material/TableFooter';
 import Box from '@mui/material/Box';
 import TablePagination from '@mui/material/TablePagination';
@@ -22,6 +22,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import FullTable from "../../components/table/FullTable";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -37,15 +38,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
-   backgroundColor: theme.palette.action.hover,
-   
+    backgroundColor: theme.palette.action.hover,
   },
-  '&:nth-of-type(even)': {
-  
-      
-      
-  },
-  
   // hide last border
   '&:last-child td, &:last-child th': {
    
@@ -132,7 +126,8 @@ const rows = [
   createData('Cupcake','Online'),
   createData('Gingerbread','Offline'),
 ];
- function TabDevices() {
+ function DeviceListe() {
+   
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -151,83 +146,25 @@ const rows = [
 
   return (
 
+  <div className="devicemain">
+    <div className="side"><Sidebar/></div>
+    <div className="device">
+    <Navbar/>
 
-  <div className="tabdevices">
-  <TableContainer component={Paper}>
-      <Table sx={{ minWidth: "100%" }} aria-label="customized table">
-        <TableHead>
-          <TableRow className="row" >
-              
-            <StyledTableCell  align="left" ><input type="radio" name="fleet"/><label for="store">Livreur</label></StyledTableCell>
-            <StyledTableCell  align="left">Alerts</StyledTableCell>
-            <StyledTableCell  align="right">Online?</StyledTableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            <StyledTableRow className="row" key={row.name}>
-              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"/><label for="name">{row.name}</label>
-                
-              </StyledTableCell>
-              <StyledTableCell className="alerts" align="left"><img 
-              src={tires}
-              className="circle"
-              width="20"
-              height="20"
-              alt=""/>           
-              <img 
-              src={engine}
-              className="circle"
-              width="27"
-              height="27"
-              alt=""/>
-                <img 
-              src={oil}
-              className="circle"
-              width="27"
-              height="27"
-              alt=""/>
-              
-              </StyledTableCell>
-              <StyledTableCell  className="icons">
-              <div className={`regulier ${row.status}`}>{row.status}</div></StyledTableCell>
-            </StyledTableRow>
-          ))}
-          
-        </TableBody>
-        <TableFooter>
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
-              colSpan={3}
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows per page',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
-          </TableRow>
-        </TableFooter>
-      </Table>
-    </TableContainer>
+<div className="headdevice">
+      <div className="titledevice">
+      Fleet
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <i><SearchIcon/></i></div>
+</div>
+<button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
+
+</div>
+
+ <FullTable rows={rows} type="oui" title="Livreur" stat="Online"/>
   </div>
-  
+  </div>
   
   );
 }
-export default TabDevices
-
-
-
-
-
+export default DeviceListe

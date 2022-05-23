@@ -1,5 +1,5 @@
 import "./FleetMap.scss"
-import TableMap from "../../pages/FleetMap/TableMap";
+import TableMap from "../../components/table/TableMap";
 import {
   Box,
   Flex,
@@ -10,15 +10,109 @@ import {
   useJsApiLoader,
   GoogleMap,
   Marker,
-  DirectionsRenderer,
+  
 } from '@react-google-maps/api'
 import { useRef, useState } from 'react'
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-
+import AddBoxIcon from '@mui/icons-material/AddBox';
 const center = { lat: 35.523916, lng: 11.030870 }
 
 function FleetMap() {
+  const rows = [
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "Online",
+    },
+    {
+      id: 2235235,
+      product: "Playstation 5",
+      img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "Michael Doe",
+      date: "1 March",
+      amount: 900,
+      method: "Online Payment",
+      status: "Offline",
+    },
+    {
+      id: 2342353,
+      product: "Redragon S101",
+      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 35,
+      method: "Cash on Delivery",
+      status: "Offline",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "Online",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "Online",
+    },
+    {
+      id: 2342353,
+      product: "Redragon S101",
+      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 35,
+      method: "Cash on Delivery",
+      status: "Offline",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "Online",
+    },
+    {
+      id: 1143155,
+      product: "Acer Nitro 5",
+      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 785,
+      method: "Cash on Delivery",
+      status: "Online",
+    },
+    {
+      id: 2342353,
+      product: "Redragon S101",
+      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+      customer: "John Smith",
+      date: "1 March",
+      amount: 35,
+      method: "Cash on Delivery",
+      status: "Offline",
+    },
+   
+  ];
+
   const { isLoaded } = useJsApiLoader({
     googleMapsApiKey:"AIzaSyBetB4HIZtbvPihf1OFkUkZhRdtw9-5U8s",
     libraries: ['places'],
@@ -86,12 +180,19 @@ function FleetMap() {
     
     
     <div className="listapp">
-        <div className="listTitle" >
-        <div className="fleettitle">Appareilles<span>(20)</span> </div>
+    <div className="headTab" >
+        <div className="listTitleApp">
+          <div className="listTitle" >Appareilles <span>(20)</span></div>
         <a href="#">Voir tout</a>
+  
+        </div>
+        <div className="tableCell"><input placeholder='Ajout une appareille' />
+        
+        <a href="#"><AddBoxIcon  fontSize="small" color="action" /></a>
+        </div>
         </div>
         
-        <TableMap/>
+        <TableMap rows={rows}/>
         
         </div>
      </div>

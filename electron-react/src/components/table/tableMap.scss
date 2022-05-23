@@ -4,26 +4,27 @@
 }
   
     .status {
-      font-size: 95%;
-      border-radius: 5px;
-      
+      border-radius: 4px;
+  
+      font-size: 80%;
+      font-weight: bold;
+      margin-left: 3%;
+    
+      color: white;
       &.Online {
-        color: white;
-        padding: 3% 10% 3% 10%;
         background: #29CC97;
+      padding: 1% 10% 1%;
       }
       &.Offline {
-        color: white;
         background: #FEC400;
-        padding: 3% 10% 3% 10%;
+      
+      padding: 1% 10% 1%;
       }
       &.REG {
-        color: white;
         padding: 3% 30% 3% 30%;
         background: #29CC97;
       }
       &.NonREG {
-        color: white;
         background: #FEC400;
         padding: 3% 15% 3% 15%;
       }

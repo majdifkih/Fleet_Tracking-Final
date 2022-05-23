@@ -1,13 +1,27 @@
-import "./ListStore.scss";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
+import "./store.scss"
+import store from './store.png'
+import {
+  Box,
+  Flex,
+  SkeletonText,
+} from '@chakra-ui/react'
+
+import {
+  useJsApiLoader,
+  GoogleMap,
+  Marker,
+
+} from '@react-google-maps/api'
+import { useRef, useState } from 'react'
+import Sidebar from "../../components/sidebar/Sidebar";
+import Navbar from "../../components/navbar/Navbar";
+import TableMap from "../../components/table/TableMap";
 import SearchIcon from '@mui/icons-material/Search';
 
-const ListStore = () => {
+const center = { lat: 35.523916, lng: 11.030870 }
+
+function Store() {
+
   const rows = [
     {
       id: 1143155,
@@ -130,33 +144,97 @@ const ListStore = () => {
       status: "REG",
     },
   ];
-  return (
-    <TableContainer  className="tableMap" >
-      <Table  aria-label="simple table">
-      
-        <TableBody>
-        
 
-        <TableCell className="tableCell"><div class="input-icone">
+
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey:"AIzaSyBetB4HIZtbvPihf1OFkUkZhRdtw9-5U8s",
+    libraries: ['places'],
+  })
+
+
+
+
+  /** @type React.MutableRefObject<HTMLInputElement> */
+  const originRef = useRef()
+  /** @type React.MutableRefObject<HTMLInputElement> */
+  const destiantionRef = useRef()
+
+  if (!isLoaded) {
+    return <SkeletonText />
+  }
+
+
+  
+  return (
+    <div className="storemain">
+      <div className="side"><Sidebar/></div>
+    <div className="store">
+    <Navbar/>
+        <span className="titlemap">Stores</span>
+        <div className="storecenter">
+    <div className="storeleft">
+        
+    
+      
+          
+     <Flex 
+      direction='column'
+      border={1}
+      h='80vh'
+      w='107%'
+
+      p='10'
+    >
+      <div className="title">Map<br/><span>Stores</span></div>
+      <Box   h='90%' w='90%' p={4}>
+        {/* Google Map Box */}
+        <GoogleMap
+          center={center}
+          zoom={8}
+          mapContainerStyle={{ width: '100%', height: '100%' }}
+          options={{
+            zoomControl: true,
+            streetViewControl: true,
+            mapTypeControl: true,
+            fullscreenControl: true,
+          }}
+        >
+          <Marker position={center} 
+            icon ={
+              {     
+                   url:{store},
+                   scaledSize: new window.google.maps.Size(50,50)
+                   
+               }
+               } 
+        />
+         
+        </GoogleMap>
+      </Box>
+     
+    </Flex>
+    
+    
+    </div>
+    <div className="liststore">
+    <div className="storetabHead">
+        <div className="storetab">
+        <div className="listTitlestore">Stores <span>(20)</span></div>
+        <a href="#">Voir tout</a>
+        <div className="input">        <div class="input-icone">
 <input type="Search" placeholder="Search..."/>
 <i><SearchIcon/></i>
-</div></TableCell>
+</div></div>
+</div>
+        </div>
+        <TableMap rows={rows}/>
         
-        
-          {rows.map((row) => (
-            <TableRow key={row.id}>
-              
-              <TableCell className="tableCell"><input type="radio" className="radio"/>{row.customer}</TableCell>
-              
-              <TableCell className="tableCell">
-                <span className={`reguliere ${row.status}`}>{row.status}</span>
-              </TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  );
-};
+        </div>
+        </div>
+     </div>
+    </div>
+   
+  )
+}
 
-export default ListStore;
+export default Store

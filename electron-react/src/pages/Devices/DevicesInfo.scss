@@ -1,0 +1,203 @@
+
+.deviceinfomain{
+    display: flex;
+    gap: 2%;
+    .devicecenter{
+      display: flex;
+      flex-direction: column;
+      flex: 3;
+      gap: 2%;
+     
+
+    .headfleet{
+      display: flex;
+      gap: 60%;
+      padding-bottom: 1%;
+    .titledeviceinfo{
+        display: flex;
+        
+        font-weight:bold;
+        color: black;
+        
+        font-size: 122%;
+        input[type=Search]{
+          height:30px;
+          margin-left: 2%; 
+          padding-right: 3%;
+          border-radius: 5px;
+          background: #c3cad2;
+        }
+        
+          
+        .input-icone{
+          display: flex;
+        position:relative; }
+        .input-icone i{
+        position:absolute; 
+        left: 80%; 
+        
+        padding:4px 8px; 
+        color:#838481; }
+      
+          input[type=Search]:hover {
+          background: #f2f2f2; }
+        
+       .material-icons{
+         
+         font-size: 120%;
+       }
+        }
+        .del{
+        
+          display: flex;
+          font-size: 77%;
+          color: #fff;
+          padding: 0.2% 1% 0.2%;
+          background: #FF7A7A;
+          border-radius: 5px;
+          border: none;
+          
+          
+          
+        }
+      }
+    .info{
+      display: flex;
+      gap: 2%;
+      
+      .deviceinfo{
+        display: flex;
+        flex-direction: column;
+        flex: 2;
+        background: #fff;
+        border-radius: 10px;
+        gap: 2%;
+        height: 123%;
+
+        .titleinfo{
+          font-size: 40px;
+            font-weight: bold;
+            padding-top: 2%;
+        }
+        .infocenter{
+          display: flex;
+          flex-direction: column;
+          gap: 18%;
+        .carte{
+                display: flex;
+                flex-direction: column;
+                gap: 25%;
+                margin-left: 15%;
+        .cartetop{
+          display: flex;
+          gap: 5%;
+        }
+        .cartebottom{
+          display: flex;
+          gap: 5%;
+        }
+        .carteCenter{
+          display: flex;
+          flex-direction: column;
+          gap: 5%;
+          text-align: center;
+         border: 1px solid rgb(188, 183, 183);
+          width:40%;
+          cursor: pointer;
+          height: 120%;
+          -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+          box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+          border-radius: 5px;
+          background: #fff;
+          &:hover{
+    
+            color: blue;
+            outline: 1px solid blue;
+           
+          }
+          .carteTitle{
+            font-weight: bold;
+            font-size: 15px;
+            opacity: 0.5;
+            padding-top:10% ; 
+          }
+          .carteNumber{
+            font-size: 28px;
+            font-weight: bold;
+            img{
+              padding-left: 5%;
+            }
+          }
+        }
+      }
+      .ListStoreDevice{
+        -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+          box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+        margin: 1% 12% 0% 15%;
+        border: 1px solid rgb(188, 183, 183);
+        border-radius: 5px;
+        
+        background: #fff;
+        .storedevice {
+          padding: 2% 0% 0% 3%;
+          display: flex;
+          gap: 51%;
+          font-weight:bold;
+          color: black;  
+          font-size: 90%;
+          span{
+            font-size: 64%;
+            color: gray;
+          }
+          .listTitl{
+            display: flex;
+            flex-direction: column;
+          }
+          a{
+            
+            text-decoration: none;
+            font-size: 88%;
+            color: rgb(12, 128, 200);
+          }
+        }
+      }
+    }
+      }
+      
+    }
+     
+
+.tabdevic{
+  
+    border-radius: 5px;
+    margin-right: 2%;
+
+
+
+.reguliere {
+     
+    border-radius: 4px;
+    font-size: 80%;
+    font-weight: bold;
+    color: white;
+    &.Online { 
+      background: #29CC97;
+      padding: 2% 2% 0%;
+    }
+    &.Offline {
+      
+      background: #FEC400;
+      
+      padding: 2% 2% 0%;
+      
+    }
+  }
+  
+}
+}
+}
+
+  
+   
+    
+  

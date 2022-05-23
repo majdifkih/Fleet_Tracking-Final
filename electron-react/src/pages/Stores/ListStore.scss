@@ -1,0 +1,56 @@
+.tableMap {
+
+    .reguliere {
+     
+      border-radius: 4px;
+      margin-right: 10px;
+      text-align: center;
+      font-size: 60%;
+      color: white;
+      &.REG { 
+        background: #29CC97;
+        padding: 5% 25% 5%;
+      }
+      &.NonREG {
+        
+        background: #FEC400;
+        
+        padding: 5% 5% 5%;
+        
+      }
+    }
+    .tableCell{
+      
+     font-size: 90%;
+     padding: 4%;
+     padding-left: 0%;
+       
+     input[type=Search]{
+      height:30px;
+      margin-left: 2%; 
+      padding-right: 20%;
+      border-radius: 5px;
+      background: #e5e7e1;
+        }
+  
+      
+      
+      .input-icone{
+        display: flex;
+        position:relative; }
+      
+      .input-icone i{
+        position:absolute; 
+        left: 90%; 
+        
+        padding:4px 8px; 
+        color:#838481; 
+    }
+
+      input[type=Search]:hover {
+      background: #f2f2f2; }
+    }
+   
+  }
+
+  

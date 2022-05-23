@@ -1,0 +1,55 @@
+.tableStoreDevices {
+ 
+    .regul {
+     
+      border-radius: 4px;
+      font-size: 60%;
+      color: white;
+      font-weight: bold;
+      &.REG { 
+        background: #29CC97;
+        padding: 2% 10% 2%;
+      }
+      &.NonREG {
+        
+        background: #FEC400;
+        
+        padding: 2% 3% 2%;
+        
+      }
+    }
+    .tableCelll{
+      font-weight: bold;
+     font-size: 80%;
+    
+   
+       
+     input[type=Search]{
+      height:30px;
+      margin-left: 2%; 
+      padding-right: 55%;
+      border-radius: 5px;
+      background: #e5e7e1;
+        }
+  
+      
+      
+      .input-icone{
+        display: flex;
+        position:relative; }
+      
+      .input-icone i{
+        position:absolute; 
+        left: 90%; 
+        
+        padding:4px 8px; 
+        color:#838481; 
+    }
+
+      input[type=Search]:hover {
+      background: #f2f2f2; }
+    }
+   
+  }
+
+  

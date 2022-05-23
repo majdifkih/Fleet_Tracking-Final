@@ -27,7 +27,7 @@ const Sidebar = () => {
             <br />
             <br />
             <li>
-            <Link to="/home" >
+            <Link to="/" >
             <img
               src="%PUBLIC_URL%../../../watch.JPG"
               className="circle"
@@ -37,7 +37,7 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
-            <Link to="/accuielProduit" >
+            <Link to="/devicelist" >
             <img
               src="%PUBLIC_URL%../../../watch.JPG"
               className="circle"
@@ -68,7 +68,7 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
-            <Link to="/" >
+            <Link to="/storetable" >
             <img
               src="%PUBLIC_URL%../../../setting.JPG"
               className="circle"
@@ -89,7 +89,7 @@ const Sidebar = () => {
             </li>
             <li>
            
-              <Link to="/TMSDash" >
+              <Link to="/deviceinfo" >
               <img
               src="%PUBLIC_URL%../../../user1.JPG"
               className="circle"
@@ -100,7 +100,7 @@ const Sidebar = () => {
             </li>
            
             <li>
-            <Link to="/login" >
+            <Link to="/logout" >
             <img
               src="%PUBLIC_URL%../../../logout.JPG"
               className="circle"

@@ -1,36 +1,148 @@
 import "./Inventory.scss";
 import * as React from 'react';
+
+import PropTypes from 'prop-types';
+import { styled } from '@mui/material/styles';
+import Table from '@mui/material/Table';
+import { useTheme } from '@mui/material/styles';
+import TableBody from '@mui/material/TableBody';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
+import TableFooter from '@mui/material/TableFooter';
+import Box from '@mui/material/Box';
+import TablePagination from '@mui/material/TablePagination';
+import IconButton from '@mui/material/IconButton';
+import FirstPageIcon from '@mui/icons-material/FirstPage';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
+import LastPageIcon from '@mui/icons-material/LastPage';
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.white,
+    color: theme.palette.common.black,
+    
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 13,
+    borderBottom: "none",
 
-import FullTable from "../../components/table/FullTable";
+  },
+}));
 
-function createData(name, status) {
-  return { name, status };
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+   
+  },
+}));
+function TablePaginationActions(props) {
+  const theme = useTheme();
+  const { count, page, rowsPerPage, onPageChange } = props;
+
+  const handleFirstPageButtonClick = (event) => {
+    onPageChange(event, 0);
+  };
+
+  const handleBackButtonClick = (event) => {
+    onPageChange(event, page - 1);
+  };
+
+  const handleNextButtonClick = (event) => {
+    onPageChange(event, page + 1);
+  };
+
+  const handleLastPageButtonClick = (event) => {
+    onPageChange(event, Math.max(0, Math.ceil(count / rowsPerPage) - 1));
+  };
+
+  return (
+    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+      <IconButton
+        onClick={handleFirstPageButtonClick}
+        disabled={page === 0}
+        aria-label="first page"
+      >
+        {theme.direction === 'rtl' ? <LastPageIcon /> : <FirstPageIcon />}
+      </IconButton>
+      <IconButton
+        onClick={handleBackButtonClick}
+        disabled={page === 0}
+        aria-label="previous page"
+      >
+        {theme.direction === 'rtl' ? <KeyboardArrowRight /> : <KeyboardArrowLeft />}
+      </IconButton>
+      <IconButton
+        onClick={handleNextButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="next page"
+      >
+        {theme.direction === 'rtl' ? <KeyboardArrowLeft /> : <KeyboardArrowRight />}
+      </IconButton>
+      <IconButton
+        onClick={handleLastPageButtonClick}
+        disabled={page >= Math.ceil(count / rowsPerPage) - 1}
+        aria-label="last page"
+      >
+        {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
+      </IconButton>
+    </Box>
+  );
+}
+
+TablePaginationActions.propTypes = {
+  count: PropTypes.number.isRequired,
+  onPageChange: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  rowsPerPage: PropTypes.number.isRequired,
+};
+function createData(name, Barcode, Quantity, Price, Id, Category, status) {
+  return { name, Barcode, Quantity, Price, Id, Category, status };
 }
 
 const rows = [
-  createData('Frozen yoghurt','12313313','111','4.000DT','123454','ELECTRONICS','Low'),
+  createData('Frozen yoghurt','12313313','111','4.000DT','123454','ELECTRONICS','LOW'),
   createData('Ice cream sandwich','123321833','386','4.000DT','123234','ELECTRONICS','GOOD'),
-  createData('Eclair','893298','696','4.000DT','1124255','ELECTRONICS','Low'),
+  createData('Eclair','893298','696','4.000DT','1124255','ELECTRONICS','LOW'),
   createData('Cupcake','213435711','672','4.000DT','1154644','ELECTRONICS','GOOD'),
-  createData('Gingerbread','2564225','226','4.000DT','1154373','ELECTRONICS','Low'),
+  createData('Gingerbread','2564225','226','4.000DT','1154373','ELECTRONICS','LOW'),
   createData('Frozen yoghurt','25672','172','4.000DT','116742','ELECTRONICS','GOOD'),
-  createData('Ice cream sandwich','1445763454','147','4.000DT','11742','ELECTRONICS','Low'),
+  createData('Ice cream sandwich','1445763454','147','4.000DT','11742','ELECTRONICS','LOW'),
   createData('Eclair','1568934','391','4.000DT','115362','ELECTRONICS','GOOD'),
-  createData('Cupcake','6323563','973','4.000DT','114662','ELECTRONICS','Low'),
+  createData('Cupcake','6323563','973','4.000DT','114662','ELECTRONICS','LOW'),
   createData('Gingerbread','131563','537','4.000DT','11632','ELECTRONICS','GOOD'),
-  createData('Frozen yoghurt','535633','876','4.000DT','1124536','ELECTRONICS','Low'),
+  createData('Frozen yoghurt','535633','876','4.000DT','1124536','ELECTRONICS','LOW'),
   createData('Ice cream sandwich','65322','314','4.000DT','112462','ELECTRONICS','GOOD'),
-  createData('Eclair','563432','555','4.000DT','1153673','ELECTRONICS','Low'),
+  createData('Eclair','563432','555','4.000DT','1153673','ELECTRONICS','LOW'),
   createData('Cupcake','143434','222','4.000DT','113572','ELECTRONICS','GOOD'),
-  createData('Gingerbread','12342545','231','4.000DT','112265','ELECTRONICS','Low'),
+  createData('Gingerbread','12342545','231','4.000DT','112265','ELECTRONICS','LOW'),
 ];
  function InventoryListe() {
-   
- 
+  const [page, setPage] = React.useState(0);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+
+  // Avoid a layout jump when reaching the last page with empty rows.
+  const emptyRows =
+    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
+
+  const handleChangePage = (event, newPage) => {
+    setPage(newPage);
+  };
+
+  const handleChangeRowsPerPage = (event) => {
+    setRowsPerPage(parseInt(event.target.value, 10));
+    setPage(0);
+  };
+
   return (
 
   <div className="inventorymain">
@@ -48,7 +160,69 @@ const rows = [
 
 </div>
 
- <FullTable rows={rows} type="oui" title="Livreur" stat="Online"/>
+  <div className="tabinventory">
+  <TableContainer component={Paper}>
+      <Table sx={{ minWidth: "100%" }} aria-label="customized table">
+        <TableHead>
+          <TableRow className="row" >
+              
+            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Name</label></StyledTableCell>
+            <StyledTableCell  >Barcode</StyledTableCell>
+            <StyledTableCell  >Quantity</StyledTableCell>
+            <StyledTableCell  >Price</StyledTableCell>
+            <StyledTableCell >Id</StyledTableCell>
+            <StyledTableCell  >Category</StyledTableCell>
+            <StyledTableCell  align="right">Status?</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {(rowsPerPage > 0
+            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            : rows
+          ).map((row) => (
+            <StyledTableRow className="row" key={row.name}>
+              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"/><label for="name">{row.name}</label>
+                
+              </StyledTableCell>
+              <StyledTableCell className="barcode" >{row.Barcode}</StyledTableCell>
+              <StyledTableCell className="quantity" >{row.Quantity}</StyledTableCell>
+              <StyledTableCell className="price" >{row.Price}</StyledTableCell>
+              <StyledTableCell className="id" >{row.Id}</StyledTableCell>
+              <StyledTableCell className="category" >{row.Category}</StyledTableCell>
+              <StyledTableCell  className="tabEnd" >
+                <div className="icons">
+                <i className="material-icons"  >border_color</i>
+                <i class="material-icons">info_outline</i>
+                </div>
+              
+              <div className={`statuss ${row.status}`}>{row.status}</div></StyledTableCell>
+            </StyledTableRow>
+          ))}
+          
+        </TableBody>
+        <TableFooter>
+          <TableRow>
+            <TablePagination
+              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+              colSpan={7}
+              count={rows.length}
+              rowsPerPage={rowsPerPage}
+              page={page}
+              SelectProps={{
+                inputProps: {
+                  'aria-label': 'rows per page',
+                },
+                native: true,
+              }}
+              onPageChange={handleChangePage}
+              onRowsPerPageChange={handleChangeRowsPerPage}
+              ActionsComponent={TablePaginationActions}
+            />
+          </TableRow>
+        </TableFooter>
+      </Table>
+    </TableContainer>
+  </div>
   </div>
   </div>
   

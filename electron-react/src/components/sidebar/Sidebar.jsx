@@ -70,7 +70,7 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
-            <Link to="/storetable" >
+            <Link to="/inventory" >
             <img
               src={setting}
               className="circle"

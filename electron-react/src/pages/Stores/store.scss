@@ -1,5 +1,6 @@
 .storemain{
   display: flex;
+  gap: 2%;
 .store{
 flex: 3;
 display: flex;
@@ -15,7 +16,7 @@ flex-direction: column;
         color: black;
        padding-bottom: 1%;
         font-size: 122%;
-        margin-left: 2%;
+        
   }
   
 .storeleft{
@@ -26,7 +27,7 @@ display: flex;
 flex-direction: column;
  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-margin-left: 2%;
+
  border-radius: 10px;
 background: #fff;
 
@@ -63,10 +64,11 @@ border-radius: 10px;
   
 .storetab {
   display: flex;
-  gap: 50%;
+  gap: 55%;
   font-weight:bold;
   color: black;  
   font-size: 90%;
+  
   padding-bottom: 7%;
   span{
     font-size: 64%;

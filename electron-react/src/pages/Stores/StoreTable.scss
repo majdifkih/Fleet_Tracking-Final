@@ -1,28 +1,27 @@
 
-.devicemain{
+.Tabstoremain{
   display: flex;
- 
-.device{
+ gap: 2%;
+.Tabstore{
   display: flex;
   flex-direction: column;
   flex: 3;
-      gap: 2%;
+    
       
-.headdevice{
+.headTabstore{
   display: flex;
-  gap:2%;
-  padding-bottom:2%;
-.titledevice{
-    display: flex;
-    
-    font-weight:bold;
-    color: black;
-    
-    font-size: 122%;
+  gap: 60%;
+  padding-bottom: 1%;
+.titleTabstore{
+  display: flex;
+  gap: 10%;
+  font-weight:bold;
+  color: black;
+  font-size: 122%;
     input[type=Search]{
       height:30px;
-     
-      padding-right: 3%;
+      
+      padding-right: 30%;
       border-radius: 5px;
       background: #c3cad2;
     }
@@ -32,11 +31,11 @@
         display: flex;
       position:relative; }
       .input-icone i{
-      position:absolute; 
-      left: 80%; 
-      
-      padding:4px 8px; 
-      color:#838481; }
+        position:absolute; 
+        left: 108%; 
+        
+        padding:4px 8px; 
+        color:#838481;  }
   
       input[type=Search]:hover {
       background: #f2f2f2; }
@@ -48,9 +47,9 @@
     }
     .del{
       display: flex;
-      font-size: 77%;
+      font-size: 100%;
       color: #fff;
-      padding: 0.2% 1% 0.2%;
+      padding: 0.5% 1% 0.5%;
       background: #FF7A7A;
       border-radius: 5px;
       border: none;

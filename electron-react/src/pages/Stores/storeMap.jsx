@@ -31,7 +31,7 @@ function Store() {
       date: "1 March",
       amount: 785,
       method: "Cash on Delivery",
-      status: "REG",
+      status: "Reguliere",
     },
     {
       id: 2235235,
@@ -61,7 +61,7 @@ function Store() {
       date: "1 March",
       amount: 785,
       method: "Cash on Delivery",
-      status: "REG",
+      status: "Reguliere",
     },
     {
       id: 1143155,
@@ -71,7 +71,7 @@ function Store() {
       date: "1 March",
       amount: 785,
       method: "Cash on Delivery",
-      status: "REG",
+      status: "Reguliere",
     },
     {
       id: 2342353,
@@ -91,7 +91,7 @@ function Store() {
       date: "1 March",
       amount: 785,
       method: "Cash on Delivery",
-      status: "REG",
+      status: "Reguliere",
     },
     {
       id: 1143155,
@@ -101,7 +101,7 @@ function Store() {
       date: "1 March",
       amount: 785,
       method: "Cash on Delivery",
-      status: "REG",
+      status: "Reguliere",
     },
     {
       id: 2342353,

@@ -1,6 +1,5 @@
 import "./Inventory.scss";
 import * as React from 'react';
-
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -181,7 +180,7 @@ const rows = [
             : rows
           ).map((row) => (
             <StyledTableRow className="row" key={row.name}>
-              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"/><label for="name">{row.name}</label>
+              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
                 
               </StyledTableCell>
               <StyledTableCell className="barcode" >{row.Barcode}</StyledTableCell>

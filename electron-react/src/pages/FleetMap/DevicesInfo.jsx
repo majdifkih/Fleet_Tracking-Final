@@ -21,7 +21,7 @@ import TableMap from "../../components/table/TableMap";
       date: "1 March",
       amount: 785,
       method: "Cash on Delivery",
-      status: "REG",
+      status: "Reguliere",
     },
     {
       id: 2235235,
@@ -187,12 +187,18 @@ import TableMap from "../../components/table/TableMap";
 </div>
 </div>
 <div className="ListStoreDevice">
-<div className="storedevice">
+        <div className="headlistStore">
+        <div className="storedevice">
         <div className="listTitl">Stores <span>(20)</span></div>
         <a href="#">Voir tout</a>
-        
         </div>
-<TableMap rows={rows.slice(0,4)} />
+        <div className="input">        <div class="input-icone">
+<input type="Search" placeholder="Search..."/>
+<i><SearchIcon/></i>
+</div></div>
+
+        </div>
+<TableMap rows={rows.slice(0,3)} />
 </div>
 </div>
   </div>

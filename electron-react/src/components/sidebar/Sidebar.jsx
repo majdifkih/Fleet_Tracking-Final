@@ -80,7 +80,7 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
-              <Link to="/store" >
+              <Link to="/storetable" >
               <img
               src={user}
               className="circle"

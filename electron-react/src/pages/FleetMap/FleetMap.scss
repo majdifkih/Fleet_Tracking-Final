@@ -1,6 +1,6 @@
 .fleetmain{
     display: flex;
-    
+    gap: 2%;
 .fleet{
   flex: 3;
     display: flex;
@@ -16,7 +16,7 @@
           color: black;
          padding-bottom: 1%;
           font-size: 122%;
-          margin-left: 2%;
+       
     }
 .fleetleft{
 
@@ -25,7 +25,7 @@
 flex-direction: column;
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-  margin-left: 2%;
+  
     border-radius: 10px;
   background: #fff;
  
@@ -72,7 +72,7 @@ flex-direction: column;
       color: black;
       margin-bottom: 14px;
       font-size: 90%;
-      padding: 4px;
+      
       span{
         font-size: 64%;
         color: gray;

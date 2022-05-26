@@ -39,6 +39,9 @@
   line-height: 40px;
   
 }
+.iconlist{
+  color:white;
+}
 
 .sidebar-nav li a {
   display: block;

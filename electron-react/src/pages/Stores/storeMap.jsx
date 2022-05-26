@@ -174,7 +174,7 @@ function Store() {
           <Marker position={center} 
             icon ={
               {     
-                   url:{store},
+                   url:store,
                    scaledSize: new window.google.maps.Size(50,50)
                    
                }

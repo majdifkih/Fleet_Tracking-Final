@@ -26,7 +26,7 @@ const Navbar = () => {
           </div>
           
           <div className="item">
-            <span>Hamdi Ghassen</span>
+            <span>Majdi Fekih</span>
           </div>
           <div className="item">
             <img

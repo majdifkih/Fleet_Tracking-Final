@@ -110,15 +110,15 @@ import TableMap from "../../components/table/TableMap";
     return { name, status };
   }
   const rowss = [
-    createData('Frozen yoghurt','Offline'),
-    createData('Ice cream sandwich','Online'),
-    createData('Eclair','Online'),
-    createData('Cupcake','Online'),
-    createData('Gingerbread','Offline'),
-    createData('Frozen yoghurt','Offline'),
-    createData('Ice cream sandwich','Online'),
-    createData('Eclair','Online'),
-    createData('Cupcake','Online'),
+    createData('IVECO','Offline'),
+    createData('TOYOTA','Online'),
+    createData('VOLVO','Online'),
+    createData('OM','Online'),
+    createData('SCANIA','Offline'),
+    createData('RENAULT','Offline'),
+    createData('NISSAN','Online'),
+    createData('MISUBISHI','Online'),
+    createData('MERCEDES','Online'),
     createData('Gingerbread','Offline'),
     createData('Frozen yoghurt','Offline'),
     createData('Ice cream sandwich','Online'),
@@ -144,7 +144,7 @@ import TableMap from "../../components/table/TableMap";
 <div className="info">
   
 <div className="deviceinfo" >
-<div className="titleinfo" align="center">eeecccc</div>
+<div className="titleinfo" align="center">IVECO</div>
 <div className="infocenter">
 <div className="carte" >
   <div className="cartetop" >

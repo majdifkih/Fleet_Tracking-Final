@@ -12,21 +12,21 @@ function createData(name, status) {
 }
 
 const rows = [
-  createData('Frozen yoghurt','Offline'),
-  createData('Ice cream sandwich','Online'),
-  createData('Eclair','Online'),
-  createData('Cupcake','Online'),
-  createData('Gingerbread','Offline'),
-  createData('Frozen yoghurt','Offline'),
-  createData('Ice cream sandwich','Online'),
-  createData('Eclair','Online'),
-  createData('Cupcake','Online'),
-  createData('Gingerbread','Offline'),
-  createData('Frozen yoghurt','Offline'),
-  createData('Ice cream sandwich','Online'),
-  createData('Eclair','Online'),
-  createData('Cupcake','Online'),
-  createData('Gingerbread','Offline'),
+  createData('IVECO','Offline'),
+  createData('TOYOTA','Online'),
+  createData('VOLVO','Online'),
+  createData('OM','Online'),
+  createData('SCANIA','Offline'),
+  createData('RENAULT','Offline'),
+  createData('NISSAN','Online'),
+  createData('MISUBISHI','Online'),
+  createData('MERCEDES','Online'),
+  createData('RENAULT','Offline'),
+  createData('VOLVO','Offline'),
+  createData('MERCEDES','Online'),
+  createData('NISSAN','Online'),
+  createData('IVECO','Online'),
+  createData('IVECO','Offline'),
 ];
  function DeviceListe() {
    

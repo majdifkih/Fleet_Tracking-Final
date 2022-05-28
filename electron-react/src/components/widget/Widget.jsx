@@ -21,7 +21,7 @@ const Widget = ({ type }) => {
       break;
     case "active":
       data = {
-        title: "Chauffeurs Actives",
+        title: "Drivers Actives",
         isMoney: false,
         
         amount:16,

@@ -72,28 +72,45 @@
     color: rgb(186, 183, 183);
     font-size: 0.9em;
   }
-  .screen-1 .email ion-icon {
-    color: #4d4d4d;
-    margin-bottom: -0.2em;
-  }
-  .screen-1 .password {
-    background: white;
-    box-shadow: 0 0 0.5em #8e8f91;
-    padding: 0.5em;
+  
+  input[type=password]{
+    height:30px;
     
+    padding-right: 30%;
     border-radius: 5px;
-    color: #4d4d4d;
-  
+    background: #c3cad2;
   }
-  .screen-1 .password input {
-    border: none;
+  
     
-  }
+    .input-img{
+      display: flex;
+    position:relative; }
+    .input-img i{
+    position:absolute; 
+    left:44%; 
+    
+    padding:4px 8px; 
+    color:#838481; }
+  // .screen-1 .password {
+  //   background: white;
+  //   box-shadow: 0 0 0.5em #8e8f91;
+  //   padding: 0.5em;
+    
+  //   border-radius: 5px;
+  //   color: #4d4d4d;
+
   
-  .screen-1 .password input::placeholder {
-    color: rgb(186, 183, 183);
-    font-size: 0.9em;
-  }
+  // }
+  // .screen-1 .password input {
+  //   border: none;
+    
+    
+  // }
+  
+  // .screen-1 .password input::placeholder {
+  //   color: rgb(186, 183, 183);
+  //   font-size: 0.9em;
+  // }
   
   
   .screen-1 .login {

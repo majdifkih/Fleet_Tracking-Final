@@ -1,21 +1,15 @@
-import "./sidebar.css";
+import "./sidebar.scss";
 import { Link } from "react-router-dom";
 import log from './qlog1.jpg'
-import clock from './clock.jpg'
-import watch from './watch.jpg'
-import gps from './gps.jpg'
-import user from './user.jpg'
-import user1 from './user1.jpg'
-import setting from './setting.jpg'
-import logout from './logout.jpg'
 import HomeIcon from '@mui/icons-material/Home';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import StoreIcon from '@mui/icons-material/Store';
-import SettingsIcon from '@mui/icons-material/Settings';
+import InventoryIcon from '@mui/icons-material/Inventory';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import GroupIcon from '@mui/icons-material/Group';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import LogoutIcon from '@mui/icons-material/Logout';
+
 const Sidebar = () => {
  
   return (
@@ -58,7 +52,7 @@ const Sidebar = () => {
             </li>
             <li>
             <Link to="/inventory" >
-            <SettingsIcon className="iconlist" fontSize="small"/> Inventory
+            <InventoryIcon className="iconlist" fontSize="small"/> Inventory
                 </Link>
             </li>
             <li>

@@ -35,7 +35,7 @@ function Login () {
                   <input class="pas" id ="myInput" type={isRevealPwd ? "text" : "password"}
           value={pwd}
           onChange={e => setPwd(e.target.value)} name="password" placeholder="············"/>
-                  <div className="img" onClick={() => setIsRevealPwd(prevState => !prevState)}><VisibilityIcon fontSize="small" collor="disabed"/></div>
+                  <div className="img" onClick={() => setIsRevealPwd(prevState => !prevState)}><VisibilityIcon className="vision" fontSize="small" collor="disabed"/></div>
                 </div>
               </div></td>
             </tr>

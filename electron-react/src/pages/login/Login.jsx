@@ -10,49 +10,49 @@ function Login () {
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   return (
 <div class="container">
-    <div class="spliit left">
-        <img src={logo} alt="Avatar qlogist"></img>
+    <div class="splitleft">
+      <div className="titlelogin">
+        <img src={logo} alt="Avatar qlogist" className="logoimg"/>
+        <div>
         <h1>Keep track of your goods,inventory and fleet</h1>
         <h5>Login</h5>
-        
+        </div>
+        </div>
           <div class="screen-1">
-          <table cellspacing="44px" >
-            <tr>
-              <td><label for="email">Email address</label> </td>
-              <td> <label for="password">Password</label></td>
-            </tr>
-            <tr>
-              <td><div class="email">
-                
-                <div class="sec-2">
-                <div className="img"><EmailIcon fontSize="small" collor="disabed"/></div>
+          <div className="scecenter">
+            <div >
+            <label for="email">Email address</label>
+            <div className="inputform">
+           <EmailIcon fontSize="small" className="iconinput"/>
                   <input type="email" name="email" placeholder="Username@gmail.com"/>
-                </div>
-              </div></td>
-              <td><div class="password">
-                <div class="sec-2">
-                  <div className="img"><LockIcon fontSize="small" collor="disabed"/></div>
+                  </div>
+            </div>
+            <div >
+            <label for="password">Password</label>
+            <div className="inputform">
+            <LockIcon fontSize="small" className="iconinput"/>
                   <input class="pas" id ="myInput" type={isRevealPwd ? "text" : "password"}
           value={pwd}
           onChange={e => setPwd(e.target.value)} name="password" placeholder="············"/>
-                  <div className="img" onClick={() => setIsRevealPwd(prevState => !prevState)}><VisibilityIcon className="vision" fontSize="small" collor="disabed"/></div>
-                </div>
-              </div></td>
-            </tr>
-          </table>
-            <div class="footer"> 
-              <div><button type="submit" class="login">Login </button></div>
-              <div><span>Forgot Password?</span></div>
+                  <VisibilityIcon className="iconinput" fontSize="small" />
+                  </div>
             </div>
+            </div>
+            <div class="footer"> 
+              <div><button type="submit" className="login">Login </button></div>
+              <div className="Forgot">Forgot Password?</div>
+            </div>
+            
           </div>
       </div>
 
-    <div class="split right">
-        <img id="im"  src={stock} alt="Avatar bg"></img>
+    <div class="splitright">
+        <img id="im"  src={stock} alt="Avatar bg" className="imgstock"/>
 
       </div>
 
-</div>  )
+</div>  
+)
 }
 
 export default Login

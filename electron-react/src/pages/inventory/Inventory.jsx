@@ -22,6 +22,7 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+import Addinvetory from './add.png';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -109,21 +110,21 @@ function createData(name, Barcode, Quantity, Price, Id, Category, status) {
 }
 
 const rows = [
-  createData('Frozen yoghurt','12313313','111','4.000DT','123454','ELECTRONICS','LOW'),
-  createData('Ice cream sandwich','123321833','386','4.000DT','123234','ELECTRONICS','GOOD'),
-  createData('Eclair','893298','696','4.000DT','1124255','ELECTRONICS','LOW'),
-  createData('Cupcake','213435711','672','4.000DT','1154644','ELECTRONICS','GOOD'),
-  createData('Gingerbread','2564225','226','4.000DT','1154373','ELECTRONICS','LOW'),
-  createData('Frozen yoghurt','25672','172','4.000DT','116742','ELECTRONICS','GOOD'),
-  createData('Ice cream sandwich','1445763454','147','4.000DT','11742','ELECTRONICS','LOW'),
-  createData('Eclair','1568934','391','4.000DT','115362','ELECTRONICS','GOOD'),
-  createData('Cupcake','6323563','973','4.000DT','114662','ELECTRONICS','LOW'),
-  createData('Gingerbread','131563','537','4.000DT','11632','ELECTRONICS','GOOD'),
-  createData('Frozen yoghurt','535633','876','4.000DT','1124536','ELECTRONICS','LOW'),
-  createData('Ice cream sandwich','65322','314','4.000DT','112462','ELECTRONICS','GOOD'),
-  createData('Eclair','563432','555','4.000DT','1153673','ELECTRONICS','LOW'),
-  createData('Cupcake','143434','222','4.000DT','113572','ELECTRONICS','GOOD'),
-  createData('Gingerbread','12342545','231','4.000DT','112265','ELECTRONICS','LOW'),
+  createData('Chocotom','12313313','111','4.000DT','123454','Biscuit','LOW'),
+  createData('SAFIA eau','123321833','386','4.000DT','123234','Eau','GOOD'),
+  createData('Saida biscuit','893298','696','4.000DT','1124255','Biscuit','LOW'),
+  createData('Maestro','213435711','672','4.000DT','1154644','Chocolat','GOOD'),
+  createData('Saida','2564225','226','4.000DT','1154373','Chocolat','LOW'),
+  createData('Crostina','25672','172','4.000DT','116742','Biscuit','GOOD'),
+  createData('Ice cream','1445763454','147','4.000DT','11742','Chocolat','LOW'),
+  createData('Fidji','1568934','391','4.000DT','115362','Chocolat','GOOD'),
+  createData('Cupcake','6323563','973','4.000DT','114662','Biscuit','LOW'),
+  createData('Chocolat','131563','537','4.000DT','11632','Chocolat','GOOD'),
+  createData('Coca cola','535633','876','4.000DT','1124536','Eau','LOW'),
+  createData('Fanta','65322','314','4.000DT','112462','Eau','GOOD'),
+  createData('Apla','563432','555','4.000DT','1153673','Eau','LOW'),
+  createData('kaki','143434','222','4.000DT','113572','Biscuit','GOOD'),
+  createData('Gaucho ','12342545','231','4.000DT','112265','Biscuit','LOW'),
 ];
  function InventoryListe() {
   const [page, setPage] = React.useState(0);
@@ -155,8 +156,10 @@ const rows = [
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
       <i><SearchIcon/></i></div>
 </div>
+<div className="buttoninvetory">
+<button className="addinvetory" ><img src={Addinvetory} width="20" height="20"/>Add</button>
 <button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
-
+</div>
 </div>
 
   <div className="tabinventory">

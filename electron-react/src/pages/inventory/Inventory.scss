@@ -10,9 +10,8 @@
       
 .headinventory{
   display: flex;
-  gap: 60%;
+  gap: 40%;
   padding-bottom: 1%;
-  
 .titleinventory{
   display: flex;
   gap: 10%;
@@ -21,7 +20,6 @@
   font-size: 122%;
     input[type=Search]{
       height:30px;
-      
       padding-right: 30%;
       border-radius: 5px;
       background: #c3cad2;
@@ -34,7 +32,6 @@
       .input-icone i{
         position:absolute; 
         left: 108%; 
-        
         padding:4px 8px; 
         color:#838481; }
   
@@ -46,19 +43,33 @@
      font-size: 120%;
    }
     }
+    .buttoninvetory{
+      display: flex;
+      gap: 60%;
     .del{
       display: flex;
       font-size: 100%;
       color: #fff;
-      padding: 0.5% 1% 0.5%;
+      padding: 0.5% 7% 0.5% 3%;
       background: #FF7A7A;
       border-radius: 5px;
       border: none;
       align-items: center;
-      
-      
     
     }
+    .addinvetory{
+      display: flex;
+      gap: 5%;
+      font-size: 100%;
+      color: #fff;
+      padding: 0.5% 10% 0.5% 10%;
+      background: #3d2db9;
+      border-radius: 5px;
+      border: none;
+      align-items: center;
+    
+    }
+  }
   }
 
 .tabinventory{

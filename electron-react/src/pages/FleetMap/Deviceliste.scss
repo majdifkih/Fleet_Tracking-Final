@@ -10,8 +10,8 @@
       
 .headdevice{
   display: flex;
-  gap: 60%;
-      padding-bottom: 1%;
+  gap: 40%;
+  padding-bottom: 1%;
   
 .titledevice{
     display: flex;
@@ -47,18 +47,33 @@
      font-size: 120%;
    }
     }
+    .buttonfleet{
+      display: flex;
+      gap: 60%;
     .del{
       display: flex;
       font-size: 100%;
       color: #fff;
-      padding: 0.5% 1% 0.5%;
+      padding: 0.5% 7% 0.5% 3%;
       background: #FF7A7A;
+      border-radius: 5px;
+      border: none;
+      align-items: center;
+    }
+    .addfleet{
+      display: flex;
+      gap: 5%;
+      font-size: 100%;
+      color: #fff;
+      padding: 0.5% 10% 0.5% 10%;
+      background: #3d2db9;
       border-radius: 5px;
       border: none;
       align-items: center;
       
     
     }
+  }
   }
 
 

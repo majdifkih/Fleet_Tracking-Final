@@ -5,7 +5,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import FullTable from "../../components/table/FullTable";
-import truck from './truck.png'
+import truck from './truck1.png'
 function createData(name, status) {
   return { name, status };
 }
@@ -44,7 +44,7 @@ const rows = [
       <i><SearchIcon/></i></div>
 </div>
 <div className="buttonfleet">
-<button className="addfleet" ><img src={truck} width="15" height="20"/>Add</button>
+<button className="addfleet" ><img src={truck} width="20" height="20" className="iconfleet"/>Add</button>
 <button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
 </div>
 </div>

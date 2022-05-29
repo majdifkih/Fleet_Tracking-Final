@@ -9,8 +9,8 @@ function Login () {
   const [pwd, setPwd] = useState('');
   const [isRevealPwd, setIsRevealPwd] = useState(false);
   return (
-<div class="container">
-    <div class="splitleft">
+<div className="container">
+    <div className="splitleft">
       <div className="titlelogin">
         <img src={logo} alt="Avatar qlogist" className="logoimg"/>
         <div>
@@ -18,7 +18,7 @@ function Login () {
         <h5>Login</h5>
         </div>
         </div>
-          <div class="screen-1">
+          <div className="screen-1">
           <div className="scecenter">
             <div >
             <label for="email">Email address</label>
@@ -31,14 +31,14 @@ function Login () {
             <label for="password">Password</label>
             <div className="inputform">
             <LockIcon fontSize="small" className="iconinput"/>
-                  <input class="pas" id ="myInput" type={isRevealPwd ? "text" : "password"}
+                  <input className="pas" id ="myInput" type={isRevealPwd ? "text" : "password"}
           value={pwd}
           onChange={e => setPwd(e.target.value)} name="password" placeholder="············"/>
                   <VisibilityIcon className="iconinput" fontSize="small" />
                   </div>
             </div>
             </div>
-            <div class="footer"> 
+            <div className="footer"> 
               <div><button type="submit" className="login">Login </button></div>
               <div className="Forgot">Forgot Password?</div>
             </div>
@@ -46,7 +46,7 @@ function Login () {
           </div>
       </div>
 
-    <div class="splitright">
+    <div className="splitright">
         <img id="im"  src={stock} alt="Avatar bg" className="imgstock"/>
 
       </div>

@@ -6,11 +6,9 @@ import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-
-
-
 import FullTable from "../../components/table/FullTable";
 import TableMap from "../../components/table/TableMap";
+import truck from './truck1.png'
  function DeviceInfo() {
   const rows = [
     {
@@ -138,8 +136,10 @@ import TableMap from "../../components/table/TableMap";
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
 <i><SearchIcon/></i></div>
 </div>
+<div className="buttondevice">
+<button className="adddevice" ><img src={truck} width="20" height="20" className="iconfleet"/>Add</button>
 <button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
-
+</div>
 </div>
 <div className="info">
   

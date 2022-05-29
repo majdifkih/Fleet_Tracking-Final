@@ -47,17 +47,36 @@
          font-size: 120%;
        }
         }
-        .del{
-        
+        .buttondevice{
           display: flex;
-      font-size: 100%;
-      color: #fff;
-      padding: 0.5% 1% 0.5%;
-      background: #FF7A7A;
-      border-radius: 5px;
-      border: none;
-      align-items: center;
+          gap: 60%;
+        .del{
+          display: flex;
+          font-size: 100%;
+          color: #fff;
+          padding: 0.5% 7% 0.5% 3%;
+          background: #FF7A7A;
+          border-radius: 5px;
+          border: none;
+          align-items: center;
         }
+        .adddevice{
+          display: flex;
+          gap: 5%;
+          font-size: 100%;
+          color: #fff;
+          padding: 5% 10% 5% 10%;
+          background: #3d2db9;
+          border-radius: 5px;
+          border: none;
+          align-items: center;
+          .iconfleet{
+            padding-bottom: 10%;
+          }
+          
+        
+        }
+      }
       }
     .info{
       display: flex;

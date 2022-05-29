@@ -35,7 +35,7 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
-            <Link to="/devicelist" >
+            <Link to="/deviceinfo" >
            <LocalShippingIcon className="iconlist" fontSize="small"/> Fleet and Devices
                 </Link>
             </li>
@@ -62,7 +62,7 @@ const Sidebar = () => {
             </li>
             <li>
            
-              <Link to="/deviceinfo" >
+              <Link to="/devicelist" >
               <AccountCircleIcon className="iconlist" fontSize="small"/> Users
                 </Link>
             </li>

@@ -25,6 +25,7 @@ import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import Addinvetory from './add.png';
 import Popup from "../../components/Popup/Popup";
+import PopupInventory from "../../components/Popup/PopupAddInventory";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -147,6 +148,7 @@ const rows = [
   };
 
   const [buttonPopup, setButtonPopup] = useState(false);
+  const [addPopupinventory, setAddPopupinventory] = useState(false);
   return (
 
   <div className="inventorymain">
@@ -161,7 +163,9 @@ const rows = [
       <i><SearchIcon/></i></div>
 </div>
 <div className="buttoninvetory">
-<button className="addinvetory" ><img src={Addinvetory} width="20" height="20"/>Add</button>
+<button className="addinvetory" onClick={() => setAddPopupinventory(true)}><img src={Addinvetory} width="20" height="20"/>Add</button>
+<PopupInventory trigger={addPopupinventory} setTrigger={setAddPopupinventory}/>
+
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>

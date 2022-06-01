@@ -48,33 +48,36 @@
    }
     }
     .buttonfleet{
-      display: flex;
-      gap: 60%;
-    .del{
-      display: flex;
-      font-size: 100%;
-      color: #fff;
-      padding: 0.5% 7% 0.5% 3%;
-      background: #FF7A7A;
-      border-radius: 5px;
-      border: none;
-      align-items: center;
-    }
-    .addfleet{
-      display: flex;
-      gap: 5%;
-      font-size: 100%;
-      color: #fff;
-      padding: 0.5% 10% 0.5% 10%;
-      background: #3d2db9;
-      border-radius: 5px;
-      border: none;
-      align-items: center;
-      .iconfleet{
-        padding-bottom: 10%;
-      }
-    }
-    
+      
+          display: flex;
+          gap: 60%;
+          margin-left: 20%;
+        .del{
+          display: flex;
+          font-size: 100%;
+          color: #fff;
+          padding: 0.5% 7% 0.5% 3%;
+          background: #FF7A7A;
+          border-radius: 5px;
+          border: none;
+          align-items: center;
+        }
+        .addfleet{
+          display: flex;
+          gap: 5%;
+          font-size: 100%;
+          color: #fff;
+          padding: 5% 10% 5% 10%;
+          background: #3d2db9;
+          border-radius: 5px;
+          border: none;
+          align-items: center;
+          .iconfleet{
+            padding-bottom: 10%;
+          }
+          
+        
+        }
      
   }
   }
@@ -83,6 +86,5 @@
 }
 }
 
- 
   
 

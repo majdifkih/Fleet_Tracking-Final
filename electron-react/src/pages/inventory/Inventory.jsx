@@ -1,5 +1,6 @@
 import "./Inventory.scss";
 import * as React from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -23,6 +24,8 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import Addinvetory from './add.png';
+import Popup from "../../components/Popup/Popup";
+
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -143,6 +146,7 @@ const rows = [
     setPage(0);
   };
 
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
 
   <div className="inventorymain">
@@ -158,7 +162,8 @@ const rows = [
 </div>
 <div className="buttoninvetory">
 <button className="addinvetory" ><img src={Addinvetory} width="20" height="20"/>Add</button>
-<button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
+<button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
 </div>
 

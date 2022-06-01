@@ -1,4 +1,5 @@
 import "./DevicesInfo.scss";
+import { useState } from 'react';
 import engine from './engine.png'
 import tires from './tires.png'
 import oil from './oil.png'
@@ -9,6 +10,8 @@ import Navbar from "../../components/navbar/Navbar";
 import FullTable from "../../components/table/FullTable";
 import TableMap from "../../components/table/TableMap";
 import truck from './truck1.png'
+import Popup from "../../components/Popup/Popup";
+
  function DeviceInfo() {
   const rows = [
     {
@@ -124,6 +127,7 @@ import truck from './truck1.png'
     createData('Cupcake','Online'),
     createData('Gingerbread','Offline'),
   ];
+  const [buttonPopup, setButtonPopup] = useState(false);
   return (
 
   <div className="deviceinfomain">
@@ -138,7 +142,8 @@ import truck from './truck1.png'
 </div>
 <div className="buttondevice">
 <button className="adddevice" ><img src={truck} width="20" height="20" className="iconfleet"/>Add</button>
-<button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
+<button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
 </div>
 <div className="info">

@@ -1,11 +1,14 @@
 import "./StoreTable.scss";
 import * as React from 'react';
+import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import FullTable from "../../components/table/FullTable";
+import Popup from "../../components/Popup/Popup";
+import PopupStore from "../../components/Popup/PopupAddStore";
 
 function createData(name, status) {
   return { name, status };
@@ -30,7 +33,8 @@ const rows = [
 ];
  function StoreTable() {
   
-
+  const [buttonPopup, setButtonPopup] = useState(false);
+  const [addPopupstore, setAddPopupstore] = useState(false);
   return (
 
   <div className="Tabstoremain">
@@ -45,8 +49,10 @@ const rows = [
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
-<button className="add" ><AddBusinessIcon fontSize="small"/>Add</button>
-<button className="del" ><DeleteIcon fontSize="small"/>Delete</button>
+<button className="add" onClick={() => setAddPopupstore(true)}><AddBusinessIcon fontSize="small"/>Add</button>
+<PopupStore trigger={addPopupstore} setTrigger={setAddPopupstore}/>
+<button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
 </div>
 

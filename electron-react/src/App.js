@@ -14,7 +14,7 @@ function App() {
       <HashRouter>
         <Routes>
           <Route path="/">
-            <Route  path="" index element={<Home />} />
+            <Route  path="/" index element={<Home />} />
             <Route path="logout" element={<Logout />} />
             <Route path="fleet" element={<FleetMap />}/>
             <Route path="store" element={<Store />}/>

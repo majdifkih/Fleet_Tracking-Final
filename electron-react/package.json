@@ -1,4 +1,5 @@
 {
+  "proxy":"http://localhost:3001",
   "name": "qlogestics",
   "version": "0.1.0",
   "private": true,
@@ -16,6 +17,7 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^12.1.3",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^0.27.2",
     "build-electron": "^1.0.4",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",
@@ -25,7 +27,6 @@
     "react-dom": "^17.0.2",
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
-    "react-scripts": "^5.0.1",
     "recharts": "^2.1.9",
     "sass": "^1.50.1",
     "web-vitals": "^2.1.4"
@@ -61,7 +62,7 @@
     "concurrently": "^7.2.0",
     "electron": "^18.2.4",
     "electron-builder": "^23.0.3",
-    
+    "react-scripts": "^5.0.1",
     "wait-on": "^6.0.1"
   }
 }

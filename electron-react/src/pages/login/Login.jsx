@@ -1,13 +1,30 @@
 import "./login.scss"
 import {useState} from 'react'
 import stock from './stock0.jpg'
+import { useNavigate } from 'react-router-dom';
 import logo from './logo.png'
 import LockIcon from '@mui/icons-material/Lock';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import EmailIcon from '@mui/icons-material/Email';
+import axios from 'axios'
 function Login () {
+  const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const [isRevealPwd, setIsRevealPwd] = useState(false);
+  const navigate = useNavigate();
+  const Auth = async() => {
+    try {
+      await axios.get('http://localhost:3001/UserAPI/login', {
+            email: email,
+            password: pwd
+        });
+        
+    } catch (error) {
+        if (error.response) {
+            console.log(error.response.data);
+        }
+    }
+}
   return (
 <div className="container">
     <div className="splitleft">
@@ -24,7 +41,7 @@ function Login () {
             <label for="email">Email address</label>
             <div className="inputform">
            <EmailIcon fontSize="small" className="iconinput"/>
-                  <input type="email" name="email" placeholder="Username@gmail.com"/>
+                  <input type="email" name="email" placeholder="Username@gmail.com" value={email} onChange={(e) => setEmail(e.target.value)}/>
                   </div>
             </div>
             <div >
@@ -39,7 +56,7 @@ function Login () {
             </div>
             </div>
             <div className="footer"> 
-              <div><button type="submit" className="login">Login </button></div>
+              <div><button type="submit" className="login" onClick={Auth()}>Login </button></div>
               <div className="Forgot">Forgot Password?</div>
             </div>
             

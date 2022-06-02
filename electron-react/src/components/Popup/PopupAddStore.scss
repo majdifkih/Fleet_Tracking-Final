@@ -16,23 +16,27 @@
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
           box-shadow: 2px 4px 10px 1px rgba(61, 60, 60, 0.47);
     padding: 2%;
-    width: 100%;
-    max-width: 350px;
+    width: 35%;
     background-color: #FFF;
     border: 2px solid rgb(187, 190, 187);
     .formulerstor{
         display: flex;
-    gap: 10%;
+        gap: 10%;
     
     .formleft{
         display: flex;
     flex-direction: column;
-  padding-top:2% ;
+    width: 50%;
+   padding-top:2% ;
+   .for{
+    display: flex;
+    flex-direction: column;
+    padding-top: 15%;
+   }
   .formicon{
       position: relative;
       display: flex;
-      
-      gap: 10%;
+    
       input{
           width: 80%;
           margin-left: 15%;
@@ -41,6 +45,7 @@
       .iconstore{
           position:absolute;
           color: #535454;
+          padding-top: 2%;
       }
   }
   
@@ -49,12 +54,17 @@
     .formright{
         display: flex;
     flex-direction: column;
+    width: 50%;
     padding-top:2% ;
+    .for{
+        display: flex;
+        flex-direction: column;
+        padding-top: 15%;
+    }
     .formicon{
         position: relative;
         display: flex;
-        
-        gap: 10%;
+      
         input{
             width: 80%;
             margin-left: 15%;
@@ -64,6 +74,7 @@
         .iconstore{
             position:absolute;
             color: #535454;
+            padding-top: 2%;
         }
     }
     }

@@ -13,34 +13,43 @@ function PopupStore(props){
             <h3> Add Store</h3>
                 <div className="formulerstor">
                 <div className="formleft">
-            
+            <div className="for">
             <label for="namestore"/>Store Name
             <div className="formicon">
             <StorefrontIcon className="iconstore" /><div className="formstore"><input type="text" placeholder="Enter name" /></div>
             </div>
-            
+            </div>
+            <div className="for">
             <label for="namestore"/>Contact
             <div className="formicon">
             <MailOutlineIcon   className="iconstore"/><div className="formstore"><input type="text" placeholder="Enter contact" /></div>
             </div>
+            </div>
+            <div className="for">
             <label for="namestore"/>Store Owner
             <div className="formicon">
             <PersonOutlineIcon className="iconstore"/> <div className="formstore"><input type="text" placeholder="Enter store owner" /></div>
             </div>
             </div>
+            </div>
             <div className="formright">
-
+            <div className="for">
             <label for="namestore"/>ID Number
             <div className="formicon">
             <BadgeOutlinedIcon className="iconstore"/><div className="formstore"><input type="text" placeholder="Enter ID number" /></div>
             </div>
+            </div>
+            <div className="for">
             <label for="namestore"/>Type
             <div className="formicon">
             <LocalOfferOutlinedIcon className="iconstore"/><div className="formstore"><input type="text" placeholder="Enter type" /></div>
             </div>
+            </div>
+            <div className="for">
             <label for="namestore"/>Position
             <div className="formicon">
             <RoomOutlinedIcon className="iconstore"/><div className="formstore"><input type="text" placeholder="Enter position" /></div>
+            </div>
             </div>
             </div>
             </div>

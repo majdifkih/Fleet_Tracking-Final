@@ -50,7 +50,7 @@
     .buttonfleet{
       
           display: flex;
-          gap: 60%;
+          gap: 30%;
           margin-left: 20%;
         .del{
           display: flex;
@@ -77,6 +77,9 @@
           }
           
         
+        }
+        .popfleet{
+          z-index: 1;
         }
      
   }

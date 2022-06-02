@@ -164,8 +164,9 @@ const rows = [
 </div>
 <div className="buttoninvetory">
 <button className="addinvetory" onClick={() => setAddPopupinventory(true)}><img src={Addinvetory} width="20" height="20"/>Add</button>
+<div className="popinvet">
 <PopupInventory trigger={addPopupinventory} setTrigger={setAddPopupinventory}/>
-
+</div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
@@ -211,7 +212,7 @@ const rows = [
           ))}
           
         </TableBody>
-        <TableFooter>
+        <TableFooter >
           <TableRow>
             <TablePagination
               rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
@@ -221,7 +222,7 @@ const rows = [
               page={page}
               SelectProps={{
                 inputProps: {
-                  'aria-label': 'rows per page',
+                  'aria-label': 'rows',
                 },
                 native: true,
               }}

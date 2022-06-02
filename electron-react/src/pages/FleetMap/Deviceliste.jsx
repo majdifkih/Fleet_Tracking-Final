@@ -51,7 +51,9 @@ const rows = [
 </div>
 <div className="buttonfleet">
 <button className="addfleet" onClick={() => setAddPopupfleet(true)}><img src={truck} width="20" height="20" className="iconfleet"/>Add</button>
+<div className="popfleet"> 
 <PopupFleet trigger={addPopupfleet} setTrigger={setAddPopupfleet}/>
+</div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
   

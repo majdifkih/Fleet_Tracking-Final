@@ -144,7 +144,9 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 </div>
 <div className="buttondevice">
 <button className="adddevice" onClick={() => setAddPopupfleet(true)} ><img src={truck} width="20" height="20" className="iconfleet"/>Add</button>
+<div className="popfleetinfo">
 <PopupFleet trigger={addPopupfleet} setTrigger={setAddPopupfleet}/>
+</div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>

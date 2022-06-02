@@ -45,7 +45,7 @@
     }
     .buttoninvetory{
       display: flex;
-      gap: 60%;
+      gap: 30%;
       margin-left: 17%;
       .del{
         display: flex;
@@ -73,7 +73,9 @@
         
       
       }
-   
+   .popinvet{
+     z-index: 1;
+   }
   }
   }
 

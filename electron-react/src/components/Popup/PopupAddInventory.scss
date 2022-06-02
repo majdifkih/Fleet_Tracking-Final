@@ -1,4 +1,5 @@
 .popupinventory{
+   
     position: fixed;
     top: 0;
     right: 0;
@@ -12,12 +13,13 @@
     align-items: center;
 
 .popup-innerinventory{
-    
+   visibility: visible;
+   opacity: 1;
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
-          box-shadow: 2px 4px 10px 1px rgba(61, 60, 60, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(61, 60, 60, 0.47);
     padding: 2%;
-    width: 100%;
-    max-width: 350px;
+    width: 30%;
+    //max-width: 350px;
     background-color: #FFF;
     border: 2px solid rgb(187, 190, 187);
     .formulerinventory{

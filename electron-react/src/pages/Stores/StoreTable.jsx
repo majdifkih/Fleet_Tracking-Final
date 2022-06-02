@@ -50,7 +50,9 @@ const rows = [
 </div>
 <div className="butt">
 <button className="add" onClick={() => setAddPopupstore(true)}><AddBusinessIcon fontSize="small"/>Add</button>
+<div className="popstore">
 <PopupStore trigger={addPopupstore} setTrigger={setAddPopupstore}/>
+</div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>

@@ -46,7 +46,7 @@
     }
     .butt{
       display: flex;
-      gap: 60%;
+      gap: 30%;
       margin-left: 19%;
       .del{
         display: flex;
@@ -68,8 +68,9 @@
         border-radius: 5px;
         border: none;
         align-items: center;
-        
-      
+      }
+      .popstore{
+        z-index: 1;
       }
   }
   }

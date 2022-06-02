@@ -16,19 +16,19 @@ function PopupFleet(props){
             <div className="form">
             <label for="namefleet"/>Vehicle Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet" /><div className="formfleet"><input type="text" placeholder="Enter name" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter name" /></div>
             </div>
             </div>
             <div className="form">
             <label for="namefleet"/>Matricule
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconfleet"/><div className="formfleet"><input type="text" placeholder="Enter Matricule" /></div>
+            <EightMpOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Matricule" /></div>
             </div>
             </div>
             <div className="form">
             <label for="namefleet"/>Vehicle marque
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet"/> <div className="formfleet"><input type="text" placeholder="Enter marque" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/> <div className="formfleet"><input type="text" placeholder="Enter marque" /></div>
             </div>
             </div>
             </div>
@@ -37,19 +37,19 @@ function PopupFleet(props){
             <div className="form">
             <label for="namefleet"/>Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconfleet"/><div className="formfleet"><input type="text" placeholder="Enter Category" /></div>
+            <LocalOfferOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Category" /></div>
             </div>
             </div>
             <div className="form">
             <label for="namefleet"/>Creation Date
             <div className="formicon">
-            <CarCrashOutlinedIcon className="iconfleet"/><div className="formfleet"><input type="text" placeholder="Enter Date" /></div>
+            <CarCrashOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Date" /></div>
             </div>
             </div>
             <div className="form">
             <label for="namefleet"/>Status
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconfleet"/><div className="formfleet"><input type="text" placeholder="Enter Status" /></div>
+            <HelpOutlineOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Status" /></div>
             </div>
             </div>
             </div>

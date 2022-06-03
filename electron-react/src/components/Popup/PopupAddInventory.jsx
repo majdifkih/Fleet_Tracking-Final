@@ -11,7 +11,7 @@ function PopupInventory(props){
     return (props.trigger) ? (
         <div className="popupinventory">
             <div className="popup-innerinventory">
-            <h3> Add Inventory</h3>
+            <h3> Add product</h3>
                 <div className="formulerinventory">
                 <div className="formleft">
             <div className="formm">

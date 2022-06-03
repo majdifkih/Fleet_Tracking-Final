@@ -10,7 +10,7 @@ function PopupFleet(props){
     return (props.trigger) ? (
         <div className="popupfleet">
             <div className="popup-innerfleet">
-            <h3> Add Vehicle</h3>
+            <h3> Add New Vehicle</h3>
                 <div className="formulerfleet">
                 <div className="formleft">
             <div className="form">
@@ -35,7 +35,7 @@ function PopupFleet(props){
             <div className="formright">
 
             <div className="form">
-            <label for="namefleet"/>Category
+            <label for="namefleet" />Category
             <div className="formicon">
             <LocalOfferOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Category" /></div>
             </div>
@@ -56,7 +56,7 @@ function PopupFleet(props){
             </div>
                 <div className="buttonpopfleet">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddfleet" onClick={() => props.setTrigger(true)} >ADD</button>
+                <button className="btnaddfleet" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

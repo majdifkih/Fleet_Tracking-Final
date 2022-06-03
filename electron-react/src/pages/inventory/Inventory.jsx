@@ -26,6 +26,7 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import Addinvetory from './add.png';
 import Popup from "../../components/Popup/Popup";
 import PopupInventory from "../../components/Popup/PopupAddInventory";
+import PopupEditInventory from "../../components/Popup/PopupEditInventory";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -149,6 +150,7 @@ const rows = [
 
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupinventory, setAddPopupinventory] = useState(false);
+  const [editPopupinventory, setEditPopupinventory] = useState(false);
   return (
 
   <div className="inventorymain">
@@ -203,7 +205,10 @@ const rows = [
               <StyledTableCell className="category" >{row.Category}</StyledTableCell>
               <StyledTableCell  className="tabEnd" >
                 <div className="icons">
-                <i className="material-icons"  >border_color</i>
+                <i className="material-icons"  onClick={() => setEditPopupinventory(true)}>border_color</i>
+                <div className="popeditfleet"> 
+                  <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory}/>
+                  </div>
                 <i class="material-icons">info_outline</i>
                 </div>
               

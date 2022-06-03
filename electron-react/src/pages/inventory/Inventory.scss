@@ -119,10 +119,17 @@
 .icons{
   display: flex;
   gap: 10%;
+  .material-icons{
+    cursor: pointer;
+  }
+  .popeditfleet{
+    z-index: 1;
+  }
 }
 }
 }
 }
+
 }
 
  

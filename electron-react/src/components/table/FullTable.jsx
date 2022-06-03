@@ -1,4 +1,5 @@
 import React from 'react'
+import { useState } from 'react';
 import TableFooter from '@mui/material/TableFooter';
 import Box from '@mui/material/Box';
 import TablePagination from '@mui/material/TablePagination';
@@ -21,6 +22,7 @@ import "./FullTable.scss";
 import engine from './engine.png'
 import tires from './tires.png'
 import oil from './oil.png'
+import PopupEditFleet from '../Popup/PopupEditFleet';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -121,7 +123,7 @@ function FullTable(props) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
+  const [editPopupfleet, setEditPopupfleet] = useState(false);
   return (
     <div className="tabdevice">
     <TableContainer component={Paper}>
@@ -165,7 +167,10 @@ function FullTable(props) {
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
-                  <i className="material-icons"  >border_color</i>
+                  <i className="material-icons" onClick={() => setEditPopupfleet(true)} >border_color</i>
+                  <div className="popeditfleet"> 
+                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet}/>
+                  </div>
                   <i class="material-icons">info_outline</i>
                   <i class="material-icons">pin_drop</i>
                   </div>

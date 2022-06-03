@@ -1,17 +1,17 @@
-.popupstore{
+.popupeditstore{
     position: fixed;
     top: 0;
     right: 0;
     width: 83.7%;
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.60);
+    background-color: rgba(0, 0, 0, 0.2);
 
     display: flex;
     justify-content: center;
     margin-left:8% ;
     align-items: center;
 
-.popup-innerstore{
+.popup-innereditstore{
     
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
           box-shadow: 2px 4px 10px 1px rgba(61, 60, 60, 0.47);
@@ -19,7 +19,7 @@
     width: 35%;
     background-color: #FFF;
     border: 2px solid rgb(187, 190, 187);
-    .formulerstore{
+    .formulereditstore{
         display: flex;
         gap: 10%;
     
@@ -42,7 +42,7 @@
           margin-left: 15%;
           border: none;
       }
-      .iconstore{
+      .iconeditstore{
           position:absolute;
           color: #535454;
           padding-top: 3%;
@@ -71,14 +71,14 @@
             border: none;
         }
         
-        .iconstore{
+        .iconeditstore{
             position:absolute;
             color: #535454;
             padding-top: 3%;
         }
     }
     }
-    .formstore{
+    .formeditstore{
         
         border: 1px solid rgb(139, 135, 135);
         border-radius: 5px;
@@ -87,7 +87,7 @@
     }
     }
 
-.buttonpopstore{
+.buttonpopeditstore{
     display: flex;
 justify-content: flex-end;
 gap: 5%;
@@ -100,7 +100,7 @@ padding-top: 10%;
         border: none;
         background-color: #aab2b3;
     }
-    .btnaddstore{
+    .btnaddeditstore{
         background-color: #0B7C86;
         color:#FFF;
         font-weight: bold;

@@ -6,9 +6,10 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
-import FullTable from "../../components/table/FullTable";
+
 import Popup from "../../components/Popup/Popup";
 import PopupStore from "../../components/Popup/PopupAddStore";
+import FullTableStore from "../../components/table/FullTableStores";
 
 function createData(name, status) {
   return { name, status };
@@ -58,7 +59,7 @@ const rows = [
 </div>
 </div>
 
- <FullTable rows={rows} type="non" stat="status" title="nom de store"/>
+ <FullTableStore rows={rows} type="non" stat="status" title="nom de store"/>
   </div>
   </div>
   

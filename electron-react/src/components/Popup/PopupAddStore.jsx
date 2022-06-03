@@ -11,7 +11,7 @@ function PopupStore(props){
         <div className="popupstore">
             <div className="popup-innerstore">
             <h3> Add Store</h3>
-                <div className="formulerstor">
+                <div className="formulerstore">
                 <div className="formleft">
             <div className="for">
             <label for="namestore"/>Store Name

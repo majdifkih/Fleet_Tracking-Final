@@ -1,11 +1,13 @@
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
+import { useState } from 'react';
 import Widget from "../../components/widget/Widget";
 import TableOrder from "../../components/table/TableOrder";
 import Chart from "../../components/chart/Chart";
 import TableMap from "../../components/table/TableMap";
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import PopupFleet from "../../components/Popup/PopupAddFleet";
 const Home = () => {
   const rows = [
     {
@@ -139,6 +141,7 @@ const Home = () => {
       status: "Online",
     },
   ];
+  const [addPopupfleet, setAddPopupfleet] = useState(false);
   return (
     <div className="home">
       <div className="side"><Sidebar/>
@@ -163,21 +166,22 @@ const Home = () => {
           </div>
  <div className="rightt">
 
-        
         <div className="listContainer">
         <div className="headTab" >
         <div className="listTitleApp">
           <div className="listTitle" >Appareilles <span>(20)</span></div>
         <a href="#">Voir tout</a>
-  
+
         </div>
-        <div className="tableCell"><input placeholder='Ajout une appareille' />
+        <div className="tableCell"><p className="ajoutapp">Ajout une appareille</p>
         
-        <a href="#"><AddBoxIcon  fontSize="small" color="action" /></a>
+       <div> <AddBoxIcon  fontSize="small" color="action" className="ajouticon" onClick={() => setAddPopupfleet(true)} /></div>
+        <div className="popfleet"> 
+        <PopupFleet trigger={addPopupfleet} setTrigger={setAddPopupfleet}/>
+        </div>
         </div>
         </div>
         <TableMap rows={rows.slice(0,3)} />
-        
       </div>
       
       <div className="listContainer2">

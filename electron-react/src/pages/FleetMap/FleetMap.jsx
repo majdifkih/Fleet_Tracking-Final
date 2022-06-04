@@ -1,5 +1,6 @@
 import "./FleetMap.scss"
 import TableMap from "../../components/table/TableMap";
+import { useState } from 'react';
 import {
   Box,
   Flex,
@@ -12,13 +13,15 @@ import {
   Marker,
   
 } from '@react-google-maps/api'
-import { useRef, useState } from 'react'
+import { useRef } from 'react'
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import PopupFleet from "../../components/Popup/PopupAddFleet";
 const center = { lat: 35.523916, lng: 11.030870 }
 
 function FleetMap() {
+  const [addPopupMapfleet, setAddPopupMapfleet] = useState(false);
   const rows = [
     {
       id: 1143155,
@@ -131,7 +134,7 @@ function FleetMap() {
   }
 
 
-  
+
   return (
     <div className="fleetmain">
       <div className="side"><Sidebar/></div>
@@ -183,12 +186,15 @@ function FleetMap() {
     <div className="headTab" >
         <div className="listTitleApp">
           <div className="listTitle" >Appareilles <span>(20)</span></div>
-        <a href="#">Voir tout</a>
+        <a href="zz">Voir tout</a>
   
         </div>
-        <div className="tableCell"><input placeholder='Ajout une appareille' />
+        <div className="tableCell"><p className="ajoutapp">Ajout une appareille</p>
         
-        <a href="#"><AddBoxIcon  fontSize="small" color="action" /></a>
+        <div><AddBoxIcon  fontSize="small" color="action" className="ajouticon" onClick={() => setAddPopupMapfleet(true)} /></div>
+        <div className="popfleet"> 
+        <PopupFleet trigger={addPopupMapfleet} setTrigger={setAddPopupMapfleet}/>
+        </div>
         </div>
         </div>
         

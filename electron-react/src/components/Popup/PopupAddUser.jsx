@@ -9,7 +9,7 @@ function PopupUser(props){
     return (props.trigger) ? (
         <div className="popupuser">
             <div className="popup-inneruser">
-            <h3> Add New Vehicle</h3>
+            <h3> Add New User</h3>
                 <div className="formuleruser">
                 <div className="formleft">
             <div className="form">

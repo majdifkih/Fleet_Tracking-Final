@@ -9,7 +9,7 @@ function PopupDriver(props){
     return (props.trigger) ? (
         <div className="popupdriver">
             <div className="popup-innerdriver">
-            <h3> Add New Vehicle</h3>
+            <h3> Add New Driver</h3>
                 <div className="formulerdriver">
                 <div className="formleft">
             <div className="form">

@@ -9,7 +9,7 @@ function PopupClient(props){
     return (props.trigger) ? (
         <div className="popupclient">
             <div className="popup-innerclient">
-            <h3> Add New Vehicle</h3>
+            <h3> Add New Client</h3>
                 <div className="formulerclient">
                 <div className="formleft">
             <div className="form">

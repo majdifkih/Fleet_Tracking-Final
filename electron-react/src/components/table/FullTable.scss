@@ -55,7 +55,7 @@
     gap: 5%;
   .icons{
     display: flex;
-    gap: 3%;
+    gap: 10%;
     &.non { 
       visibility: hidden;
     }
@@ -64,8 +64,10 @@
       visibility: visible;
       
     }
+    
     .material-icons{
       cursor: pointer;
+      color: black;
     }
   }
 }

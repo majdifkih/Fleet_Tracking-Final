@@ -173,7 +173,7 @@ function FullTableClient(props) {
                   <PopupEditClient trigger={editPopupclient} setTrigger={setEditPopupclient}/>
                   </div>
                   <i class="material-icons">info_outline</i>
-                  <i class="material-icons">pin_drop</i>
+                  
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
               </StyledTableRow>

@@ -23,6 +23,7 @@ import engine from './engine.png'
 import tires from './tires.png'
 import oil from './oil.png'
 import PopupEditStore from '../Popup/PopupEditStores';
+import { Link } from 'react-router-dom';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -172,7 +173,7 @@ function FullTableStore(props) {
                   <PopupEditStore trigger={editPopupstore} setTrigger={setEditPopupstore}/>
                   </div>
                   <i class="material-icons">info_outline</i>
-                  <i class="material-icons">pin_drop</i>
+                  <Link to="/store" ><i class="material-icons">pin_drop</i></Link>
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
               </StyledTableRow>

@@ -1,9 +1,8 @@
 import React from "react";
 import "./PopupAddClient.scss";
-import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
-import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 function PopupClient(props){
     return (props.trigger) ? (
@@ -13,38 +12,25 @@ function PopupClient(props){
                 <div className="formulerclient">
                 <div className="formleft">
             <div className="form">
-            <label for="nameclient"/>Vehicle Name
+            <label for="nameclient"/>Client Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter name" /></div>
+            <PersonOutlineIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Matricule
+            <label for="nameclient"/>ID
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Matricule" /></div>
+            <BadgeOutlinedIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter ID" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Vehicle marque
+            <label for="nameclient"/>Store Name 
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconclient" fontSize="small"/> <div className="formclient"><input type="text" placeholder="Enter marque" /></div>
+            <StorefrontIcon className="iconclient" fontSize="small"/> <div className="formclient"><input type="text" placeholder="Enter Store" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
-
-            <div className="form">
-            <label for="nameclient" />Category
-            <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Category" /></div>
-            </div>
-            </div>
-            <div className="form">
-            <label for="nameclient"/>Creation Date
-            <div className="formicon">
-            <CarCrashOutlinedIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Date" /></div>
-            </div>
-            </div>
             <div className="form">
             <label for="nameclient"/>Status
             <div className="formicon">

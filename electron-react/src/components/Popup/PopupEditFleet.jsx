@@ -15,7 +15,7 @@ function PopupEditFleet(props){
             <div className="form">
             <label for="nameeditfleet"/>Vehicle Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input type="text" placeholder="Edit name" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
@@ -27,7 +27,7 @@ function PopupEditFleet(props){
             <div className="form">
             <label for="nameeditfleet"/>Vehicle marque
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditfleet" fontSize="small"/> <div className="formeditfleet"><input type="text" placeholder="Edit marque" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconeditfleet" fontSize="small"/> <div className="formeditfleet"><input type="text" placeholder="Edit Marque" /></div>
             </div>
             </div>
             </div>

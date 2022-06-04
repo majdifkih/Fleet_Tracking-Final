@@ -1,10 +1,11 @@
 import React from "react";
 import "./PopupEditUser.scss";
-import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
-import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import LockIcon from '@mui/icons-material/Lock';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import PersonPinIcon from '@mui/icons-material/PersonPin';
 function PopupEditUser(props){
     return (props.trigger) ? (
         <div className="popupedituser">
@@ -13,42 +14,42 @@ function PopupEditUser(props){
                 <div className="formuleredituser">
                 <div className="formleft">
             <div className="form">
-            <label for="nameedituser"/>Vehicle Name
+            <label for="nameedituser"/>User Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit name" /></div>
+            <PersonOutlineIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedituser"/>Matricule
+            <label for="nameedituser"/>Password
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Matricule" /></div>
+            <LockIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="password" placeholder="Edit Password" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedituser"/>Vehicle marque
+            <label for="nameedituser"/>ID
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconedituser" fontSize="small"/> <div className="formedituser"><input type="text" placeholder="Edit marque" /></div>
+            <BadgeOutlinedIcon className="iconedituser" fontSize="small"/> <div className="formedituser"><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="nameedituser"/>Category
+            <label for="nameedituser"/>Hiring date
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Category" /></div>
+            <EventNoteIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Date" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedituser"/>Creation Date
+            <label for="nameedituser"/>Adress
             <div className="formicon">
-            <CarCrashOutlinedIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Date" /></div>
+            <PersonPinIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Adress" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedituser"/>Status
+            <label for="nameedituser"/>Phone Number
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Status" /></div>
+            <PhoneIphoneIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Number" /></div>
             </div>
             </div>
             </div>

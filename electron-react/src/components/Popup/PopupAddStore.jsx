@@ -16,19 +16,19 @@ function PopupStore(props){
             <div className="for">
             <label for="namestore"/>Store Name
             <div className="formicon">
-            <StorefrontIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter name" /></div>
+            <StorefrontIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="for">
             <label for="namestore"/>Contact
             <div className="formicon">
-            <MailOutlineIcon   className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter contact" /></div>
+            <MailOutlineIcon   className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Contact" /></div>
             </div>
             </div>
             <div className="for">
             <label for="namestore"/>Store Owner
             <div className="formicon">
-            <PersonOutlineIcon className="iconstore" fontSize="small"/> <div className="formstore"><input type="text" placeholder="Enter store owner" /></div>
+            <PersonOutlineIcon className="iconstore" fontSize="small"/> <div className="formstore"><input type="text" placeholder="Enter Store Owner" /></div>
             </div>
             </div>
             </div>
@@ -36,19 +36,19 @@ function PopupStore(props){
             <div className="for">
             <label for="namestore"/>ID Number
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter ID number" /></div>
+            <BadgeOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter ID Number" /></div>
             </div>
             </div>
             <div className="for">
             <label for="namestore"/>Type
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter type" /></div>
+            <LocalOfferOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Type" /></div>
             </div>
             </div>
             <div className="for">
             <label for="namestore"/>Position
             <div className="formicon">
-            <RoomOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter position" /></div>
+            <RoomOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Position" /></div>
             </div>
             </div>
             </div>

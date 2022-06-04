@@ -5,6 +5,7 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 function PopupProvider(props){
     return (props.trigger) ? (
         <div className="popupprovider">
@@ -15,7 +16,7 @@ function PopupProvider(props){
             <div className="for">
             <label for="nameprovider"/>Provider Name
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconprovider" fontSize="small"/><div className="formprovider"><input type="text" placeholder="Enter Name" /></div>
+            <PersonOutlineIcon className="iconprovider" fontSize="small"/><div className="formprovider"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="for">

@@ -1,9 +1,8 @@
 import React from "react";
 import "./PopupEditClient.scss";
-import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
-import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import StorefrontIcon from '@mui/icons-material/Storefront';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 function PopupEditClient(props){
     return (props.trigger) ? (
@@ -13,38 +12,26 @@ function PopupEditClient(props){
                 <div className="formulereditclient">
                 <div className="formleft">
             <div className="form">
-            <label for="nameeditclient"/>Vehicle Name
+            <label for="nameeditclient"/>Client Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit name" /></div>
+            <PersonOutlineIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>Matricule
+            <label for="nameeditclient"/>ID
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Matricule" /></div>
+            <BadgeOutlinedIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>Vehicle marque
+            <label for="nameeditclient"/>Store Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditclient" fontSize="small"/> <div className="formeditclient"><input type="text" placeholder="Edit marque" /></div>
+            <StorefrontIcon className="iconeditclient" fontSize="small"/> <div className="formeditclient"><input type="text" placeholder="Edit Store" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
-            <div className="form">
-            <label for="nameeditclient"/>Category
-            <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Category" /></div>
-            </div>
-            </div>
-            <div className="form">
-            <label for="nameeditclient"/>Creation Date
-            <div className="formicon">
-            <CarCrashOutlinedIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Date" /></div>
-            </div>
-            </div>
             <div className="form">
             <label for="nameeditclient"/>Status
             <div className="formicon">

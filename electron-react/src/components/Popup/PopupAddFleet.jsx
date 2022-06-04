@@ -15,7 +15,7 @@ function PopupFleet(props){
             <div className="form">
             <label for="namefleet"/>Vehicle Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter name" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
@@ -27,7 +27,7 @@ function PopupFleet(props){
             <div className="form">
             <label for="namefleet"/>Vehicle marque
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/> <div className="formfleet"><input type="text" placeholder="Enter marque" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/> <div className="formfleet"><input type="text" placeholder="Enter Marque" /></div>
             </div>
             </div>
             </div>

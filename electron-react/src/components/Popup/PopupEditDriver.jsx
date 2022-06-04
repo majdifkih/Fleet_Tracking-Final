@@ -1,10 +1,11 @@
 import React from "react";
 import "./PopupEditDriver.scss";
-import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
-import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import LockIcon from '@mui/icons-material/Lock';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import PersonPinIcon from '@mui/icons-material/PersonPin';
 function PopupEditDriver(props){
     return (props.trigger) ? (
         <div className="popupeditdriver">
@@ -13,42 +14,42 @@ function PopupEditDriver(props){
                 <div className="formulereditdriver">
                 <div className="formleft">
             <div className="form">
-            <label for="nameeditdriver"/>Vehicle Name
+            <label for="nameeditdriver"/>Driver Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit name" /></div>
+            <PersonOutlineIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>Matricule
+            <label for="nameeditdriver"/>Password
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Matricule" /></div>
+            <LockIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Password" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>Vehicle marque
+            <label for="nameeditdriver"/>ID
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditdriver" fontSize="small"/> <div className="formeditdriver"><input type="text" placeholder="Edit marque" /></div>
+            <BadgeOutlinedIcon className="iconeditdriver" fontSize="small"/> <div className="formeditdriver"><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="nameeditdriver"/>Category
+            <label for="nameeditdriver"/>Hiring date
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Category" /></div>
+            <EventNoteIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Date" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>Creation Date
+            <label for="nameeditdriver"/>Adress
             <div className="formicon">
-            <CarCrashOutlinedIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Date" /></div>
+            <PersonPinIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Adress" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>Status
+            <label for="nameeditdriver"/>Phone Number
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Status" /></div>
+            <PhoneIphoneIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Number" /></div>
             </div>
             </div>
             </div>

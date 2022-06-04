@@ -16,19 +16,19 @@ function PopupEditStore(props){
             <div className="for">
             <label for="nameeditstore"/>Store Name
             <div className="formicon">
-            <StorefrontIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit name" /></div>
+            <StorefrontIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="for">
             <label for="nameeditstore"/>Contact
             <div className="formicon">
-            <MailOutlineIcon   className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit contact" /></div>
+            <MailOutlineIcon   className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit Contact" /></div>
             </div>
             </div>
             <div className="for">
             <label for="nameeditstore"/>Store Owner
             <div className="formicon">
-            <PersonOutlineIcon className="iconeditstore" fontSize="small"/> <div className="formeditstore"><input type="text" placeholder="Edit store owner" /></div>
+            <PersonOutlineIcon className="iconeditstore" fontSize="small"/> <div className="formeditstore"><input type="text" placeholder="Edit Store Owner" /></div>
             </div>
             </div>
             </div>
@@ -36,19 +36,19 @@ function PopupEditStore(props){
             <div className="for">
             <label for="nameeditstore"/>ID Number
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit ID number" /></div>
+            <BadgeOutlinedIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit ID Number" /></div>
             </div>
             </div>
             <div className="for">
             <label for="nameeditstore"/>Type
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit type" /></div>
+            <LocalOfferOutlinedIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit Type" /></div>
             </div>
             </div>
             <div className="for">
             <label for="nameeditstore"/>Position
             <div className="formicon">
-            <RoomOutlinedIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit position" /></div>
+            <RoomOutlinedIcon className="iconeditstore" fontSize="small"/><div className="formeditstore"><input type="text" placeholder="Edit Position" /></div>
             </div>
             </div>
             </div>

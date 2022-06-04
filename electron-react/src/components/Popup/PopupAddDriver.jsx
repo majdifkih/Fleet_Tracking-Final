@@ -1,10 +1,11 @@
 import React from "react";
 import "./PopupAddDriver.scss";
-import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
-import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
-import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import LockIcon from '@mui/icons-material/Lock';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import EventNoteIcon from '@mui/icons-material/EventNote';
+import PersonPinIcon from '@mui/icons-material/PersonPin';
 function PopupDriver(props){
     return (props.trigger) ? (
         <div className="popupdriver">
@@ -13,42 +14,42 @@ function PopupDriver(props){
                 <div className="formulerdriver">
                 <div className="formleft">
             <div className="form">
-            <label for="namedriver"/>Vehicle Name
+            <label for="namedriver"/>Driver Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter name" /></div>
+            <PersonOutlineIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Matricule
+            <label for="namedriver"/>Password
             <div className="formicon">
-            <EightMpOutlinedIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Matricule" /></div>
+            <LockIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="password" placeholder="Enter Password" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Vehicle marque
+            <label for="namedriver"/>ID
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="icondriver" fontSize="small"/> <div className="formdriver"><input type="text" placeholder="Enter marque" /></div>
+            <BadgeOutlinedIcon className="icondriver" fontSize="small"/> <div className="formdriver"><input type="text" placeholder="Enter ID" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="namedriver" />Category
+            <label for="namedriver" />Hiring date
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Category" /></div>
+            <EventNoteIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Date" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Creation Date
+            <label for="namedriver"/>Adress
             <div className="formicon">
-            <CarCrashOutlinedIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Date" /></div>
+            <PersonPinIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Adress" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Status
+            <label for="namedriver"/>Phone Number
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Status" /></div>
+            <PhoneIphoneIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Number" /></div>
             </div>
             </div>
             </div>

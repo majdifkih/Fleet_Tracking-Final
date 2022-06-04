@@ -1,4 +1,4 @@
-import "./StoreTable.scss";
+import "./Provider.scss";
 import * as React from 'react';
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
@@ -7,8 +7,8 @@ import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/Popup/Popup";
-import PopupStore from "../../components/Popup/PopupAddStore";
-import FullTableStore from "../../components/table/FullTableStores";
+import FullTableProvider from "../../components/table/FullTableProvider";
+import PopupProvider from "../../components/Popup/PopupAddProvider";
 
 function createData(name, status) {
   return { name, status };
@@ -31,37 +31,37 @@ const rows = [
   createData('Magasin','regular'),
   createData('Gingerbread','NonReg'),
 ];
- function StoreTable() {
+ function ProviderTable() {
   
   const [buttonPopup, setButtonPopup] = useState(false);
-  const [addPopupstore, setAddPopupstore] = useState(false);
+  const [addPopupprovider, setAddPopupprovider] = useState(false);
   return (
 
-  <div className="Tabstoremain">
+  <div className="Tabprovidermain">
     <div className="side"><Sidebar/></div>
-    <div className="Tabstore">
+    <div className="Tabprovider">
     <Navbar/>
 
-<div className="headTabstore">
-      <div className="titleTabstore">
-      Stores
+<div className="headTabprovider">
+      <div className="titleTabprovider">
+      Provider
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
-<button className="add" onClick={() => setAddPopupstore(true)}><AddBusinessIcon fontSize="small"/>Add</button>
-<div className="popstore">
-<PopupStore trigger={addPopupstore} setTrigger={setAddPopupstore}/>
+<button className="add" onClick={() => setAddPopupprovider(true)}><AddBusinessIcon fontSize="small"/>Add</button>
+<div className="popprovider">
+<PopupProvider trigger={addPopupprovider} setTrigger={setAddPopupprovider}/>
 </div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
 </div>
 
- <FullTableStore rows={rows} type="non" stat="status" title="stores name"/>
+ <FullTableProvider rows={rows} type="non" stat="status" title="Provider name"/>
   </div>
   </div>
   
   );
 }
-export default StoreTable
+export default ProviderTable

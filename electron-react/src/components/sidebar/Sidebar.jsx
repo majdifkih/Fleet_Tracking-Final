@@ -9,7 +9,8 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import GroupIcon from '@mui/icons-material/Group';
 import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import LogoutIcon from '@mui/icons-material/Logout';
-
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
 const Sidebar = () => {
  
   return (
@@ -56,9 +57,21 @@ const Sidebar = () => {
                 </Link>
             </li>
             <li>
+           
+           <Link to="/providerlist" >
+           <PersonOutlineIcon className="iconlist" fontSize="small"/> Providers
+             </Link>
+         </li>
+            <li>
               <Link to="/storetable" >
               <GroupIcon className="iconlist" fontSize="small"/> Clients
               </Link>
+            </li>
+            <li>
+           
+              <Link to="/devicelist" >
+              <AirlineSeatReclineNormalIcon className="iconlist" fontSize="small"/> Drivers
+                </Link>
             </li>
             <li>
            

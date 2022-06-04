@@ -63,7 +63,7 @@ function PopupInventory(props){
             </div>
                 <div className="buttonpopinventory">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddinventory" onClick={() => props.setTrigger(true)} >ADD</button>
+                <button className="btnaddinventory" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

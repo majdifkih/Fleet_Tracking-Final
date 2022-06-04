@@ -7,6 +7,8 @@ import DeviceListe from "./pages/FleetMap/Deviceliste";
 import DeviceInfo from "./pages/FleetMap/DevicesInfo";
 import InventoryListe from "./pages/inventory/Inventory";
 import { HashRouter, Routes, Route } from "react-router-dom";
+import ProviderTable from "./pages/Provider/Provider";
+
 function App() {
 
   return (
@@ -20,6 +22,7 @@ function App() {
             <Route path="store" element={<Store />}/>
             <Route path="storetable" element={<StoreTable />}/>
             <Route path="devicelist" element={<DeviceListe/>} />
+            <Route path="providerlist" element={<ProviderTable/>}/>
             <Route path="deviceinfo" element={<DeviceInfo/>}/>
             <Route path="inventory" element={<InventoryListe/>}/>
             </Route>

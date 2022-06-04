@@ -10,7 +10,7 @@ function PopupStore(props){
     return (props.trigger) ? (
         <div className="popupstore">
             <div className="popup-innerstore">
-            <h3> Add Store</h3>
+            <h3> Add New Store</h3>
                 <div className="formulerstore">
                 <div className="formleft">
             <div className="for">
@@ -55,7 +55,7 @@ function PopupStore(props){
             </div>
                 <div className="buttonpopstore">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddstore" onClick={() => props.setTrigger(true)} >ADD</button>
+                <button className="btnaddstore" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

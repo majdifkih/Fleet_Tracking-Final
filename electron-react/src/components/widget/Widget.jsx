@@ -1,8 +1,4 @@
 import "./widget.scss";
-import AnnouncementIcon from '@mui/icons-material/Announcement';import PersonOutlinedIcon from "@mui/icons-material/PersonOutlined";
-import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
-import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import PhonelinkIcon from '@mui/icons-material/Phonelink';
 const Widget = ({ type }) => {
   let data;
 

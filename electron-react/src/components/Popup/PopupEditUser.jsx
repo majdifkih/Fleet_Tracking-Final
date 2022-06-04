@@ -5,7 +5,7 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import EventNoteIcon from '@mui/icons-material/EventNote';
-import PersonPinIcon from '@mui/icons-material/PersonPin';
+import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 function PopupEditUser(props){
     return (props.trigger) ? (
         <div className="popupedituser">
@@ -43,7 +43,7 @@ function PopupEditUser(props){
             <div className="form">
             <label for="nameedituser"/>Adress
             <div className="formicon">
-            <PersonPinIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Adress" /></div>
+            <PersonPinCircleIcon className="iconedituser" fontSize="small"/><div className="formedituser"><input type="text" placeholder="Edit Adress" /></div>
             </div>
             </div>
             <div className="form">

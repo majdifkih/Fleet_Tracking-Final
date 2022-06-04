@@ -4,6 +4,8 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 function PopupClient(props){
     return (props.trigger) ? (
         <div className="popupclient">
@@ -31,6 +33,18 @@ function PopupClient(props){
             </div>
             </div>
             <div className="formright">
+            <div className="form">
+            <label for="nameclient"/>Adress
+            <div className="formicon">
+            <PersonPinCircleIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Adress" /></div>
+            </div>
+            </div>
+            <div className="form">
+            <label for="nameclient"/>Phone Number
+            <div className="formicon">
+            <PhoneIphoneIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Number" /></div>
+            </div>
+            </div>
             <div className="form">
             <label for="nameclient"/>Status
             <div className="formicon">

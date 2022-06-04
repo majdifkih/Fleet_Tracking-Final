@@ -8,6 +8,9 @@ import DeviceInfo from "./pages/FleetMap/DevicesInfo";
 import InventoryListe from "./pages/inventory/Inventory";
 import { HashRouter, Routes, Route } from "react-router-dom";
 import ProviderTable from "./pages/Provider/Provider";
+import ClientTable from "./pages/Client/Client";
+import DriverTable from "./pages/Driver/Driver";
+import UserTable from "./pages/User/User";
 
 function App() {
 
@@ -25,6 +28,9 @@ function App() {
             <Route path="providerlist" element={<ProviderTable/>}/>
             <Route path="deviceinfo" element={<DeviceInfo/>}/>
             <Route path="inventory" element={<InventoryListe/>}/>
+            <Route path="clients" element={<ClientTable/>}/>
+            <Route path="drivers" element={<DriverTable/>}/>
+            <Route path="users" element={<UserTable/>}/>
             </Route>
         </Routes>
       </HashRouter>

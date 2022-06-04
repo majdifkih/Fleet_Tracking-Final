@@ -1,0 +1,95 @@
+
+.Tabdrivermain{
+    display: flex;
+   gap: 2%;
+  .Tabdriver{
+    display: flex;
+    flex-direction: column;
+    flex: 3;
+      
+        
+  .headTabdriver{
+    display: flex;
+    gap: 40%;
+    padding-bottom: 1%;
+  .titleTabdriver{
+    display: flex;
+    gap: 10%;
+    font-weight:bold;
+    color: black;
+    font-size: 122%;
+      input[type=Search]{
+        height:30px;
+        padding-right: 30%;
+        border-radius: 5px;
+        background: #c3cad2;
+      }
+      
+        
+        .input-icone{
+          display: flex;
+        position:relative; }
+        .input-icone i{
+          position:absolute; 
+          left: 108%; 
+          
+          padding:4px 8px; 
+          color:#838481;  }
+    
+        input[type=Search]:hover {
+        background: #f2f2f2; }
+      
+     .material-icons{
+       
+       font-size: 120%;
+     }
+      }
+      .butt{
+        display: flex;
+        gap: 30%;
+        margin-left: 19%;
+        .del{
+          display: flex;
+          font-size: 100%;
+          color: #fff;
+          padding: 6% 7% 6% 3%;
+          background: #FF7A7A;
+          border-radius: 5px;
+          border: none;
+          align-items: center;
+        }
+        .add{
+          display: flex;
+          gap: 5%;
+          font-size: 100%;
+          color: #fff;
+          padding: 7% 10% 7% 10%;
+          background: #3d2db9;
+          border-radius: 5px;
+          border: none;
+          align-items: center;
+        }
+        .popdriver{
+          z-index: 1;
+        }
+    }
+    }
+  
+  
+  
+  
+  
+  img{
+    padding-right: 2%;
+  }
+  }
+  .icons{display: flex;
+    justify-content: flex-end;
+  }
+  
+  }
+  
+   
+    
+  
+  

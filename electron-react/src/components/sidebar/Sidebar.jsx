@@ -63,19 +63,19 @@ const Sidebar = () => {
              </Link>
          </li>
             <li>
-              <Link to="/storetable" >
+              <Link to="/clients" >
               <GroupIcon className="iconlist" fontSize="small"/> Clients
               </Link>
             </li>
             <li>
            
-              <Link to="/devicelist" >
+              <Link to="/drivers" >
               <AirlineSeatReclineNormalIcon className="iconlist" fontSize="small"/> Drivers
                 </Link>
             </li>
             <li>
            
-              <Link to="/devicelist" >
+              <Link to="/users" >
               <AccountCircleIcon className="iconlist" fontSize="small"/> Users
                 </Link>
             </li>

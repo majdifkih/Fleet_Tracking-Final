@@ -3,13 +3,12 @@ import * as React from 'react';
 import { useState } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
-import AddBusinessIcon from '@mui/icons-material/AddBusiness';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/Popup/Popup";
 import FullTableProvider from "../../components/table/FullTableProvider";
 import PopupProvider from "../../components/Popup/PopupAddProvider";
-
+import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 function createData(name, status) {
   return { name, status };
 }
@@ -49,7 +48,7 @@ const rows = [
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
-<button className="add" onClick={() => setAddPopupprovider(true)}><AddBusinessIcon fontSize="small"/>Add</button>
+<button className="add" onClick={() => setAddPopupprovider(true)}><PersonAddAltIcon fontSize="small"/>Add</button>
 <div className="popprovider">
 <PopupProvider trigger={addPopupprovider} setTrigger={setAddPopupprovider}/>
 </div>

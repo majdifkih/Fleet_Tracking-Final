@@ -63,8 +63,6 @@
         display: flex;
         flex-direction: column;
         padding-top: 15%;
-        
-    
     .formicon{
         position: relative;
         display: flex;
@@ -104,6 +102,7 @@ padding-top: 10%;
         height: 30px;
         border: none;
         background-color: #aab2b3;
+        cursor: pointer;
     }
     .btnaddfleet{
         background-color: #0B7C86;
@@ -113,6 +112,7 @@ padding-top: 10%;
         height: 30px;
         border-radius: 5px;
         border: none;
+        cursor: pointer;
       }
     
     

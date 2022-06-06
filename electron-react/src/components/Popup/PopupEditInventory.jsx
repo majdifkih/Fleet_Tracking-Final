@@ -32,27 +32,16 @@ function PopupEditInventory(props){
             <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit Quantity" /></div>
             </div>
             </div>
+            
+            </div>
+            <div className="formright">
             <div className="form">
             <label for="namea"/>Price
             <div className="formicon">
             <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Price" /></div>
             </div>
             </div>
-            </div>
-            <div className="formright">
-
-            <div className="form">
-            <label for="namea"/>ID
-            <div className="formicon">
-            <FeedOutlinedIcon className="icona" fontSize="small"/><div className="forma" ><input type="text" placeholder="Edit ID" /></div>
-            </div>
-            </div>
-            <div className="form">
-            <label for="namea"/>Category
-            <div className="formicon">
-            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Category" /></div>
-            </div>
-            </div>
+           
             <div className="form">
             <label for="namea"/>Status
             <div className="formicon">

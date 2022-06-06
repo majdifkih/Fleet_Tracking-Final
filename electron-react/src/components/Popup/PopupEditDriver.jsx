@@ -41,9 +41,9 @@ function PopupEditDriver(props){
             </div>
             </div>
             <div className="form">
-            <label for="namea"/>Adress
+            <label for="namea"/>Address
             <div className="formicon">
-            <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Adress" /></div>
+            <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Address" /></div>
             </div>
             </div>
             <div className="form">

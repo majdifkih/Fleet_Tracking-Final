@@ -36,11 +36,16 @@ function PopupFleet(props){
             <div className="form">
             <label for="namea" />Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Category" /></div>
+            <LocalOfferOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="selectcat">
+                <option selected>Choose Category</option>
+                <option>Camion</option>
+                <option>Car</option>
+                </select>
+                </div>
             </div>
             </div>
             <div className="form">
-            <label for="namea"/>Creation Date
+            <label for="namea"/>Last maintenance
             <div className="formicon">
             <CarCrashOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Date" /></div>
             </div>
@@ -48,7 +53,12 @@ function PopupFleet(props){
             <div className="form">
             <label for="namea"/>Status
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Status" /></div>
+            <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select">
+                <option selected>Choose status</option>
+                <option>Online</option>
+                <option>Offline</option>
+                </select>
+                </div>
             </div>
             </div>
             </div>

@@ -63,6 +63,7 @@
         flex-direction: column;
         padding-top: 15%;
     }
+    
     .formicon{
         position: relative;
         display: flex;
@@ -78,6 +79,12 @@
             color: #535454;
             padding: 3% 0% 0% 2%;
         }
+        .iconselect{
+            position:absolute;
+            color: #535454;
+            padding: 1% 0% 0% 2%;
+            
+        }
     }
     }
     .forma{
@@ -87,6 +94,23 @@
         padding: 2%;
       
     }
+    .formselect{
+       
+        padding: 0%;
+        .select{
+            
+            padding: 1% 0% 5% 22%;
+            width: 160%;
+            border-radius: 5px;
+        }
+        .selectcat{
+            padding: 1% 0% 5% 22%;
+            width: 136%;
+            border-radius: 5px;
+        }
+    }
+
+    
     }
 
 .buttonpopa{

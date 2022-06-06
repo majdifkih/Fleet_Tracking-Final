@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupEdit.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
@@ -8,43 +8,43 @@ import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/Production
 
 function PopupEditProvider(props){
     return (props.trigger) ? (
-        <div className="popupedit">
-            <div className="popup-inneredit">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Edit Provider</h3>
-                <div className="formuleredit">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="nameedit"/>Provider Name
+            <label for="namea"/>Provider Name
             <div className="formicon">
-            <PersonOutlineIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Name" /></div>
+            <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedit"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
-            <PhoneIphoneIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Number" /></div>
+            <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Number" /></div>
             </div>
             </div>
             
             </div>
             <div className="formright">
             <div className="form">
-            <label for="nameedit"/>ID Number
+            <label for="namea"/>ID Number
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconedit" fontSize="small"/> <div className="formedit"><input type="text" placeholder="Edit ID" /></div>
+            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedit"/>Product category
+            <label for="namea"/>Product category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Category" /></div>
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Category" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopedit">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddedit" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Edit</button>
                 </div>
                 
             </div>

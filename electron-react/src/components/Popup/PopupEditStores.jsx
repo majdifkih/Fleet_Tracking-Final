@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupEdit.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -8,54 +8,54 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 function PopupEditStore(props){
     return (props.trigger) ? (
-        <div className="popupedit">
-            <div className="popup-inneredit">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Edit Store</h3>
-                <div className="formuleredit">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="nameedit"/>Store Name
+            <label for="namea"/>Store Name
             <div className="formicon">
-            <StorefrontIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Name" /></div>
+            <StorefrontIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedit"/>Contact
+            <label for="namea"/>Contact
             <div className="formicon">
-            <MailOutlineIcon   className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Contact" /></div>
+            <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Contact" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedit"/>Store Owner
+            <label for="namea"/>Store Owner
             <div className="formicon">
-            <PersonOutlineIcon className="iconedit" fontSize="small"/> <div className="formedit"><input type="text" placeholder="Edit  Owner" /></div>
+            <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit  Owner" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
             <div className="form">
-            <label for="nameedit"/>ID Number
+            <label for="namea"/>ID Number
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit ID Number" /></div>
+            <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit ID Number" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedit"/>Type
+            <label for="namea"/>Type
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Type" /></div>
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Type" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameedit"/>Address
+            <label for="namea"/>Address
             <div className="formicon">
-            <RoomOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Address" /></div>
+            <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Address" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopedit">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddedit" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Edit</button>
                 </div>
                 
             </div>

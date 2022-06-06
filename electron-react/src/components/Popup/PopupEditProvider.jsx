@@ -6,8 +6,31 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
-
+import axios from "axios";
+import { useState } from "react";
 function PopupEditProvider(props){
+    const [newVehiculeName, setnewVehiculeName] = useState("");
+    const [newVehiculeStatus, setnewVehiculeStatus] = useState("");
+    const [newVehiculeMatricule, setnewVehiculeMatricule] = useState("");
+    const [newVehicleMarque, setnewVehicleMarque] = useState("");
+    const [newCreationDate, setnewCreationDate] = useState("");
+    const [newVehiculeCategory, setnewVehiculeCategory] = useState("");
+    const updateProvider = async(ID) => {
+        const dataF = {
+            name:newVehiculeName,
+            status:newVehiculeStatus ,
+            Matricule:newVehiculeMatricule ,
+            VehicleMarque:newVehicleMarque,
+            CreationDate:newCreationDate,
+            Category:newVehiculeCategory
+        }
+       
+ await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataF).then((res) => {
+                if (res.data.status === 'success') {
+                    props.setTrigger(false);
+                }
+                 }   ).catch((err) => {  console.log(err) }  )
+          }
     return (props.trigger) ? (
         <div className="popupeditprovider">
             <div className="popup-innereditprovider">

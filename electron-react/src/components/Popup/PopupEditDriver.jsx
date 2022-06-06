@@ -16,7 +16,7 @@ function PopupEditDriver(props){
             <div className="form">
             <label for="nameeditdriver"/>Driver Name
             <div className="formicon">
-            <PersonOutlineIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Name" /></div>
+            <PersonOutlineIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input  type="text" placeholder={props.id} /></div>
             </div>
             </div>
             <div className="form">

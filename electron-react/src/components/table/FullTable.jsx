@@ -1,5 +1,6 @@
+import axios from 'axios';
 import React from 'react'
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import TableFooter from '@mui/material/TableFooter';
 import Box from '@mui/material/Box';
 import TablePagination from '@mui/material/TablePagination';
@@ -107,8 +108,21 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {rows,type,title,stat,icon}=props;
-    
+    const {type,title,stat,icon}=props;
+    const [rows, setRows] = useState([]);
+    const getFleet=()=>{
+      axios.get("http://localhost:3001/VehiculeAPI/Vehicules").then(res=>{
+        if(res.data.success){
+          setRows( res.data.existingPosts);
+          
+          console.log(rows)
+        }
+      })
+    } 
+    useEffect(()=>{
+      getFleet();
+    }
+    ,[])
 
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
@@ -170,7 +184,7 @@ function FullTable(props) {
                   <div className={`icons ${icon}`}>
                   <i className="material-icons" onClick={() => setEditPopupfleet(true)} >border_color</i>
                   <div className="popeditfleet"> 
-                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet}/>
+                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={row._id}/>
                   </div>
                   <i class="material-icons">info_outline</i>
                   <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>

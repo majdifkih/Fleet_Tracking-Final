@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
+import axios from 'axios';
 import TableFooter from '@mui/material/TableFooter';
 import Box from '@mui/material/Box';
 import TablePagination from '@mui/material/TablePagination';
@@ -109,7 +110,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 function FullTableDriver(props) {
     const {rows,type,title,stat,icon}=props;
     
-
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -170,7 +170,7 @@ function FullTableDriver(props) {
                   <div className={`icons ${icon}`}>
                   <i className="material-icons" onClick={() => setEditPopupdriver(true)} >border_color</i>
                   <div className="popeditfleet"> 
-                  <PopupEditDriver trigger={editPopupdriver} setTrigger={setEditPopupdriver}/>
+                  <PopupEditDriver trigger={editPopupdriver} setTrigger={setEditPopupdriver} id={row._id}/>
                   </div>
                   <i class="material-icons">info_outline</i>
                   

@@ -7,6 +7,30 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 function PopupEditStore(props){
+    const [newStoreNum, setnewStoreNum] = useState("");
+    const [newStoreName, setnewStoreName] = useState("");
+    const [newStoreType, setnewStoreType] = useState("");
+    const [newStoreStatus, setnewStoreStatus] = useState("");
+    const [newStoreContact, setnewStoreContact] = useState("");
+    const [newStoreAddress, setnewStoreAddress] = useState("");
+    const [newStoreOwner, setnewStoreOwner] = useState("");
+ const updateStore = async(ID) => {
+    const dataS = {
+        num:newStoreNum,
+        contact:newStoreContact ,
+        name:newStoreName ,
+        type:newStoreType,
+        address:newStoreAddress,
+        owner:newStoreOwner
+    }
+    await axios.put(`http://localhost:3001/StoreAPI/stores?id=${ID}`,dataS).then((res) => {
+            if (res.data.status === 'success') {
+              console.log("ok")
+            }
+             }   ).catch((err) => {  console.log(err) }  )
+      }
+
+
     return (props.trigger) ? (
         <div className="popupeditstore">
             <div className="popup-innereditstore">

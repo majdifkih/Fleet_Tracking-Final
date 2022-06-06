@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupEditClient.scss";
+import "./PopupEdit.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -8,54 +8,54 @@ import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 function PopupEditClient(props){
     return (props.trigger) ? (
-        <div className="popupeditclient">
-            <div className="popup-innereditclient">
+        <div className="popupedit">
+            <div className="popup-inneredit">
             <h3> Edit Client</h3>
-                <div className="formulereditclient">
+                <div className="formuleredit">
                 <div className="formleft">
             <div className="form">
-            <label for="nameeditclient"/>Client Name
+            <label for="nameedit"/>Client Name
             <div className="formicon">
-            <PersonOutlineIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Name" /></div>
+            <PersonOutlineIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>ID
+            <label for="nameedit"/>ID
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit ID" /></div>
+            <BadgeOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>Store Name
+            <label for="nameedit"/>Store Name
             <div className="formicon">
-            <StorefrontIcon className="iconeditclient" fontSize="small"/> <div className="formeditclient"><input type="text" placeholder="Edit Store" /></div>
+            <StorefrontIcon className="iconedit" fontSize="small"/> <div className="formedit"><input type="text" placeholder="Edit Store" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
             <div className="form">
-            <label for="nameeditclient"/>Adress
+            <label for="nameedit"/>Adress
             <div className="formicon">
-            <PersonPinCircleIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Adress" /></div>
+            <PersonPinCircleIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Adress" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>Phone Number
+            <label for="nameedit"/>Phone Number
             <div className="formicon">
-            <PhoneIphoneIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Number" /></div>
+            <PhoneIphoneIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Number" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>Status
+            <label for="nameedit"/>Status
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconeditclient" fontSize="small"/><div className="formeditclient"><input type="text" placeholder="Edit Status" /></div>
+            <HelpOutlineOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Status" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopeditclient">
+                <div className="buttonpopedit">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddeditclient" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btnaddedit" onClick={() => props.setTrigger(true)} >Edit</button>
                 </div>
                 
             </div>

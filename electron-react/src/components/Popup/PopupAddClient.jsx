@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupAddClient.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -8,54 +8,54 @@ import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 function PopupClient(props){
     return (props.trigger) ? (
-        <div className="popupclient">
-            <div className="popup-innerclient">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Client</h3>
-                <div className="formulerclient">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="nameclient"/>Client Name
+            <label for="namea"/>Client Name
             <div className="formicon">
-            <PersonOutlineIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Name" /></div>
+            <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>ID
+            <label for="namea"/>ID
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter ID" /></div>
+            <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter ID" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Store Name 
+            <label for="namea"/>Store Name 
             <div className="formicon">
-            <StorefrontIcon className="iconclient" fontSize="small"/> <div className="formclient"><input type="text" placeholder="Enter Store" /></div>
+            <StorefrontIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Store" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
             <div className="form">
-            <label for="nameclient"/>Adress
+            <label for="namea"/>Address
             <div className="formicon">
-            <PersonPinCircleIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Adress" /></div>
+            <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Address" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
-            <PhoneIphoneIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Number" /></div>
+            <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Number" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Status
+            <label for="namea"/>Status
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconclient" fontSize="small"/><div className="formclient"><input type="text" placeholder="Enter Status" /></div>
+            <HelpOutlineOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Status" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopclient">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddclient" onClick={() => props.setTrigger(true)} >Add</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

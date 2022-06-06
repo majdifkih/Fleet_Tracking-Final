@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupAddStore.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -8,54 +8,54 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 function PopupStore(props){
     return (props.trigger) ? (
-        <div className="popupstore">
-            <div className="popup-innerstore">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Store</h3>
-                <div className="formulerstore">
+                <div className="formulera">
                 <div className="formleft">
-            <div className="for">
-            <label for="namestore"/>Store Name
+            <div className="form">
+            <label for="namea"/>Store Name
             <div className="formicon">
-            <StorefrontIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Name" /></div>
+            <StorefrontIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Contact
+            <div className="form">
+            <label for="namea"/>Contact
             <div className="formicon">
-            <MailOutlineIcon   className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Contact" /></div>
+            <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Contact" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Store Owner
+            <div className="form">
+            <label for="namea"/>Store Owner
             <div className="formicon">
-            <PersonOutlineIcon className="iconstore" fontSize="small"/> <div className="formstore"><input type="text" placeholder="Enter Store Owner" /></div>
+            <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Store Owner" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
-            <div className="for">
-            <label for="namestore"/>ID Number
+            <div className="form">
+            <label for="namea"/>ID Number
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter ID Number" /></div>
+            <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter ID Number" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Type
+            <div className="form">
+            <label for="namea"/>Type
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Type" /></div>
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Type" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Position
+            <div className="form">
+            <label for="namea"/>Address
             <div className="formicon">
-            <RoomOutlinedIcon className="iconstore" fontSize="small"/><div className="formstore"><input type="text" placeholder="Enter Position" /></div>
+            <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Address" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopstore">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddstore" onClick={() => props.setTrigger(true)} >Add</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

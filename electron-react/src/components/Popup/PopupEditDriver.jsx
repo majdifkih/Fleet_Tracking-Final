@@ -1,62 +1,62 @@
 import React from "react";
-import "./PopupEditDriver.scss";
+import "./PopupEdit.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 function PopupEditDriver(props){
     return (props.trigger) ? (
-        <div className="popupeditdriver">
-            <div className="popup-innereditdriver">
+        <div className="popupedit">
+            <div className="popup-inneredit">
             <h3> Edit Driver</h3>
-                <div className="formulereditdriver">
+                <div className="formuleredit">
                 <div className="formleft">
             <div className="form">
-            <label for="nameeditdriver"/>Driver Name
+            <label for="nameedit"/>Driver Name
             <div className="formicon">
-            <PersonOutlineIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Name" /></div>
+            <PersonOutlineIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>Password
+            <label for="nameedit"/>Password
             <div className="formicon">
-            <LockIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Password" /></div>
+            <LockIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Password" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>ID
+            <label for="nameedit"/>ID
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconeditdriver" fontSize="small"/> <div className="formeditdriver"><input type="text" placeholder="Edit ID" /></div>
+            <BadgeOutlinedIcon className="iconedit" fontSize="small"/> <div className="formedit"><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="nameeditdriver"/>Hiring date
+            <label for="nameedit"/>Email
             <div className="formicon">
-            <EventNoteIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Date" /></div>
+            <MailOutlineIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Email" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>Adress
+            <label for="nameedit"/>Adress
             <div className="formicon">
-            <PersonPinCircleIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Adress" /></div>
+            <PersonPinCircleIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Adress" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditdriver"/>Phone Number
+            <label for="nameedit"/>Phone Number
             <div className="formicon">
-            <PhoneIphoneIcon className="iconeditdriver" fontSize="small"/><div className="formeditdriver"><input type="text" placeholder="Edit Number" /></div>
+            <PhoneIphoneIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Number" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopeditdriver">
+                <div className="buttonpopedit">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddeditdriver" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btnaddedit" onClick={() => props.setTrigger(true)} >Edit</button>
                 </div>
                 
             </div>

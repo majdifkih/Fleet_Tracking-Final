@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupEditInventory.scss";
+import "./PopupEdit.scss";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
@@ -9,61 +9,61 @@ import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 function PopupEditInventory(props){
     return (props.trigger) ? (
-        <div className="popupeditinventory">
-            <div className="popup-innereditinventory">
+        <div className="popupedit">
+            <div className="popup-inneredit">
             <h3> Edit product</h3>
-                <div className="formulereditinventory">
+                <div className="formuleredit">
                 <div className="formleft">
-            <div className="formm">
-            <label for="nameeditinventory"/>Name
+            <div className="form">
+            <label for="nameedit"/>Name
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Name" /></div>
+            <Inventory2OutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Barcode
+            <div className="form">
+            <label for="nameedit"/>Barcode
             <div className="formicon">
-            <QrCode2OutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Barcode" /></div>
+            <QrCode2OutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Barcode" /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Quantity
+            <div className="form">
+            <label for="nameedit"/>Quantity
             <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="iconeditinventory" fontSize="small"/> <div className="formeditinventory"><input type="text" placeholder="Edit Quantity" /></div>
+            <ProductionQuantityLimitsOutlinedIcon className="iconedit" fontSize="small"/> <div className="formedit"><input type="text" placeholder="Edit Quantity" /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Price
+            <div className="form">
+            <label for="nameedit"/>Price
             <div className="formicon">
-            <AttachMoneyOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Price" /></div>
+            <AttachMoneyOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Price" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
-            <div className="formm">
-            <label for="nameeditinventory"/>ID
+            <div className="form">
+            <label for="nameedit"/>ID
             <div className="formicon">
-            <FeedOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory" ><input type="text" placeholder="Edit ID" /></div>
+            <FeedOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit" ><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Category
+            <div className="form">
+            <label for="nameedit"/>Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Category" /></div>
+            <LocalOfferOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Category" /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Status
+            <div className="form">
+            <label for="nameedit"/>Status
             <div className="formicon">
-            <InventoryOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Status" /></div>
+            <InventoryOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Status" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopeditinventory">
+                <div className="buttonpopedit">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddeditinventory" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btnaddedit" onClick={() => props.setTrigger(true)} >Edit</button>
                 </div>
                 
             </div>

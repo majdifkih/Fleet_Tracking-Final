@@ -1,62 +1,62 @@
 import React from "react";
-import "./PopupAddUser.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 function PopupUser(props){
     return (props.trigger) ? (
-        <div className="popupuser">
-            <div className="popup-inneruser">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New User</h3>
-                <div className="formuleruser">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="nameuser"/>User Name
+            <label for="namea"/>User Name
             <div className="formicon">
-            <PersonOutlineIcon className="iconuser" fontSize="small"/><div className="formuser"><input type="text" placeholder="Enter Name" /></div>
+            <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>Password
+            <label for="namea"/>Password
             <div className="formicon">
-            <LockIcon className="iconuser" fontSize="small"/><div className="formuser"><input type="password" placeholder="Enter Password" /></div>
+            <LockIcon className="icona" fontSize="small"/><div className="forma"><input type="password" placeholder="Enter Password" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>ID
+            <label for="namea"/>ID
             <div className="formicon">
-            <BadgeOutlinedIcon className="iconuser" fontSize="small"/> <div className="formuser"><input type="text" placeholder="Enter ID" /></div>
+            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter ID" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="nameuser" />Hiring date
+            <label for="namea" />Email
             <div className="formicon">
-            <EventNoteIcon className="iconuser" fontSize="small"/><div className="formuser"><input type="text" placeholder="Enter Date" /></div>
+            <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Email" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>Adress
+            <label for="namea"/>Address
             <div className="formicon">
-            <PersonPinCircleIcon className="iconuser" fontSize="small"/><div className="formuser"><input type="text" placeholder="Enter Adress" /></div>
+            <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Address" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
-            <PhoneIphoneIcon className="iconuser" fontSize="small"/><div className="formuser"><input type="text" placeholder="Enter Number" /></div>
+            <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Number" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopuser">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnadduser" onClick={() => props.setTrigger(true)} >Add</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

@@ -1,62 +1,62 @@
 import React from "react";
-import "./PopupAddDriver.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 function PopupDriver(props){
     return (props.trigger) ? (
-        <div className="popupdriver">
-            <div className="popup-innerdriver">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Driver</h3>
-                <div className="formulerdriver">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="namedriver"/>Driver Name
+            <label for="namea"/>Driver Name
             <div className="formicon">
-            <PersonOutlineIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Name" /></div>
+            <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Password
+            <label for="namea"/>Password
             <div className="formicon">
-            <LockIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="password" placeholder="Enter Password" /></div>
+            <LockIcon className="icona" fontSize="small"/><div className="forma"><input type="password" placeholder="Enter Password" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>ID
+            <label for="namea"/>ID
             <div className="formicon">
-            <BadgeOutlinedIcon className="icondriver" fontSize="small"/> <div className="formdriver"><input type="text" placeholder="Enter ID" /></div>
+            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter ID" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="namedriver" />Hiring date
+            <label for="namea" />Email
             <div className="formicon">
-            <EventNoteIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Date" /></div>
+            <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Email" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Adress
+            <label for="namea"/>Address
             <div className="formicon">
-            <PersonPinCircleIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Adress" /></div>
+            <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Address" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
-            <PhoneIphoneIcon className="icondriver" fontSize="small"/><div className="formdriver"><input type="text" placeholder="Enter Number" /></div>
+            <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Number" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopdriver">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnadddriver" onClick={() => props.setTrigger(true)} >Add</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

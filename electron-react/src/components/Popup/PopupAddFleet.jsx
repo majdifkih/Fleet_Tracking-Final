@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupAddFleet.scss";
+import "./Popupform.scss";
 import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
 import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
@@ -7,55 +7,55 @@ import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 function PopupFleet(props){
     return (props.trigger) ? (
-        <div className="popupfleet">
-            <div className="popup-innerfleet">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Vehicle</h3>
-                <div className="formulerfleet">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="namefleet"/>Vehicle Name
+            <label for="namea"/>Vehicle Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Name" /></div>
+            <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Matricule
+            <label for="namea"/>Matricule
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Matricule" /></div>
+            <EightMpOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Matricule" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Vehicle marque
+            <label for="namea"/>Vehicle marque
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/> <div className="formfleet"><input type="text" placeholder="Enter Marque" /></div>
+            <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Marque" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="namefleet" />Category
+            <label for="namea" />Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Category" /></div>
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Category" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Creation Date
+            <label for="namea"/>Creation Date
             <div className="formicon">
-            <CarCrashOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Date" /></div>
+            <CarCrashOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Date" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Status
+            <label for="namea"/>Status
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Status" /></div>
+            <HelpOutlineOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Status" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopfleet">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddfleet" onClick={() => props.setTrigger(true)} >Add</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

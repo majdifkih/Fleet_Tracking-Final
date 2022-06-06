@@ -1,62 +1,50 @@
 import React from "react";
-import "./PopupEditProvider.scss";
+import "./PopupEdit.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 
 function PopupEditProvider(props){
     return (props.trigger) ? (
-        <div className="popupeditprovider">
-            <div className="popup-innereditprovider">
+        <div className="popupedit">
+            <div className="popup-inneredit">
             <h3> Edit Provider</h3>
-                <div className="formulereditprovider">
+                <div className="formuleredit">
                 <div className="formleft">
-            <div className="for">
-            <label for="nameeditprovider"/>Provider Name
+            <div className="form">
+            <label for="nameedit"/>Provider Name
             <div className="formicon">
-            <PersonOutlineIcon className="iconeditprovider" fontSize="small"/><div className="formeditprovider"><input type="text" placeholder="Edit Name" /></div>
+            <PersonOutlineIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameeditprovider"/>Contact
+            <div className="form">
+            <label for="nameedit"/>Phone Number
             <div className="formicon">
-            <MailOutlineIcon   className="iconeditprovider" fontSize="small"/><div className="formeditprovider"><input type="text" placeholder="Edit Contact" /></div>
+            <PhoneIphoneIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Number" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameeditprovider"/>ID Number
-            <div className="formicon">
-            <BadgeOutlinedIcon className="iconeditprovider" fontSize="small"/> <div className="formeditprovider"><input type="text" placeholder="Edit ID" /></div>
-            </div>
-            </div>
+            
             </div>
             <div className="formright">
-            <div className="for">
-            <label for="nameeditprovider"/>Prodcut
+            <div className="form">
+            <label for="nameedit"/>ID Number
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconeditprovider" fontSize="small"/><div className="formeditprovider"><input type="text" placeholder="Edit Product" /></div>
+            <BadgeOutlinedIcon className="iconedit" fontSize="small"/> <div className="formedit"><input type="text" placeholder="Edit ID" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameeditprovider"/>Quantity
+            <div className="form">
+            <label for="nameedit"/>Product category
             <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="iconeditprovider" fontSize="small"/><div className="formeditprovider"><input type="text" placeholder="Edit Quantity" /></div>
-            </div>
-            </div>
-            <div className="for">
-            <label for="nameeditprovider"/>Product category
-            <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconeditprovider" fontSize="small"/><div className="formeditprovider"><input type="text" placeholder="Edit Category" /></div>
+            <LocalOfferOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Category" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopeditprovider">
+                <div className="buttonpopedit">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddeditprovider" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btnaddedit" onClick={() => props.setTrigger(true)} >Edit</button>
                 </div>
                 
             </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupEditFleet.scss";
+import "./PopupEdit.scss";
 import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
 import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
@@ -7,55 +7,55 @@ import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 function PopupEditFleet(props){
     return (props.trigger) ? (
-        <div className="popupeditfleet">
-            <div className="popup-innereditfleet">
+        <div className="popupedit">
+            <div className="popup-inneredit">
             <h3> Edit Vehicle</h3>
-                <div className="formulereditfleet">
+                <div className="formuleredit">
                 <div className="formleft">
             <div className="form">
-            <label for="nameeditfleet"/>Vehicle Name
+            <label for="nameedit"/>Vehicle Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input type="text" placeholder="Edit Name" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditfleet"/>Matricule
+            <label for="nameedit"/>Matricule
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input type="text" placeholder="Edit Matricule" /></div>
+            <EightMpOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Matricule" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditfleet"/>Vehicle marque
+            <label for="nameedit"/>Vehicle marque
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconeditfleet" fontSize="small"/> <div className="formeditfleet"><input type="text" placeholder="Edit Marque" /></div>
+            <DirectionsCarFilledOutlinedIcon className="iconedit" fontSize="small"/> <div className="formedit"><input type="text" placeholder="Edit Marque" /></div>
             </div>
             </div>
             </div>
             <div className="formright">
 
             <div className="form">
-            <label for="nameeditfleet"/>Category
+            <label for="nameedit"/>Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input type="text" placeholder="Edit Category" /></div>
+            <LocalOfferOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Category" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditfleet"/>Creation Date
+            <label for="nameedit"/>Creation Date
             <div className="formicon">
-            <CarCrashOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input type="text" placeholder="Edit Date" /></div>
+            <CarCrashOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Date" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="nameeditfleet"/>Status
+            <label for="nameedit"/>Status
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input type="text" placeholder="Edit Status" /></div>
+            <HelpOutlineOutlinedIcon className="iconedit" fontSize="small"/><div className="formedit"><input type="text" placeholder="Edit Status" /></div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopeditfleet">
+                <div className="buttonpopedit">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddeditfleet" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btnaddedit" onClick={() => props.setTrigger(true)} >Edit</button>
                 </div>
                 
             </div>

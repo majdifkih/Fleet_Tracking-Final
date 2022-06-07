@@ -144,7 +144,7 @@ function Store() {
     <div className="store">
     <Navbar/>
         <span className="titlemap">Stores</span>
-        <Link to="/devicelist"> <button className="back"><ArrowBackIcon className="iconback"/><div className="namback">BACK</div></button></Link>
+        <Link to="/storetable"> <button className="back"><ArrowBackIcon className="iconback"/><div className="namback">BACK</div></button></Link>
         <div className="storecenter">
     <div className="storeleft">
         

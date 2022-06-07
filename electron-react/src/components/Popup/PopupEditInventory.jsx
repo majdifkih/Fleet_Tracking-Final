@@ -1,12 +1,11 @@
 import React from "react";
 import "./Popupform.scss";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
-import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
+import CampaignIcon from '@mui/icons-material/Campaign';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined';
-import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
 function PopupEditInventory(props){
     return (props.trigger) ? (
         <div className="popupa">
@@ -41,11 +40,17 @@ function PopupEditInventory(props){
             <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Price" /></div>
             </div>
             </div>
+            <div className="form">
+            <label for="namea"/>Category
+            <div className="formicon">
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Category" /></div>
+            </div>
+            </div>
            
             <div className="form">
-            <label for="namea"/>Status
+            <label for="namea"/>Alert Condition
             <div className="formicon">
-            <InventoryOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Status" /></div>
+            <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Condition" /></div>
             </div>
             </div>
             </div>

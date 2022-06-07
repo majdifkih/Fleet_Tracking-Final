@@ -48,7 +48,7 @@ const Sidebar = () => {
                
             </li>
             <li>
-            <Link to="/store" >
+            <Link to="/storetable" >
             <StoreIcon className="iconlist" fontSize="small"/> Stores
                 </Link>
             </li>

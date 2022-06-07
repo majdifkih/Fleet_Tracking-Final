@@ -7,32 +7,25 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/Popup/Popup";
 import PopupDriver from "../../components/Popup/PopupAddDriver";
-import FullTableDriver from "../../components/table/FullTableDriver";
+import FullTable from "../../components/table/FullTable";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import axios from "axios";
+import { useEffect } from 'react';
 
-function createData(name, status) {
-  return { name, status };
-}
-
-const rows = [
-  createData('Baraka','NonReg'),
-  createData('Hanout','regular'),
-  createData('Carrefour','regular'),
-  createData('Aotriya','regular'),
-  createData('Hamza shop','NonReg'),
-  createData('Nour','NonReg'),
-  createData('Mahida shop','regular'),
-  createData('Hanout El homa','regular'),
-  createData('Magasin','regular'),
-  createData('Store','NonReg'),
-  createData('Magasin','NonReg'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Gingerbread','NonReg'),
-];
  function DriverTable() {
-  
+  const [Drivers, setDrivers] = useState([]);
+  const getDriver=()=>{
+    axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
+      if(res.data.success){
+        setDrivers( res.data.existingPosts);
+        
+        console.log(Drivers)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getDriver() 
+  });  
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupdriver, setAddPopupdriver] = useState(false);
   return (
@@ -58,7 +51,7 @@ const rows = [
 </div>
 </div>
 
- <FullTableDriver rows={rows} type="non" stat="status" title="drivers name"/>
+ <FullTable rows={Drivers} type="non" stat="status" title="Drivers name"/>
   </div>
   </div>
   

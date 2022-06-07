@@ -1,13 +1,34 @@
 import React from "react";
-import "./PopupEditInventory.scss";
+import "./Popupform.scss";
+import axios from "axios";
+import { useState } from "react";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
-import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import CampaignIcon from '@mui/icons-material/Campaign';
 function PopupEditInventory(props){
+    const [newPname, setnewPname] = useState("");
+    const [newbarCode, setnewbarCode] = useState("");
+    const [newPqnty, setnewPqnty] = useState("");
+    const [newPrice, setnewPrice] = useState("");
+    const [newalertNum, setnewalertNum] = useState("");
+    const [newPcategory, setnewPcategory] = useState("");
+    const updateProduct = async(ID) => {
+        const dataD = {productName:newPname ,
+            barCode:newbarCode ,
+            productQuantity:newPqnty,
+            productPrice:newPrice,
+            category:newPcategory,
+            }
+       await axios.put(`http://localhost:3001/ProductAPI/products?id=${ID}`,dataD).then((res) => {
+                if (res.data.status === 'success') {
+                  console.log("ok")
+                }
+                 }   ).catch((err) => {  console.log(err) }  )
+          }
     return (props.trigger) ? (
         <div className="popupeditinventory">
             <div className="popup-innereditinventory">
@@ -17,53 +38,60 @@ function PopupEditInventory(props){
             <div className="formm">
             <label for="nameeditinventory"/>Name
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Name" /></div>
+            <Inventory2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Name"  onChange={(event)=> {
+  setnewPname(event.target.value);
+}}/></div>
             </div>
             </div>
             <div className="formm">
             <label for="nameeditinventory"/>Barcode
             <div className="formicon">
-            <QrCode2OutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Barcode" /></div>
+            <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Edit Barcode" onChange={(event)=> {
+  setnewbarCode(event.target.value);
+}} /></div>
             </div>
             </div>
             <div className="formm">
             <label for="nameeditinventory"/>Quantity
             <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="iconeditinventory" fontSize="small"/> <div className="formeditinventory"><input type="text" placeholder="Edit Quantity" /></div>
+            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" placeholder="Edit Quantity" onChange={(event)=> {
+  setnewPqnty(event.target.value);
+}}/></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Price
-            <div className="formicon">
-            <AttachMoneyOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Price" /></div>
-            </div>
-            </div>
+            
             </div>
             <div className="formright">
-
-            <div className="formm">
-            <label for="nameeditinventory"/>ID
+            <div className="form">
+            <label for="namea"/>Price
             <div className="formicon">
-            <FeedOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory" ><input type="text" placeholder="Edit ID" /></div>
+            <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Edit Price" onChange={(event)=> {
+  setnewPrice(event.target.value);
+}} /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Category
+           
+            <div className="form">
+            <label for="namea"/>Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Category" /></div>
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Category" onChange={(event)=> {
+  setnewPcategory(event.target.value);
+}} /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Status
+            <div className="form">
+            <label for="namea"/>Alert Condition
             <div className="formicon">
-            <InventoryOutlinedIcon className="iconeditinventory" fontSize="small"/><div className="formeditinventory"><input type="text" placeholder="Edit Status" /></div>
+            <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Condition" onChange={(event)=> {
+  setnewalertNum(event.target.value);
+}} /></div>
             </div>
             </div>
             </div>
             </div>
                 <div className="buttonpopeditinventory">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddeditinventory" onClick={() => props.setTrigger(true)} >Edit</button>
+                <button className="btna" onClick={() => updateProduct(props.id)} >Edit</button>
                 </div>
                 
             </div>

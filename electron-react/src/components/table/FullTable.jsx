@@ -23,8 +23,15 @@ import "./FullTable.scss";
 import engine from './engine.png'
 import tires from './tires.png'
 import oil from './oil.png'
+import DeleteIcon from '@mui/icons-material/Delete';
 import PopupEditFleet from '../Popup/PopupEditFleet';
+import PopupEditClient from '../Popup/PopupEditClient';
+import PopupEditDriver from '../Popup/PopupEditDriver';
+import PopupEditProvider from '../Popup/PopupEditProvider';
+import PopupEditUser from '../Popup/PopupEditUser';
+import PopupEditStore from '../Popup/PopupEditStores';
 import { Link } from 'react-router-dom';
+import PopupInfoFleet from '../Popup/PopupInfoFleet';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -108,22 +115,67 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {type,title,stat,icon}=props;
-    const [rows, setRows] = useState([]);
-    const getFleet=()=>{
-      axios.get("http://localhost:3001/VehiculeAPI/Vehicules").then(res=>{
-        if(res.data.success){
-          setRows( res.data.existingPosts);
-          
-          console.log(rows)
-        }
-      })
-    } 
-    useEffect(()=>{
-      getFleet();
-    }
-    ,[])
+    const {rows,type,title,stat,icon}=props;
+    const [editPopupfleet, setEditPopupfleet] = useState(false);
+    const [editPopupstore, setEditPopupstore] = useState(false);
+    const [editPopupclient, setEditPopupclient] = useState(false);
+    const [editPopupdriver, setEditPopupdriver] = useState(false);
+    const [editPopupprovider, setEditPopupprovider] = useState(false);
+    const [editPopupuser, setEditPopupuser] = useState(false);
+    const [isem, setIsem] = useState("");
+    const [isemF, setIsemF] = useState("");
+    const [isemC, setIsemC] = useState("");
+    const [isemD, setIsemD] = useState("");
+    const [isemP, setIsemP] = useState("");
+    const [isemU, setIsemU] = useState("");
+    const [IDe, setIDe] = useState("");
+    const [IDF, setIDF] = useState("");
+    const [IDC, setIDC] = useState("");
+    const [IDD, setIDD] = useState("");
+    const [IDP, setIDP] = useState("");
+    const [IDU, setIDU] = useState("");
+    const [infoPopup, setInfoPopup] = useState(false);
+    
+    const Edit = (name,ID) => {
+  
 
+      switch (title) {
+        case 'Devices': 
+          setEditPopupfleet(true) ;
+          setIsemF(name);
+          setIDF(ID);
+          console.log(IDF)
+          break;
+        case 'Stores name':
+          setEditPopupstore(true) ;
+          setIsem(name);
+          setIDe(ID);
+          break;
+          case 'Clients name':
+            setEditPopupclient(true) ;
+          setIsemC(name);
+          setIDC(ID);
+          break;
+          case 'Drivers name':
+            setEditPopupdriver(true) ;
+          setIsemD(name);
+          setIDD(ID);
+          break;
+          case 'Provider name':
+            setEditPopupprovider(true) ;
+          setIsemP(name);
+          setIDP(ID);
+          break;
+          case 'Users name':
+            setEditPopupuser(true) ;
+          setIsemU(name);
+          setIDU(ID);
+          break;
+
+        default:
+          console.log(`Sorry, we are out of ${title}.`);
+      }
+    }
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -138,7 +190,6 @@ function FullTable(props) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const [editPopupfleet, setEditPopupfleet] = useState(false);
   return (
     <div className="tabdevice">
     <TableContainer component={Paper}>
@@ -146,7 +197,7 @@ function FullTable(props) {
           <TableHead>
             <TableRow className="row" >
                 
-              <StyledTableCell  align="left" ><input type="radio" name="fleet"/><label for="store">{title}</label></StyledTableCell>
+              <StyledTableCell  align="left" ><input type="radio" name="fleet"  className="radio"/><label for="store">{title}</label></StyledTableCell>
               <StyledTableCell  align="left" className={`circle ${type}`}>Alerts</StyledTableCell>
               <StyledTableCell  align="right">{stat}?</StyledTableCell>
             </TableRow>
@@ -182,11 +233,21 @@ function FullTable(props) {
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
-                  <i className="material-icons" onClick={() => setEditPopupfleet(true)} >border_color</i>
+                    <DeleteIcon className="material-ico" sx={{ fontSize: 27 }}/>
+                  <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 
-                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={row._id}/>
+                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>
+                  <PopupEditUser trigger={editPopupuser} setTrigger={setEditPopupuser} id={IDU} name={isemU}/>
+                  <PopupEditStore trigger={editPopupstore} setTrigger={setEditPopupstore} id={IDe} name={isem}/>
+                  <PopupEditProvider trigger={editPopupprovider} setTrigger={setEditPopupprovider} id={IDP} name={isemP}/>
+                  <PopupEditDriver trigger={editPopupdriver} setTrigger={setEditPopupdriver} id={IDD} name={isemD}/>
+                  <PopupEditClient trigger={editPopupclient} setTrigger={setEditPopupclient} id={IDC} name={isemC}/>
+
                   </div>
-                  <i class="material-icons">info_outline</i>
+                  <i class="material-icons" onClick={() => setInfoPopup(true)}>info_outline</i>
+                  <div className="popeditfleet"> 
+                  <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup}/>
+                  </div>
                   <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>

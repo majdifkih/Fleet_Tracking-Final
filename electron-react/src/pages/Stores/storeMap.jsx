@@ -2,7 +2,6 @@ import "./store.scss"
 import store from './store.png'
 import {
   Box,
-  Flex,
   SkeletonText,
 } from '@chakra-ui/react'
 
@@ -17,7 +16,8 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import TableMap from "../../components/table/TableMap";
 import SearchIcon from '@mui/icons-material/Search';
-
+import { Link } from "react-router-dom";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const center = { lat: 35.523916, lng: 11.030870 }
 
 function Store() {
@@ -143,27 +143,21 @@ function Store() {
     <div className="store">
     <Navbar/>
         <span className="titlemap">Stores</span>
+        <Link to="/storetable"> <button className="back"><ArrowBackIcon className="iconback"/></button></Link>
         <div className="storecenter">
     <div className="storeleft">
         
     
       
           
-     <Flex 
-      direction='column'
-      border={1}
-      h='80vh'
-      w='107%'
-
-      p='10'
-    >
+   
       <div className="title">Map<br/><span>Stores</span></div>
-      <Box   h='90%' w='90%' p={4}>
+      <Box   h='90%' w='90%' p={10}>
         {/* Google Map Box */}
         <GoogleMap
           center={center}
           zoom={8}
-          mapContainerStyle={{ width: '100%', height: '100%' }}
+          mapContainerStyle={{ width: '110%', height: '102%' }}
           options={{
             zoomControl: true,
             streetViewControl: true,
@@ -184,7 +178,7 @@ function Store() {
         </GoogleMap>
       </Box>
      
-    </Flex>
+   
     
     
     </div>
@@ -192,7 +186,7 @@ function Store() {
     <div className="storetabHead">
         <div className="storetab">
         <div className="listTitlestore">Stores <span>(20)</span></div>
-        <a href="#">Voir tout</a>
+        <Link to="/storetable"> Voir tout</Link>
         </div>
         <div className="input">        <div class="input-icone">
 <input type="Search" placeholder="Search..."/>

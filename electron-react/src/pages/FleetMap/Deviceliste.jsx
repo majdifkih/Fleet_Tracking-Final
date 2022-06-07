@@ -61,7 +61,7 @@ const rows = [
 </div>
 </div>
 
- <FullTable  type="oui" title="Livreur" stat="Online"/>
+ <FullTable rows={rows} type="oui" title="Devices" stat="Online"/>
   </div>
   </div>
   

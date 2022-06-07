@@ -11,6 +11,7 @@ import GpsFixedIcon from '@mui/icons-material/GpsFixed';
 import LogoutIcon from '@mui/icons-material/Logout';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
+import CoPresentIcon from '@mui/icons-material/CoPresent';
 const Sidebar = () => {
  
   return (
@@ -79,7 +80,11 @@ const Sidebar = () => {
               <AccountCircleIcon className="iconlist" fontSize="small"/> Users
                 </Link>
             </li>
-           
+            <li>
+            <Link to="/delivery" >
+            <CoPresentIcon className="iconlist" fontSize="small"/> Administrative
+              </Link>
+            </li>
             <li>
             <Link to="/logout" >
             <LogoutIcon className="iconlist" fontSize="small"/> Log out

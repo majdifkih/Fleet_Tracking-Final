@@ -7,6 +7,7 @@ import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 function PopupEditFleet(props){
     const [newVehiculeName, setnewVehiculeName] = useState("");
     const [newVehiculeStatus, setnewVehiculeStatus] = useState("");
@@ -57,6 +58,12 @@ function PopupEditFleet(props){
       setnewVehicleMarque(event.target.value)}} type="text" placeholder="Edit Marque" /></div>
             </div>
             </div>
+            <div className="form">
+            <label for="namea"/>Drivers ID
+            <div className="formicon">
+            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Drivers" /></div>
+            </div>
+            </div>
             </div>
             <div className="formright">
 
@@ -72,6 +79,20 @@ function PopupEditFleet(props){
             <div className="formicon">
             <CarCrashOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input onChange={(event)=> {
       setnewVehiculeCategory(event.target.value)}} type="text" placeholder="Edit Date" /></div>
+            <label for="namea" />Category
+            <div className="formicon">
+            <LocalOfferOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="selectcat">
+                <option selected>Choose Category</option>
+                <option>Camion</option>
+                <option>Car</option>
+                </select>
+                </div>
+            </div>
+            </div>
+            <div className="form">
+            <label for="namea"/>Last maintenance
+            <div className="formicon">
+            <CarCrashOutlinedIcon className="icondate" fontSize="small"/><div className="formdate"><input type="date" className="inputdate" /></div>
             </div>
             </div>
             <div className="form">
@@ -79,6 +100,12 @@ function PopupEditFleet(props){
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconeditfleet" fontSize="small"/><div className="formeditfleet"><input onChange={(event)=> {
       setnewVehiculeStatus(event.target.value)}} type="text" placeholder="Edit Status" /></div>
+            <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select">
+                <option selected>Choose status</option>
+                <option>Online</option>
+                <option>Offline</option>
+                </select>
+                </div>
             </div>
             </div>
             </div>

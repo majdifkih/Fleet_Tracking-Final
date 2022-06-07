@@ -89,6 +89,12 @@ function PopupInventory(props){
 }} /></div>
             </div>
             </div>
+            <div className="form">
+            <label for="namea"/>Alert Condition
+            <div className="formicon">
+            <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Condition" /></div>
+            </div>
+            </div>
            
             </div>
             </div>

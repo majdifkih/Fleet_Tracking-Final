@@ -179,7 +179,7 @@ const [IDI,setIDI]=useState("");
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Name</label></StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet" className="radio"/><label for="store">Name</label></StyledTableCell>
             <StyledTableCell  >Barcode</StyledTableCell>
             <StyledTableCell  >Quantity</StyledTableCell>
             <StyledTableCell  >Price</StyledTableCell>

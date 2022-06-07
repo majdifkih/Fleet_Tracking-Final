@@ -2,9 +2,23 @@
     display: flex;
     gap: 2%;
 .fleet{
-  flex: 3;
+    flex: 3;
     display: flex;
     flex-direction: column;
+    .back{
+      display: flex;
+      width: 7%;
+      padding: 0.4%;
+      margin-bottom: 1%;
+      align-items: center;
+      border-radius: 5px;
+      color:#fff;
+      border: 1px solid rgb(210, 209, 209);
+      background-color: rgb(161, 65, 65,0.8);
+      text-decoration:none;
+      cursor: pointer;
+      
+    }
     .fleetcenter{
       display: flex;
       gap: 2%;
@@ -12,23 +26,23 @@
     }
     .titlefleet{
        
-        font-weight:bold;
+          font-weight:bold;
           color: black;
-         padding-bottom: 1%;
+          padding-bottom: 1%;
           font-size: 122%;
        
     }
 .fleetleft{
 
-  flex: 4;
-   display: flex;
-flex-direction: column;
+    flex: 4;
+    display: flex;
+    flex-direction: column;
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
-  
     border-radius: 10px;
-  background: #fff;
- 
+    background: #fff;
+    height: 95%;
+    padding: 1%;
  
     .title {
       
@@ -45,20 +59,17 @@ flex-direction: column;
   }
 
 .listapp {
-  flex: 1;
+    flex: 1;
     -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
     box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
     display: flex;
-        flex-direction: column;
-
+    
+    flex-direction: column;
     background: #fff;
     margin-right: 2%;
-
     padding: 1%;
-    
-   
-    
     border-radius: 10px;
+    height: 95.68%;
     
     .headTab{
       display: flex;

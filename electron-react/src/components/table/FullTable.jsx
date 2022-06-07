@@ -30,6 +30,7 @@ import PopupEditProvider from '../Popup/PopupEditProvider';
 import PopupEditUser from '../Popup/PopupEditUser';
 import PopupEditStore from '../Popup/PopupEditStores';
 import { Link } from 'react-router-dom';
+import PopupInfoFleet from '../Popup/PopupInfoFleet';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -193,7 +194,7 @@ function FullTable(props) {
           <TableHead>
             <TableRow className="row" >
                 
-              <StyledTableCell  align="left" ><input type="radio" name="fleet"/><label for="store">{title}</label></StyledTableCell>
+              <StyledTableCell  align="left" ><input type="radio" name="fleet"  className="radio"/><label for="store">{title}</label></StyledTableCell>
               <StyledTableCell  align="left" className={`circle ${type}`}>Alerts</StyledTableCell>
               <StyledTableCell  align="right">{stat}?</StyledTableCell>
             </TableRow>
@@ -239,7 +240,10 @@ function FullTable(props) {
                   <PopupEditClient trigger={editPopupclient} setTrigger={setEditPopupclient} id={IDC} name={isemC}/>
 
                   </div>
-                  <i class="material-icons">info_outline</i>
+                  <i class="material-icons" onClick={() => setInfoPopupfleet(true)}>info_outline</i>
+                  <div className="popeditfleet"> 
+                  <PopupInfoFleet trigger={infoPopupfleet} setTrigger={setInfoPopupfleet}/>
+                  </div>
                   <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>

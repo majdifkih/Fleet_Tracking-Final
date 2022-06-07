@@ -2,7 +2,6 @@ import "./store.scss"
 import store from './store.png'
 import {
   Box,
-  Flex,
   SkeletonText,
 } from '@chakra-ui/react'
 

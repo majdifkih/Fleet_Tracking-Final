@@ -11,6 +11,8 @@ import ProviderTable from "./pages/Provider/Provider";
 import ClientTable from "./pages/Client/Client";
 import DriverTable from "./pages/Driver/Driver";
 import UserTable from "./pages/User/User";
+import InfoDelivery from "./pages/infodelivery/InfoDelivery";
+import DeliveryListe from "./pages/Delivery/Deliveryliste";
 
 function App() {
 
@@ -31,6 +33,8 @@ function App() {
             <Route path="clients" element={<ClientTable/>}/>
             <Route path="drivers" element={<DriverTable/>}/>
             <Route path="users" element={<UserTable/>}/>
+            <Route path="infodelivery" element={<InfoDelivery/>}/>
+            <Route path="delivery" element={<DeliveryListe/>}/>
             </Route>
         </Routes>
       </HashRouter>

@@ -30,29 +30,29 @@ function PopupEditInventory(props){
                  }   ).catch((err) => {  console.log(err) }  )
           }
     return (props.trigger) ? (
-        <div className="popupeditinventory">
-            <div className="popup-innereditinventory">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Edit product</h3>
-                <div className="formulereditinventory">
+                <div className="formulera">
                 <div className="formleft">
-            <div className="formm">
-            <label for="nameeditinventory"/>Name
+            <div className="form">
+            <label for="namea"/>Name
             <div className="formicon">
             <Inventory2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Name"  onChange={(event)=> {
   setnewPname(event.target.value);
 }}/></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Barcode
+            <div className="form">
+            <label for="namea"/>Barcode
             <div className="formicon">
             <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Edit Barcode" onChange={(event)=> {
   setnewbarCode(event.target.value);
 }} /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameeditinventory"/>Quantity
+            <div className="form">
+            <label for="namea"/>Quantity
             <div className="formicon">
             <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" placeholder="Edit Quantity" onChange={(event)=> {
   setnewPqnty(event.target.value);
@@ -89,7 +89,7 @@ function PopupEditInventory(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopeditinventory">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={() => updateProduct(props.id)} >Edit</button>
                 </div>

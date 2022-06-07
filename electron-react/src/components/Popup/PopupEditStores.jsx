@@ -1,11 +1,7 @@
 import React from "react";
-<<<<<<< HEAD
-import "./PopupEditStores.scss";
-=======
 import "./Popupform.scss";
 import { useState } from "react";
 import axios from "axios";
->>>>>>> 3a47dcea5bb802d5b15355661bf88d34cdec3c8b
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -38,29 +34,29 @@ function PopupEditStore(props){
     
 
     return (props.trigger) ? (
-        <div className="popupeditstore">
-            <div className="popup-innereditstore">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Edit Store</h3>
-                <div className="formulereditstore">
+                <div className="formulera">
                 <div className="formleft">
-            <div className="for">
-            <label for="nameeditstore"/>Store Name
+            <div className="form">
+            <label for="namea"/>Store Name
             <div className="formicon">
             <StorefrontIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.name} onChange={(event)=> {
       setnewStoreName(event.target.value);
     }} /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameeditstore"/>Contact
+            <div className="form">
+            <label for="namea"/>Contact
             <div className="formicon">
             <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Contact" onChange={(event)=> {
       setnewStoreContact(event.target.value);
     }}/></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameeditstore"/>Store Owner
+            <div className="form">
+            <label for="namea"/>Store Owner
             <div className="formicon">
             <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit  Owner" onChange={(event)=> {
       setnewStoreOwner(event.target.value);
@@ -69,24 +65,24 @@ function PopupEditStore(props){
             </div>
             </div>
             <div className="formright">
-            <div className="for">
-            <label for="nameeditstore"/>ID Number
+            <div className="form">
+            <label for="namea"/>ID Number
             <div className="formicon">
             <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit ID Number" onChange={(event)=> {
       setnewStoreNum(event.target.value);
     }} /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameeditstore"/>Type
+            <div className="form">
+            <label for="namea"/>Type
             <div className="formicon">
             <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Type" onChange={(event)=> {
       setnewStoreType(event.target.value);
     }} /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameeditstore"/>Position
+            <div className="form">
+            <label for="namea"/>Address
             <div className="formicon">
             <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Address"  onChange={(event)=> {
       setnewStoreAddress(event.target.value);
@@ -95,7 +91,7 @@ function PopupEditStore(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopeditstore">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={()=> updateStore(props.id)} >Edit</button>
                 </div>

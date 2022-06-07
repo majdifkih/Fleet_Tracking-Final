@@ -1,10 +1,9 @@
 import React from "react";
-import "./PopupAddUser.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import axios from "axios";
@@ -39,13 +38,13 @@ function PopupUser(props){
             }
         }
     return (props.trigger) ? (
-        <div className="popupuser">
-            <div className="popup-inneruser">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New User</h3>
-                <div className="formuleruser">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="nameuser"/>User Name
+            <label for="namea"/>User Name
             <div className="formicon">
             <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" onChange={(event)=> {
       setUname(event.target.value);
@@ -53,7 +52,7 @@ function PopupUser(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>Password
+            <label for="namea"/>Password
             <div className="formicon">
             <LockIcon className="icona" fontSize="small"/><div className="forma"><input type="password" onChange={(event)=> {
       setUpassword(event.target.value);
@@ -61,7 +60,7 @@ function PopupUser(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>ID
+            <label for="namea"/>ID
             <div className="formicon">
             <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
       setidUser(event.target.value);
@@ -72,7 +71,7 @@ function PopupUser(props){
             <div className="formright">
 
             <div className="form">
-            <label for="nameuser" />Hiring date
+            <label for="namea" />Email
             <div className="formicon">
             <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setUemail(event.target.value);
@@ -80,7 +79,7 @@ function PopupUser(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>Adress
+            <label for="namea"/>Address
             <div className="formicon">
             <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" onChange={(event)=> {
       setUaddress(event.target.value);
@@ -88,7 +87,7 @@ function PopupUser(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameuser"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
             <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" onChange={(event)=> {
       setUtelf(event.target.value);
@@ -97,7 +96,7 @@ function PopupUser(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopuser">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={addUser} >Add</button>
                 </div>

@@ -1,10 +1,9 @@
 import React from "react";
-import "./PopupAddDriver.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import axios from "axios";
@@ -40,13 +39,13 @@ function PopupDriver(props){
         }
          
     return (props.trigger) ? (
-        <div className="popupdriver">
-            <div className="popup-innerdriver">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Driver</h3>
-                <div className="formulerdriver">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="namedriver"/>Driver Name
+            <label for="namea"/>Driver Name
             <div className="formicon">
             <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" onChange={(event)=> {
       setDname(event.target.value);
@@ -54,7 +53,7 @@ function PopupDriver(props){
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Password
+            <label for="namea"/>Password
             <div className="formicon">
             <LockIcon className="icona" fontSize="small"/><div className="forma"><input type="password" onChange={(event)=> {
       setDpassword(event.target.value);
@@ -62,7 +61,7 @@ function PopupDriver(props){
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>ID
+            <label for="namea"/>ID
             <div className="formicon">
             <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
       setidDriver(event.target.value);
@@ -73,7 +72,7 @@ function PopupDriver(props){
             <div className="formright">
 
             <div className="form">
-            <label for="namedriver" />Hiring date
+            <label for="namea" />Email
             <div className="formicon">
             <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setDemail(event.target.value);
@@ -81,7 +80,7 @@ function PopupDriver(props){
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Adress
+            <label for="namea"/>Address
             <div className="formicon">
             <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" onChange={(event)=> {
       setDaddress(event.target.value);
@@ -89,7 +88,7 @@ function PopupDriver(props){
             </div>
             </div>
             <div className="form">
-            <label for="namedriver"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
             <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" onChange={(event)=> {
       setDtelf(event.target.value);
@@ -98,7 +97,7 @@ function PopupDriver(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopdriver">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={addDriver} >Add</button>
                 </div>

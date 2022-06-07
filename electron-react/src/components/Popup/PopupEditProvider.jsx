@@ -1,15 +1,13 @@
 import React from "react";
-import "./PopupEditProvider.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import axios from "axios";
 import { useState } from "react";
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
-import axios from "axios";
-import { useState } from "react";
+
 function PopupEditProvider(props){
     const [newProviderNum, setnewProviderNum] = useState("");
     const [newNameprovider, setnewNameprovider] = useState("");

@@ -1,7 +1,6 @@
 import React from "react";
-import "./PopupAddInventory.scss";
+import "./Popupform.scss";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
-import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
@@ -41,48 +40,49 @@ function PopupInventory(props){
             }
         }
     return (props.trigger) ? (
-        <div className="popupinventory">
-            <div className="popup-innerinventory">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add product</h3>
-                <div className="formulerinventory">
+                <div className="formulera">
                 <div className="formleft">
-            <div className="formm">
-            <label for="nameinventory"/>Name
+            <div className="form">
+            <label for="namea"/>Name
             <div className="formicon">
             <Inventory2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" onChange={(event)=> {
   setPname(event.target.value);
 }} /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameinventory"/>Barcode
+            <div className="form">
+            <label for="namea"/>Barcode
             <div className="formicon">
             <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Enter Barcode" onChange={(event)=> {
   setbarCode(event.target.value);
 }} /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameinventory"/>Quantity
+            <div className="form">
+            <label for="namea"/>Quantity
             <div className="formicon">
             <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" onChange={(event)=> {
   setPqnty(event.target.value);
 }} placeholder="Enter Quantity" /></div>
             </div>
             </div>
+            
             </div>
             <div className="formright">
-
-            <div className="formm">
-            <label for="nameinventory"/>ID
+            <div className="form">
+            <label for="namea"/>Price
             <div className="formicon">
             <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Enter Price" onChange={(event)=> {
   setPrice(event.target.value);
 }} /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameinventory"/>Category
+            
+            <div className="form">
+            <label for="namea"/>Category
             <div className="formicon">
             <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Category"onChange={(event)=> {
   setPcategory(event.target.value);
@@ -95,15 +95,10 @@ function PopupInventory(props){
             <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Condition" /></div>
             </div>
             </div>
-            <div className="formm">
-            <label for="nameinventory"/>Status
-            <div className="formicon">
-            <InventoryOutlinedIcon className="iconinventory" fontSize="small"/><div className="forminventory"><input type="text" placeholder="Enter Status" /></div>
+           
             </div>
             </div>
-            </div>
-            </div>
-                <div className="buttonpopinventory">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={addProduct} >Add</button>
                 </div>

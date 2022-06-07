@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupEditClient.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -33,13 +33,13 @@ function PopupEditClient(props){
           }
     
     return (props.trigger) ? (
-        <div className="popupeditclient">
-            <div className="popup-innereditclient">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Edit Client</h3>
-                <div className="formulereditclient">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="nameeditclient"/>Client Name
+            <label for="namea"/>Client Name
             <div className="formicon">
             <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Name" onChange={(event)=> {
       setnewclientName(event.target.value);
@@ -47,7 +47,7 @@ function PopupEditClient(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>ID
+            <label for="namea"/>ID
             <div className="formicon">
             <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit ID" onChange={(event)=> {
       setnewClientNum(event.target.value);
@@ -73,7 +73,7 @@ function PopupEditClient(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
             <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Number" onChange={(event)=> {
       setnewclientphone(event.target.value);
@@ -81,7 +81,7 @@ function PopupEditClient(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameeditclient"/>Status
+            <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {
       setnewclientStatus(event.target.value);
@@ -95,7 +95,7 @@ function PopupEditClient(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopeditclient">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={()=> updateClient(props.id)} >Edit</button>
                 </div>

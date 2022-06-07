@@ -1,10 +1,8 @@
 import React from "react";
-import "./PopupAddProvider.scss";
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import "./Popupform.scss";
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
-import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
-import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import axios from "axios";
 import { useState } from "react";
@@ -34,39 +32,40 @@ function PopupProvider(props){
               }
           }
     return (props.trigger) ? (
-        <div className="popupprovider">
-            <div className="popup-innerprovider">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Provider</h3>
-                <div className="formulerprovider">
+                <div className="formulera">
                 <div className="formleft">
-            <div className="for">
-            <label for="nameprovider"/>Provider Name
+            <div className="form">
+            <label for="namea"/>Provider Name
             <div className="formicon">
             <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setNameprovider(event.target.value);
     }} type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameprovider"/>Contact
+            <div className="form">
+            <label for="namea"/>Phone Number
             <div className="formicon">
             <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setProviderPhone(event.target.value);
     }} type="text" placeholder="Enter Number" /></div>
             </div>
             </div>
+            
             </div>
             <div className="formright">
-            <div className="for">
-            <label for="nameprovider"/>Product
+            <div className="form">
+            <label for="namea"/>ID Number
             <div className="formicon">
             <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
       setProviderNum(event.target.value);
     }} type="text" placeholder="Enter ID" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="nameprovider"/>Quantity
+            <div className="form">
+            <label for="namea"/>Product category
             <div className="formicon">
             <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setProviderCategory(event.target.value);
@@ -75,7 +74,7 @@ function PopupProvider(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopprovider">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={addProvider} >Add</button>
                 </div>

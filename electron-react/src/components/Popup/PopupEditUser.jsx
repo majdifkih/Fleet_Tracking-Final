@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupEditUser.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';

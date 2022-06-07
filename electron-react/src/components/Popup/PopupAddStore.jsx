@@ -40,29 +40,29 @@ function PopupStore(props){
         }
     }
     return (props.trigger) ? (
-        <div className="popupstore">
-            <div className="popup-innerstore">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Store</h3>
-                <div className="formulerstore">
+                <div className="formulera">
                 <div className="formleft">
-            <div className="for">
-            <label for="namestore"/>Store Name
+            <div className="form">
+            <label for="namea"/>Store Name
             <div className="formicon">
             <StorefrontIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setStoreName(event.target.value);
     }} type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Contact
+            <div className="form">
+            <label for="namea"/>Contact
             <div className="formicon">
             <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setStoreContact(event.target.value);
     }} type="text" placeholder="Enter Contact" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Store Owner
+            <div className="form">
+            <label for="namea"/>Store Owner
             <div className="formicon">
             <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
       setStoreOwner(event.target.value);
@@ -71,24 +71,24 @@ function PopupStore(props){
             </div>
             </div>
             <div className="formright">
-            <div className="for">
-            <label for="namestore"/>ID Number
+            <div className="form">
+            <label for="namea"/>ID Number
             <div className="formicon">
             <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setStoreNum(event.target.value);
     }} type="text" placeholder="Enter ID Number" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Type
+            <div className="form">
+            <label for="namea"/>Type
             <div className="formicon">
             <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setStoreType(event.target.value);
     }} type="text" placeholder="Enter Type" /></div>
             </div>
             </div>
-            <div className="for">
-            <label for="namestore"/>Position
+            <div className="form">
+            <label for="namea"/>Address
             <div className="formicon">
             <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Address" onChange={(event)=> {
       setStoreAddress(event.target.value);
@@ -97,7 +97,7 @@ function PopupStore(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopstore">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={addstore} >Add</button>
                 </div>

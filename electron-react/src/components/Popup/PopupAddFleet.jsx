@@ -1,70 +1,34 @@
 import React from "react";
-import "./PopupAddFleet.scss";
+import "./Popupform.scss";
 import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
 import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import axios from 'axios';
-import { useState } from "react";
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 function PopupFleet(props){
-    const [VehicleName, setVehicleName] = useState("");
-    const [Matricule, setMatricule] = useState("");
-    const [VehicleMarque, setVehicleMarque] = useState("");
-    const [Category, setCategory] = useState("");
-    const [CreationDate, setCreationDate] = useState("");
-    const [Status, setStatus] = useState("");
-    
-    const dataVehicule = {name:VehicleName,
-        status:Status ,
-        Matricule:Matricule ,
-        VehicleMarque:VehicleMarque,
-        CreationDate:CreationDate,
-        Category:Category
-        }
-    const addvehicule = async () => {
-        try {
-            await axios.post('http://localhost:3001/VehiculeAPI/vehicules',dataVehicule ).then((res) => {
-                
-                  if (res.data.status === 'success') {
-                     console.log(res.data)
-                   }});
-              
-          } catch (error) {
-              if (error.response) {
-                  console.log(error.response.data);
-              }
-          }
-      }
-
     return (props.trigger) ? (
-        <div className="popupfleet">
-            <div className="popup-innerfleet">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Vehicle</h3>
-                <div className="formulerfleet">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="namefleet"/>Vehicle Name
+            <label for="namea"/>Vehicle Name
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Name" onChange={(event)=> {
-      setVehicleName(event.target.value);
-    }} /></div>
+            <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Matricule
+            <label for="namea"/>Matricule
             <div className="formicon">
-            <EightMpOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Matricule" onChange={(event)=> {
-      setMatricule(event.target.value);
-    }}/></div>
+            <EightMpOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Matricule" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Vehicle marque
+            <label for="namea"/>Vehicle marque
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconfleet" fontSize="small"/> <div className="formfleet"><input onChange={(event)=> {
-      setVehicleMarque(event.target.value);
-    }} type="text" placeholder="Enter Marque" /></div>
+            <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Marque" /></div>
             </div>
             </div>
             <div className="form">
@@ -77,34 +41,38 @@ function PopupFleet(props){
             <div className="formright">
 
             <div className="form">
-            <label for="namefleet" />Category
+            <label for="namea" />Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input onChange={(event)=> {
-      setCategory(event.target.value);
-    }} type="text" placeholder="Enter Category" /></div>
+            <LocalOfferOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="selectcat">
+                <option selected>Choose Category</option>
+                <option>Camion</option>
+                <option>Car</option>
+                </select>
+                </div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Creation Date
+            <label for="namea"/>Last maintenance
             <div className="formicon">
-            <CarCrashOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input onChange={(event)=> {
-      setCreationDate(event.target.value);
-    }} type="text" placeholder="Enter Date" /></div>
+            <CarCrashOutlinedIcon className="icondate" fontSize="small"/><div className="formdate"><input type="date" className="inputdate" /></div>
             </div>
             </div>
             <div className="form">
-            <label for="namefleet"/>Status
+            <label for="namea"/>Status
             <div className="formicon">
-            <HelpOutlineOutlinedIcon className="iconfleet" fontSize="small"/><div className="formfleet"><input type="text" placeholder="Enter Status" onChange={(event)=> {
-      setStatus(event.target.value);
-    }}/></div>
+            <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select">
+                <option selected>Choose status</option>
+                <option>Online</option>
+                <option>Offline</option>
+                </select>
+                </div>
             </div>
             </div>
             </div>
             </div>
-                <div className="buttonpopfleet">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnaddfleet" onClick={addvehicule} >Add</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

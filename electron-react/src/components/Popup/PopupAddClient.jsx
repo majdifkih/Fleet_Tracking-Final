@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupAddClient.scss";
+import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -37,13 +37,13 @@ function PopupClient(props){
               }
           }
     return (props.trigger) ? (
-        <div className="popupclient">
-            <div className="popup-innerclient">
+        <div className="popupa">
+            <div className="popup-innera">
             <h3> Add New Client</h3>
-                <div className="formulerclient">
+                <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="nameclient"/>Client Name
+            <label for="namea"/>Client Name
             <div className="formicon">
             <PersonOutlineIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" onChange={(event)=> {
       setclientName(event.target.value);
@@ -51,7 +51,7 @@ function PopupClient(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>ID
+            <label for="namea"/>ID
             <div className="formicon">
             <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter ID" onChange={(event)=> {
       setClientNum(event.target.value);
@@ -59,7 +59,7 @@ function PopupClient(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Store Name 
+            <label for="namea"/>Store Name 
             <div className="formicon">
             <StorefrontIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Store" onChange={(event)=> {
       setNameStore(event.target.value);
@@ -69,7 +69,7 @@ function PopupClient(props){
             </div>
             <div className="formright">
             <div className="form">
-            <label for="nameclient"/>Adress
+            <label for="namea"/>Address
             <div className="formicon">
             <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Address" onChange={(event)=> {
       setclientAddress(event.target.value);
@@ -77,7 +77,7 @@ function PopupClient(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Phone Number
+            <label for="namea"/>Phone Number
             <div className="formicon">
             <PhoneIphoneIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Number" onChange={(event)=> {
       setclientphone(event.target.value);
@@ -85,7 +85,7 @@ function PopupClient(props){
             </div>
             </div>
             <div className="form">
-            <label for="nameclient"/>Status
+            <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {
       setclientStatus(event.target.value);
@@ -99,7 +99,7 @@ function PopupClient(props){
             </div>
             </div>
             </div>
-                <div className="buttonpopclient">
+                <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
                 <button className="btna" onClick={addclient} >Add</button>
                 </div>

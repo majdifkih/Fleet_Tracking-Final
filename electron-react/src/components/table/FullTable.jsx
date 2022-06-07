@@ -24,6 +24,7 @@ import tires from './tires.png'
 import oil from './oil.png'
 import PopupEditFleet from '../Popup/PopupEditFleet';
 import { Link } from 'react-router-dom';
+import PopupInfoFleet from '../Popup/PopupInfoFleet';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -125,6 +126,7 @@ function FullTable(props) {
     setPage(0);
   };
   const [editPopupfleet, setEditPopupfleet] = useState(false);
+  const [infoPopupfleet, setInfoPopupfleet] = useState(false);
   return (
     <div className="tabdevice">
     <TableContainer component={Paper}>
@@ -172,7 +174,10 @@ function FullTable(props) {
                   <div className="popeditfleet"> 
                   <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet}/>
                   </div>
-                  <i class="material-icons">info_outline</i>
+                  <i class="material-icons" onClick={() => setInfoPopupfleet(true)}>info_outline</i>
+                  <div className="popeditfleet"> 
+                  <PopupInfoFleet trigger={infoPopupfleet} setTrigger={setInfoPopupfleet}/>
+                  </div>
                   <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>

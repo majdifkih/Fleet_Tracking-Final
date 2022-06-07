@@ -8,6 +8,7 @@ import Chart from "../../components/chart/Chart";
 import TableMap from "../../components/table/TableMap";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PopupFleet from "../../components/Popup/PopupAddFleet";
+import { Link } from "react-router-dom";
 const Home = () => {
   const rows = [
     {
@@ -170,7 +171,7 @@ const Home = () => {
         <div className="headTab" >
         <div className="listTitleApp">
           <div className="listTitle" >Appareilles <span>(20)</span></div>
-        <a href="#">Voir tout</a>
+        <Link to="/devicelist">Voir tout</Link>
 
         </div>
         <div className="tableCell"><p className="ajoutapp">Ajout une appareille</p>

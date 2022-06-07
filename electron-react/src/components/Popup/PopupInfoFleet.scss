@@ -1,0 +1,92 @@
+.popupinfo{
+   
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.25);
+
+    display: flex;
+    justify-content: center;
+    margin-left:8% ;
+    align-items: center;
+
+.popup-innerinfo{
+   
+    -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+    box-shadow: 2px 4px 10px 1px rgba(61, 60, 60, 0.47);
+    padding: 2%;
+    width: 35%;
+    background-color: #FFF;
+    border: 2px solid rgb(187, 190, 187);
+    .formulerinfo{
+        display: flex;
+       gap: 10%;
+    
+    .formleft{
+        display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-top:2% ;
+    .forminfo{
+        display: flex;
+        flex-direction: column;
+        padding-top: 15%;
+        .infoname{
+            display: flex;
+        }
+        .attribinfo{
+            padding-top: 5%;
+            margin-left: 9%;
+            font-size: x-large;
+        }
+    }
+  
+  
+  
+    }
+    .formright{
+        display: flex;
+    flex-direction: column;
+    width: 50%;
+    padding-top:2% ;
+    .forminfo{
+        display: flex;
+        flex-direction: column;
+        padding-top: 15%;
+        .infoname{
+            display: flex;
+        }
+        .attribinfo{
+            padding-top: 5%;
+            margin-left: 9%;
+            font-size: x-large;
+        }
+    }
+    
+    
+    }
+    
+    
+    }
+
+
+    .cancel-btn {
+        margin-left: 80%;
+        font-weight: bold;
+        border-radius: 5px;
+        padding: 0% 7% 0% 7%;
+        margin-top: 3%;
+        height: 30px;
+        border: none;
+        background-color: #aab2b3;
+        cursor: pointer;
+    }
+     
+    
+
+}
+
+
+}

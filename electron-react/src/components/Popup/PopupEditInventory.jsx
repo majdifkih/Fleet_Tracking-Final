@@ -3,12 +3,12 @@ import "./Popupform.scss";
 import axios from "axios";
 import { useState } from "react";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
-import FeedOutlinedIcon from '@mui/icons-material/FeedOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import CampaignIcon from '@mui/icons-material/Campaign';
 function PopupEditInventory(props){
     const [newPname, setnewPname] = useState("");
     const [newbarCode, setnewbarCode] = useState("");
@@ -46,7 +46,7 @@ function PopupEditInventory(props){
             <div className="form">
             <label for="namea"/>Barcode
             <div className="formicon">
-            <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Barcode" onChange={(event)=> {
+            <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Edit Barcode" onChange={(event)=> {
   setnewbarCode(event.target.value);
 }} /></div>
             </div>
@@ -54,28 +54,23 @@ function PopupEditInventory(props){
             <div className="form">
             <label for="namea"/>Quantity
             <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit Quantity" onChange={(event)=> {
+            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" placeholder="Edit Quantity" onChange={(event)=> {
   setnewPqnty(event.target.value);
 }}/></div>
             </div>
             </div>
+            
+            </div>
+            <div className="formright">
             <div className="form">
             <label for="namea"/>Price
             <div className="formicon">
-            <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Price" onChange={(event)=> {
+            <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Edit Price" onChange={(event)=> {
   setnewPrice(event.target.value);
 }} /></div>
             </div>
             </div>
-            </div>
-            <div className="formright">
-
-            <div className="form">
-            <label for="namea"/>ID
-            <div className="formicon">
-            <FeedOutlinedIcon className="icona" fontSize="small"/><div className="forma" ><input type="text" placeholder="Edit ID"  /></div>
-            </div>
-            </div>
+           
             <div className="form">
             <label for="namea"/>Category
             <div className="formicon">
@@ -85,9 +80,9 @@ function PopupEditInventory(props){
             </div>
             </div>
             <div className="form">
-            <label for="namea"/>Status
+            <label for="namea"/>Alert Condition
             <div className="formicon">
-            <InventoryOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Status" onChange={(event)=> {
+            <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Condition" onChange={(event)=> {
   setnewalertNum(event.target.value);
 }} /></div>
             </div>

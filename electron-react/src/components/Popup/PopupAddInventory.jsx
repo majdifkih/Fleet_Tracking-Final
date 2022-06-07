@@ -56,7 +56,7 @@ function PopupInventory(props){
             <div className="form">
             <label for="namea"/>Barcode
             <div className="formicon">
-            <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Barcode" onChange={(event)=> {
+            <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Enter Barcode" onChange={(event)=> {
   setbarCode(event.target.value);
 }} /></div>
             </div>
@@ -64,7 +64,7 @@ function PopupInventory(props){
             <div className="form">
             <label for="namea"/>Quantity
             <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" onChange={(event)=> {
+            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" onChange={(event)=> {
   setPqnty(event.target.value);
 }} placeholder="Enter Quantity" /></div>
             </div>
@@ -75,7 +75,7 @@ function PopupInventory(props){
             <div className="form">
             <label for="namea"/>Price
             <div className="formicon">
-            <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Price" onChange={(event)=> {
+            <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="number" placeholder="Enter Price" onChange={(event)=> {
   setPrice(event.target.value);
 }} /></div>
             </div>

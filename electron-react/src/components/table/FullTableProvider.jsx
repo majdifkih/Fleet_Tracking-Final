@@ -131,7 +131,7 @@ function FullTableProvider(props) {
           <TableHead>
             <TableRow className="row" >
                 
-              <StyledTableCell  align="left" ><input type="radio" name="fleet"/><label for="store">{title}</label></StyledTableCell>
+              <StyledTableCell  align="left" ><input type="radio" name="fleet"  className="radio"/><label for="store">{title}</label></StyledTableCell>
               <StyledTableCell  align="left" className={`circle ${type}`}>Alerts</StyledTableCell>
               <StyledTableCell  align="right">{stat}?</StyledTableCell>
             </TableRow>

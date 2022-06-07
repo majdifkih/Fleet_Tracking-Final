@@ -58,7 +58,7 @@ const rows = [
 </div>
 </div>
 
- <FullTableDriver rows={rows} type="non" stat="status" title="drivers name"/>
+ <FullTableDriver rows={rows} type="non" stat="status" title="Drivers Name"/>
   </div>
   </div>
   

@@ -58,7 +58,7 @@ const rows = [
 </div>
 </div>
 
- <FullTableUser rows={rows} type="non" stat="status" title="users name"/>
+ <FullTableUser rows={rows} type="non" stat="status" title="Users Name"/>
   </div>
   </div>
   

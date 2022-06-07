@@ -68,7 +68,7 @@ function PopupEditDriver(props){
         <div className="formicon">
         <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
   setnewDemail(event.target.value);
-}} type="text" placeholder="Edit Email" /></div>
+}} type="email" placeholder="Edit Email" /></div>
         </div>
         </div>
         <div className="form">

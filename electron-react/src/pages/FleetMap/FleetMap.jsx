@@ -146,7 +146,7 @@ function FleetMap() {
     <div className="fleet">
     <Navbar/>
     <span className="titlefleet">Fleet and Devices</span>
-    <Link to="/devicelist"> <button className="back"><ArrowBackIcon className="iconback"/><div className="namback">BACK</div></button></Link>
+    <Link to="/devicelist"> <button className="back"><ArrowBackIcon className="iconback"/></button></Link>
     <div className="fleetcenter">
     
         

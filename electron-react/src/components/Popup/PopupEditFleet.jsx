@@ -47,7 +47,7 @@ function PopupEditFleet(props){
             <div className="form">
             <label for="namea"/>Last maintenance
             <div className="formicon">
-            <CarCrashOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Date" /></div>
+            <CarCrashOutlinedIcon className="icondate" fontSize="small"/><div className="formdate"><input type="date" className="inputdate" /></div>
             </div>
             </div>
             <div className="form">

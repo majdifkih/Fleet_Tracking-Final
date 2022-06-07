@@ -175,7 +175,7 @@ const rows = [
 </div>
 
 </div>
-<Link to="/delivery"> <button className="back"><ArrowBackIcon className="iconback"/><div className="namback">BACK</div></button></Link>
+<Link to="/delivery"> <button className="back"><ArrowBackIcon className="iconback"/></button></Link>
   <div className="tabinventory">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">

@@ -18,11 +18,11 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-
 import "./FullTable.scss";
 import engine from './engine.png'
 import tires from './tires.png'
 import oil from './oil.png'
+import DeleteIcon from '@mui/icons-material/Delete';
 import PopupEditFleet from '../Popup/PopupEditFleet';
 import PopupEditClient from '../Popup/PopupEditClient';
 import PopupEditDriver from '../Popup/PopupEditDriver';
@@ -232,6 +232,7 @@ function FullTable(props) {
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
+                    <DeleteIcon className="material-ico" sx={{ fontSize: 27 }}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 
                   <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>

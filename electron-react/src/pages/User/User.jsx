@@ -1,38 +1,30 @@
 import "./User.scss";
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/Popup/Popup";
 import PopupUser from "../../components/Popup/PopupAddUser";
-import FullTableUser from "../../components/table/FullTableUsers";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
+import FullTable from "../../components/table/FullTable";
+import axios from "axios";
 
-function createData(name, status) {
-  return { name, status };
-}
-
-const rows = [
-  createData('Baraka','NonReg'),
-  createData('Hanout','regular'),
-  createData('Carrefour','regular'),
-  createData('Aotriya','regular'),
-  createData('Hamza shop','NonReg'),
-  createData('Nour','NonReg'),
-  createData('Mahida shop','regular'),
-  createData('Hanout El homa','regular'),
-  createData('Magasin','regular'),
-  createData('Store','NonReg'),
-  createData('Magasin','NonReg'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Gingerbread','NonReg'),
-];
  function UserTable() {
-  
+  const [Users, setUsers] = useState([]);
+  const getUser=()=>{
+    axios.get("http://localhost:3001/UserAPI/Users").then(res=>{
+      if(res.data.success){
+        setUsers( res.data.existingPosts);
+        
+        console.log(Users)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getUser() 
+  });  
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupuser, setAddPopupuser] = useState(false);
   return (
@@ -58,7 +50,7 @@ const rows = [
 </div>
 </div>
 
- <FullTableUser rows={rows} type="non" stat="status" title="users name"/>
+ <FullTable rows={Users} type="non" stat="status" title="Users name"/>
   </div>
   </div>
   

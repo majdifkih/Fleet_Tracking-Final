@@ -6,7 +6,39 @@ import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined';
 import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import axios from 'axios';
+import { useState } from "react";
+
 function PopupInventory(props){
+    const [Pname, setPname] = useState("");
+    const [barCode, setbarCode] = useState("");
+    const [Pqnty, setPqnty] = useState("");
+    const [Price, setPrice] = useState("");
+    const [alertNum, setalertNum] = useState("");
+    const [Pcategory, setPcategory] = useState("");
+    const dataI = {
+        productName:Pname ,
+        barCode:barCode ,
+        productQuantity:Pqnty,
+        productPrice:Price,
+        category:Pcategory,
+        
+        }
+        const addProduct = async () => {
+            try {
+                await axios.post('http://localhost:3001/ProductAPI/products',dataI ).then((res) => {
+
+                        if (res.data.status === 'success') {    
+                            console.log("ok")
+                        }
+                    }
+                );
+            } catch (error) {
+                if (error.response) {
+                    console.log(error.response.data);
+                }
+            }
+        }
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
@@ -16,19 +48,25 @@ function PopupInventory(props){
             <div className="form">
             <label for="namea"/>Name
             <div className="formicon">
-            <Inventory2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" /></div>
+            <Inventory2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" onChange={(event)=> {
+  setPname(event.target.value);
+}} /></div>
             </div>
             </div>
             <div className="form">
             <label for="namea"/>Barcode
             <div className="formicon">
-            <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Barcode" /></div>
+            <QrCode2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Barcode" onChange={(event)=> {
+  setbarCode(event.target.value);
+}} /></div>
             </div>
             </div>
             <div className="form">
             <label for="namea"/>Quantity
             <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Quantity" /></div>
+            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" onChange={(event)=> {
+  setPqnty(event.target.value);
+}} placeholder="Enter Quantity" /></div>
             </div>
             </div>
             
@@ -37,14 +75,18 @@ function PopupInventory(props){
             <div className="form">
             <label for="namea"/>Price
             <div className="formicon">
-            <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Price" /></div>
+            <AttachMoneyOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Price" onChange={(event)=> {
+  setPrice(event.target.value);
+}} /></div>
             </div>
             </div>
             
             <div className="form">
             <label for="namea"/>Category
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Category" /></div>
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Category"onChange={(event)=> {
+  setPcategory(event.target.value);
+}} /></div>
             </div>
             </div>
            
@@ -52,7 +94,7 @@ function PopupInventory(props){
             </div>
                 <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
+                <button className="btna" onClick={addProduct} >Add</button>
                 </div>
                 
             </div>

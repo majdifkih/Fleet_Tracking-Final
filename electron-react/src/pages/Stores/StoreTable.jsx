@@ -8,30 +8,26 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/Popup/Popup";
 import PopupStore from "../../components/Popup/PopupAddStore";
-import FullTableStore from "../../components/table/FullTableStores";
+import FullTable from "../../components/table/FullTable";
+import { useEffect } from 'react';
+import axios from 'axios';
 
-function createData(name, status) {
-  return { name, status };
-}
-
-const rows = [
-  createData('Baraka','NonReg'),
-  createData('Hanout','regular'),
-  createData('Carrefour','regular'),
-  createData('Aotriya','regular'),
-  createData('Hamza shop','NonReg'),
-  createData('Nour','NonReg'),
-  createData('Mahida shop','regular'),
-  createData('Hanout El homa','regular'),
-  createData('Magasin','regular'),
-  createData('Store','NonReg'),
-  createData('Magasin','NonReg'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Gingerbread','NonReg'),
-];
  function StoreTable() {
+
+  const [store,setStore] = useState([]);
+
+  const getStore=()=>{
+    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+      if(res.data.success){
+        setStore( res.data.existingPosts);
+        
+        console.log(store)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getStore() 
+  });   
   
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupstore, setAddPopupstore] = useState(false);
@@ -58,7 +54,8 @@ const rows = [
 </div>
 </div>
 
- <FullTableStore rows={rows} type="non" stat="status" title="stores name"/>
+ <FullTable rows={store} type="non" stat="status" title="Stores name"  />
+
   </div>
   </div>
   

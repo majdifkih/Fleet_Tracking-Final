@@ -18,11 +18,17 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
+
 import "./FullTable.scss";
 import engine from './engine.png'
 import tires from './tires.png'
 import oil from './oil.png'
 import PopupEditFleet from '../Popup/PopupEditFleet';
+import PopupEditClient from '../Popup/PopupEditClient';
+import PopupEditDriver from '../Popup/PopupEditDriver';
+import PopupEditProvider from '../Popup/PopupEditProvider';
+import PopupEditUser from '../Popup/PopupEditUser';
+import PopupEditStore from '../Popup/PopupEditStores';
 import { Link } from 'react-router-dom';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -108,8 +114,64 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   };
 function FullTable(props) {
     const {rows,type,title,stat,icon}=props;
-    
+    const [editPopupfleet, setEditPopupfleet] = useState(false);
+    const [editPopupstore, setEditPopupstore] = useState(false);
+    const [editPopupclient, setEditPopupclient] = useState(false);
+    const [editPopupdriver, setEditPopupdriver] = useState(false);
+    const [editPopupprovider, setEditPopupprovider] = useState(false);
+    const [editPopupuser, setEditPopupuser] = useState(false);
+    const [isem, setIsem] = useState("");
+    const [isemF, setIsemF] = useState("");
+    const [isemC, setIsemC] = useState("");
+    const [isemD, setIsemD] = useState("");
+    const [isemP, setIsemP] = useState("");
+    const [isemU, setIsemU] = useState("");
+    const [IDe, setIDe] = useState("");
+    const [IDF, setIDF] = useState("");
+    const [IDC, setIDC] = useState("");
+    const [IDD, setIDD] = useState("");
+    const [IDP, setIDP] = useState("");
+    const [IDU, setIDU] = useState("");
+    const Edit = (name,ID) => {
+  
 
+      switch (title) {
+        case 'Devices': 
+          setEditPopupfleet(true) ;
+          setIsemF(name);
+          setIDF(ID);
+          console.log(IDF)
+          break;
+        case 'Stores name':
+          setEditPopupstore(true) ;
+          setIsem(name);
+          setIDe(ID);
+          break;
+          case 'Clients name':
+            setEditPopupclient(true) ;
+          setIsemC(name);
+          setIDC(ID);
+          break;
+          case 'Drivers name':
+            setEditPopupdriver(true) ;
+          setIsemD(name);
+          setIDD(ID);
+          break;
+          case 'Provider name':
+            setEditPopupprovider(true) ;
+          setIsemP(name);
+          setIDP(ID);
+          break;
+          case 'Users name':
+            setEditPopupuser(true) ;
+          setIsemU(name);
+          setIDU(ID);
+          break;
+
+        default:
+          console.log(`Sorry, we are out of ${title}.`);
+      }
+    }
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
@@ -124,7 +186,6 @@ function FullTable(props) {
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  const [editPopupfleet, setEditPopupfleet] = useState(false);
   return (
     <div className="tabdevice">
     <TableContainer component={Paper}>
@@ -168,9 +229,15 @@ function FullTable(props) {
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
-                  <i className="material-icons" onClick={() => setEditPopupfleet(true)} >border_color</i>
+                  <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 
-                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet}/>
+                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>
+                  <PopupEditUser trigger={editPopupuser} setTrigger={setEditPopupuser} id={IDU} name={isemU}/>
+                  <PopupEditStore trigger={editPopupstore} setTrigger={setEditPopupstore} id={IDe} name={isem}/>
+                  <PopupEditProvider trigger={editPopupprovider} setTrigger={setEditPopupprovider} id={IDP} name={isemP}/>
+                  <PopupEditDriver trigger={editPopupdriver} setTrigger={setEditPopupdriver} id={IDD} name={isemD}/>
+                  <PopupEditClient trigger={editPopupclient} setTrigger={setEditPopupclient} id={IDC} name={isemC}/>
+
                   </div>
                   <i class="material-icons">info_outline</i>
                   <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>

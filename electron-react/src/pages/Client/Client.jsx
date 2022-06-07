@@ -1,37 +1,31 @@
 import "./Client.scss";
 import * as React from 'react';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/Popup/Popup";
-import FullTableClient from "../../components/table/FullTableClients";
+import FullTable from "../../components/table/FullTable";
 import PopupClient from "../../components/Popup/PopupAddClient";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-
-function createData(name, status) {
-  return { name, status };
-}
-
-const rows = [
-  createData('Baraka','NonReg'),
-  createData('Hanout','regular'),
-  createData('Carrefour','regular'),
-  createData('Aotriya','regular'),
-  createData('Hamza shop','NonReg'),
-  createData('Nour','NonReg'),
-  createData('Mahida shop','regular'),
-  createData('Hanout El homa','regular'),
-  createData('Magasin','regular'),
-  createData('Store','NonReg'),
-  createData('Magasin','NonReg'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Magasin','regular'),
-  createData('Gingerbread','NonReg'),
-];
+import axios from "axios";
  function ClientTable() {
+  
+
+  const [clients, setClients] = useState([]);
+  const getClient=()=>{
+    axios.get("http://localhost:3001/ClientAPI/clients").then(res=>{
+      if(res.data.success){
+        setClients( res.data.existingPosts);
+        
+        console.log(clients)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getClient() 
+  });   
   
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupclient, setAddPopupclient] = useState(false);
@@ -58,7 +52,7 @@ const rows = [
 </div>
 </div>
 
- <FullTableClient rows={rows} type="non" stat="status" title="clients name"/>
+ <FullTable rows={clients} type="non" stat="status" title="Clients name"/>
   </div>
   </div>
   

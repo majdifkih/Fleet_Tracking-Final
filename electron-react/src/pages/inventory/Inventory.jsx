@@ -1,6 +1,6 @@
 import "./Inventory.scss";
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -27,6 +27,7 @@ import Addinvetory from './add.png';
 import Popup from "../../components/Popup/Popup";
 import PopupInventory from "../../components/Popup/PopupAddInventory";
 import PopupEditInventory from "../../components/Popup/PopupEditInventory";
+import axios from "axios";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -110,31 +111,29 @@ TablePaginationActions.propTypes = {
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
-function createData(name, Barcode, Quantity, Price, Id, Category, status) {
-  return { name, Barcode, Quantity, Price, Id, Category, status };
-}
 
-const rows = [
-  createData('Chocotom','12313313','111','4.000DT','123454','Biscuit','LOW'),
-  createData('SAFIA eau','123321833','386','4.000DT','123234','Eau','GOOD'),
-  createData('Saida biscuit','893298','696','4.000DT','1124255','Biscuit','LOW'),
-  createData('Maestro','213435711','672','4.000DT','1154644','Chocolat','GOOD'),
-  createData('Saida','2564225','226','4.000DT','1154373','Chocolat','LOW'),
-  createData('Crostina','25672','172','4.000DT','116742','Biscuit','GOOD'),
-  createData('Ice cream','1445763454','147','4.000DT','11742','Chocolat','LOW'),
-  createData('Fidji','1568934','391','4.000DT','115362','Chocolat','GOOD'),
-  createData('Cupcake','6323563','973','4.000DT','114662','Biscuit','LOW'),
-  createData('Chocolat','131563','537','4.000DT','11632','Chocolat','GOOD'),
-  createData('Coca cola','535633','876','4.000DT','1124536','Eau','LOW'),
-  createData('Fanta','65322','314','4.000DT','112462','Eau','GOOD'),
-  createData('Apla','563432','555','4.000DT','1153673','Eau','LOW'),
-  createData('kaki','143434','222','4.000DT','113572','Biscuit','GOOD'),
-  createData('Gaucho ','12342545','231','4.000DT','112265','Biscuit','LOW'),
-];
  function InventoryListe() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
-
+  const [rows, setrows] = useState([]);
+  const getProduct=()=>{
+    axios.get("http://localhost:3001/ProductAPI/products").then(res=>{
+      if(res.data.success){
+        setrows( res.data.existingPosts);
+        
+        console.log(rows)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getProduct() 
+  });  
+const[NameI,setNameI]=useState("");
+const [IDI,setIDI]=useState("");
+  const Edit = (name,ID) => {
+    setEditPopupinventory(true);
+    setNameI(name);
+    setIDI(ID);}
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -194,20 +193,20 @@ const rows = [
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <StyledTableRow className="row" key={row.name}>
-              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
+            <StyledTableRow className="row" key={row.productName}>
+              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.productName}</label>
                 
               </StyledTableCell>
               <StyledTableCell className="barcode" >{row.Barcode}</StyledTableCell>
-              <StyledTableCell className="quantity" >{row.Quantity}</StyledTableCell>
-              <StyledTableCell className="price" >{row.Price}</StyledTableCell>
+              <StyledTableCell className="quantity" >{row.productQuantity}</StyledTableCell>
+              <StyledTableCell className="price" >{row.productPrice}</StyledTableCell>
               <StyledTableCell className="id" >{row.Id}</StyledTableCell>
-              <StyledTableCell className="category" >{row.Category}</StyledTableCell>
+              <StyledTableCell className="category" >{row.category}</StyledTableCell>
               <StyledTableCell  className="tabEnd" >
                 <div className="icons">
-                <i className="material-icons"  onClick={() => setEditPopupinventory(true)}>border_color</i>
+                <i className="material-icons"  onClick={()=>Edit(row.name,row._id)}>border_color</i>
                 <div className="popeditfleet"> 
-                  <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory}/>
+                  <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory} id={IDI} name={NameI}/>
                   </div>
                 <i class="material-icons">info_outline</i>
                 </div>
@@ -244,5 +243,6 @@ const rows = [
   </div>
   
   );
-}
+
+ }
 export default InventoryListe

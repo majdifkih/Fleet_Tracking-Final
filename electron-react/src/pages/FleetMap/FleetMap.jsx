@@ -1,5 +1,6 @@
 import "./FleetMap.scss"
 import TableMap from "../../components/table/TableMap";
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useState } from 'react';
 import {
   Box,
@@ -18,6 +19,8 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PopupFleet from "../../components/Popup/PopupAddFleet";
+import { Link } from "react-router-dom";
+
 const center = { lat: 35.523916, lng: 11.030870 }
 
 function FleetMap() {
@@ -143,6 +146,7 @@ function FleetMap() {
     <div className="fleet">
     <Navbar/>
     <span className="titlefleet">Fleet and Devices</span>
+    <Link to="/devicelist"> <button className="back"><ArrowBackIcon className="iconback"/><div className="namback">BACK</div></button></Link>
     <div className="fleetcenter">
     
         
@@ -151,21 +155,14 @@ function FleetMap() {
     
       
           
-     <Flex 
-      direction='column'
-      border={1}
-      h='80vh'
-      w='107%'
-
-      p='10'
-    >
+    
       <div className="title">Map<br/><span>Drivers and Shops/Clients</span></div>
-      <Box   h='90%' w='90%' p={4}>
+      <Box   h='90%' w='90%' p={10}>
         {/* Google Map Box */}
         <GoogleMap
           center={center}
           zoom={8}
-          mapContainerStyle={{ width: '100%', height: '100%' }}
+          mapContainerStyle={{ width: '110%', height: '102%' }}
           options={{
             zoomControl: true,
             streetViewControl: true,
@@ -178,7 +175,7 @@ function FleetMap() {
         </GoogleMap>
       </Box>
      
-    </Flex>
+   
     </div>
     
     
@@ -186,7 +183,7 @@ function FleetMap() {
     <div className="headTab" >
         <div className="listTitleApp">
           <div className="listTitle" >Appareilles <span>(20)</span></div>
-        <a href="zz">Voir tout</a>
+        <Link to="/devicelist">Voir tout</Link>
   
         </div>
         <div className="tableCell"><p className="ajoutapp">Ajout une appareille</p>

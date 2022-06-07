@@ -57,7 +57,7 @@ const rows = [
 </div>
 </div>
 
- <FullTableProvider rows={rows} type="non" stat="status" title="Provider Name"/>
+ <FullTableProvider rows={rows} type="non" stat="status" title="Providers Name"/>
   </div>
   </div>
   

@@ -5,7 +5,7 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined';
-import InventoryOutlinedIcon from '@mui/icons-material/InventoryOutlined';
+import CampaignIcon from '@mui/icons-material/Campaign';
 import axios from 'axios';
 import { useState } from "react";
 

@@ -133,6 +133,8 @@ function FullTable(props) {
     const [IDD, setIDD] = useState("");
     const [IDP, setIDP] = useState("");
     const [IDU, setIDU] = useState("");
+    const [infoPopup, setInfoPopup] = useState(false);
+    
     const Edit = (name,ID) => {
   
 
@@ -240,9 +242,9 @@ function FullTable(props) {
                   <PopupEditClient trigger={editPopupclient} setTrigger={setEditPopupclient} id={IDC} name={isemC}/>
 
                   </div>
-                  <i class="material-icons" onClick={() => setInfoPopupfleet(true)}>info_outline</i>
+                  <i class="material-icons" onClick={() => setInfoPopup(true)}>info_outline</i>
                   <div className="popeditfleet"> 
-                  <PopupInfoFleet trigger={infoPopupfleet} setTrigger={setInfoPopupfleet}/>
+                  <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup}/>
                   </div>
                   <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>
                   </div>

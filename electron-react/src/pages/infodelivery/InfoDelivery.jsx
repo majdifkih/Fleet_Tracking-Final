@@ -149,17 +149,17 @@ const rows = [
     setPage(0);
   };
   
-  const [addPopupinventory, setAddPopupinventory] = useState(false);
+  const [addPopupinfodelivery, setAddPopupinfodelivery] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   return (
 
-  <div className="inventorymain">
+  <div className="infodeliverymain">
     <div className="side"><Sidebar/></div>
-    <div className="inventory">
+    <div className="infodelivery">
     <Navbar/>
 
-<div className="headinventory">
-      <div className="titleinventory">
+<div className="headinfodelivery">
+      <div className="titleinfodelivery">
       Store
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
       <i><SearchIcon/></i></div>
@@ -176,7 +176,7 @@ const rows = [
 
 </div>
 <Link to="/delivery"> <button className="back"><ArrowBackIcon className="iconback"/></button></Link>
-  <div className="tabinventory">
+  <div className="tabinfodelivery">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">
         <TableHead>
@@ -229,9 +229,9 @@ const rows = [
     </TableContainer>
   </div>
   
-  <button className="addinvetory" onClick={() => setAddPopupinventory(true)}><AddIcon/></button>
+  <button className="addinvetory" onClick={() => setAddPopupinfodelivery(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupInfoDelivery trigger={addPopupinventory} setTrigger={setAddPopupinventory}/>
+<PopupInfoDelivery trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
 </div>
   <div className="devis">
     <div className="deviscont">Sub Total:7.000 DT </div>

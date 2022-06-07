@@ -1,18 +1,18 @@
 
-.inventorymain{
+.infodeliverymain{
   display: flex;
   gap: 2%;
-.inventory{
+.infodelivery{
   display: flex;
   flex-direction: column;
   flex: 3;
     
       
-.headinventory{
+.headinfodelivery{
   display: flex;
-  gap: 50%;
+  gap: 65%;
   padding-bottom: 1%;
-.titleinventory{
+.titleinfodelivery{
   display: flex;
   gap: 10%;
   font-weight:bold;
@@ -81,7 +81,7 @@
     
   }
 
-.tabinventory{
+.tabinfodelivery{
 
   border-radius: 10px;
   

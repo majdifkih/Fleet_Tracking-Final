@@ -202,6 +202,7 @@ const [IDI,setIDI]=useState("");
               <StyledTableCell className="price" >{row.productPrice}</StyledTableCell>
               <StyledTableCell className="id" >{row.Id}</StyledTableCell>
               <StyledTableCell className="category" >{row.category}</StyledTableCell>
+              
               <StyledTableCell  className="tabEnd" >
                 <div className="icons">
                 <i className="material-icons"  onClick={()=>Edit(row.name,row._id)}>border_color</i>

@@ -9,7 +9,7 @@ function PopupInfoDelivery(props){
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
-            <h3> Add New Client</h3>
+            <h3> Add Delivery</h3>
                 <div className="formulera">
                 <div className="formleft">
                 <div className="form">
@@ -43,7 +43,7 @@ function PopupInfoDelivery(props){
             </div>
                 <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btnadda" onClick={() => props.setTrigger(true)} >Add</button>
+                <button className="btna" onClick={() => props.setTrigger(true)} >Add</button>
                 </div>
                 
             </div>

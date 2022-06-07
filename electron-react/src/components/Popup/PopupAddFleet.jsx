@@ -5,6 +5,7 @@ import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 function PopupFleet(props){
     return (props.trigger) ? (
         <div className="popupa">
@@ -28,6 +29,12 @@ function PopupFleet(props){
             <label for="namea"/>Vehicle marque
             <div className="formicon">
             <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Marque" /></div>
+            </div>
+            </div>
+            <div className="form">
+            <label for="namea"/>Drivers ID
+            <div className="formicon">
+            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Drivers" /></div>
             </div>
             </div>
             </div>

@@ -291,6 +291,8 @@ case "Stores name":
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
+                  <div className={`lik ${pos}`}>
+                  <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link></div>
                   <AddShoppingCartIcon className="material-icons"/>
                     <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
@@ -308,8 +310,7 @@ case "Stores name":
                   <div className="popeditfleet"> 
                   <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup} data={ROW}/>
                   </div>
-                  <div className={`lik ${pos}`}>
-                  <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link></div>
+                  
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
               </StyledTableRow>

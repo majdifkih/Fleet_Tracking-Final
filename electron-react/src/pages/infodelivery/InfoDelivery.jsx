@@ -27,8 +27,7 @@ import Popup from "../../components/Popup/Popup";
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import PopupInfoDelivery from "../../components/Popup/PopupAddInfoDelivery";
-import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -135,7 +134,7 @@ const rows = [
  function InfoDelivery() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
-
+  const navigate=useNavigate()
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -175,7 +174,7 @@ const rows = [
 </div>
 
 </div>
-<Link to="/delivery"> <button className="back"><ArrowBackIcon className="iconback"/></button></Link>
+ <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
   <div className="tabinfodelivery">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">

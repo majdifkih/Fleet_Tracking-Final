@@ -19,12 +19,13 @@ import TableMap from "../../components/table/TableMap";
 import SearchIcon from '@mui/icons-material/Search';
 import { Link } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useNavigate } from "react-router-dom";
 const center = { lat: 35.523916, lng: 11.030870 }
 
 function Store() {
 
   const [rows,setRows] = useState([]);
-
+  const navigate=useNavigate()
   const getStore=()=>{
     axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
       if(res.data.success){
@@ -64,7 +65,7 @@ function Store() {
     <div className="store">
     <Navbar/>
         <span className="titlemap">Stores</span>
-        <Link to="/storetable"> <button className="back"><ArrowBackIcon className="iconback"/></button></Link>
+        <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
         <div className="storecenter">
     <div className="storeleft">
         

@@ -11,6 +11,8 @@ import PopupProvider from "../../components/Popup/PopupAddProvider";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import axios from "axios";
  function ProviderTable() {
+   const[API,setAPI]=useState('Supplier');
+   const [APIs, setAPIs] = useState('suppliers');
   const [Providers, setProviders] = useState([]);
   const getProvider=()=>{
     axios.get("http://localhost:3001/SupplierAPI/suppliers").then(res=>{
@@ -45,7 +47,7 @@ import axios from "axios";
 <PopupProvider trigger={addPopupprovider} setTrigger={setAddPopupprovider}/>
 </div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
-<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs}/>
 </div>
 </div>
 

@@ -31,6 +31,7 @@ import PopupEditUser from '../Popup/PopupEditUser';
 import PopupEditStore from '../Popup/PopupEditStores';
 import { Link } from 'react-router-dom';
 import PopupInfoFleet from '../Popup/PopupInfoFleet';
+import Popup from '../Popup/Popup';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -134,7 +135,7 @@ function FullTable(props) {
     const [IDP, setIDP] = useState("");
     const [IDU, setIDU] = useState("");
     const [infoPopup, setInfoPopup] = useState(false);
-    
+    const [buttonPopup, setButtonPopup] = useState(false);
     const Edit = (name,ID) => {
   
 
@@ -232,7 +233,8 @@ function FullTable(props) {
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
-                    <DeleteIcon className="material-ico" sx={{ fontSize: 27 }}/>
+                    <DeleteIcon className="material-ico" sx={{ fontSize: 27 }}  onClick={() => setButtonPopup(true)}/>
+                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 
                   <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>
@@ -248,6 +250,7 @@ function FullTable(props) {
                   <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup}/>
                   </div>
                   <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>
+                  
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
               </StyledTableRow>

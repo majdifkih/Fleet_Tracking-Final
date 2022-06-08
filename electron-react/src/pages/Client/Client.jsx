@@ -52,7 +52,7 @@ import axios from "axios";
 </div>
 </div>
 
- <FullTable rows={clients} icon={"oui"} type="non" stat="status" title="Clients name" pos={"non"}/>
+ <FullTable ink={""} rows={clients} icon={"oui"} type="non" stat="status" title="Clients name" pos={"non"}/>
   </div>
   </div>
   

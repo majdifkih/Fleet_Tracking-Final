@@ -64,10 +64,10 @@ const TableOrder = () => {
       
       
       <div className="title">   
-      <div className="titleDema">Demandes 
+      <div className="titleDema">Demands
         <span className="tolal">Total:60</span>
         </div>
-        <a href="#">Voir tout</a>
+        <a href="#">See All</a>
         </div>
 
       <TableContainer  className="tab">
@@ -83,7 +83,7 @@ const TableOrder = () => {
               <TableCell className="tableCell">{row.customer}</TableCell>
               
               <TableCell className="tableCell" align="right">
-              <a href="#" className="trait">Traiter</a>
+              <a href="#" className="trait">process</a>
               </TableCell>
             </TableRow>
           ))}

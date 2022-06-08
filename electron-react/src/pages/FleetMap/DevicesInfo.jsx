@@ -118,7 +118,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
         <div className="headlistStore">
         <div className="storedevice">
         <div className="listTitl">Stores <span>(20)</span></div>
-        <a href="#">Voir tout</a>
+        <a href="#">See All</a>
         </div>
         <div className="input">        <div class="input-icone">
 <input type="Search" placeholder="Search..."/>

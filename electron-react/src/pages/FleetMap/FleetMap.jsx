@@ -107,8 +107,8 @@ function FleetMap() {
     <div className="listapp">
     <div className="headTab" >
         <div className="listTitleApp">
-          <div className="listTitle" >Appareilles <span>(20)</span></div>
-        <Link to="/devicelist">Voir tout</Link>
+          <div className="listTitle" > Devices<span>(20)</span></div>
+        <Link to="/devicelist">See All</Link>
   
         </div>
         <div className="tableCell"><p className="ajoutapp">Ajout une appareille</p>

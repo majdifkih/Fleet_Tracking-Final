@@ -8,7 +8,7 @@ const Widget = ({ type }) => {
   switch (type) {
     case "demande":
       data = {
-        title: "Demandes",
+        title: "Demands",
         isMoney: false,
         
         amount:60,
@@ -17,7 +17,7 @@ const Widget = ({ type }) => {
       break;
     case "active":
       data = {
-        title: "Drivers Actives",
+        title: "Active Drivers",
         isMoney: false,
         
         amount:16,
@@ -27,7 +27,7 @@ const Widget = ({ type }) => {
       break;
     case "avertissement":
       data = {
-        title: "Avertissements",
+        title: "Warnings",
         isMoney: false,
        
         amount:4,
@@ -36,7 +36,7 @@ const Widget = ({ type }) => {
       break;
     case "apareil":
       data = {
-        title: "Apareils Connectes",
+        title: "Connected Devices",
         isMoney: false,
       
         amount:16,

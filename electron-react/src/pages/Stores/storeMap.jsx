@@ -108,7 +108,7 @@ function Store() {
     <div className="storetabHead">
         <div className="storetab">
         <div className="listTitlestore">Stores <span>(20)</span></div>
-        <Link to="/storetable"> Voir tout</Link>
+        <Link to="/storetable"> See All</Link>
         </div>
         <div className="input">        <div class="input-icone">
 <input type="Search" placeholder="Search..."/>

@@ -152,8 +152,8 @@ const [IDI,setIDI]=useState("");
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupinventory, setAddPopupinventory] = useState(false);
   const [editPopupinventory, setEditPopupinventory] = useState(false);
-  const [API, setAPI] = useState("false");
-  const [APIs, setAPIs] = useState("false");
+  const [API, setAPI] = useState("Product");
+  const [APIs, setAPIs] = useState("products");
   const [deletePopup, setdeletePopup] = useState(false);
   const Delete = (name,ID) => {
     setDID(ID);
@@ -206,7 +206,7 @@ const [IDI,setIDI]=useState("");
               <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.productName}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="barcode" >{row.Barcode}</StyledTableCell>
+              <StyledTableCell className="barcode" >{row.barCode}</StyledTableCell>
               <StyledTableCell className="quantity" >{row.productQuantity}</StyledTableCell>
               <StyledTableCell className="price" >{row.productPrice}</StyledTableCell>
               <StyledTableCell className="id" >{row.Id}</StyledTableCell>

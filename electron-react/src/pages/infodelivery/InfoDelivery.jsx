@@ -167,7 +167,7 @@ const rows = [
 <div className="buttoninvetory">
 
 
-<button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete <div>selected</div></button>
+
 
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} className="popdel"/>
 

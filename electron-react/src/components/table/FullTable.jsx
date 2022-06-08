@@ -32,6 +32,7 @@ import PopupEditStore from '../Popup/PopupEditStores';
 import { Link } from 'react-router-dom';
 import PopupInfoFleet from '../Popup/PopupInfoFleet';
 import Popup from '../Popup/Popup';
+import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -290,7 +291,8 @@ case "Stores name":
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
-                    <DeleteIcon className="material-ico" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
+                  <AddShoppingCartIcon className="material-icons"/>
+                    <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 
                   <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>

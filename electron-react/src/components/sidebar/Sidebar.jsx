@@ -82,7 +82,7 @@ const Sidebar = () => {
             </li>
             <li>
             <Link to="/delivery" >
-            <CoPresentIcon className="iconlist" fontSize="small"/> Delivery managment
+            <CoPresentIcon className="iconlist" fontSize="small"/> Delivery
               </Link>
             </li>
             <li>

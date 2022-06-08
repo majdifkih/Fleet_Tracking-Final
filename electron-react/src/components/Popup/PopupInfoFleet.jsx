@@ -17,7 +17,7 @@ function PopupInfoFleet(props){
                 <div className="infoname">
             <DirectionsCarFilledOutlinedIcon className="iconinfo" fontSize="small"/><span>Vehicle Name:</span>
             </div>
-            <div className="attribinfo">effeff</div>
+            <div className="attribinfo">{props.data.name}</div>
             </div>
             
     
@@ -26,14 +26,14 @@ function PopupInfoFleet(props){
                 <div className="infoname">
             <EightMpOutlinedIcon className="iconinfo" fontSize="small"/><span>Matricule:</span>
             </div>
-            <div className="attribinfo">effeff</div>
+            <div className="attribinfo">{props.data.Matricule}</div>
             </div>
             
             <div className="forminfo">
                 <div className="infoname">
             <DirectionsCarFilledOutlinedIcon className="iconinfo" fontSize="small"/><span>Vehicle marque:</span>
             </div>
-            <div className="attribinfo">effeff</div>
+            <div className="attribinfo">{props.data.VehicleMarque}</div>
             </div>
             </div>
             <div className="formright">
@@ -41,20 +41,20 @@ function PopupInfoFleet(props){
                 <div className="infoname">
             <LocalOfferOutlinedIcon className="iconinfo" fontSize="small"/><span>Category:</span>
             </div>
-            <div className="attribinfo">effeff</div>
+            <div className="attribinfo">{props.data.Category}</div>
             </div>
             
             <div className="forminfo">
                 <div className="infoname">
             <CarCrashOutlinedIcon className="iconinfo" fontSize="small"/><span>Last maintenance:</span>
             </div>
-            <div className="attribinfo">effeff</div>
+            <div className="attribinfo">{props.data.maintenance}</div>
             </div>
             <div className="forminfo">
                 <div className="infoname">
             <HelpOutlineOutlinedIcon className="iconinfo" fontSize="small"/><span>status:</span>
             </div>
-            <div className="attribinfo">effeff</div>
+            <div className="attribinfo">{props.data.status}</div>
             </div>
             </div>
             </div>

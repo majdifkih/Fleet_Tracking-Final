@@ -51,7 +51,7 @@ import { useEffect } from 'react';
 </div>
 </div>
 
- <FullTable rows={Drivers} type="non" stat="status" title="Drivers name"/>
+ <FullTable rows={Drivers} type="non" stat="status" title="Drivers name" pos={"non"}/>
   </div>
   </div>
   

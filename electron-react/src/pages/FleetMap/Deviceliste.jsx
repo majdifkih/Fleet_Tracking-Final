@@ -1,6 +1,7 @@
 import "./Deviceliste.scss";
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import axios from "axios";
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -11,29 +12,23 @@ import Popup from "../../components/Popup/Popup";
 import PopupFleet from "../../components/Popup/PopupAddFleet";
 
 
-function createData(name, status) {
-  return { name, status };
-}
 
-const rows = [
-  createData('IVECO','Offline'),
-  createData('TOYOTA','Online'),
-  createData('VOLVO','Online'),
-  createData('OM','Online'),
-  createData('SCANIA','Offline'),
-  createData('RENAULT','Offline'),
-  createData('NISSAN','Online'),
-  createData('MISUBISHI','Online'),
-  createData('MERCEDES','Online'),
-  createData('RENAULT','Offline'),
-  createData('VOLVO','Offline'),
-  createData('MERCEDES','Online'),
-  createData('NISSAN','Online'),
-  createData('IVECO','Online'),
-  createData('IVECO','Offline'),
-];
  function DeviceListe() {
    
+  const [vehicule, setVehicule] = useState([]);
+  const getVehicule=()=>{
+    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+      if(res.data.success){
+        setVehicule( res.data.existingPosts);
+        
+        console.log(vehicule)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getVehicule() 
+  });  
+
  const [buttonPopup, setButtonPopup] = useState(false);
  const [addPopupfleet, setAddPopupfleet] = useState(false);
   return (
@@ -61,7 +56,7 @@ const rows = [
 </div>
 </div>
 
- <FullTable rows={rows} type="oui" title="Devices" stat="Online"/>
+ <FullTable rows={vehicule} type="oui" title="Devices" stat="Online"/>
   </div>
   </div>
   

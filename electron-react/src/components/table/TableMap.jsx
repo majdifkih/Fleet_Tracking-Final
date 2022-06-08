@@ -22,7 +22,7 @@ const List = (props) => {
           {rows.map((row) => (
             <TableRow key={row.id} className="flex">
               
-              <TableCell className="tableCell"><input type="radio" className="radio" name="appareilles"/>{row.customer}</TableCell>
+              <TableCell className="tableCell"><input type="radio" className="radio" name="appareilles"/>{row.name}</TableCell>
               
               <TableCell className="tableCell" align="right">
                 <span className={`status ${row.status}`}>{row.status}</span>

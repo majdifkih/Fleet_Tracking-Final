@@ -115,8 +115,10 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {rows,type,title,stat,icon}=props;
+    const {rows,type,title,stat,icon,pos}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
+    const [deletePopup, setdeletePopup] = useState(false);
+
     const [editPopupstore, setEditPopupstore] = useState(false);
     const [editPopupclient, setEditPopupclient] = useState(false);
     const [editPopupdriver, setEditPopupdriver] = useState(false);
@@ -134,8 +136,51 @@ function FullTable(props) {
     const [IDD, setIDD] = useState("");
     const [IDP, setIDP] = useState("");
     const [IDU, setIDU] = useState("");
-    const [infoPopup, setInfoPopup] = useState(false);
-    const [buttonPopup, setButtonPopup] = useState(false);
+    const [DID, setDID] = useState("");
+    const [Dname, setDname] = useState("");
+   const [infoPopup, setInfoPopup] = useState(false);
+const [API, setAPI] = useState("false");
+const [APIs, setAPIs] = useState("false");
+   const Delete = (name,ID) => {
+        setDID(ID);
+        setDname(name);
+        switch (title) {
+          case 'Devices': 
+          setAPI("Vehicule")
+          setAPIs("vehicules")
+            break;
+          case 'Stores name':
+            setAPI("Store")
+            setAPIs("stores")
+            break;
+            case 'Clients name':
+              setAPI("Client")
+              setAPIs("clients")
+            break;
+            case 'Drivers name':
+              setAPI("Driver")
+              setAPIs("drivers")
+            break;
+            case 'Provider name':
+              setAPI("Supplier")
+              setAPIs("suppliers")
+            break;
+            case 'Users name':
+              setAPI("User")
+              setAPIs("users")
+            break;
+  
+          default:
+            console.log(`Sorry, we are out of ${title}.`);
+        }
+        setdeletePopup(true);
+
+    }
+    const [ROW, setROW] = useState([]);
+    const Display = (R) => {
+      setROW(R);
+      setInfoPopup(true);
+    }
     const Edit = (name,ID) => {
   
 
@@ -233,10 +278,10 @@ function FullTable(props) {
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
-                    <DeleteIcon className="material-ico" sx={{ fontSize: 27 }}  onClick={() => setButtonPopup(true)}/>
-                    <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+                    <DeleteIcon className="material-ico" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 
+                  <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>
                   <PopupEditUser trigger={editPopupuser} setTrigger={setEditPopupuser} id={IDU} name={isemU}/>
                   <PopupEditStore trigger={editPopupstore} setTrigger={setEditPopupstore} id={IDe} name={isem}/>
@@ -245,12 +290,12 @@ function FullTable(props) {
                   <PopupEditClient trigger={editPopupclient} setTrigger={setEditPopupclient} id={IDC} name={isemC}/>
 
                   </div>
-                  <i class="material-icons" onClick={() => setInfoPopup(true)}>info_outline</i>
+                  <i class="material-icons" onClick={() => Display(row)}>info_outline</i>
                   <div className="popeditfleet"> 
-                  <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup}/>
+                  <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup} data={ROW}/>
                   </div>
-                  <Link to="/fleet"><i class="material-icons">pin_drop</i></Link>
-                  
+                  <div className={`lik ${pos}`}>
+                  <Link to="/fleet"><i class={`material-icons `}>pin_drop</i></Link></div>
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
               </StyledTableRow>

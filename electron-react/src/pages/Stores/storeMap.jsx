@@ -11,7 +11,8 @@ import {
   Marker,
 
 } from '@react-google-maps/api'
-import { useRef, useState } from 'react'
+import { useRef, useState,useEffect } from 'react'
+import axios from "axios"
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import TableMap from "../../components/table/TableMap";
@@ -22,100 +23,20 @@ const center = { lat: 35.523916, lng: 11.030870 }
 
 function Store() {
 
-  const rows = [
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Baraka ",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 2235235,
-      product: "Playstation 5",
-      img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
-      customer: " Hanout",
-      date: "1 March",
-      amount: 900,
-      method: "REG Payment",
-      status: "NonREG",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Carrefour",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "NonREG",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Aotriya",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Hamza shop",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Nour",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "NonREG",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Mahida shop",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Hanout El homa",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Magasin",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "NonREG",
-    },
-   
- 
-  ];
+  const [rows,setRows] = useState([]);
+
+  const getStore=()=>{
+    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+      if(res.data.success){
+        setRows( res.data.existingPosts);
+        
+        console.log(rows)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getStore() 
+  });   
 
 
   const { isLoaded } = useJsApiLoader({

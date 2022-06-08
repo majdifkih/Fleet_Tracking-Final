@@ -1,5 +1,6 @@
 import "./DevicesInfo.scss";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import axios from "axios";
 import engine from './engine.png'
 import tires from './tires.png'
 import oil from './oil.png'
@@ -14,120 +15,132 @@ import Popup from "../../components/Popup/Popup";
 import PopupFleet from "../../components/Popup/PopupAddFleet";
 
  function DeviceInfo() {
-  const rows = [
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Baraka",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 2235235,
-      product: "Playstation 5",
-      img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Hanout",
-      date: "1 March",
-      amount: 900,
-      method: "REG Payment",
-      status: "NonREG",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Carrefour",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "NonREG",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Aotriya",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Hamza shop",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Nour",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "NonREG",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Mahida shop",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "regular",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "Store",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "NonREG",
-    },
+  const [rowss, setRowss] = useState([])
+
+  const getVehicule=()=>{
+    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+      if(res.data.success){
+        setRowss( res.data.existingPosts);
+        
+        console.log(rowss)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getVehicule() 
+  });
+  const [rows,setRows] = useState([]);
+
+  const getStore=()=>{
+    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+      if(res.data.success){
+        setRows( res.data.existingPosts);
+        
+        console.log(rows)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getStore() 
+  });   
+  // const rows = [
+  //   {
+  //     id: 1143155,
+  //     product: "Acer Nitro 5",
+  //     img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Baraka",
+  //     date: "1 March",
+  //     amount: 785,
+  //     method: "Cash on Delivery",
+  //     status: "regular",
+  //   },
+  //   {
+  //     id: 2235235,
+  //     product: "Playstation 5",
+  //     img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Hanout",
+  //     date: "1 March",
+  //     amount: 900,
+  //     method: "REG Payment",
+  //     status: "NonREG",
+  //   },
+  //   {
+  //     id: 2342353,
+  //     product: "Redragon S101",
+  //     img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Carrefour",
+  //     date: "1 March",
+  //     amount: 35,
+  //     method: "Cash on Delivery",
+  //     status: "NonREG",
+  //   },
+  //   {
+  //     id: 1143155,
+  //     product: "Acer Nitro 5",
+  //     img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Aotriya",
+  //     date: "1 March",
+  //     amount: 785,
+  //     method: "Cash on Delivery",
+  //     status: "regular",
+  //   },
+  //   {
+  //     id: 1143155,
+  //     product: "Acer Nitro 5",
+  //     img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Hamza shop",
+  //     date: "1 March",
+  //     amount: 785,
+  //     method: "Cash on Delivery",
+  //     status: "regular",
+  //   },
+  //   {
+  //     id: 2342353,
+  //     product: "Redragon S101",
+  //     img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Nour",
+  //     date: "1 March",
+  //     amount: 35,
+  //     method: "Cash on Delivery",
+  //     status: "NonREG",
+  //   },
+  //   {
+  //     id: 1143155,
+  //     product: "Acer Nitro 5",
+  //     img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "John Smith",
+  //     date: "1 March",
+  //     amount: 785,
+  //     method: "Cash on Delivery",
+  //     status: "regular",
+  //   },
+  //   {
+  //     id: 1143155,
+  //     product: "Acer Nitro 5",
+  //     img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Mahida shop",
+  //     date: "1 March",
+  //     amount: 785,
+  //     method: "Cash on Delivery",
+  //     status: "regular",
+  //   },
+  //   {
+  //     id: 2342353,
+  //     product: "Redragon S101",
+  //     img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
+  //     customer: "Store",
+  //     date: "1 March",
+  //     amount: 35,
+  //     method: "Cash on Delivery",
+  //     status: "NonREG",
+  //   },
    
  
-  ];
+  // ];
   function createData(name, status) {
     return { name, status };
   }
-  const rowss = [
-    createData('IVECO','Offline'),
-    createData('TOYOTA','Online'),
-    createData('VOLVO','Online'),
-    createData('OM','Online'),
-    createData('SCANIA','Offline'),
-    createData('RENAULT','Offline'),
-    createData('NISSAN','Online'),
-    createData('MISUBISHI','Online'),
-    createData('MERCEDES','Online'),
-    createData('Gingerbread','Offline'),
-    createData('Frozen yoghurt','Offline'),
-    createData('Ice cream sandwich','Online'),
-    createData('Eclair','Online'),
-    createData('Cupcake','Online'),
-    createData('Gingerbread','Offline'),
-  ];
+
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupfleet, setAddPopupfleet] = useState(false);
   return (

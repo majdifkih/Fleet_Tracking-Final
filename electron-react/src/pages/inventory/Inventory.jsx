@@ -116,6 +116,8 @@ TablePaginationActions.propTypes = {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [rows, setrows] = useState([]);
+  const [DID, setDID] = useState("");
+    const [Dname, setDname] = useState("");
   const getProduct=()=>{
     axios.get("http://localhost:3001/ProductAPI/products").then(res=>{
       if(res.data.success){
@@ -150,6 +152,13 @@ const [IDI,setIDI]=useState("");
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupinventory, setAddPopupinventory] = useState(false);
   const [editPopupinventory, setEditPopupinventory] = useState(false);
+  const [API, setAPI] = useState("false");
+  const [APIs, setAPIs] = useState("false");
+  const [deletePopup, setdeletePopup] = useState(false);
+  const Delete = (name,ID) => {
+    setDID(ID);
+    setDname(name);
+    setdeletePopup(true)}
   return (
 
   <div className="inventorymain">
@@ -205,8 +214,10 @@ const [IDI,setIDI]=useState("");
               
               <StyledTableCell  className="tabEnd" >
                 <div className="icons">
+                <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                 <i className="material-icons"  onClick={()=>Edit(row.name,row._id)}>border_color</i>
                 <div className="popeditfleet"> 
+                <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory} id={IDI} name={NameI}/>
                   </div>
                 <i class="material-icons">info_outline</i>

@@ -186,7 +186,7 @@ case "Stores name":
         setdeletePopup(true);
 
     }
-    const [link, setLink] = useState("");
+    
     const [ROW, setROW] = useState([]);
     const Display = (R) => {
       setROW(R);

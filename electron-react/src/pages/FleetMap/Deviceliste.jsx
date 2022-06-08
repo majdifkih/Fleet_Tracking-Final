@@ -56,7 +56,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 </div>
 </div>
 
- <FullTable rows={vehicule} type="oui" title="Devices" stat="Online"/>
+ <FullTable ink={"/fleet"} rows={vehicule} type="oui" title="Devices" stat="Online"/>
   </div>
   </div>
   

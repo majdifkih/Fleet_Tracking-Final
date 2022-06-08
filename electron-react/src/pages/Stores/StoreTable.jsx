@@ -54,7 +54,7 @@ import axios from 'axios';
 </div>
 </div>
 
- <FullTable rows={store} type="non" stat="status" title="Stores name"  />
+ <FullTable ink={"/store"} rows={store} type="non" stat="status" title="Stores name"  />
 
   </div>
   </div>

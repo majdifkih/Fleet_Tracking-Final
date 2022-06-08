@@ -115,7 +115,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {rows,type,title,stat,icon,pos}=props;
+    const {rows,type,title,stat,icon,pos,ink}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
     const [deletePopup, setdeletePopup] = useState(false);
 
@@ -141,6 +141,15 @@ function FullTable(props) {
    const [infoPopup, setInfoPopup] = useState(false);
 const [API, setAPI] = useState("false");
 const [APIs, setAPIs] = useState("false");
+switch(type){
+    case "Devices":
+        setIsem(true);
+        setIsemF(false);
+        setIsemC(false);
+break;
+case "Stores name":
+    setIsem(false);
+    setIsemF(false);}
    const Delete = (name,ID) => {
         setDID(ID);
         setDname(name);
@@ -152,6 +161,7 @@ const [APIs, setAPIs] = useState("false");
           case 'Stores name':
             setAPI("Store")
             setAPIs("stores")
+
             break;
             case 'Clients name':
               setAPI("Client")
@@ -176,6 +186,7 @@ const [APIs, setAPIs] = useState("false");
         setdeletePopup(true);
 
     }
+    const [link, setLink] = useState("");
     const [ROW, setROW] = useState([]);
     const Display = (R) => {
       setROW(R);
@@ -189,6 +200,7 @@ const [APIs, setAPIs] = useState("false");
           setEditPopupfleet(true) ;
           setIsemF(name);
           setIDF(ID);
+    
           console.log(IDF)
           break;
         case 'Stores name':
@@ -295,7 +307,7 @@ const [APIs, setAPIs] = useState("false");
                   <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup} data={ROW}/>
                   </div>
                   <div className={`lik ${pos}`}>
-                  <Link to="/fleet"><i class={`material-icons `}>pin_drop</i></Link></div>
+                  <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link></div>
                   </div>
                 <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
               </StyledTableRow>

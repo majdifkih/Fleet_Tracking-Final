@@ -7,6 +7,7 @@ import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 function PopupEditFleet(props){
+    const [editdriver,seteditdriver] = React.useState("");
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
@@ -34,7 +35,12 @@ function PopupEditFleet(props){
             <div className="form">
             <label for="namea"/>Drivers ID
             <div className="formicon">
-            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Drivers" /></div>
+            <BadgeOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {seteditdriver(event.target.value);}} >
+                <option disabled selected>Choose Driver</option>
+                <option value="Online">Online</option>
+                
+                </select>
+                </div>
             </div>
             </div>
             </div>

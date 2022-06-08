@@ -1,6 +1,7 @@
 import "./Deliveryliste.scss";
 import * as React from 'react';
-
+import { useState,useEffect } from 'react';
+import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -23,6 +24,9 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import { Link } from "react-router-dom";
+import Popup from "../../components/Popup/Popup";
+import AddTaskIcon from '@mui/icons-material/AddTask';
+import PopupDelivery from "../../components/Popup/PopupDelivery";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -146,7 +150,18 @@ const handleChangeRowsPerPage = (event) => {
   setRowsPerPage(parseInt(event.target.value, 10));
   setPage(0);
 };
-
+const [API, setAPI] = useState("Delivery");
+const [APIs, setAPIs] = useState("deliverys");
+const [buttonPopup, setButtonPopup] = useState(false);
+const [addPopupdelivery, setAddPopupdelivery] = useState(false);
+const [DID, setDID] = useState("");
+const [deletePopup, setdeletePopup] = useState(false);
+    const [Dname, setDname] = useState("");
+const Delete = (name,ID) => {
+  setDID(ID);
+  setDname(name);
+  setdeletePopup(true)
+}
   return (
 
   <div className="deliverymain">
@@ -160,7 +175,16 @@ const handleChangeRowsPerPage = (event) => {
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
       <i><SearchIcon/></i></div>
 </div>
+<div className="buttondelivery">
+<button className="adddelivery" onClick={() => setAddPopupdelivery(true)}><AddTaskIcon fontSize="small"/>Add</button>
+<div className="popdelivery"> 
+<PopupDelivery trigger={addPopupdelivery} setTrigger={setAddPopupdelivery}/>
+</div>
+<button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+  
 
+</div>
 </div>
 
 <div className="tabdelivery">
@@ -185,7 +209,10 @@ const handleChangeRowsPerPage = (event) => {
                 </StyledTableCell>
                 <StyledTableCell className ="circle">{row.position} </StyledTableCell>
                 <StyledTableCell className="line"  >
-                 <div className={`reguliere ${row.status}`}>{row.status}</div><Link to="/infodelivery"><i className="material-icons">info_outline</i></Link></StyledTableCell>
+                 <div className={`reguliere ${row.status}`}>{row.status}</div>
+                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
+                 <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
+                 <Link to="/infodelivery"> <i className="material-icons">info_outline</i></Link></StyledTableCell>
                  </StyledTableRow>
             ))}
             

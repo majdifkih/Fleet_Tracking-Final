@@ -43,7 +43,44 @@
     
   
     }
+    .buttondelivery{
+      
+      display: flex;
+      gap: 30%;
+      margin-left: 17%;
+    .del{
+      display: flex;
+      font-size: 100%;
+      color: #fff;
+      padding: 0.5% 7% 0.5% 3%;
+      background: #FF7A7A;
+      border-radius: 5px;
+      border: none;
+      align-items: center;
+      cursor: pointer;
+    }
+    .adddelivery{
+      display: flex;
+      gap: 5%;
+      font-size: 100%;
+      color: #fff;
+      padding: 5% 10% 5% 10%;
+      background: #3d2db9;
+      border-radius: 5px;
+      border: none;
+      align-items: center;
+      cursor: pointer;
+      .iconfleet{
+        padding-bottom: 10%;
+      }
+      
     
+    }
+    .popdelivery{
+      z-index: 1;
+    }
+ 
+}
   
   }
 

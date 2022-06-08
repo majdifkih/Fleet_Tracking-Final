@@ -15,6 +15,7 @@ function PopupFleet(props){
     const [Vstatus,setVstatus] = React.useState("");
     const [Vmatricule,setVmatricule] = React.useState("");
     const [Vid,setVid] = React.useState("");
+    const [Vdriver,setdriver] = React.useState("");
     const dataV = {Num:Vid,
         name:Vname,
         status:Vstatus ,
@@ -62,10 +63,16 @@ function PopupFleet(props){
             <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Marque" onChange={(event)=> {setVmarque(event.target.value);}} /></div>
             </div>
             </div>
+            
             <div className="form">
             <label for="namea"/>Drivers ID
             <div className="formicon">
-            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Enter Drivers" onChange={(event)=> {setVid(event.target.value);}} /></div>
+            <BadgeOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setdriver(event.target.value);}} >
+                <option disabled selected>Choose Driver</option>
+                <option value="Online">Online</option>
+                
+                </select>
+                </div>
             </div>
             </div>
             </div>

@@ -1,9 +1,9 @@
 import React from "react";
 import "./Popupform.scss";
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import axios from "axios";
 import { useState } from "react";
 function PopupProvider(props){
@@ -56,20 +56,21 @@ function PopupProvider(props){
             
             </div>
             <div className="formright">
-            <div className="form">
-            <label for="namea"/>ID Number
-            <div className="formicon">
-            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
-      setProviderNum(event.target.value);
-    }} type="text" placeholder="Enter ID" /></div>
-            </div>
-            </div>
+            
             <div className="form">
             <label for="namea"/>Product category
             <div className="formicon">
             <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
       setProviderCategory(event.target.value);
     }} type="text" placeholder="Enter Category" /></div>
+            </div>
+            </div>
+            <div className="form">
+            <label for="namea"/>Address
+            <div className="formicon">
+            <AlternateEmailIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
+      setProviderNum(event.target.value);
+    }} type="text" placeholder="Enter Address" /></div>
             </div>
             </div>
             </div>

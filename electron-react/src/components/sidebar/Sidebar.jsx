@@ -12,6 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
+import SpatialAudioOffIcon from '@mui/icons-material/SpatialAudioOff';
 const Sidebar = () => {
  
   return (
@@ -57,6 +58,12 @@ const Sidebar = () => {
             <InventoryIcon className="iconlist" fontSize="small"/> Inventory
                 </Link>
             </li>
+            <li>
+           
+           <Link to="/providerlist" >
+           <SpatialAudioOffIcon className="iconlist" fontSize="small"/> Demands
+             </Link>
+         </li>
             <li>
            
            <Link to="/providerlist" >

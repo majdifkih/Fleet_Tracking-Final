@@ -1,7 +1,6 @@
 import React from "react";
 import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
@@ -14,12 +13,12 @@ function PopupDriver(props){
     const [Dtelf, setDtelf] = useState("");
     const [Dpassword, setDpassword] = useState("");
     const [Daddress, setDaddress] = useState("");
-    const [idDriver, setidDriver] = useState("");
+ 
     const dataD = {email:Demail,
         name:Dname ,
         telf:Dtelf ,
         address:Daddress,
-        idDriver:idDriver,
+
         password:Dpassword
         }
         const addDriver = async () => {
@@ -61,17 +60,6 @@ function PopupDriver(props){
             </div>
             </div>
             <div className="form">
-            <label for="namea"/>ID
-            <div className="formicon">
-            <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
-      setidDriver(event.target.value);
-    }} type="text" placeholder="Enter ID" /></div>
-            </div>
-            </div>
-            </div>
-            <div className="formright">
-
-            <div className="form">
             <label for="namea" />Email
             <div className="formicon">
             <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
@@ -79,6 +67,10 @@ function PopupDriver(props){
     }} type="email" placeholder="Enter Email" /></div>
             </div>
             </div>
+            </div>
+            <div className="formright">
+
+            
             <div className="form">
             <label for="namea"/>Address
             <div className="formicon">

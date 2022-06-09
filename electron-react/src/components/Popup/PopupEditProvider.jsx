@@ -1,23 +1,23 @@
 import React from "react";
 import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import axios from "axios";
 import { useState } from "react";
-import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 
 function PopupEditProvider(props){
-    const [newProviderNum, setnewProviderNum] = useState("");
+    const [newProviderAddres, setnewProviderAddres] = useState("");
     const [newNameprovider, setnewNameprovider] = useState("");
     const [newProviderPhone, setnewProviderPhone] = useState("");
     const [newProviderCategory, setnewProviderCategory] = useState("");
     const updateProvider = async(ID) => {
-        const dataP = {num:newProviderNum,
+        const dataP = {
             name:newNameprovider ,
             telf:newProviderPhone ,
-            productCategory:newProviderCategory
+            productCategory:newProviderCategory,
+            newProviderAddres
             }
        await axios.put(`http://localhost:3001/SupplierAPI/suppliers?id=${ID}`,dataP).then((res) => {
                 if (res.data.status === 'success') {
@@ -51,20 +51,22 @@ function PopupEditProvider(props){
         
         </div>
         <div className="formright">
-        <div className="form">
-        <label for="namea"/>ID Number
-        <div className="formicon">
-        <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
-  setnewProviderNum(event.target.value);
-}} type="text" placeholder="edit ID" /></div>
-        </div>
-        </div>
+        
+       
         <div className="form">
         <label for="namea"/>Product category
         <div className="formicon">
         <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
   setnewProviderCategory(event.target.value);
 }} type="text" placeholder="edit Category" /></div>
+        </div>
+        </div>
+        <div className="form">
+        <label for="namea"/>Address
+        <div className="formicon">
+        <AlternateEmailIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
+  setnewProviderAddres(event.target.value);
+}} type="text" placeholder="edit Address" /></div>
         </div>
         </div>
         </div>

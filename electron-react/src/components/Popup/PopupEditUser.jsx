@@ -1,10 +1,8 @@
 import React from "react";
 import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
-import EventNoteIcon from '@mui/icons-material/EventNote';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import axios from "axios";
@@ -17,13 +15,12 @@ function PopupEditUser(props){
     const [newUtelf, setnewUtelf] = useState("");
     const [newUpassword, setnewUpassword] = useState("");
     const [newUaddress, setnewUaddress] = useState("");
-    const [newidUser, setnewidUser] = useState("");
+   
     const updateUser = async(ID) => {
         const dataU = {email:newUemail,
             name:newUname ,
             telf:newUtelf ,
             address:newUaddress,
-            idUser:newidUser,
             password:newUpassword,
             }
        await axios.put(`http://localhost:3001/UserAPI/users?id=${ID}`,dataU).then((res) => {
@@ -55,17 +52,6 @@ function PopupEditUser(props){
         </div>
         </div>
         <div className="form">
-        <label for="namea"/>ID
-        <div className="formicon">
-        <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
-  setnewidUser(event.target.value);
-}} type="text" placeholder="Edit ID" /></div>
-        </div>
-        </div>
-        </div>
-        <div className="formright">
-
-        <div className="form">
         <label for="namea" />Email
         <div className="formicon">
         <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
@@ -73,6 +59,10 @@ function PopupEditUser(props){
 }} type="email" placeholder="Edit Email" /></div>
         </div>
         </div>
+        </div>
+        <div className="formright">
+
+        
         <div className="form">
         <label for="namea"/>Address
         <div className="formicon">

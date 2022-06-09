@@ -14,13 +14,12 @@ function PopupEditDriver(props){
     const [newDtelf, setnewDtelf] = useState("");
     const [newDpassword, setnewDpassword] = useState("");
     const [newDaddress, setnewDaddress] = useState("");
-    const [newidDriver, setnewidDriver] = useState("");
+  
     const updateDriver = async(ID) => {
         const dataD = {email:newDemail,
             name:newDname ,
             telf:newDtelf ,
             address:newDaddress,
-            idDriver:newidDriver,
             password:newDpassword,
             }
        await axios.put(`http://localhost:3001/DriverAPI/drivers?id=${ID}`,dataD).then((res) => {
@@ -53,17 +52,6 @@ function PopupEditDriver(props){
         </div>
         </div>
         <div className="form">
-        <label for="namea"/>ID
-        <div className="formicon">
-        <BadgeOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
-  setnewidDriver(event.target.value);
-}} type="text" placeholder="Edit ID" /></div>
-        </div>
-        </div>
-        </div>
-        <div className="formright">
-
-        <div className="form">
         <label for="namea" />Email
         <div className="formicon">
         <MailOutlineIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
@@ -71,6 +59,10 @@ function PopupEditDriver(props){
 }} type="email" placeholder="Edit Email" /></div>
         </div>
         </div>
+        </div>
+        <div className="formright">
+
+       
         <div className="form">
         <label for="namea"/>Address
         <div className="formicon">

@@ -5,12 +5,10 @@ import axios from "axios";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import StorefrontIcon from '@mui/icons-material/Storefront';
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 function PopupEditStore(props){
 
-    const [newStoreNum, setnewStoreNum] = useState("");
     const [newStoreName, setnewStoreName] = useState("");
     const [newStoreType, setnewStoreType] = useState("");
     const [newStoreContact, setnewStoreContact] = useState("");
@@ -18,7 +16,7 @@ function PopupEditStore(props){
     const [newStoreOwner, setnewStoreOwner] = useState("");
     const updateStore = async(ID) => {
         const dataS = {
-            num:newStoreNum,
+     
             contact:newStoreContact ,
             name:newStoreName ,
             type:newStoreType,
@@ -65,14 +63,7 @@ function PopupEditStore(props){
             </div>
             </div>
             <div className="formright">
-            <div className="form">
-            <label for="namea"/>ID Number
-            <div className="formicon">
-            <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit ID Number" onChange={(event)=> {
-      setnewStoreNum(event.target.value);
-    }} /></div>
-            </div>
-            </div>
+           
             <div className="form">
             <label for="namea"/>Type
             <div className="formicon">

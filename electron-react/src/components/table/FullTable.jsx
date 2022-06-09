@@ -33,6 +33,7 @@ import { Link } from 'react-router-dom';
 import PopupInfoFleet from '../Popup/PopupInfoFleet';
 import Popup from '../Popup/Popup';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import PopupStock from '../Popup/PopupStockVehicle';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -116,6 +117,8 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
+
+  const [stockPopup, setstockPopup] = useState(false);
     const {rows,type,title,stat,icon,pos,ink}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
     const [deletePopup, setdeletePopup] = useState(false);
@@ -294,9 +297,12 @@ case "Stores name":
                   <div className={`lik ${pos}`}>
                   <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link></div>
                   <AddShoppingCartIcon className="material-icons"/>
+
+
                     <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 
+                  {/* <PopupStock trigger={stockPopup} setTrigger={setstockPopup}/> */}
                   <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>
                   <PopupEditUser trigger={editPopupuser} setTrigger={setEditPopupuser} id={IDU} name={isemU}/>

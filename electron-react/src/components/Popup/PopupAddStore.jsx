@@ -9,7 +9,7 @@ import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 function PopupStore(props){
-    const [storeNum, setStoreNum] = useState("");
+    
     const [storeName, setStoreName] = useState("");
     const [storeType, setStoreType] = useState("");
     const [storeStatus, setStoreStatus] = useState("");
@@ -17,7 +17,7 @@ function PopupStore(props){
     const [storeAddress, setStoreAddress] = useState("");
     const [storeOwner, setStoreOwner] = useState("");
 
-    const data = {num:storeNum,
+    const data = {
         contact:storeContact ,
         name:storeName ,
         type:storeType,
@@ -71,14 +71,7 @@ function PopupStore(props){
             </div>
             </div>
             <div className="formright">
-            <div className="form">
-            <label for="namea"/>ID Number
-            <div className="formicon">
-            <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
-      setStoreNum(event.target.value);
-    }} type="text" placeholder="Enter ID Number" /></div>
-            </div>
-            </div>
+            
             <div className="form">
             <label for="namea"/>Type
             <div className="formicon">

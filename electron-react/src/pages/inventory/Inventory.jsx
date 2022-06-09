@@ -28,7 +28,6 @@ import Popup from "../../components/Popup/Popup";
 import PopupInventory from "../../components/Popup/PopupAddInventory";
 import PopupEditInventory from "../../components/Popup/PopupEditInventory";
 import axios from "axios";
-import { Link } from "react-router-dom";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -221,7 +220,7 @@ const [IDI,setIDI]=useState("");
                 <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory} id={IDI} name={NameI}/>
                   </div>
-               <Link to="/infodemand"> <i class="material-icons">info_outline</i></Link>
+                <i class="material-icons">info_outline</i>
                 </div>
               
               <div className={`statuss ${row.status}`}>{row.status}</div></StyledTableCell>

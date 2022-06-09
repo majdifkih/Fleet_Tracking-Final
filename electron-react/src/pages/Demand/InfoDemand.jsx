@@ -27,8 +27,8 @@ import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
-import PopupAddDemandInfo from "../../components/Popup/PopupAddDemandInfo";
 import PopupEditDemandInfo from "../../components/Popup/PopupEditDemandInfo";
+import PopupAddDemand from "../../components/Popup/PopupAddDemand";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -229,7 +229,7 @@ const rows = [
   
   <button className="addprod" onClick={() => setAddPopupinfodelivery(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupAddDemandInfo trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
+<PopupAddDemand trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
 </div>
  
   <button className="confirmerPord" onClick={()=> setBtnConfirmer(true)}>Confirmer</button>

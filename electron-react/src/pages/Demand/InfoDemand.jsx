@@ -27,8 +27,9 @@ import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
-import PopupEditDemandInfo from "../../components/Popup/PopupEditDemandInfo";
+
 import PopupAddDemand from "../../components/Popup/PopupAddDemand";
+import PopupEditDemand from "../../components/Popup/PopupEditDemand";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -170,7 +171,7 @@ const rows = [
  <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <div className="popdel">
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
-<PopupEditDemandInfo trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
+<PopupEditDemand trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
 </div>
 </div>
 

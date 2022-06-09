@@ -26,9 +26,8 @@ import Popup from "../../components/Popup/Popup";
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
-import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
-import PopupEditDemandInfo from "../../components/Popup/PopupEditDemandInfo";
-import PopupAddDemand from "../../components/Popup/PopupAddDemand";
+import PopupAddStock from "../../components/Popup/PopupAddStock";
+import PopupEditstock from "../../components/Popup/PopupEditstock";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -170,7 +169,7 @@ const rows = [
  <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <div className="popdel">
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
-<PopupEditDemandInfo trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
+<PopupEditstock trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
 </div>
 </div>
 
@@ -229,7 +228,7 @@ const rows = [
   
   <button className="addprod" onClick={() => setAddPopupstockvehicle(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupAddDemand trigger={addPopupstockvehicle} setTrigger={setAddPopupstockvehicle}/>
+<PopupAddStock trigger={addPopupstockvehicle} setTrigger={setAddPopupstockvehicle}/>
 </div>
  
   

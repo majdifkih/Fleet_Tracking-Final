@@ -2,10 +2,11 @@ import React from "react";
 import "./Popupform.scss";
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import axios from 'axios';
 import { useState } from "react";
 
-function PopupEditDemandInfo(props){
+function PopupEditDemand(props){
 
     const [Pqnty, setPqnty] = useState("");
     const [product, setproduct] = useState("");
@@ -38,6 +39,29 @@ function PopupEditDemandInfo(props){
                 <div className="formulera">
                 <div className="formleft">
                 <div className="form">
+            <label for="namea"/>Client
+            <div className="formicon">
+            <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setclient(event.target.value);}} >
+                <option disabled selected>Choose Client</option>
+                <option value="Online">Online</option>
+                
+                </select>
+                </div>
+            </div>
+            </div>
+                <div className="form">
+            <label for="namea"/>Quantity
+            <div className="formicon">
+            <ProductionQuantityLimitsOutlinedIcon className="iconselect" fontSize="small"/> <div className="forma"><input type="number" onChange={(event)=> {
+  setPqnty(event.target.value);
+}} placeholder="Edit Quantity" /></div>
+            </div>
+            </div>
+            
+            </div>
+            <div className="formright">
+
+            <div className="form">
             <label for="namea"/>Product
             <div className="formicon">
             <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
@@ -48,17 +72,11 @@ function PopupEditDemandInfo(props){
                 </div>
             </div>
             </div>
+
             
-            </div>
-            <div className="formright">
-            <div className="form">
-            <label for="namea"/>Quantity
-            <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" onChange={(event)=> {
-  setPqnty(event.target.value);
-}} placeholder="Edit Quantity" /></div>
-            </div>
-            </div>
+
+
+            
            
             </div>
             </div>
@@ -72,4 +90,4 @@ function PopupEditDemandInfo(props){
         </div>
     ) : "";
 }
-export default PopupEditDemandInfo;
+export default PopupEditDemand;

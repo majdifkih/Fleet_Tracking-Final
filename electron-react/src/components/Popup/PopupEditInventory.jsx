@@ -22,6 +22,7 @@ function PopupEditInventory(props){
             productQuantity:newPqnty,
             productPrice:newPrice,
             category:newPcategory,
+            alertCondition:newalertNum
             }
        await axios.put(`http://localhost:3001/ProductAPI/products?id=${ID}`,dataD).then((res) => {
                 if (res.data.status === 'success') {

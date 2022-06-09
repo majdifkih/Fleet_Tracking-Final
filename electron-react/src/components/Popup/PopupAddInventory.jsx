@@ -14,14 +14,16 @@ function PopupInventory(props){
     const [barCode, setbarCode] = useState("");
     const [Pqnty, setPqnty] = useState("");
     const [Price, setPrice] = useState("");
-    const [alertNum, setalertNum] = useState("");
+    const [alertC, setalertC] = useState("");
     const [Pcategory, setPcategory] = useState("");
     const dataI = {
-        productName:Pname ,
         barCode:barCode ,
+        productName:Pname ,
+        
         productQuantity:Pqnty,
         productPrice:Price,
         category:Pcategory,
+        alertCondition:alertC
         
         }
         const addProduct = async () => {
@@ -92,7 +94,9 @@ function PopupInventory(props){
             <div className="form">
             <label for="namea"/>Alert Condition
             <div className="formicon">
-            <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Condition" /></div>
+            <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
+  setalertC(event.target.value);
+}} type="text" placeholder="Enter Condition" /></div>
             </div>
             </div>
            

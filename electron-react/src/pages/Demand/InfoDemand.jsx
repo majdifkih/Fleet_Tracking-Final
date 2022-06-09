@@ -26,9 +26,9 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import Popup from "../../components/Popup/Popup";
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import PopupInfoDelivery from "../../components/Popup/PopupAddInfoDelivery";
 import { useNavigate } from "react-router-dom";
 import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
+import PopupAddDemandInfo from "../../components/Popup/PopupAddDemandInfo";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -226,7 +226,7 @@ const rows = [
   
   <button className="addprod" onClick={() => setAddPopupinfodelivery(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupInfoDelivery trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
+<PopupAddDemandInfo trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
 </div>
  
   <button className="confirmerPord" onClick={()=> setBtnConfirmer(true)}>Confirmer</button>

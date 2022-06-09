@@ -11,8 +11,7 @@ import { useState } from "react";
 function PopupEditClient(props){
 
 
-    const [newClientNum, setnewClientNum] = useState("");
-    const [newNameStore, setnewNameStore] = useState("");
+  
     const [newclientStatus, setnewclientStatus] = useState("");
     const [newclientName, setnewclientName] = useState("");
     const [newclientAddress, setnewclientAddress] = useState("");
@@ -22,8 +21,7 @@ function PopupEditClient(props){
             telf:newclientphone ,
             status:newclientStatus ,
             address:newclientAddress,
-            idClient:newClientNum,
-            storeName:newNameStore
+          
             }
        await axios.put(`http://localhost:3001/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
                 if (res.data.status === 'success') {
@@ -46,24 +44,7 @@ function PopupEditClient(props){
     }} /></div>
             </div>
             </div>
-            <div className="form">
-            <label for="namea"/>ID
-            <div className="formicon">
-            <BadgeOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit ID" onChange={(event)=> {
-      setnewClientNum(event.target.value);
-    }}/></div>
-            </div>
-            </div>
-            <div className="form">
-            <label for="namea"/>Store Name 
-            <div className="formicon">
-            <StorefrontIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit Store" onChange={(event)=> {
-      setnewNameStore(event.target.value);
-    }} /></div>
-            </div>
-            </div>
-            </div>
-            <div className="formright">
+            
             <div className="form">
             <label for="namea"/>Address
             <div className="formicon">
@@ -72,6 +53,9 @@ function PopupEditClient(props){
     }} /></div>
             </div>
             </div>
+            </div>
+            <div className="formright">
+            
             <div className="form">
             <label for="namea"/>Phone Number
             <div className="formicon">

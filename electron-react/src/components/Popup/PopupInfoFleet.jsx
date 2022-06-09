@@ -1,5 +1,5 @@
 import React from "react";
-import "./PopupInfoFleet.scss";
+import "./PopupInfo.scss";
 import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
 import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';

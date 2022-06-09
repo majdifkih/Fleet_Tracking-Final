@@ -48,7 +48,7 @@ function PopupInventory(props){
                 <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="namea"/>Name
+            <label for="namea"/>Product Name
             <div className="formicon">
             <Inventory2OutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" onChange={(event)=> {
   setPname(event.target.value);

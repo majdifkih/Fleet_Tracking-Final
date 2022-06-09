@@ -1,5 +1,4 @@
 import Home from "./pages/home/Home";
-import Logout from "./pages/login/Login";
 import Store from "./pages/Stores/storeMap";
 import StoreTable from "./pages/Stores/StoreTable";
 import FleetMap from "./pages/FleetMap/FleetMap";
@@ -14,6 +13,7 @@ import UserTable from "./pages/User/User";
 import InfoDelivery from "./pages/infodelivery/InfoDelivery";
 import DeliveryListe from "./pages/Delivery/Deliveryliste";
 import DemandTable from "./pages/Demand/Demand";
+import Login from "./pages/login/Login";
 
 function App() {
 
@@ -23,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/">
             <Route  path="/" index element={<Home />} />
-            <Route path="logout" element={<Logout />} />
+            <Route path="login" element={<Login />} />
             <Route path="fleet" element={<FleetMap />}/>
             <Route path="store" element={<Store />}/>
             <Route path="storetable" element={<StoreTable />}/>

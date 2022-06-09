@@ -111,7 +111,7 @@ function FleetMap() {
         <Link to="/devicelist">See All</Link>
   
         </div>
-        <div className="tableCell"><p className="ajoutapp">Ajout une appareille</p>
+        <div className="tableCell"><p className="ajoutapp">Add Device</p>
         
         <div><AddBoxIcon  fontSize="small" color="action" className="ajouticon" onClick={() => setAddPopupMapfleet(true)} /></div>
         <div className="popfleet"> 

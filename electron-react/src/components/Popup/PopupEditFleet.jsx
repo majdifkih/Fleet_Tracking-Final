@@ -5,7 +5,7 @@ import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 function PopupEditFleet(props){
     const [editdriver,seteditdriver] = React.useState("");
     return (props.trigger) ? (
@@ -26,16 +26,11 @@ function PopupEditFleet(props){
             <EightMpOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Matricule" /></div>
             </div>
             </div>
+            
             <div className="form">
-            <label for="namea"/>Vehicle marque
+            <label for="namea"/>Driver
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit Marque" /></div>
-            </div>
-            </div>
-            <div className="form">
-            <label for="namea"/>Drivers ID
-            <div className="formicon">
-            <BadgeOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {seteditdriver(event.target.value);}} >
+            <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {seteditdriver(event.target.value);}} >
                 <option disabled selected>Choose Driver</option>
                 <option value="Online">Online</option>
                 

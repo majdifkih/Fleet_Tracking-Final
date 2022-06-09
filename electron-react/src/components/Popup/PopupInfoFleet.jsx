@@ -31,7 +31,7 @@ function PopupInfoFleet(props){
             
             <div className="forminfo">
                 <div className="infoname">
-            <DirectionsCarFilledOutlinedIcon className="iconinfo" fontSize="small"/><span>Vehicle marque:</span>
+            <DirectionsCarFilledOutlinedIcon className="iconinfo" fontSize="small"/><span>Driver:</span>
             </div>
             <div className="attribinfo">{props.data.VehicleMarque}</div>
             </div>

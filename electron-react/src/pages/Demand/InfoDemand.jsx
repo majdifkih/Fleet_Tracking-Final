@@ -165,7 +165,7 @@ const rows = [
 <div className="titleinfodemand">Demand Informations</div>
 
 </div>
-<div className="buttoninvetory">
+<div className="buttondemand">
 <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
  <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <div className="popdel">

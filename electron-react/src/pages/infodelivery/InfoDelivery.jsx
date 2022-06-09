@@ -26,6 +26,7 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import Popup from "../../components/Popup/Popup";
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import NotesIcon from '@mui/icons-material/Notes';
 import PopupInfoDelivery from "../../components/Popup/PopupAddInfoDelivery";
 import { useNavigate } from "react-router-dom";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -150,6 +151,7 @@ const rows = [
   
   const [addPopupinfodelivery, setAddPopupinfodelivery] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
+
   return (
 
   <div className="infodeliverymain">
@@ -164,17 +166,19 @@ const rows = [
       <i><SearchIcon/></i></div>
 </div>
 
-<div className="buttoninvetory">
-
-
-
-
-<Popup trigger={buttonPopup} setTrigger={setButtonPopup} className="popdel"/>
-
+</div>
+<div className="buttoninfodelivery">
+<button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
+<div className="btnright">
+<button className="history" onClick={() => setAddPopupinfodelivery(true)}><NotesIcon/>History</button>
+<button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+</div>
+<div className="popinvet">
+<PopupInfoDelivery trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+</div>
 </div>
 
-</div>
- <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
   <div className="tabinfodelivery">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">
@@ -183,7 +187,6 @@ const rows = [
               
             <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Product</label></StyledTableCell>
             <StyledTableCell className="quantity" >Quantity</StyledTableCell>
-            <StyledTableCell className="price"  >Price</StyledTableCell>
             <StyledTableCell  className="total">Total</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -196,8 +199,8 @@ const rows = [
               <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="quantity" ><input type="number" className="quantityinput"/></StyledTableCell>
-              <StyledTableCell className="price" >{row.Price}</StyledTableCell>
+              <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
+
               <StyledTableCell className="total" >{row.Total}</StyledTableCell>
               
             </StyledTableRow>
@@ -228,16 +231,13 @@ const rows = [
     </TableContainer>
   </div>
   
-  <button className="addinvetory" onClick={() => setAddPopupinfodelivery(true)}><AddIcon/></button>
-  <div className="popinvet">
-<PopupInfoDelivery trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
-</div>
+  
   <div className="devis">
     <div className="deviscont">Sub Total:7.000 DT </div>
     <div className="deviscont">TVA:9% </div>
     <div className="deviscont">Total 7.630 DT</div>
   </div>
-  <button className="confirmerinvetory" >Confirmer</button>
+
   </div>
   </div>
   

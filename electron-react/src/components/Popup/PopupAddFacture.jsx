@@ -2,7 +2,6 @@ import React from "react";
 import "./Popupform.scss";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 function PopupFacture(props){

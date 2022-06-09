@@ -116,7 +116,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {rows,type,title,stat,icon,pos,ink}=props;
+    const {rows,type,title,stat,icon,pos,ink,add}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
     const [deletePopup, setdeletePopup] = useState(false);
 
@@ -291,8 +291,9 @@ case "Stores name":
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
-                  
-                  <AddShoppingCartIcon className="material-icons"/>
+                  <div className={`shop ${add}`}>
+                  <AddShoppingCartIcon className="material-icons" />
+                  </div>
                   <div className={`lik ${pos}`}>
                   <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link>
                   </div>

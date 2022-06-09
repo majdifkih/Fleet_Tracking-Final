@@ -24,7 +24,6 @@ import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
 import Popup from "../../components/Popup/Popup";
-import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NotesIcon from '@mui/icons-material/Notes';
 import PopupFacture from "../../components/Popup/PopupAddFacture";

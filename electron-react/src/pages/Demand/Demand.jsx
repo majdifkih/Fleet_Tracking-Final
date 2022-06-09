@@ -50,7 +50,7 @@ import { Link } from "react-router-dom";
 </div>
 </div>
 
- <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" />
+ <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" add={"non"}/>
   </div>
   </div>
   

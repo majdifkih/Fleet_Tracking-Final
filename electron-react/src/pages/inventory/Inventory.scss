@@ -94,7 +94,7 @@
       margin-right:3%;    }
 
 .statuss {
-   
+  
   border-radius: 4px;
   font-size: 80%;
   font-weight: bold;
@@ -114,22 +114,28 @@
   
 }
 
-.tabEnd{
+ .tabEnd{
+   display: flex;
+
+  
+ .icons{
   display: flex;
   gap: 20%;
-  justify-content: flex-end;
-.icons{
-  display: flex;
-  gap: 10%;
-  .material-icons{
+  padding-left: 30%;
+ .material-icons{
     color: rgb(74, 72, 72);
     cursor: pointer;
+   
   }
   .popeditfleet{
     z-index: 1;
   }
 }
-}
+ }
+ .stathead{
+   padding-left: 20%;
+ }
+
 }
 }
 

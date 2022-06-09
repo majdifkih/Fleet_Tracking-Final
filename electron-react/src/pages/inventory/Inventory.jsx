@@ -188,13 +188,12 @@ const [IDI,setIDI]=useState("");
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet" className="radio"/><label for="store">Name</label></StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet" className="radio"/><label for="store">Inventory name</label></StyledTableCell>
             <StyledTableCell  >Barcode</StyledTableCell>
             <StyledTableCell  >Quantity</StyledTableCell>
-            <StyledTableCell  >Price</StyledTableCell>
-            <StyledTableCell >Id</StyledTableCell>
-            <StyledTableCell  >Category</StyledTableCell>
-            <StyledTableCell  align="right">Status?</StyledTableCell>
+            <StyledTableCell >Price</StyledTableCell>
+            <StyledTableCell >Category</StyledTableCell>
+            <StyledTableCell  className="stathead">Status?</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -209,8 +208,7 @@ const [IDI,setIDI]=useState("");
               <StyledTableCell className="barcode" >{row.barCode}</StyledTableCell>
               <StyledTableCell className="quantity" >{row.productQuantity}</StyledTableCell>
               <StyledTableCell className="price" >{row.productPrice}</StyledTableCell>
-              <StyledTableCell className="id" >{row.Id}</StyledTableCell>
-              <StyledTableCell className="category" >{row.category}</StyledTableCell>
+              <StyledTableCell className="category">{row.category}</StyledTableCell>
               
               <StyledTableCell  className="tabEnd" >
                 <div className="icons">
@@ -222,8 +220,10 @@ const [IDI,setIDI]=useState("");
                   </div>
                 <i class="material-icons">info_outline</i>
                 </div>
-              
-              <div className={`statuss ${row.status}`}>{row.status}</div></StyledTableCell>
+                </StyledTableCell>
+                <StyledTableCell className="stat"  >
+              <div className={`statuss ${row.status}`}>{row.status}</div>
+              </StyledTableCell >
             </StyledTableRow>
           ))}
           

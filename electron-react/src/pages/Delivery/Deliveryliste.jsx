@@ -212,7 +212,7 @@ const Delete = (name,ID) => {
                  <div className={`reguliere ${row.status}`}>{row.status}</div>
                  <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                  <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
-                 <Link to="/infodelivery"> <i className="material-icons">info_outline</i></Link></StyledTableCell>
+                 </StyledTableCell>
                  </StyledTableRow>
             ))}
             

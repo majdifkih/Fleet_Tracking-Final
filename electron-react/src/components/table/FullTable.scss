@@ -6,6 +6,13 @@
     border-radius: 10px;
     
     margin-right: 2%;
+    .namestore{
+      display: flex;
+      gap: 10%;
+    .iconfact{
+      cursor: pointer;
+      color: rgb(74, 72, 72);
+    }}
     .radio{
       margin-right: 3%;    }
   
@@ -75,7 +82,7 @@
         visibility: hidden;
       }
     }
-    
+   
     .material-icons{
       cursor: pointer;
       color: rgb(74, 72, 72);

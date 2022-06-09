@@ -32,6 +32,7 @@ import PopupEditStore from '../Popup/PopupEditStores';
 import { Link } from 'react-router-dom';
 import PopupInfoFleet from '../Popup/PopupInfoFleet';
 import Popup from '../Popup/Popup';
+import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -266,7 +267,7 @@ case "Stores name":
               : rows
             ).map((row) => (
               <StyledTableRow className="row" key={row.name}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row" className='namestore'><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label><div className='iconfact'><StickyNote2Icon  fontSize='small'/></div>
                   
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 

@@ -214,11 +214,12 @@ const [IDI,setIDI]=useState("");
                 <div className="icons">
                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                 <i className="material-icons"  onClick={()=>Edit(row.name,row._id)}>border_color</i>
+                <i class="material-icons">info_outline</i>
                 <div className="popeditfleet"> 
                 <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory} id={IDI} name={NameI}/>
                   </div>
-                <i class="material-icons">info_outline</i>
+                
                 </div>
                 </StyledTableCell>
                 <StyledTableCell className="stat"  >

@@ -111,26 +111,26 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(name,position, status) {
-  return { name,position, status };
+function createData(name,position, date, status) {
+  return { name,position, date, status };
 }
 
 const rows = [
-  createData('Baraka','Mahdia','Incomplete'),
-  createData('Hanout','Rcharcha','Done'),
-  createData('Carrefour','Ksour Essef','Done'),
-  createData('Mahida shop','Maloulech','Done'),
-  createData('Aotriya','Souasi','Incomplete'),
-  createData('Hanout lhoma','Monastir','Incomplete'),
-  createData('Magasin','Sousse','Done'),
-  createData('Store','Sfax','Done'),
-  createData('Drugstore','Rajich','Done'),
-  createData('Magasin','Mahdia','Incomplete'),
-  createData('Mahida drugstore','Monastir','Incomplete'),
-  createData('Store','Rajich','Done'),
-  createData('Mahida shop','Sousse','Done'),
-  createData('Hanout','Mahdia','Done'),
-  createData('Aotriya','Mahdia','Incomplete'),
+  createData('Baraka','Mahdia','22/3/2022','Incomplete'),
+  createData('Hanout','Rcharcha','22/3/2022','Done'),
+  createData('Carrefour','Ksour Essef','22/3/2022','Done'),
+  createData('Mahida shop','Maloulech','22/3/2022','Done'),
+  createData('Aotriya','Souasi','22/3/2022','Incomplete'),
+  createData('Hanout lhoma','Monastir','22/3/2022','Incomplete'),
+  createData('Magasin','Sousse','22/3/2022','Done'),
+  createData('Store','Sfax','22/3/2022','Done'),
+  createData('Drugstore','Rajich','22/3/2022','Done'),
+  createData('Magasin','Mahdia','22/3/2022','Incomplete'),
+  createData('Mahida drugstore','Monastir','22/3/2022','Incomplete'),
+  createData('Store','Rajich','22/3/2022','Done'),
+  createData('Mahida shop','Sousse','22/3/2022','Done'),
+  createData('Hanout','Mahdia','22/3/2022','Done'),
+  createData('Aotriya','Mahdia','22/3/2022','Incomplete'),
 ];
  function DeliveryListe() {
    
@@ -195,7 +195,8 @@ const Delete = (name,ID) => {
                 
               <StyledTableCell  align="left" ><input type="radio" name="fleet" className="radio"/><label for="store">Stores</label></StyledTableCell>
               <StyledTableCell  className="circle" >Positions</StyledTableCell>
-              <StyledTableCell align="center" className="stat">Status</StyledTableCell>
+              <StyledTableCell  className="circle" align="center">Date</StyledTableCell>
+              <StyledTableCell align="center"  className="stat">Status</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -208,6 +209,7 @@ const Delete = (name,ID) => {
                   
                 </StyledTableCell>
                 <StyledTableCell className ="circle">{row.position} </StyledTableCell>
+                <StyledTableCell className ="circle" align="center">{row.date} </StyledTableCell>
                 <StyledTableCell className="line"  >
                  <div className={`reguliere ${row.status}`}>{row.status}</div>
                  <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>

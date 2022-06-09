@@ -14,10 +14,18 @@ function Login () {
   const navigate = useNavigate();
   const Auth = async() => {
     try {
-      await axios.get('http://localhost:3001/UserAPI/login', {
+      await axios.post('http://localhost:3001/AuthAPI/login', {
             email: email,
             password: pwd
+        }).then(res => {
+            if (res.data.success) {
+                localStorage.setItem('token', res.data.token);
+                navigate('/');
+            } else {
+                alert('Invalid email or password');
+            }
         });
+
         
     } catch (error) {
         if (error.response) {
@@ -56,7 +64,7 @@ function Login () {
             </div>
             </div>
             <div className="footer"> 
-              <div><button type="submit" className="login" onClick={Auth()}>Login </button></div>
+              <div><button type="submit" className="login" onClick={()=>Auth()}>Login </button></div>
               <div className="Forgot">Forgot Password?</div>
             </div>
             

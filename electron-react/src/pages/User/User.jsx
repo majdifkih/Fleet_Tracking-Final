@@ -12,9 +12,11 @@ import FullTable from "../../components/table/FullTable";
 import axios from "axios";
 
  function UserTable() {
+   const[API,setAPI]=useState("User");
+    const [APIs, setAPIs] = useState('users');
   const [Users, setUsers] = useState([]);
   const getUser=()=>{
-    axios.get("http://localhost:3001/UserAPI/Users").then(res=>{
+    axios.get("http://localhost:3001/UserAPI/users").then(res=>{
       if(res.data.success){
         setUsers( res.data.existingPosts);
         
@@ -46,7 +48,7 @@ import axios from "axios";
 <PopupUser trigger={addPopupuser} setTrigger={setAddPopupuser}/>
 </div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
-<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs}/>
 </div>
 </div>
 

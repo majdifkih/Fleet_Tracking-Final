@@ -131,7 +131,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 </div>
   </div>
   <div className="tabdevic">
-  <FullTable ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" />
+  <FullTable ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" fact={"non"} />
   </div>
   </div>
   </div>

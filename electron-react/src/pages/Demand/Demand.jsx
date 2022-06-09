@@ -51,7 +51,7 @@ import PopupAddDemand from "../../components/Popup/PopupAddDemand";
 </div>
 </div>
 
- <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands"/>
+ <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" fact={"non"}/>
   </div>
   </div>
   

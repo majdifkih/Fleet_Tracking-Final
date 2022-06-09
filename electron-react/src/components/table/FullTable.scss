@@ -10,8 +10,20 @@
       display: flex;
       gap: 10%;
     .iconfact{
-      cursor: pointer;
-      color: rgb(74, 72, 72);
+      
+      
+      padding-left: 90%;
+      .fact{
+        &.non { 
+          visibility: hidden;
+        }
+        &.oui {
+          cursor: pointer;
+          color: rgb(74, 72, 72);
+          visibility: visible;
+          
+        }
+      }
     }}
     .radio{
       margin-right: 3%;    }

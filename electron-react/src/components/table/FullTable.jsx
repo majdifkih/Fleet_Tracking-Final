@@ -117,7 +117,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {rows,type,title,stat,icon,pos,ink}=props;
+    const {rows,type,title,stat,icon,pos,ink,fact}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
     const [deletePopup, setdeletePopup] = useState(false);
 
@@ -267,7 +267,7 @@ case "Stores name":
               : rows
             ).map((row) => (
               <StyledTableRow className="row" key={row.name}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row" className='namestore'><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label><div className='iconfact'><StickyNote2Icon  fontSize='small'/></div>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row" className='namestore'><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label><div className='iconfact'><Link to="/infodelivery"><StickyNote2Icon  sx={{ fontSize: 25 }}  className={`fact ${fact}`}/> </Link></div>
                   
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 
@@ -293,7 +293,8 @@ case "Stores name":
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
                   <div className={`lik ${pos}`}>
-                  <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link></div>
+                  <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link>
+                  </div>
                   <AddShoppingCartIcon className="material-icons"/>
                     <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>

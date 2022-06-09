@@ -32,7 +32,6 @@ import PopupEditStore from '../Popup/PopupEditStores';
 import { Link } from 'react-router-dom';
 import PopupInfoFleet from '../Popup/PopupInfoFleet';
 import Popup from '../Popup/Popup';
-import StickyNote2Icon from '@mui/icons-material/StickyNote2';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -117,7 +116,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {rows,type,title,stat,icon,pos,ink,fact}=props;
+    const {rows,type,title,stat,icon,pos,ink}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
     const [deletePopup, setdeletePopup] = useState(false);
 
@@ -267,7 +266,7 @@ case "Stores name":
               : rows
             ).map((row) => (
               <StyledTableRow className="row" key={row.name}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row" className='namestore'><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label><div className='iconfact'><Link to="/infodelivery"><StickyNote2Icon  sx={{ fontSize: 25 }}  className={`fact ${fact}`}/> </Link></div>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label>
                   
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 
@@ -292,10 +291,11 @@ case "Stores name":
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
+                  
+                  <AddShoppingCartIcon className="material-icons"/>
                   <div className={`lik ${pos}`}>
                   <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link>
                   </div>
-                  <AddShoppingCartIcon className="material-icons"/>
                     <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                   <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
                   <div className="popeditfleet"> 

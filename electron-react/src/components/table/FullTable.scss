@@ -6,25 +6,7 @@
     border-radius: 10px;
     
     margin-right: 2%;
-    .namestore{
-      display: flex;
-      gap: 10%;
-    .iconfact{
-      
-      
-      padding-left: 5%;
-      .fact{
-        &.non { 
-          visibility: hidden;
-        }
-        &.oui {
-          cursor: pointer;
-          color: rgb(74, 72, 72);
-          visibility: visible;
-          
-        }
-      }
-    }}
+ 
     .radio{
       margin-right: 3%;    }
   

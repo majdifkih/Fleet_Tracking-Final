@@ -7,9 +7,9 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import Popup from "../../components/Popup/Popup";
 import FullTable from "../../components/table/FullTable";
-import PopupProvider from "../../components/Popup/PopupAddProvider";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from "axios";
+import PopupAddDemand from "../../components/Popup/PopupAddDemand";
  function DemandTable() {
    const[API,setAPI]=useState('Supplier');
    const [APIs, setAPIs] = useState('suppliers');
@@ -27,7 +27,7 @@ import axios from "axios";
     getProvider() 
   });  
   const [buttonPopup, setButtonPopup] = useState(false);
-  const [addPopupprovider, setAddPopupprovider] = useState(false);
+  const [addPopupdemand, setAddPopupDemand] = useState(false);
   return (
 
   <div className="Tabdemandmain">
@@ -42,9 +42,9 @@ import axios from "axios";
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
-<button className="add" onClick={() => setAddPopupprovider(true)}><AddCircleOutlineIcon fontSize="small"/>Add</button>
+<button className="add" onClick={() => setAddPopupDemand(true)}><AddCircleOutlineIcon fontSize="small"/>Add</button>
 <div className="popdemand">
-<PopupProvider trigger={addPopupprovider} setTrigger={setAddPopupprovider}/>
+<PopupAddDemand trigger={addPopupdemand} setTrigger={setAddPopupDemand}/>
 </div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs}/>

@@ -11,7 +11,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -29,6 +28,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
 import PopupAddDemandInfo from "../../components/Popup/PopupAddDemandInfo";
+import PopupEditDemandInfo from "../../components/Popup/PopupEditDemandInfo";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -152,6 +152,7 @@ const rows = [
   const [addPopupinfodelivery, setAddPopupinfodelivery] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   const[BtnConfirmer,setBtnConfirmer] = useState(false);
+  const[BtneditConfirmer,setBtnEditConfirmer] = useState(false);
   return (
 
   <div className="infodemandmain">
@@ -169,6 +170,7 @@ const rows = [
  <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <div className="popdel">
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
+<PopupEditDemandInfo trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
 </div>
 </div>
 
@@ -193,7 +195,9 @@ const rows = [
                 
               </StyledTableCell>
               <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
-            
+              <StyledTableCell align="right"  ><i className="material-icons" onClick={() => setBtnEditConfirmer(true)}>border_color</i>
+              <DeleteIcon className="material-icons" onClick={() => setButtonPopup(true)}/>
+              </StyledTableCell>
               
             </StyledTableRow>
           ))}

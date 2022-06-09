@@ -24,7 +24,7 @@
     .buttoninvetory{
       display: flex;
       margin-bottom: 1%;
-      gap: 66.5%;
+      gap: 64%;
     .del{
       display: flex;
       gap: 3%;
@@ -41,7 +41,7 @@
     .back{
       display: flex;
       width: 7%;
-      padding: 0.4% 0% 0.4% 2%;
+      padding: 0.4% 3% 0.4% 2%;
       align-items: center;
       border-radius: 5px;
       color:#fff;
@@ -69,12 +69,13 @@
   
   
   .quantity{
-    padding-left: 10%;
-    .quantityinput{
-      width: 15%;
-      border: 1px solid black;
-    }
+    padding-left: 30%;
+    
   }
+ .material-icons{
+    cursor: pointer;
+    color: rgb(74, 72, 72);
+ }
   
   }
   

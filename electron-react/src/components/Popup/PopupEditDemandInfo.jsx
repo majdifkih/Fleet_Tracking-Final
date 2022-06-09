@@ -5,7 +5,7 @@ import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import axios from 'axios';
 import { useState } from "react";
 
-function PopupAddDemandInfo(props){
+function PopupEditDemandInfo(props){
 
     const [Pqnty, setPqnty] = useState("");
     const [product, setproduct] = useState("");
@@ -34,14 +34,14 @@ function PopupAddDemandInfo(props){
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
-            <h3> Add</h3>
+            <h3>Edit</h3>
                 <div className="formulera">
                 <div className="formleft">
                 <div className="form">
             <label for="namea"/>Product
             <div className="formicon">
             <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
-                <option disabled selected>Choose Product</option>
+                <option disabled selected>Edit Product</option>
                 <option value="Online">Online</option>
                 
                 </select>
@@ -56,7 +56,7 @@ function PopupAddDemandInfo(props){
             <div className="formicon">
             <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" onChange={(event)=> {
   setPqnty(event.target.value);
-}} placeholder="Enter Quantity" /></div>
+}} placeholder="Edit Quantity" /></div>
             </div>
             </div>
            
@@ -64,7 +64,7 @@ function PopupAddDemandInfo(props){
             </div>
                 <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btna" onClick={addProduct} >Add</button>
+                <button className="btna" onClick={addProduct} >Edit</button>
                 </div>
                 
             </div>
@@ -72,4 +72,4 @@ function PopupAddDemandInfo(props){
         </div>
     ) : "";
 }
-export default PopupAddDemandInfo;
+export default PopupEditDemandInfo;

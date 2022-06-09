@@ -292,7 +292,7 @@ case "Stores name":
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
                   <div className={`shop ${add}`}>
-                  <AddShoppingCartIcon className="material-icons" />
+                  <Link to="/stockvehicle"><AddShoppingCartIcon className="material-icons" /></Link>
                   </div>
                   <div className={`lik ${pos}`}>
                   <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link>

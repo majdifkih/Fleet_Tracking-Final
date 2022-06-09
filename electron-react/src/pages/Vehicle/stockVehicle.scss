@@ -1,19 +1,19 @@
 
-.infodemandmain{
+.stockvehiclemain{
     display: flex;
     gap: 10%;
-  .infodemand{
+  .stockvehicle{
     display: flex;
     flex-direction: column;
     flex: 1;
       
         
-  .headinfodemand{
+  .headstockvehicle{
     display: flex;
     gap: 60%;
     padding-bottom: 1%;
   
-    .titleinfodemand{
+    .titlestockvehicle{
         font-weight:bold;
         color: black;
         font-size: 122%;
@@ -57,7 +57,7 @@
   
     
   
-  .tabinfodemand{
+  .tabstockvehicle{
   
     border-radius: 10px;
     
@@ -88,7 +88,7 @@
     height: 6%;
     font-size: 100%;
     color: #fff;
-    padding: 1% 2% 2% 2%;
+    padding: 1% 2% 3% 2%;
     background: #747979;
     border-radius: 5px;
     border: none;

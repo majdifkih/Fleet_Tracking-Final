@@ -15,6 +15,7 @@ import DeliveryListe from "./pages/Delivery/Deliveryliste";
 import DemandTable from "./pages/Demand/Demand";
 import Login from "./pages/login/Login";
 import InfoDemand from "./pages/Demand/InfoDemand";
+import StockVehicle from "./pages/Vehicle/stockVehicle";
 
 function App() {
 
@@ -39,6 +40,7 @@ function App() {
             <Route path="delivery" element={<DeliveryListe/>}/>
             <Route path="demand" element={<DemandTable/>}/>
             <Route path="infodemand" element={<InfoDemand/>}/>
+            <Route path="stockvehicle" element={<StockVehicle/>}/>
             </Route>
         </Routes>
       </HashRouter>

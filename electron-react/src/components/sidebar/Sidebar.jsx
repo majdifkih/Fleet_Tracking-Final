@@ -60,7 +60,7 @@ const Sidebar = () => {
             </li>
             <li>
            
-           <Link to="/providerlist" >
+           <Link to="/demand" >
            <SpatialAudioOffIcon className="iconlist" fontSize="small"/> Demands
              </Link>
          </li>

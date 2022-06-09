@@ -13,6 +13,7 @@ import DriverTable from "./pages/Driver/Driver";
 import UserTable from "./pages/User/User";
 import InfoDelivery from "./pages/infodelivery/InfoDelivery";
 import DeliveryListe from "./pages/Delivery/Deliveryliste";
+import DemandTable from "./pages/Demand/Demand";
 
 function App() {
 
@@ -35,6 +36,7 @@ function App() {
             <Route path="users" element={<UserTable/>}/>
             <Route path="infodelivery" element={<InfoDelivery/>}/>
             <Route path="delivery" element={<DeliveryListe/>}/>
+            <Route path="demand" element={<DemandTable/>}/>
             </Route>
         </Routes>
       </HashRouter>

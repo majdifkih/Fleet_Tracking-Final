@@ -162,17 +162,16 @@ const rows = [
 <div className="headinfodemand">
       
 <div className="titleinfodemand">Demand Informations</div>
+
+</div>
 <div className="buttoninvetory">
-
-
-
-
-<Popup trigger={buttonPopup} setTrigger={setButtonPopup} className="popdel"/>
-
+<button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
+ <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+<div className="popdel">
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
+</div>
 </div>
 
-</div>
- <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
   <div className="tabinfodemand">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">

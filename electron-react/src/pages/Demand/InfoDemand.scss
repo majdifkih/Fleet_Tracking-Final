@@ -10,50 +10,52 @@
         
   .headinfodemand{
     display: flex;
-    gap: 30%;
+    gap: 60%;
     padding-bottom: 1%;
   
     .titleinfodemand{
-        display: flex;
-        gap: 10%;
         font-weight:bold;
         color: black;
-        font-size: 122%;}
-       
-        .del{
-          display: flex;
-          gap: 3%;
-          cursor: pointer;
-          font-size: 100%;
-          color: #fff;
+        font-size: 122%;
+      }
          
-          padding: 6% 20% 6% 20%;
-          background: #FF7A7A;
-          border-radius: 5px;
-          border: none;
-          align-items: center;
-         
-        }
-        
-        .popdel{
-          z-index: 222;
-        }
-   
+    }
+
+    .buttoninvetory{
+      display: flex;
+      margin-bottom: 1%;
+      gap: 66.5%;
+    .del{
+      display: flex;
+      gap: 3%;
+      cursor: pointer;
+      font-size: 100%;
+      color: #fff;
+      padding: 1% 2% 1% 1%;
+      background: #FF7A7A;
+      border-radius: 5px;
+      border: none;
+      align-items: center;
+      
     }
     .back{
       display: flex;
       width: 7%;
       padding: 0.4% 0% 0.4% 2%;
-      margin-bottom: 1%;
       align-items: center;
       border-radius: 5px;
       color:#fff;
       border: 1px solid rgb(210, 209, 209);
       background-color: rgba(224, 78, 10, 0.6);
       cursor: pointer;
-      
-      
     }
+    .popdel{
+      z-index: 1;
+    }
+    
+  }
+  
+    
   
   .tabinfodemand{
   

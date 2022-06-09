@@ -1,18 +1,18 @@
 
-.infodeliverymain{
+.facturemain{
   display: flex;
   gap: 2%;
-.infodelivery{
+.facture{
   display: flex;
   flex-direction: column;
   flex: 3;
     
       
-.headinfodelivery{
+.headfacture{
   display: flex;
   gap: 65%;
   padding-bottom: 1%;
-.titleinfodelivery{
+.titlefacture{
   display: flex;
   gap: 10%;
   font-weight:bold;
@@ -52,7 +52,7 @@
       }
  
   }
-  .buttoninfodelivery{
+  .buttonfacture{
       display: flex;
       gap: 70%;
       margin-bottom: 1%;
@@ -104,7 +104,7 @@
   }
  
 
-.tabinfodelivery{
+.tabfacture{
 
   border-radius: 10px;
   

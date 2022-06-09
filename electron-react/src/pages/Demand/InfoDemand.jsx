@@ -149,7 +149,7 @@ const rows = [
     setPage(0);
   };
   
-  const [addPopupinfodelivery, setAddPopupinfodelivery] = useState(false);
+  const [addPopupinfodemand, setAddPopupinfodemand] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   const[BtnConfirmer,setBtnConfirmer] = useState(false);
   const[BtneditConfirmer,setBtnEditConfirmer] = useState(false);
@@ -227,9 +227,9 @@ const rows = [
     </TableContainer>
   </div>
   
-  <button className="addprod" onClick={() => setAddPopupinfodelivery(true)}><AddIcon/></button>
+  <button className="addprod" onClick={() => setAddPopupinfodemand(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupAddDemand trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
+<PopupAddDemand trigger={addPopupinfodemand} setTrigger={setAddPopupinfodemand}/>
 </div>
  
   <button className="confirmerPord" onClick={()=> setBtnConfirmer(true)}>Confirmer</button>

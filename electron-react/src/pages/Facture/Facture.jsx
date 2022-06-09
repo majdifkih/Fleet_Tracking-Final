@@ -1,4 +1,4 @@
-import "./InfoDelivery.scss";
+import "./Facture.scss";
 import * as React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -27,7 +27,7 @@ import Popup from "../../components/Popup/Popup";
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NotesIcon from '@mui/icons-material/Notes';
-import PopupInfoDelivery from "../../components/Popup/PopupAddInfoDelivery";
+import PopupFacture from "../../components/Popup/PopupAddFacture";
 import { useNavigate } from "react-router-dom";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -132,7 +132,7 @@ const rows = [
   createData('kaki','222','4.000DT','4.500'),
   createData('Gaucho ','231','4.000DT','2.500'),
 ];
- function InfoDelivery() {
+ function Facture() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
   const navigate=useNavigate()
@@ -149,37 +149,37 @@ const rows = [
     setPage(0);
   };
   
-  const [addPopupinfodelivery, setAddPopupinfodelivery] = useState(false);
+  const [addPopupfacture, setAddPopupfacture] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
 
   return (
 
-  <div className="infodeliverymain">
+  <div className="facturemain">
     <div className="side"><Sidebar/></div>
-    <div className="infodelivery">
+    <div className="facture">
     <Navbar/>
 
-<div className="headinfodelivery">
-      <div className="titleinfodelivery">
+<div className="headfacture">
+      <div className="titlefacture">
       Store
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
       <i><SearchIcon/></i></div>
 </div>
 
 </div>
-<div className="buttoninfodelivery">
+<div className="buttonfacture">
 <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
 <div className="btnright">
-<button className="history" onClick={() => setAddPopupinfodelivery(true)}><NotesIcon/>History</button>
+<button className="history" onClick={() => setAddPopupfacture(true)}><NotesIcon/>History</button>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 </div>
 <div className="popinvet">
-<PopupInfoDelivery trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
+<PopupFacture trigger={addPopupfacture} setTrigger={setAddPopupfacture}/>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
 </div>
 
-  <div className="tabinfodelivery">
+  <div className="tabfacture">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">
         <TableHead>
@@ -243,4 +243,4 @@ const rows = [
   
   );
 }
-export default InfoDelivery
+export default Facture

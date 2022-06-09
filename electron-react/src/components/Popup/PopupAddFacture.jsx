@@ -5,7 +5,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
-function PopupInfoDelivery(props){
+function PopupFacture(props){
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
@@ -51,4 +51,4 @@ function PopupInfoDelivery(props){
         </div>
     ) : "";
 }
-export default PopupInfoDelivery;
+export default PopupFacture;

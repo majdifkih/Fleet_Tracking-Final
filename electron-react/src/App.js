@@ -10,13 +10,14 @@ import ProviderTable from "./pages/Provider/Provider";
 import ClientTable from "./pages/Client/Client";
 import DriverTable from "./pages/Driver/Driver";
 import UserTable from "./pages/User/User";
-import InfoDelivery from "./pages/infodelivery/InfoDelivery";
+import Facture from "./pages/Facture/Facture";
 import DeliveryListe from "./pages/Delivery/Deliveryliste";
 import DemandTable from "./pages/Demand/Demand";
 import Login from "./pages/login/Login";
 import Logout from "./pages/login/logout";
 
 import InfoDemand from "./pages/Demand/InfoDemand";
+import StockVehicle from "./pages/Vehicle/stockVehicle";
 
 function App() {
 
@@ -39,11 +40,12 @@ function App() {
             <Route path="clients" element={<ClientTable/>}/>
             <Route path="drivers" element={<DriverTable/>}/>
             <Route path="users" element={<UserTable/>}/>
-            <Route path="infodelivery" element={<InfoDelivery/>}/>
+            <Route path="facture" element={<Facture/>}/>
             <Route path="delivery" element={<DeliveryListe/>}/>
             <Route path="demand" element={<DemandTable/>}/>
             <Route path="infodemand" element={<InfoDemand/>}/>
             <Route path="logout" element={<Logout/>} />
+            <Route path="stockvehicle" element={<StockVehicle/>}/>
             </Route>
         </Routes>
       </HashRouter>

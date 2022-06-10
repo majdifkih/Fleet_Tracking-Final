@@ -8,21 +8,19 @@ import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 function PopupFleet(props){
-    const [Vname,setVname] = React.useState("");
-    const [Vmarque,setVmarque] = React.useState("");
+    const [Vname,setVMarque] = React.useState("");
     const [Vcategory,setVcategory] = React.useState("");
     const [Vmaintenance,setVmaintenance] = React.useState("");
     const [Vstatus,setVstatus] = React.useState("");
     const [Vmatricule,setVmatricule] = React.useState("");
-    const [Vid,setVid] = React.useState("");
     const [Vdriver,setdriver] = React.useState("");
-    const dataV = {Num:Vid,
+    const dataV = {
         name:Vname,
         status:Vstatus ,
         Matricule:Vmatricule ,
-        VehicleMarque:Vmarque,
         Maintenance:Vmaintenance,
-        Category:Vcategory
+        Category:Vcategory,
+        driver:Vdriver,    
         }
         const addVehicule = async () => {
             try {
@@ -46,9 +44,9 @@ function PopupFleet(props){
                 <div className="formulera">
                 <div className="formleft">
             <div className="form">
-            <label for="namea"/>Vehicle Name
+            <label for="namea"/>Vehicle Marque
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Name" onChange={(event)=> {setVname(event.target.value);}} /></div>
+            <DirectionsCarFilledOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Marque" onChange={(event)=> {setVMarque(event.target.value);}} /></div>
             </div>
             </div>
             <div className="form">

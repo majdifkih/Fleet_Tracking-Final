@@ -2,10 +2,11 @@ import React from "react";
 import "./Popupform.scss";
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import axios from 'axios';
 import { useState } from "react";
 
-function PopupAddDemandInfo(props){
+function PopupEditDemand(props){
 
     const [Pqnty, setPqnty] = useState("");
     const [product, setproduct] = useState("");
@@ -34,37 +35,54 @@ function PopupAddDemandInfo(props){
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
-            <h3> Add</h3>
+            <h3>Edit</h3>
                 <div className="formulera">
                 <div className="formleft">
                 <div className="form">
-            <label for="namea"/>Product
+            <label for="namea"/>Client
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
-                <option disabled selected>Choose Product</option>
+            <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setclient(event.target.value);}} >
+                <option disabled selected>Choose Client</option>
                 <option value="Online">Online</option>
                 
                 </select>
                 </div>
             </div>
             </div>
+                <div className="form">
+            <label for="namea"/>Quantity
+            <div className="formicon">
+            <ProductionQuantityLimitsOutlinedIcon className="iconselect" fontSize="small"/> <div className="forma"><input type="number" onChange={(event)=> {
+  setPqnty(event.target.value);
+}} placeholder="Edit Quantity" /></div>
+            </div>
+            </div>
             
             </div>
             <div className="formright">
+
             <div className="form">
-            <label for="namea"/>Quantity
+            <label for="namea"/>Product
             <div className="formicon">
-            <ProductionQuantityLimitsOutlinedIcon className="icona" fontSize="small"/> <div className="forma"><input type="number" onChange={(event)=> {
-  setPqnty(event.target.value);
-}} placeholder="Enter Quantity" /></div>
+            <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
+                <option disabled selected>Edit Product</option>
+                <option value="Online">Online</option>
+                
+                </select>
+                </div>
             </div>
             </div>
+
+            
+
+
+            
            
             </div>
             </div>
                 <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btna" onClick={addProduct} >Add</button>
+                <button className="btna" onClick={addProduct} >Edit</button>
                 </div>
                 
             </div>
@@ -72,4 +90,4 @@ function PopupAddDemandInfo(props){
         </div>
     ) : "";
 }
-export default PopupAddDemandInfo;
+export default PopupEditDemand;

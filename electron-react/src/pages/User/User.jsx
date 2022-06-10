@@ -56,7 +56,7 @@ import { Visibility } from "@mui/icons-material";
 </div>
 </div>
 
- <FullTable ink={""} rows={Users} type="non" stat="status" title="Users name" pos={"non"} fact={"non"}/>
+ <FullTable ink={""} rows={Users} type="non" stat="status" title="Users name" pos={"non"} add={"non"}/>
   </div>
   </div>
   

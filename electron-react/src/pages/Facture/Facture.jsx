@@ -1,6 +1,6 @@
-import "./Inventory.scss";
+import "./Facture.scss";
 import * as React from 'react';
-import { useState,useEffect } from 'react';
+import { useState } from 'react';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -23,12 +23,11 @@ import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import Addinvetory from './add.png';
 import Popup from "../../components/Popup/Popup";
-import PopupInventory from "../../components/Popup/PopupAddInventory";
-import PopupEditInventory from "../../components/Popup/PopupEditInventory";
-import axios from "axios";
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import NotesIcon from '@mui/icons-material/Notes';
+import PopupFacture from "../../components/Popup/PopupAddFacture";
+import { useNavigate } from "react-router-dom";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -111,31 +110,31 @@ TablePaginationActions.propTypes = {
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
+function createData(name, Quantity, Price, Total) {
+  return { name, Quantity, Price, Total};
+}
 
- function InventoryListe() {
+const rows = [
+  createData('Chocotom','111','4.000DT','1.500'),
+  createData('SAFIA eau','386','4.000DT','3.650'),
+  createData('Saida biscuit','696','4.000DT','7.500'),
+  createData('Maestro','672','4.000DT','4000'),
+  createData('Saida','226','4.000DT','4.100'),
+  createData('Crostina','172','4.000DT','2.700'),
+  createData('Ice cream','147','4.000DT','1.800'),
+  createData('Fidji','391','4.000DT','800'),
+  createData('Cupcake','973','4.000DT','900'),
+  createData('Chocolat','537','4.000DT','700'),
+  createData('Coca cola','876','4.000DT','2000'),
+  createData('Fanta','314','4.000DT','1.100'),
+  createData('Apla','555','4.000DT','5.500'),
+  createData('kaki','222','4.000DT','4.500'),
+  createData('Gaucho ','231','4.000DT','2.500'),
+];
+ function Facture() {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
-  const [rows, setrows] = useState([]);
-  const [DID, setDID] = useState("");
-    const [Dname, setDname] = useState("");
-  const getProduct=()=>{
-    axios.get("http://localhost:3001/ProductAPI/products").then(res=>{
-      if(res.data.success){
-        setrows( res.data.existingPosts);
-        
-        console.log(rows)
-      }
-    })
-  } 
-  useEffect(()=>{
-    getProduct() 
-  });  
-const[NameI,setNameI]=useState("");
-const [IDI,setIDI]=useState("");
-  const Edit = (name,ID) => {
-    setEditPopupinventory(true);
-    setNameI(name);
-    setIDI(ID);}
+  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const navigate=useNavigate()
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -148,52 +147,46 @@ const [IDI,setIDI]=useState("");
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-
+  
+  const [addPopupfacture, setAddPopupfacture] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
-  const [addPopupinventory, setAddPopupinventory] = useState(false);
-  const [editPopupinventory, setEditPopupinventory] = useState(false);
-  const [API, setAPI] = useState("Product");
-  const [APIs, setAPIs] = useState("products");
-  const [deletePopup, setdeletePopup] = useState(false);
-  const Delete = (name,ID) => {
-    setDID(ID);
-    setDname(name);
-    setdeletePopup(true)}
+
   return (
 
-  <div className="inventorymain">
+  <div className="facturemain">
     <div className="side"><Sidebar/></div>
-    <div className="inventory">
+    <div className="facture">
     <Navbar/>
 
-<div className="headinventory">
-      <div className="titleinventory">
-      Inventory
+<div className="headfacture">
+      <div className="titlefacture">
+      Store
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
       <i><SearchIcon/></i></div>
 </div>
-<div className="buttoninvetory">
-<button className="addinvetory" onClick={() => setAddPopupinventory(true)}><img src={Addinvetory} width="20" height="20"/>Add</button>
-<div className="popinvet">
-<PopupInventory trigger={addPopupinventory} setTrigger={setAddPopupinventory}/>
+
 </div>
+<div className="buttonfacture">
+<button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
+<div className="btnright">
+<button className="history" onClick={() => setAddPopupfacture(true)}><NotesIcon/>History</button>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+</div>
+<div className="popinvet">
+<PopupFacture trigger={addPopupfacture} setTrigger={setAddPopupfacture}/>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
 </div>
 
-  <div className="tabinventory">
+  <div className="tabfacture">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet" className="radio"/><label for="store">Inventory name</label></StyledTableCell>
-            <StyledTableCell  >Barcode</StyledTableCell>
-            <StyledTableCell  >Quantity</StyledTableCell>
-            <StyledTableCell >Price</StyledTableCell>
-            <StyledTableCell >Category</StyledTableCell>
-            <StyledTableCell  className="stathead">Status?</StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Product</label></StyledTableCell>
+            <StyledTableCell className="quantity" >Quantity</StyledTableCell>
+            <StyledTableCell  className="total">Total</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -201,30 +194,14 @@ const [IDI,setIDI]=useState("");
             ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
-            <StyledTableRow className="row" key={row.productName}>
-              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.productName}</label>
+            <StyledTableRow className="row" key={row.name}>
+              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="barcode" >{row.barCode}</StyledTableCell>
-              <StyledTableCell className="quantity" >{row.productQuantity}</StyledTableCell>
-              <StyledTableCell className="price" >{row.productPrice}</StyledTableCell>
-              <StyledTableCell className="category">{row.category}</StyledTableCell>
+              <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
+
+              <StyledTableCell className="total" >{row.Total}</StyledTableCell>
               
-              <StyledTableCell  className="tabEnd" >
-                <div className="icons">
-                <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
-                <i className="material-icons"  onClick={()=>Edit(row.name,row._id)}>border_color</i>
-                <i class="material-icons">info_outline</i>
-                <div className="popeditfleet"> 
-                <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
-                  <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory} id={IDI} name={NameI}/>
-                  </div>
-                
-                </div>
-                </StyledTableCell>
-                <StyledTableCell className="stat"  >
-              <div className={`statuss ${row.status}`}>{row.status}</div>
-              </StyledTableCell >
             </StyledTableRow>
           ))}
           
@@ -232,7 +209,7 @@ const [IDI,setIDI]=useState("");
         <TableFooter >
           <TableRow>
             <TablePagination
-              rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
+              rowsPerPageOptions={[3, 5, 10, { label: 'All', value: -1 }]}
               colSpan={7}
               count={rows.length}
               rowsPerPage={rowsPerPage}
@@ -252,10 +229,17 @@ const [IDI,setIDI]=useState("");
       </Table>
     </TableContainer>
   </div>
+  
+  
+  <div className="devis">
+    <div className="deviscont">Sub Total:7.000 DT </div>
+    <div className="deviscont">TVA:9% </div>
+    <div className="deviscont">Total 7.630 DT</div>
+  </div>
+
   </div>
   </div>
   
   );
-
- }
-export default InventoryListe
+}
+export default Facture

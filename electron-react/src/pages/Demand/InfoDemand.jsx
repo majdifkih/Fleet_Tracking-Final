@@ -27,8 +27,9 @@ import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
-import PopupAddDemandInfo from "../../components/Popup/PopupAddDemandInfo";
-import PopupEditDemandInfo from "../../components/Popup/PopupEditDemandInfo";
+
+import PopupAddDemand from "../../components/Popup/PopupAddDemand";
+import PopupEditDemand from "../../components/Popup/PopupEditDemand";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -149,7 +150,7 @@ const rows = [
     setPage(0);
   };
   
-  const [addPopupinfodelivery, setAddPopupinfodelivery] = useState(false);
+  const [addPopupinfodemand, setAddPopupinfodemand] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   const[BtnConfirmer,setBtnConfirmer] = useState(false);
   const[BtneditConfirmer,setBtnEditConfirmer] = useState(false);
@@ -170,7 +171,7 @@ const rows = [
  <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <div className="popdel">
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
-<PopupEditDemandInfo trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
+<PopupEditDemand trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
 </div>
 </div>
 
@@ -227,9 +228,9 @@ const rows = [
     </TableContainer>
   </div>
   
-  <button className="addprod" onClick={() => setAddPopupinfodelivery(true)}><AddIcon/></button>
+  <button className="addprod" onClick={() => setAddPopupinfodemand(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupAddDemandInfo trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
+<PopupAddDemand trigger={addPopupinfodemand} setTrigger={setAddPopupinfodemand}/>
 </div>
  
   <button className="confirmerPord" onClick={()=> setBtnConfirmer(true)}>Confirmer</button>

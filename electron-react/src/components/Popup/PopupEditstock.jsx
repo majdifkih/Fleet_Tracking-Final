@@ -5,7 +5,7 @@ import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import axios from 'axios';
 import { useState } from "react";
 
-function PopupEditDemandInfo(props){
+function PopupEditstock(props){
 
     const [Pqnty, setPqnty] = useState("");
     const [product, setproduct] = useState("");
@@ -72,4 +72,4 @@ function PopupEditDemandInfo(props){
         </div>
     ) : "";
 }
-export default PopupEditDemandInfo;
+export default PopupEditstock;

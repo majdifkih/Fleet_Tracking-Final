@@ -1,4 +1,4 @@
-import "./InfoDelivery.scss";
+import "./stockVehicle.scss";
 import * as React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -11,7 +11,6 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
@@ -26,9 +25,9 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import Popup from "../../components/Popup/Popup";
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import NotesIcon from '@mui/icons-material/Notes';
-import PopupInfoDelivery from "../../components/Popup/PopupAddInfoDelivery";
 import { useNavigate } from "react-router-dom";
+import PopupAddStock from "../../components/Popup/PopupAddStock";
+import PopupEditstock from "../../components/Popup/PopupEditstock";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -132,7 +131,7 @@ const rows = [
   createData('kaki','222','4.000DT','4.500'),
   createData('Gaucho ','231','4.000DT','2.500'),
 ];
- function InfoDelivery() {
+ function StockVehicle() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
   const navigate=useNavigate()
@@ -149,45 +148,40 @@ const rows = [
     setPage(0);
   };
   
-  const [addPopupinfodelivery, setAddPopupinfodelivery] = useState(false);
+  const [addPopupstockvehicle, setAddPopupstockvehicle] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
-
+  const[BtnConfirmer,setBtnConfirmer] = useState(false);
+  const[BtneditConfirmer,setBtnEditConfirmer] = useState(false);
   return (
 
-  <div className="infodeliverymain">
+  <div className="stockvehiclemain">
     <div className="side"><Sidebar/></div>
-    <div className="infodelivery">
+    <div className="stockvehicle">
     <Navbar/>
 
-<div className="headinfodelivery">
-      <div className="titleinfodelivery">
-      Store
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
-      <i><SearchIcon/></i></div>
-</div>
+<div className="headstockvehicle">
+      
+<div className="titlestockvehicle">Vehicle Inventory</div>
 
 </div>
-<div className="buttoninfodelivery">
+<div className="buttondemand">
 <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
-<div className="btnright">
-<button className="history" onClick={() => setAddPopupinfodelivery(true)}><NotesIcon/>History</button>
-<button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
-</div>
-<div className="popinvet">
-<PopupInfoDelivery trigger={addPopupinfodelivery} setTrigger={setAddPopupinfodelivery}/>
-<Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
+ <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
+<div className="popdel">
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
+<PopupEditstock trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
 </div>
 </div>
 
-  <div className="tabinfodelivery">
+  <div className="tabstockvehicle">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Product</label></StyledTableCell>
-            <StyledTableCell className="quantity" >Quantity</StyledTableCell>
-            <StyledTableCell  className="total">Total</StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet" className="radio"/><label for="store">Product</label></StyledTableCell>
+            <StyledTableCell className="quantity" align="center">Quantity</StyledTableCell>
+            
           </TableRow>
         </TableHead>
         <TableBody>
@@ -200,8 +194,9 @@ const rows = [
                 
               </StyledTableCell>
               <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
-
-              <StyledTableCell className="total" >{row.Total}</StyledTableCell>
+              <StyledTableCell align="right"  ><i className="material-icons" onClick={() => setBtnEditConfirmer(true)}>border_color</i>
+              <DeleteIcon className="material-icons" onClick={() => setButtonPopup(true)}/>
+              </StyledTableCell>
               
             </StyledTableRow>
           ))}
@@ -231,16 +226,15 @@ const rows = [
     </TableContainer>
   </div>
   
+  <button className="addprod" onClick={() => setAddPopupstockvehicle(true)}><AddIcon/></button>
+  <div className="popinvet">
+<PopupAddStock trigger={addPopupstockvehicle} setTrigger={setAddPopupstockvehicle}/>
+</div>
+ 
   
-  <div className="devis">
-    <div className="deviscont">Sub Total:7.000 DT </div>
-    <div className="deviscont">TVA:9% </div>
-    <div className="deviscont">Total 7.630 DT</div>
-  </div>
-
   </div>
   </div>
   
   );
 }
-export default InfoDelivery
+export default StockVehicle

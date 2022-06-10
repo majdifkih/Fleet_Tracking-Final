@@ -10,6 +10,7 @@ import FullTable from "../../components/table/FullTable";
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
 import axios from "axios";
 import PopupAddDemand from "../../components/Popup/PopupAddDemand";
+import { Link } from "react-router-dom";
  function DemandTable() {
    const[API,setAPI]=useState('Supplier');
    const [APIs, setAPIs] = useState('suppliers');
@@ -42,16 +43,14 @@ import PopupAddDemand from "../../components/Popup/PopupAddDemand";
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
-<button className="add" onClick={() => setAddPopupDemand(true)}><AddCircleOutlineIcon fontSize="small"/>Add</button>
-<div className="popdemand">
-<PopupAddDemand trigger={addPopupdemand} setTrigger={setAddPopupDemand}/>
-</div>
+<Link to="/infodemand"><button className="add" ><AddCircleOutlineIcon fontSize="small"/>Add</button></Link>
+
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs}/>
 </div>
 </div>
 
- <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" fact={"non"}/>
+ <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" add={"non"}/>
   </div>
   </div>
   

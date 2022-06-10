@@ -1,6 +1,7 @@
 import "./sidebar.scss";
 import { Link } from "react-router-dom";
-import log from './qlog1.jpg'
+import log from './qlog1.jpg';
+import logout from "../../service/auth.service";
 import HomeIcon from '@mui/icons-material/Home';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import StoreIcon from '@mui/icons-material/Store';
@@ -33,68 +34,68 @@ const Sidebar = () => {
             <br />
             <br />
             <li>
-            <Link to="/" >
+            <Link to="/q/home" >
             <HomeIcon className="iconlist" fontSize="small"/> Accueil
                 </Link>
             </li>
             <li>
-            <Link to="/deviceinfo" >
+            <Link to="/q/deviceinfo" >
            <LocalShippingIcon className="iconlist" fontSize="small"/> Fleet and Devices
                 </Link>
             </li>
             <li>
-            <Link to="/devicelist">
+            <Link to="/q/devicelist">
                    
             <GpsFixedIcon className="iconlist" fontSize="small"/> Fleet Tracking</Link>
                
             </li>
             <li>
-            <Link to="/storetable" >
+            <Link to="/q/storetable" >
             <StoreIcon className="iconlist" fontSize="small"/> Stores
                 </Link>
             </li>
             <li>
-            <Link to="/inventory" >
+            <Link to="/q/inventory" >
             <InventoryIcon className="iconlist" fontSize="small"/> Inventory
                 </Link>
             </li>
             <li>
            
-           <Link to="/demand" >
+           <Link to="/q/demand" >
            <SpatialAudioOffIcon className="iconlist" fontSize="small"/> Demands
              </Link>
          </li>
             <li>
            
-           <Link to="/providerlist" >
+           <Link to="/q/providerlist" >
            <PersonOutlineIcon className="iconlist" fontSize="small"/> Providers
              </Link>
          </li>
             <li>
-              <Link to="/clients" >
+              <Link to="/q/clients" >
               <GroupIcon className="iconlist" fontSize="small"/> Clients
               </Link>
             </li>
             <li>
            
-              <Link to="/drivers" >
+              <Link to="/q/drivers" >
               <AirlineSeatReclineNormalIcon className="iconlist" fontSize="small"/> Drivers
                 </Link>
             </li>
             <li>
            
-              <Link to="/users" >
+              <Link to="/q/users" >
               <AccountCircleIcon className="iconlist" fontSize="small"/> Users
                 </Link>
             </li>
             <li>
-            <Link to="/delivery" >
+            <Link to="/q/delivery" >
             <CoPresentIcon className="iconlist" fontSize="small"/> Delivery
               </Link>
             </li>
             <li>
-            <Link to="/logout" >
-            <LogoutIcon className="iconlist" fontSize="small"/> Log out
+            <Link to="/q/logout" >
+            <LogoutIcon className="iconlist" fontSize="small" /> Log out
               </Link>
             </li>
           </ul>

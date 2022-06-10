@@ -20,7 +20,9 @@ function Login () {
         }).then(res => {
             if (res.data.success) {
                 localStorage.setItem('token', res.data.token);
-                navigate('/');
+                localStorage.setItem('user', res.data.details.name);
+                localStorage.setItem('role ', res.data.isAdmin);
+                navigate('/q/home');
             } else {
                 alert('Invalid email or password');
             }

@@ -14,17 +14,21 @@ import InfoDelivery from "./pages/infodelivery/InfoDelivery";
 import DeliveryListe from "./pages/Delivery/Deliveryliste";
 import DemandTable from "./pages/Demand/Demand";
 import Login from "./pages/login/Login";
+import Logout from "./pages/login/logout";
+
 import InfoDemand from "./pages/Demand/InfoDemand";
 
 function App() {
 
+
   return (
     
       <HashRouter>
+        
         <Routes>
-          <Route path="/">
-            <Route  path="/" index element={<Home />} />
-            <Route path="login" element={<Login />} />
+          <Route exact path="/" element={<Login />} />
+            <Route path="/q">
+            <Route path="home" index element={<Home />} />
             <Route path="fleet" element={<FleetMap />}/>
             <Route path="store" element={<Store />}/>
             <Route path="storetable" element={<StoreTable />}/>
@@ -39,10 +43,11 @@ function App() {
             <Route path="delivery" element={<DeliveryListe/>}/>
             <Route path="demand" element={<DemandTable/>}/>
             <Route path="infodemand" element={<InfoDemand/>}/>
+            <Route path="logout" element={<Logout/>} />
             </Route>
         </Routes>
       </HashRouter>
-   
+ 
   );
 }
 

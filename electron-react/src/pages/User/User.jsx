@@ -10,11 +10,13 @@ import PopupUser from "../../components/Popup/PopupAddUser";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import FullTable from "../../components/table/FullTable";
 import axios from "axios";
+import { Visibility } from "@mui/icons-material";
 
  function UserTable() {
    const[API,setAPI]=useState("User");
     const [APIs, setAPIs] = useState('users');
   const [Users, setUsers] = useState([]);
+  const [admin, setAdmin] = useState(false);
   const getUser=()=>{
     axios.get("http://localhost:3001/UserAPI/users").then(res=>{
       if(res.data.success){
@@ -26,17 +28,19 @@ import axios from "axios";
   } 
   useEffect(()=>{
     getUser() 
+    setAdmin(localStorage.getItem('role'));
   });  
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupuser, setAddPopupuser] = useState(false);
-  return (
+
+  return (admin) ? (
 
   <div className="Tabusermain">
     <div className="side"><Sidebar/></div>
     <div className="Tabuser">
     <Navbar/>
 
-<div className="headTabuser">
+<div className="headTabuser" >
       <div className="titleTabuser">
       Users
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
@@ -56,6 +60,6 @@ import axios from "axios";
   </div>
   </div>
   
-  );
+  ):<h1>You are not admin</h1>;
 }
 export default UserTable

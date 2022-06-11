@@ -65,6 +65,25 @@
   .material-icons{
    color:#838481;  ;
   }
+  .statut {
+   
+    border-radius: 4px;
+    font-size: 80%;
+    font-weight: bold;
+    color: white;
+    &.Done { 
+      background: #29CC97;
+      padding: 0% 2% 0% 2%;
+    
+    }
+    &.Incomplete {
+      background: #FEC400;
+      padding: 1% 2% 1% 2%;
+      
+    }
+  }
+
+
 .radio{
       margin-right:3%;    }
 

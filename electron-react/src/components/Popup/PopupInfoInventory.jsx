@@ -20,21 +20,21 @@ function PopupInfoInventory(props){
                 <div className="infoname">
             <Inventory2OutlinedIcon className="iconinfo" fontSize="small"/><span>Product Name:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.productName}</div>
             </div>
            
             <div className="forminfo">
                 <div className="infoname">
             <QrCode2OutlinedIcon className="iconinfo" fontSize="small"/><span>Barcode:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.barCode}</div>
             </div>
 
             <div className="forminfo">
                 <div className="infoname">
             <ProductionQuantityLimitsOutlinedIcon className="iconinfo" fontSize="small"/><span>Quantity:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.productQuantity}</div>
             </div>
             </div>
             <div className="formright">
@@ -43,13 +43,13 @@ function PopupInfoInventory(props){
                 <div className="infoname">
             <AttachMoneyOutlinedIcon className="iconinfo" fontSize="small"/><span>Price:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.productPrice}</div>
             </div>
             <div className="forminfo">
                 <div className="infoname">
             <LocalOfferOutlinedIcon className="iconinfo" fontSize="small"/><span>Category:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.category}</div>
             </div>
             
             </div>

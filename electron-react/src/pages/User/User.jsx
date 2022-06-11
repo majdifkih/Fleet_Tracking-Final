@@ -12,29 +12,28 @@ import FullTable from "../../components/table/FullTable";
 import axios from "axios";
 import { Visibility } from "@mui/icons-material";
 
- function UserTable() {
+ function UserTable(props) {
    const[API,setAPI]=useState("User");
     const [APIs, setAPIs] = useState('users');
   const [Users, setUsers] = useState([]);
-  const [admin, setAdmin] = useState(false);
+
   const getUser=()=>{
     axios.get("http://localhost:3001/UserAPI/users").then(res=>{
       if(res.data.success){
         setUsers( res.data.existingPosts);
-        
         console.log(Users)
       }
     })
   } 
   useEffect(()=>{
     getUser() 
-    setAdmin(localStorage.getItem('role'));
+    console.log(localStorage.getItem("user"))
   });  
+  
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupuser, setAddPopupuser] = useState(false);
 
-  return (admin) ? (
-
+  return (localStorage.getItem("user")==="iheb")?(
   <div className="Tabusermain">
     <div className="side"><Sidebar/></div>
     <div className="Tabuser">
@@ -60,6 +59,6 @@ import { Visibility } from "@mui/icons-material";
   </div>
   </div>
   
-  ):<h1>You are not admin</h1>;
+  ):"";
 }
 export default UserTable

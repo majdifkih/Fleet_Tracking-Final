@@ -28,7 +28,7 @@ import Popup from "../../components/Popup/Popup";
 import PopupInventory from "../../components/Popup/PopupAddInventory";
 import PopupEditInventory from "../../components/Popup/PopupEditInventory";
 import axios from "axios";
-
+import PopupInfoInventory from "../../components/Popup/PopupInfoInventory";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -130,6 +130,12 @@ TablePaginationActions.propTypes = {
   useEffect(()=>{
     getProduct() 
   });  
+  const [InfoPopupinventory, setInfoPopupinventory] = useState(false);
+  const [Row, setRow] = useState([]);
+
+  const display = (r) => {
+    setRow(r);
+  setInfoPopupinventory(true);}
 const[NameI,setNameI]=useState("");
 const [IDI,setIDI]=useState("");
   const Edit = (name,ID) => {
@@ -214,10 +220,11 @@ const [IDI,setIDI]=useState("");
                 <div className="icons">
                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
                 <i className="material-icons"  onClick={()=>Edit(row.name,row._id)}>border_color</i>
-                <i class="material-icons">info_outline</i>
+                <i class="material-icons" onClick={()=> display(row)}>info_outline</i>
                 <div className="popeditfleet"> 
                 <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory} id={IDI} name={NameI}/>
+                  <PopupInfoInventory trigger={InfoPopupinventory} setTrigger={setInfoPopupinventory} data={Row} />
                   </div>
                 
                 </div>

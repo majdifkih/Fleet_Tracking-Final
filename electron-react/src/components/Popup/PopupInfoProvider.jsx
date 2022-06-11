@@ -25,7 +25,7 @@ function PopupInfoProvider(props){
                 <div className="infoname">
             <PhoneIphoneIcon className="iconinfo" fontSize="small"/><span>Phone Number:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.telf}</div>
             </div>
 
             </div>
@@ -35,13 +35,13 @@ function PopupInfoProvider(props){
                 <div className="infoname">
             <LocalOfferOutlinedIcon className="iconinfo" fontSize="small"/><span>Product category:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.productCategory}</div>
             </div>
             <div className="forminfo">
                 <div className="infoname">
             <AlternateEmailIcon className="iconinfo" fontSize="small"/><span>Address:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.address}</div>
             </div>
             
             </div>

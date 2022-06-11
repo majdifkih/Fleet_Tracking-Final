@@ -8,7 +8,7 @@ import axios from "axios";
 import { useState } from "react";
 
 function PopupEditProvider(props){
-    const [newProviderAddres, setnewProviderAddres] = useState("");
+    const [newProviderAddress, setnewProviderAddress] = useState("");
     const [newNameprovider, setnewNameprovider] = useState("");
     const [newProviderPhone, setnewProviderPhone] = useState("");
     const [newProviderCategory, setnewProviderCategory] = useState("");
@@ -17,7 +17,7 @@ function PopupEditProvider(props){
             name:newNameprovider ,
             telf:newProviderPhone ,
             productCategory:newProviderCategory,
-            newProviderAddres
+            address:newProviderAddress,
             }
        await axios.put(`http://localhost:3001/SupplierAPI/suppliers?id=${ID}`,dataP).then((res) => {
                 if (res.data.status === 'success') {
@@ -65,7 +65,7 @@ function PopupEditProvider(props){
         <label for="namea"/>Address
         <div className="formicon">
         <AlternateEmailIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
-  setnewProviderAddres(event.target.value);
+  setnewProviderAddress(event.target.value);
 }} type="text" placeholder="edit Address" /></div>
         </div>
         </div>

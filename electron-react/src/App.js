@@ -5,7 +5,7 @@ import FleetMap from "./pages/FleetMap/FleetMap";
 import DeviceListe from "./pages/FleetMap/Deviceliste";
 import DeviceInfo from "./pages/FleetMap/DevicesInfo";
 import InventoryListe from "./pages/inventory/Inventory";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route,BrowserRouter } from "react-router-dom";
 import ProviderTable from "./pages/Provider/Provider";
 import ClientTable from "./pages/Client/Client";
 import DriverTable from "./pages/Driver/Driver";
@@ -24,12 +24,12 @@ function App() {
 
   return (
     
-      <HashRouter>
+      <HashRouter >
         
         <Routes>
-          <Route exact path="/" element={<Login />} />
-            <Route path="/q">
-            <Route path="home" index element={<Home />} />
+          <Route exact path="/" element={<Login />} /> 
+            <Route path="/">
+            <Route path="/home" index element={<Home />} />
             <Route path="fleet" element={<FleetMap />}/>
             <Route path="store" element={<Store />}/>
             <Route path="storetable" element={<StoreTable />}/>
@@ -39,16 +39,18 @@ function App() {
             <Route path="inventory" element={<InventoryListe/>}/>
             <Route path="clients" element={<ClientTable/>}/>
             <Route path="drivers" element={<DriverTable/>}/>
-            <Route path="users" element={<UserTable/>}/>
+            <Route path="users" element={<UserTable />}/>
             <Route path="facture" element={<Facture/>}/>
             <Route path="delivery" element={<DeliveryListe/>}/>
             <Route path="demand" element={<DemandTable/>}/>
             <Route path="infodemand" element={<InfoDemand/>}/>
             <Route path="logout" element={<Logout/>} />
             <Route path="stockvehicle" element={<StockVehicle/>}/>
-            </Route>
+            </Route> 
         </Routes>
+        
       </HashRouter>
+
  
   );
 }

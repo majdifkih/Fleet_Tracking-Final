@@ -29,10 +29,17 @@ import PopupEditDriver from '../Popup/PopupEditDriver';
 import PopupEditProvider from '../Popup/PopupEditProvider';
 import PopupEditUser from '../Popup/PopupEditUser';
 import PopupEditStore from '../Popup/PopupEditStores';
-import { Link } from 'react-router-dom';
-import PopupInfoFleet from '../Popup/PopupInfoFleet';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Popup from '../Popup/Popup';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
+import { SettingsRemoteOutlined } from '@mui/icons-material';
+import PopupInfoFleet from '../Popup/PopupInfoFleet';
+import PopupInfoClient from '../Popup/PopupInfoClient';
+import PopupInfoDriver from '../Popup/PopupInfoDriver';
+import PopupInfoProvider from '../Popup/PopupInfoProvider';
+import PopupInfoUser from '../Popup/PopupInfoUser';
+import PopupInfoStore from '../Popup/PopupInfoStore';
+import PopupInfoInventory from '../Popup/PopupInfoInventory';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -142,6 +149,22 @@ function FullTable(props) {
    const [infoPopup, setInfoPopup] = useState(false);
 const [API, setAPI] = useState("false");
 const [APIs, setAPIs] = useState("false");
+// const [URL, SetURL] = useState("h");
+const url = (title) => {
+  console.log(title);
+  (title==="Stores name") ? navigate("/facture"):window.location.reload();
+  // if(r==="fleet"){
+  //   setAPI("/api/fleet/");
+  // }
+  // else 
+}
+  // switch (r) {
+  
+  //   case "Store name":
+  //     window.location.href = "/q/facture/";
+  //     break;
+
+  // }
 switch(type){
     case "Devices":
         setIsem(true);
@@ -150,7 +173,9 @@ switch(type){
 break;
 case "Stores name":
     setIsem(false);
-    setIsemF(false);}
+    setIsemF(false);
+    
+  }
    const Delete = (name,ID) => {
         setDID(ID);
         setDname(name);
@@ -187,11 +212,45 @@ case "Stores name":
         setdeletePopup(true);
 
     }
-    
+   ;
+ 
+    const [InfoPopupFleet, setInfoPopupFleet] = useState(false);
+    const [InfoPopupStore, setInfoPopupStore] = useState(false);
+    const [InfoPopupClient, setInfoPopupClient] = useState(false);
+    const [InfoPopupDriver, setInfoPopupDriver] = useState(false);
+    const [InfoPopupProvider, setInfoPopupProvider] = useState(false);
+    const [InfoPopupUser, setInfoPopupUser] = useState(false);
+ 
+   
+  
     const [ROW, setROW] = useState([]);
     const Display = (R) => {
       setROW(R);
-      setInfoPopup(true);
+      switch (title) {
+        case 'Devices': 
+        setInfoPopupFleet(true) ;
+
+          break;
+        case 'Stores name':
+          setInfoPopupStore(true) ;
+
+          break;
+          case 'Clients name':
+            setInfoPopupClient(true) ;
+          break;
+          case 'Drivers name':
+            setInfoPopupDriver(true) ;
+          break;
+          case 'Provider name':
+            setInfoPopupProvider(true) ;
+          break;
+          case 'Users name':
+            setInfoPopupUser(true) ;
+          break;
+
+        default:
+          console.log(`Sorry, we are out of ${title}.`);
+      }
     }
     const Edit = (name,ID) => {
   
@@ -248,6 +307,7 @@ case "Stores name":
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
+  const navigate=useNavigate();
   return (
     <div className="tabdevice">
     <TableContainer component={Paper}>
@@ -311,11 +371,18 @@ case "Stores name":
                   </div>
                   <i class="material-icons" onClick={() => Display(row)}>info_outline</i>
                   <div className="popeditfleet"> 
-                  <PopupInfoFleet trigger={infoPopup} setTrigger={setInfoPopup} data={ROW}/>
+                  <PopupInfoFleet trigger={InfoPopupFleet} setTrigger={setInfoPopupFleet} data={ROW}/>
+                  <PopupInfoStore trigger={InfoPopupStore} setTrigger={setInfoPopupStore} data={ROW}/>
+                  <PopupInfoClient trigger={InfoPopupClient} setTrigger={setInfoPopupClient} data={ROW}/>
+                  <PopupInfoDriver trigger={InfoPopupDriver} setTrigger={setInfoPopupDriver} data={ROW}/>
+                  <PopupInfoProvider trigger={InfoPopupProvider} setTrigger={setInfoPopupProvider} data={ROW}/>
+                  <PopupInfoUser trigger={InfoPopupUser} setTrigger={setInfoPopupUser} data={ROW}/>
+                 
+
                   </div>
                   
                   </div>
-                <div className={`reguliere ${row.status}`}>{row.status}</div></StyledTableCell>
+                <div className={`reguliere ${row.status}`} onClick={()=>url(title)}>{row.status}</div></StyledTableCell>
               </StyledTableRow>
             ))}
             

@@ -26,14 +26,14 @@ function PopupInfoStore(props){
                 <div className="infoname">
             <MailOutlineIcon className="iconinfo" fontSize="small"/><span>Contact:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.contact}</div>
             </div>
 
             <div className="forminfo">
                 <div className="infoname">
             <PersonOutlineIcon className="iconinfo" fontSize="small"/><span>Store Owner:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.owner}</div>
             </div>
             </div>
             <div className="formright">
@@ -42,13 +42,13 @@ function PopupInfoStore(props){
                 <div className="infoname">
             <LocalOfferOutlinedIcon className="iconinfo" fontSize="small"/><span>Type:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.type}</div>
             </div>
             <div className="forminfo">
                 <div className="infoname">
             <RoomOutlinedIcon className="iconinfo" fontSize="small"/><span>Address:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.address}</div>
             </div>
             
             </div>

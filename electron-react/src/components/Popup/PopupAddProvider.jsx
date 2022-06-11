@@ -7,15 +7,16 @@ import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import axios from "axios";
 import { useState } from "react";
 function PopupProvider(props){
-    const [ProviderNum, setProviderNum] = useState("");
+    const [ProviderAddress, setProviderAddress] = useState("");
     const [Nameprovider, setNameprovider] = useState("");
     const [ProviderPhone, setProviderPhone] = useState("");
     const [ProviderCategory, setProviderCategory] = useState("");
 
-    const dataP = {num:ProviderNum,
+    const dataP = {
         name:Nameprovider ,
         telf:ProviderPhone ,
-        productCategory:ProviderCategory
+        productCategory:ProviderCategory,
+        address:ProviderAddress
         }
         const addProvider = async () => {
             try {
@@ -69,7 +70,7 @@ function PopupProvider(props){
             <label for="namea"/>Address
             <div className="formicon">
             <AlternateEmailIcon className="icona" fontSize="small"/> <div className="forma"><input onChange={(event)=> {
-      setProviderNum(event.target.value);
+      setProviderAddress(event.target.value);
     }} type="text" placeholder="Enter Address" /></div>
             </div>
             </div>

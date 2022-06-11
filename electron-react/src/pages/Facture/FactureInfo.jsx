@@ -1,4 +1,4 @@
-import "./Facture.scss";
+import "./FactureInfo.scss";
 import * as React from 'react';
 import { useState } from 'react';
 import PropTypes from 'prop-types';
@@ -27,7 +27,7 @@ import Popup from "../../components/Popup/Popup";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NotesIcon from '@mui/icons-material/Notes';
 import PopupFacture from "../../components/Popup/PopupAddFacture";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -110,28 +110,28 @@ TablePaginationActions.propTypes = {
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
-function createData(name, date, status) {
-  return { name, date, status};
+function createData(name, Quantity, Price, Total) {
+  return { name, Quantity, Price, Total};
 }
 
 const rows = [
-  createData('Chocotom','22/02/2022','Done','1.500'),
-  createData('SAFIA eau','22/02/2022','Done','3.650'),
-  createData('Saida biscuit','22/02/2022','Done','7.500'),
-  createData('Maestro','22/02/2022','Done'),
-  createData('Saida','22/02/2022','Done'),
-  createData('Crostina','22/02/2022','Done'),
-  createData('Ice cream','22/02/2022','Done'),
-  createData('Fidji','22/02/2022','Done'),
-  createData('Cupcake','22/02/2022','Done'),
-  createData('Chocolat','22/02/2022','Done'),
-  createData('Coca cola','22/02/2022','Done'),
-  createData('Fanta','22/02/2022','Done'),
-  createData('Apla','22/02/2022','Done'),
-  createData('kaki','22/02/2022','Done'),
-  createData('Gaucho ','22/02/2022','Done'),
+  createData('Chocotom','111','4.000DT','1.500'),
+  createData('SAFIA eau','386','4.000DT','3.650'),
+  createData('Saida biscuit','696','4.000DT','7.500'),
+  createData('Maestro','672','4.000DT','4000'),
+  createData('Saida','226','4.000DT','4.100'),
+  createData('Crostina','172','4.000DT','2.700'),
+  createData('Ice cream','147','4.000DT','1.800'),
+  createData('Fidji','391','4.000DT','800'),
+  createData('Cupcake','973','4.000DT','900'),
+  createData('Chocolat','537','4.000DT','700'),
+  createData('Coca cola','876','4.000DT','2000'),
+  createData('Fanta','314','4.000DT','1.100'),
+  createData('Apla','555','4.000DT','5.500'),
+  createData('kaki','222','4.000DT','4.500'),
+  createData('Gaucho ','231','4.000DT','2.500'),
 ];
- function Facture() {
+ function InfoFacture() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
   const navigate=useNavigate()
@@ -148,19 +148,19 @@ const rows = [
     setPage(0);
   };
   
-  const [addPopupfacture, setAddPopupfacture] = useState(false);
+  const [addPopupinfofacture, setAddPopupinfofacture] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
 
   return (
 
-  <div className="facturemain">
+  <div className="infofacturemain">
     <div className="side"><Sidebar/></div>
-    <div className="facture">
+    <div className="infofacture">
     <Navbar/>
 
-<div className="headfacture">
-      <div className="titlefacture">
-       Invoice history
+<div className="headinfofacture">
+      <div className="titleinfofacture">
+      Invoice
       <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
       <i><SearchIcon/></i></div>
 </div>
@@ -172,20 +172,20 @@ const rows = [
 
 
 <div className="popinvet">
-<PopupFacture trigger={addPopupfacture} setTrigger={setAddPopupfacture}/>
+<PopupFacture trigger={addPopupinfofacture} setTrigger={setAddPopupinfofacture}/>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
 
 
-  <div className="tabfacture">
+  <div className="tabinfofacture">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Facture name</label></StyledTableCell>
-            <StyledTableCell className="date" align="center" >Date</StyledTableCell>
-            <StyledTableCell  className="status" align="right">Status</StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Product</label></StyledTableCell>
+            <StyledTableCell className="quantity" >Quantity</StyledTableCell>
+            <StyledTableCell  className="total">Total</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -197,10 +197,10 @@ const rows = [
               <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="date"  align="center">{row.date}</StyledTableCell>
+              <StyledTableCell className="quantity" >{row.Quantity}</StyledTableCell>
 
-              <StyledTableCell className="status" align="right">{row.status}</StyledTableCell>
-              <StyledTableCell className="info" align="right"><Link to="/infofacture"><i class="material-icons">info_outline</i></Link></StyledTableCell>
+              <StyledTableCell className="total" >{row.Total}</StyledTableCell>
+              
             </StyledTableRow>
           ))}
           
@@ -229,9 +229,16 @@ const rows = [
     </TableContainer>
   </div>
   
+  
+  <div className="devis">
+    <div className="deviscont">Sub Total:7.000 DT </div>
+    <div className="deviscont">TVA:9% </div>
+    <div className="deviscont">Total 7.630 DT</div>
+  </div>
+
   </div>
   </div>
   
   );
 }
-export default Facture
+export default InfoFacture

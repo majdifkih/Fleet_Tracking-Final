@@ -17,6 +17,7 @@ import Login from "./pages/login/Login";
 import Logout from "./pages/login/logout";
 import InfoDemand from "./pages/Demand/InfoDemand";
 import StockVehicle from "./pages/Vehicle/stockVehicle";
+import InfoFacture from "./pages/Facture/FactureInfo";
 
 function App() {
 
@@ -45,6 +46,7 @@ function App() {
             <Route path="infodemand" element={<InfoDemand/>}/>
             <Route path="logout" element={<Logout/>} />
             <Route path="stockvehicle" element={<StockVehicle/>}/>
+            <Route path="infofacture" element={<InfoFacture/>}/>
             </Route> 
         </Routes>
         

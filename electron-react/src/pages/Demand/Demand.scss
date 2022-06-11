@@ -46,7 +46,7 @@
       }
       .butt{
         display: flex;
-        gap: 30%;
+        gap: 70%;
         margin-left: 18%;
         .del{
           display: flex;
@@ -64,12 +64,13 @@
           gap: 5%;
           font-size: 100%;
           color: #fff;
-          padding: 7% 10% 7% 10%;
+          padding:15% 20% 15% 20%;
           background: #3d2db9;
           border-radius: 5px;
           border: none;
           align-items: center;
           cursor: pointer;
+        
         }
         .popdemand{
           z-index: 1;

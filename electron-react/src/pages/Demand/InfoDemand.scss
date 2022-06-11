@@ -20,7 +20,42 @@
       }
          
     }
-
+    .back{
+      display: flex;
+      width: 7%;
+      padding: 0.4% 3% 0.4% 2%;
+      margin-bottom: 2%;
+      align-items: center;
+      border-radius: 5px;
+      color:#fff;
+      border: 1px solid rgb(210, 209, 209);
+      background-color: rgba(224, 78, 10, 0.6);
+      cursor: pointer;
+    }
+.form{
+  display: flex;
+  gap: 59.5%;
+  .selectinput{
+    position: relative;
+    display: flex;
+    gap: 10%;
+  
+    .iconselect{
+      position: absolute;
+      padding: 3% 0% 0% 3%;
+    }
+    .select{
+      padding: 5% 50% 5% 25%;
+      background-color: #cdd4d4;
+      border-radius: 5px;
+      border:none;
+      .optionclient{
+        font-size: 100%;
+        font-weight: bold;
+        color: black;
+      }
+    }
+  }
     .buttondemand{
       display: flex;
       margin-bottom: 1%;
@@ -31,28 +66,18 @@
       cursor: pointer;
       font-size: 100%;
       color: #fff;
-      padding: 1% 2% 1% 1%;
+      padding: 10% 20% 10% 2%;
       background: #FF7A7A;
       border-radius: 5px;
       border: none;
       align-items: center;
       
     }
-    .back{
-      display: flex;
-      width: 7%;
-      padding: 0.4% 3% 0.4% 2%;
-      align-items: center;
-      border-radius: 5px;
-      color:#fff;
-      border: 1px solid rgb(210, 209, 209);
-      background-color: rgba(224, 78, 10, 0.6);
-      cursor: pointer;
-    }
+  
     .popdel{
       z-index: 1;
     }
-    
+  }
   }
   
     
@@ -99,7 +124,7 @@
   }
   
   .confirmerPord{
-  margin-top: 15%;
+  margin-top: 10%;
     margin-left:10% ;
     cursor: pointer;
     width: 60%;

@@ -27,7 +27,7 @@ import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
 import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
-
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PopupAddDemand from "../../components/Popup/PopupAddDemand";
 import PopupEditDemand from "../../components/Popup/PopupEditDemand";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -154,6 +154,7 @@ const rows = [
   const [buttonPopup, setButtonPopup] = useState(false);
   const[BtnConfirmer,setBtnConfirmer] = useState(false);
   const[BtneditConfirmer,setBtnEditConfirmer] = useState(false);
+  const [productclient, setclient] = useState("");
   return (
 
   <div className="infodemandmain">
@@ -166,15 +167,30 @@ const rows = [
 <div className="titleinfodemand">Demand Informations</div>
 
 </div>
-<div className="buttondemand">
 <button onClick={() => navigate(-1)} className="back"><ArrowBackIcon className="iconback"/></button>
+
+<div className="form">
+  <div className="selectinput">
+            <label for="namea"/>Client
+            <div className="formicon">
+            <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setclient(event.target.value);}} >
+                <option disabled selected>Choose Client</option>
+                <option value="Online" className="optionclient">Online</option>
+                
+                </select>
+                </div>
+            </div>
+            </div>
+            <div className="buttondemand">
+
  <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <div className="popdel">
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} />
 <PopupEditDemand trigger={BtneditConfirmer} setTrigger={setBtnEditConfirmer}/>
 </div>
 </div>
-
+            </div>
+            
   <div className="tabinfodemand">
   <TableContainer component={Paper}>
       <Table sx={{ minWidth: "100%" }} aria-label="customized table">

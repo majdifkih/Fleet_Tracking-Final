@@ -48,7 +48,7 @@ function PopupEditStore(props){
             <div className="form">
             <label for="namea"/>Contact
             <div className="formicon">
-            <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Contact" onChange={(event)=> {
+            <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.contact} onChange={(event)=> {
       setnewStoreContact(event.target.value);
     }}/></div>
             </div>
@@ -56,7 +56,7 @@ function PopupEditStore(props){
             <div className="form">
             <label for="namea"/>Store Owner
             <div className="formicon">
-            <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder="Edit  Owner" onChange={(event)=> {
+            <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder={props.owner} onChange={(event)=> {
       setnewStoreOwner(event.target.value);
     }} /></div>
             </div>
@@ -67,7 +67,7 @@ function PopupEditStore(props){
             <div className="form">
             <label for="namea"/>Type
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Type" onChange={(event)=> {
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.type} onChange={(event)=> {
       setnewStoreType(event.target.value);
     }} /></div>
             </div>
@@ -75,7 +75,7 @@ function PopupEditStore(props){
             <div className="form">
             <label for="namea"/>Address
             <div className="formicon">
-            <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Address"  onChange={(event)=> {
+            <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.address}  onChange={(event)=> {
       setnewStoreAddress(event.target.value);
     }}/></div>
             </div>

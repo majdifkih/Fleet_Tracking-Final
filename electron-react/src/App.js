@@ -27,9 +27,9 @@ function App() {
       <HashRouter >
         
         <Routes>
-          {/* <Route exact path="/" element={<Login />} /> */}
+          <Route exact path="/" element={<Login />} />
             <Route path="/">
-            <Route path="" index element={<Home />} />
+            <Route path="home" index element={<Home />} />
             <Route path="fleet" element={<FleetMap />}/>
             <Route path="store" element={<Store />}/>
             <Route path="storetable" element={<StoreTable />}/>

@@ -45,7 +45,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   });   
  
  
-
+const [searchTerm,setSearchTerm]=useState("");
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupfleet, setAddPopupfleet] = useState(false);
   return (
@@ -57,7 +57,9 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 <div className="headfleet">
       <div className="titledeviceinfo">
       Fleet
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input  onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }} type="Search" placeholder="Search..." className="rech"/>
 <i><SearchIcon/></i></div>
 </div>
 <div className="buttondevice">
@@ -131,7 +133,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 </div>
   </div>
   <div className="tabdevic">
-  <FullTable ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non"  />
+  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non"  />
   </div>
   </div>
   </div>

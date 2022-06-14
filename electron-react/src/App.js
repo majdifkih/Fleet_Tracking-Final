@@ -17,6 +17,7 @@ import Login from "./pages/login/Login";
 import Logout from "./pages/login/logout";
 import InfoDemand from "./pages/Demand/InfoDemand";
 import StockVehicle from "./pages/Vehicle/stockVehicle";
+import InfoFacture from "./pages/Facture/FactureInfo";
 
 function App() {
 
@@ -26,9 +27,7 @@ function App() {
       <HashRouter >
         
         <Routes>
-           <Route exact path="/" element={<Login />} /> 
-            
-           
+          <Route exact path="/" element={<Login />} />
             <Route path="/">
             <Route path="home" index element={<Home />} />
             <Route path="fleet" element={<FleetMap />}/>
@@ -47,6 +46,7 @@ function App() {
             <Route path="infodemand" element={<InfoDemand/>}/>
             <Route path="logout" element={<Logout/>} />
             <Route path="stockvehicle" element={<StockVehicle/>}/>
+            <Route path="infofacture" element={<InfoFacture/>}/>
             </Route> 
         </Routes>
         

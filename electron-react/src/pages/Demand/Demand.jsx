@@ -47,7 +47,7 @@ import { Link } from "react-router-dom";
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
-<Link to="/infodemand"><button className="add" ><AddCircleOutlineIcon fontSize="small"/>Add</button></Link>
+<Link to="/infodemand" style={{ textDecoration: 'none' }}><button className="add" ><AddCircleOutlineIcon fontSize="small"/>Add</button></Link>
 
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs}/>

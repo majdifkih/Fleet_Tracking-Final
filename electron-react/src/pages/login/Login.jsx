@@ -72,7 +72,7 @@ function Login () {
             </div>
             <div className="footer"> 
               <div><button type="submit" className="login" onClick={()=>Auth()}>Login </button></div>
-              <div className="Forgot">Forgot Password?</div>
+             
             </div>
             
           </div>

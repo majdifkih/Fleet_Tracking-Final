@@ -123,7 +123,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-    const {rows,type,title,stat,icon,pos,ink,add}=props;
+    const {rows,type,title,stat,icon,pos,ink,add,search}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
     const [deletePopup, setdeletePopup] = useState(false);
 
@@ -324,9 +324,17 @@ case "Stores name":
             {(rowsPerPage > 0
               ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : rows
-            ).map((row) => (
-              <StyledTableRow className="row" key={row.name}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label>
+            ).filter((val)=>{
+            if (search =="")
+            {
+              return val
+            }
+            else if(val.name.toLowerCase().includes(search.toLowerCase())){
+              return val
+            }
+          }).map((val,key) => (
+              <StyledTableRow className="row" key={key}>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.name}</label>
                   
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 
@@ -357,8 +365,8 @@ case "Stores name":
                   <div className={`lik ${pos}`}>
                   <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link>
                   </div>
-                    <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
-                  <i className="material-icons" onClick={()=>Edit(row.name,row._id)} >border_color</i>
+                    <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>
+                  <i className="material-icons" onClick={()=>Edit(val.name,val._id)} >border_color</i>
                   <div className="popeditfleet"> 
                   <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>
@@ -369,7 +377,7 @@ case "Stores name":
                   <PopupEditClient trigger={editPopupclient} setTrigger={setEditPopupclient} id={IDC} name={isemC}/>
 
                   </div>
-                  <i class="material-icons" onClick={() => Display(row)}>info_outline</i>
+                  <i class="material-icons" onClick={() => Display(val)}>info_outline</i>
                   <div className="popeditfleet"> 
                   <PopupInfoFleet trigger={InfoPopupFleet} setTrigger={setInfoPopupFleet} data={ROW}/>
                   <PopupInfoStore trigger={InfoPopupStore} setTrigger={setInfoPopupStore} data={ROW}/>
@@ -382,7 +390,7 @@ case "Stores name":
                   </div>
                   
                   </div>
-                <div className={`reguliere ${row.status}`} onClick={()=>url(title)}>{row.status}</div></StyledTableCell>
+                <div className={`reguliere ${val.status}`} onClick={()=>url(title)}>{val.status}</div></StyledTableCell>
               </StyledTableRow>
             ))}
             

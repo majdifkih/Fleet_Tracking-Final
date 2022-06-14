@@ -132,6 +132,8 @@ const rows = [
   createData('Gaucho ','231','4.000DT','2.500'),
 ];
  function Facture() {
+  const[searchTerm,setSearchTerm]=useState("");
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(3);
   const navigate=useNavigate()
@@ -161,7 +163,9 @@ const rows = [
 <div className="headfacture">
       <div className="titlefacture">
       Store
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 
@@ -190,17 +194,25 @@ const rows = [
           </TableRow>
         </TableHead>
         <TableBody>
-          {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            <StyledTableRow className="row" key={row.name}>
-              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
+        {(rowsPerPage > 0
+              ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              : rows
+            ).filter((val)=>{
+            if (searchTerm =="")
+            {
+              return val
+            }
+            else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+              return val
+            }
+          }).map((val,key) => (
+            <StyledTableRow className="row" key={key}>
+              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{val.name}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
+              <StyledTableCell className="quantity" >{val.quantity}</StyledTableCell>
 
-              <StyledTableCell className="total" >{row.Total}</StyledTableCell>
+              <StyledTableCell className="total" >{val.Total}</StyledTableCell>
               
             </StyledTableRow>
           ))}

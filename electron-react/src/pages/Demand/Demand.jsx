@@ -12,6 +12,8 @@ import axios from "axios";
 import PopupAddDemand from "../../components/Popup/PopupAddDemand";
 import { Link } from "react-router-dom";
  function DemandTable() {
+  const[searchTerm,setSearchTerm]=useState("");
+
    const[API,setAPI]=useState('Supplier');
    const [APIs, setAPIs] = useState('suppliers');
   const [Providers, setProviders] = useState([]);
@@ -39,7 +41,9 @@ import { Link } from "react-router-dom";
 <div className="headTabdemand">
       <div className="titleTabdemand">
       Demands
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
@@ -50,7 +54,7 @@ import { Link } from "react-router-dom";
 </div>
 </div>
 
- <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" add={"non"}/>
+ <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" add={"non"} search={searchTerm}/>
   </div>
   </div>
   

@@ -50,7 +50,8 @@ function PopupClient(props){
             <div className="form">
             <label for="namea"/>Address
             <div className="formicon">
-            <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter Address" onChange={(event)=> {
+            <PersonPinCircleIcon className="icona" fontSize="small"/><div className="forma">
+                <input type="text" placeholder="Enter Address" onChange={(event)=> {
       setclientAddress(event.target.value);
     }} /></div>
             </div>
@@ -72,7 +73,10 @@ function PopupClient(props){
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {
       setclientStatus(event.target.value);
     }} >
-                <option selected>Choose status</option>
+        
+        
+        
+                <option selected> status</option>
                 <option>Reguler</option>
                 <option>NonReg</option>
                 </select>

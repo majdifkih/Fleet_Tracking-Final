@@ -134,6 +134,7 @@ const rows = [
 ];
  function DeliveryListe() {
    
+  const[searchTerm,setSearchTerm]=useState("");
 
 
   const [page, setPage] = React.useState(0);
@@ -172,7 +173,9 @@ const Delete = (name,ID) => {
 <div className="headdelivery">
       <div className="titledelivery">
       deliverys
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="buttondelivery">
@@ -200,19 +203,27 @@ const Delete = (name,ID) => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {(rowsPerPage > 0
+          {(rowsPerPage > 0
               ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               : rows
-            ).map((row) => (
-              <StyledTableRow className="row" key={row.name}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{row.name}</label>
+            ).filter((val)=>{
+            if (searchTerm =="")
+            {
+              return val
+            }
+            else if(val.name.toLowerCase().includes(searchTerm.toLowerCase())){
+              return val
+            }
+          }).map((val,key) => (
+              <StyledTableRow className="row" key={key}>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.name}</label>
                   
                 </StyledTableCell>
-                <StyledTableCell className ="circle">{row.position} </StyledTableCell>
-                <StyledTableCell className ="circle" align="center">{row.date} </StyledTableCell>
+                <StyledTableCell className ="circle">{val.position} </StyledTableCell>
+                <StyledTableCell className ="circle" align="center">{val.date} </StyledTableCell>
                 <StyledTableCell className="line"  >
-                 <div className={`reguliere ${row.status}`}>{row.status}</div>
-                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
+                 <div className={`reguliere ${val.status}`}>{val.status}</div>
+                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>
                  <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                  </StyledTableCell>
                  </StyledTableRow>

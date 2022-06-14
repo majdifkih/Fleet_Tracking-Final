@@ -18,7 +18,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   const [rowss, setRowss] = useState([])
 
   const getVehicule=()=>{
-    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
       if(res.data.success){
         setRowss( res.data.existingPosts);
         
@@ -32,7 +32,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   const [rows,setRows] = useState([]);
 
   const getStore=()=>{
-    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
       if(res.data.success){
         setRows( res.data.existingPosts);
         

@@ -20,7 +20,7 @@ function PopupClient(props){
         }
         const addclient = async () => {
             try {
-                await axios.post('http://localhost:3001/ClientAPI/clients',dataC ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/ClientAPI/clients',dataC ).then((res) => {
                     
                       if (res.data.status === 'success') {
                          console.log("ok")

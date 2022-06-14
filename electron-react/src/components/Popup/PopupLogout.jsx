@@ -4,7 +4,7 @@ import "./PopupLogout.scss";
 
 function PopupLogout(props){
     const Delete = (id,api,apis) => {
-        axios.delete(`http://localhost:3001/${api}API/${apis}?id=${id}`) }
+        axios.delete(`https://qlogisticsapp.herokuapp.com/${api}API/${apis}?id=${id}`) }
     return (props.trigger) ? (
         <div className="popup">
             <div className="popup-inner">

@@ -18,7 +18,7 @@ import { useEffect } from 'react';
 
   const [Drivers, setDrivers] = useState([]);
   const getDriver=()=>{
-    axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/DriverAPI/drivers").then(res=>{
       if(res.data.success){
         setDrivers( res.data.existingPosts);
         

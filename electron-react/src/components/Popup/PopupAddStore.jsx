@@ -27,7 +27,7 @@ function PopupStore(props){
 
     const addstore = async () => {
       try {
-          await axios.post('http://localhost:3001/StoreAPI/stores',data ).then((res) => {
+          await axios.post('https://qlogisticsapp.herokuapp.com/StoreAPI/stores',data ).then((res) => {
               
                 if (res.data.status === 'success') {
                    console.log("ok")

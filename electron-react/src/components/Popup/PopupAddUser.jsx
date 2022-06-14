@@ -22,7 +22,7 @@ function PopupUser(props){
         }
         const addUser = async () => {
             try {
-                await axios.post('http://localhost:3001/UserAPI/users',dataU ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/UserAPI/users',dataU ).then((res) => {
 
                         if (res.data.status === 'success') {    
                             console.log("ok")

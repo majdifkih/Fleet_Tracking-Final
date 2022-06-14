@@ -1,5 +1,5 @@
 import "./login.scss"
-import {useState} from 'react'
+import {useState , useContext} from 'react'
 import stock from './stock0.jpg'
 import { useNavigate } from 'react-router-dom';
 import logo from './logo.png'
@@ -11,6 +11,9 @@ function Login () {
   const [email, setEmail] = useState('');
   const [pwd, setPwd] = useState('');
   const [isRevealPwd, setIsRevealPwd] = useState(false);
+  const[user,setUser]=useState('')
+  const [token, setToken] = useState('');
+  const[role,setRole]=useState('')
   const navigate = useNavigate();
   const Auth = async() => {
     try {
@@ -22,6 +25,8 @@ function Login () {
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('user', res.data.details.name);
                 localStorage.setItem('role ', res.data.isAdmin);
+                
+                
                 navigate('/home');
             } else {
                 alert('Invalid email or password');

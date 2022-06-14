@@ -14,7 +14,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 
 
  function DeviceListe() {
-   
+  const[searchTerm,setSearchTerm]=useState("");
   const [vehicule, setVehicule] = useState([]);
   const getVehicule=()=>{
     axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
@@ -41,7 +41,9 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 <div className="headdevice">
       <div className="titledevice">
       Fleet
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="buttonfleet">
@@ -56,7 +58,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 </div>
 </div>
 
- <FullTable ink={"/fleet"} rows={vehicule} type="oui" title="Devices" stat="Online" />
+ <FullTable ink={"/fleet"} rows={vehicule} type="oui" title="Devices" stat="Online" search={searchTerm} />
   </div>
   </div>
   

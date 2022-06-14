@@ -1,6 +1,6 @@
 import "./Client.scss";
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -11,8 +11,8 @@ import PopupClient from "../../components/Popup/PopupAddClient";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import axios from "axios";
  function ClientTable() {
-  
 
+  const[searchTerm,setSearchTerm]=useState("");
   const [clients, setClients] = useState([]);
   const getClient=()=>{
     axios.get("http://localhost:3001/ClientAPI/clients").then(res=>{
@@ -39,7 +39,9 @@ import axios from "axios";
 <div className="headTabclient">
       <div className="titleTabclient">
       Clients
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
@@ -52,7 +54,7 @@ import axios from "axios";
 </div>
 </div>
 
- <FullTable ink={""} rows={clients} icon={"oui"} type="non" stat="status" title="Clients name" pos={"non"} add={"non"}/>
+ <FullTable ink={""} rows={clients} icon={"oui"} type="non" stat="status" title="Clients name" pos={"non"} add={"non"} search={searchTerm}/>
   </div>
   </div>
   

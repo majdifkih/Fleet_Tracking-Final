@@ -1,6 +1,6 @@
 import "./Driver.scss";
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
 import Sidebar from "../../components/sidebar/Sidebar";
@@ -13,6 +13,9 @@ import axios from "axios";
 import { useEffect } from 'react';
 
  function DriverTable() {
+
+  const[searchTerm,setSearchTerm]=useState("");
+
   const [Drivers, setDrivers] = useState([]);
   const getDriver=()=>{
     axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
@@ -25,6 +28,7 @@ import { useEffect } from 'react';
   } 
   useEffect(()=>{
     getDriver() 
+  
   });  
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupdriver, setAddPopupdriver] = useState(false);
@@ -38,7 +42,9 @@ import { useEffect } from 'react';
 <div className="headTabdriver">
       <div className="titleTabdriver">
       Drivers
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"  onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
@@ -51,7 +57,7 @@ import { useEffect } from 'react';
 </div>
 </div>
 
- <FullTable ink={""} rows={Drivers} type="non" stat="status" title="Drivers name" pos={"non"} add={"non"}/>
+ <FullTable ink={""} rows={Drivers} type="non" stat="status" title="Drivers name" pos={"non"} add={"non"} search={searchTerm}/>
   </div>
   </div>
   

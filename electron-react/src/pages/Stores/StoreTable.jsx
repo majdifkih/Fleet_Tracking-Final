@@ -13,6 +13,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
  function StoreTable() {
+  const[searchTerm,setSearchTerm]=useState("");
 
   const [store,setStore] = useState([]);
 
@@ -41,7 +42,9 @@ import axios from 'axios';
 <div className="headTabstore">
       <div className="titleTabstore">
       Stores
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
@@ -54,7 +57,7 @@ import axios from 'axios';
 </div>
 </div>
 
- <FullTable ink={"/store"} rows={store} type="non" stat="status" title="Stores name" add={"non"}  />
+ <FullTable ink={"/store"} rows={store} type="non" stat="status" title="Stores name" add={"non"} search={searchTerm}  />
 
   </div>
   </div>

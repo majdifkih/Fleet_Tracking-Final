@@ -11,6 +11,8 @@ import PopupProvider from "../../components/Popup/PopupAddProvider";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import axios from "axios";
  function ProviderTable() {
+  const[searchTerm,setSearchTerm]=useState("");
+
    const[API,setAPI]=useState('Supplier');
    const [APIs, setAPIs] = useState('suppliers');
   const [Providers, setProviders] = useState([]);
@@ -38,7 +40,9 @@ import axios from "axios";
 <div className="headTabprovider">
       <div className="titleTabprovider">
       Provider
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
@@ -51,7 +55,7 @@ import axios from "axios";
 </div>
 </div>
 
- <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Provider name" add={"non"}/>
+ <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Provider name" add={"non"} search={searchTerm}/>
   </div>
   </div>
   

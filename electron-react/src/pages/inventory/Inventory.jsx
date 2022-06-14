@@ -113,6 +113,7 @@ TablePaginationActions.propTypes = {
 };
 
  function InventoryListe() {
+  const[searchTerm,setSearchTerm]=useState("");
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const [rows, setrows] = useState([]);
@@ -175,7 +176,9 @@ const [IDI,setIDI]=useState("");
 <div className="headinventory">
       <div className="titleinventory">
       Inventory
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="buttoninvetory">
@@ -203,24 +206,32 @@ const [IDI,setIDI]=useState("");
           </TableRow>
         </TableHead>
         <TableBody>
-          {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            : rows
-          ).map((row) => (
-            <StyledTableRow className="row" key={row.productName}>
-              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.productName}</label>
+        {(rowsPerPage > 0
+              ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+              : rows
+            ).filter((val)=>{
+            if (searchTerm =="")
+            {
+              return val
+            }
+            else if(val.productName.toLowerCase().includes(searchTerm.toLowerCase())){
+              return val
+            }
+          }).map((val,key) => (
+            <StyledTableRow className="row" key={key}>
+              <StyledTableCell width={"15%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{val.productName}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="barcode" >{row.barCode}</StyledTableCell>
-              <StyledTableCell className="quantity" >{row.productQuantity}</StyledTableCell>
-              <StyledTableCell className="price" >{row.productPrice}</StyledTableCell>
-              <StyledTableCell className="category">{row.category}</StyledTableCell>
+              <StyledTableCell className="barcode" >{val.barCode}</StyledTableCell>
+              <StyledTableCell className="quantity" >{val.productQuantity}</StyledTableCell>
+              <StyledTableCell className="price" >{val.productPrice}</StyledTableCell>
+              <StyledTableCell className="category">{val.category}</StyledTableCell>
               
               <StyledTableCell  className="tabEnd" >
                 <div className="icons">
-                <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(row.name,row._id)}/>
-                <i className="material-icons"  onClick={()=>Edit(row.name,row._id)}>border_color</i>
-                <i class="material-icons" onClick={()=> display(row)}>info_outline</i>
+                <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>
+                <i className="material-icons"  onClick={()=>Edit(val.name,val._id)}>border_color</i>
+                <i class="material-icons" onClick={()=> display(val)}>info_outline</i>
                 <div className="popeditfleet"> 
                 <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
                   <PopupEditInventory trigger={editPopupinventory} setTrigger={setEditPopupinventory} id={IDI} name={NameI}/>
@@ -230,7 +241,7 @@ const [IDI,setIDI]=useState("");
                 </div>
                 </StyledTableCell>
                 <StyledTableCell className="stat"  >
-              <div className={`statuss ${row.Status}`}>{row.Status}</div>
+              <div className={`statuss ${val.status}`}>{val.status}</div>
               </StyledTableCell >
             </StyledTableRow>
           ))}

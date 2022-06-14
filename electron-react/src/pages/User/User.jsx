@@ -13,6 +13,8 @@ import axios from "axios";
 import { Visibility } from "@mui/icons-material";
 
  function UserTable(props) {
+  const[searchTerm,setSearchTerm]=useState("");
+
    const[API,setAPI]=useState("User");
     const [APIs, setAPIs] = useState('users');
   const [Users, setUsers] = useState([]);
@@ -42,7 +44,9 @@ import { Visibility } from "@mui/icons-material";
 <div className="headTabuser" >
       <div className="titleTabuser">
       Users
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech" onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }}/>
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
@@ -55,7 +59,7 @@ import { Visibility } from "@mui/icons-material";
 </div>
 </div>
 
- <FullTable ink={""} rows={Users} type="non" stat="status" title="Users name" pos={"non"} add={"non"}/>
+ <FullTable ink={""} rows={Users} type="non" stat="status" title="Users name" pos={"non"} add={"non"} search={searchTerm}/>
   </div>
   </div>
   

@@ -92,7 +92,7 @@ function PopupInventory(props){
             </div>
             </div>
             <div className="form">
-            <label for="namea"/>Alert Condition
+            <label for="namea"/>Quantity Alert
             <div className="formicon">
             <CampaignIcon className="icona" fontSize="small"/><div className="forma"><input onChange={(event)=> {
   setalertC(event.target.value);

@@ -119,7 +119,7 @@ TablePaginationActions.propTypes = {
   const [DID, setDID] = useState("");
     const [Dname, setDname] = useState("");
   const getProduct=()=>{
-    axios.get("http://localhost:3001/ProductAPI/products").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/ProductAPI/products").then(res=>{
       if(res.data.success){
         setrows( res.data.existingPosts);
         
@@ -230,7 +230,7 @@ const [IDI,setIDI]=useState("");
                 </div>
                 </StyledTableCell>
                 <StyledTableCell className="stat"  >
-              <div className={`statuss ${row.status}`}>{row.status}</div>
+              <div className={`statuss ${row.Status}`}>{row.Status}</div>
               </StyledTableCell >
             </StyledTableRow>
           ))}

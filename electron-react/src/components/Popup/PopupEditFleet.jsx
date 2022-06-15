@@ -30,11 +30,12 @@ function PopupEditFleet(props){
             <div className="form">
             <label for="namea"/>Driver
             <div className="formicon">
-            <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {seteditdriver(event.target.value);}} >
+            <PersonOutlineIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {seteditdriver(event.target.value);}}  >
                 <option disabled selected>Choose Driver</option>
                 <option value="Online">Online</option>
                 
                 </select>
+                </div>
                 </div>
             </div>
             </div>

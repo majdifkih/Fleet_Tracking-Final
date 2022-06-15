@@ -77,7 +77,7 @@ function PopupClient(props){
         
         
                 <option selected> status</option>
-                <option>Reguler</option>
+                <option>regular</option>
                 <option>NonReg</option>
                 </select>
                 </div>

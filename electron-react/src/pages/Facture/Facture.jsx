@@ -115,21 +115,12 @@ function createData(name, date, status) {
 }
 
 const rows = [
-  createData('Chocotom','22/02/2022','Done','1.500'),
-  createData('SAFIA eau','22/02/2022','Done','3.650'),
-  createData('Saida biscuit','22/02/2022','Done','7.500'),
-  createData('Maestro','22/02/2022','Done'),
-  createData('Saida','22/02/2022','Done'),
-  createData('Crostina','22/02/2022','Done'),
-  createData('Ice cream','22/02/2022','Done'),
-  createData('Fidji','22/02/2022','Done'),
-  createData('Cupcake','22/02/2022','Done'),
-  createData('Chocolat','22/02/2022','Done'),
-  createData('Coca cola','22/02/2022','Done'),
-  createData('Fanta','22/02/2022','Done'),
-  createData('Apla','22/02/2022','Done'),
-  createData('kaki','22/02/2022','Done'),
-  createData('Gaucho ','22/02/2022','Done'),
+  createData('E33','22/02/2022','Done','1.500'),
+  createData('P99','22/02/2022','Done','3.650'),
+  createData('F11','22/02/2022','Done','7.500'),
+  createData('K09','22/02/2022','Done'),
+  createData('Y77','22/02/2022','Done'),
+
 ];
  function Facture() {
   const[searchTerm,setSearchTerm]=useState("");
@@ -187,7 +178,7 @@ const rows = [
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet" /><label for="store">Facture name</label></StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet" /><label for="store">Invoice reference </label></StyledTableCell>
             <StyledTableCell  align="center" >Date</StyledTableCell>
             <StyledTableCell align="center">Status</StyledTableCell>
           </TableRow>

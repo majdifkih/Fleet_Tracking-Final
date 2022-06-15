@@ -135,7 +135,7 @@ const rows = [
   const[searchTerm,setSearchTerm]=useState("");
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const navigate=useNavigate()
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -187,9 +187,9 @@ const rows = [
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Facture name</label></StyledTableCell>
-            <StyledTableCell className="date" align="center" >Date</StyledTableCell>
-            <StyledTableCell  className="status" align="right">Status</StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet" /><label for="store">Facture name</label></StyledTableCell>
+            <StyledTableCell  align="center" >Date</StyledTableCell>
+            <StyledTableCell align="center">Status</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -209,9 +209,10 @@ const rows = [
               <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{val.name}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="quantity" >{val.quantity}</StyledTableCell>
-
-              <StyledTableCell className="total" >{val.Total}</StyledTableCell>
+              
+              <StyledTableCell  align="center">{val.date}</StyledTableCell>
+              <StyledTableCell  align="center" className={`status ${val.status}`}>{val.status}</StyledTableCell>
+              <StyledTableCell   align="right"><Link to="/infofacture"><i class="material-icons" >info_outline</i></Link></StyledTableCell>
               
             </StyledTableRow>
           ))}

@@ -135,7 +135,7 @@ const rows = [
 ];
  function InfoDemand() {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const navigate=useNavigate()
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =

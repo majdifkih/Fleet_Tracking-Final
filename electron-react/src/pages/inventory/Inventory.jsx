@@ -115,7 +115,7 @@ TablePaginationActions.propTypes = {
  function InventoryListe() {
   const[searchTerm,setSearchTerm]=useState("");
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(5);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [rows, setrows] = useState([]);
   const [DID, setDID] = useState("");
     const [Dname, setDname] = useState("");

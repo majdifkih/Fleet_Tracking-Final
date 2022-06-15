@@ -13,6 +13,7 @@ import TableMap from "../../components/table/TableMap";
 import truck from './truck1.png'
 import Popup from "../../components/Popup/Popup";
 import PopupFleet from "../../components/Popup/PopupAddFleet";
+import { Link } from "react-router-dom";
 
  function DeviceInfo() {
   const [rowss, setRowss] = useState([])
@@ -120,7 +121,7 @@ const [searchTerm,setSearchTerm]=useState("");
         <div className="headlistStore">
         <div className="storedevice">
         <div className="listTitl">Stores <span>(20)</span></div>
-        <a href="#">See All</a>
+        <Link to="/storetable">See All</Link>
         </div>
         <div className="input">        <div class="input-icone">
 <input type="Search" placeholder="Search..."/>

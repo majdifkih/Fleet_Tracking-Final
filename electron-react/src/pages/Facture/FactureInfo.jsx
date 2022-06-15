@@ -133,20 +133,9 @@ const rows = [
 ];
  function InfoFacture() {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const navigate=useNavigate()
-  // Avoid a layout jump when reaching the last page with empty rows.
-  const emptyRows =
-    page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
-
-  const handleChangePage = (event, newPage) => {
-    setPage(newPage);
-  };
-
-  const handleChangeRowsPerPage = (event) => {
-    setRowsPerPage(parseInt(event.target.value, 10));
-    setPage(0);
-  };
+  
   
   const [addPopupinfofacture, setAddPopupinfofacture] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -205,26 +194,7 @@ const rows = [
           ))}
           
         </TableBody>
-        <TableFooter >
-          <TableRow>
-            <TablePagination
-              rowsPerPageOptions={[3, 5, 10, { label: 'All', value: -1 }]}
-              colSpan={7}
-              count={rows.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              SelectProps={{
-                inputProps: {
-                  'aria-label': 'rows',
-                },
-                native: true,
-              }}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-              ActionsComponent={TablePaginationActions}
-            />
-          </TableRow>
-        </TableFooter>
+       
       </Table>
     </TableContainer>
   </div>

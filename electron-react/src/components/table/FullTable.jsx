@@ -32,7 +32,7 @@ import PopupEditStore from '../Popup/PopupEditStores';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
 import Popup from '../Popup/Popup';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import { SettingsRemoteOutlined } from '@mui/icons-material';
+import { SettingsRemoteOutlined, Visibility } from '@mui/icons-material';
 import PopupInfoFleet from '../Popup/PopupInfoFleet';
 import PopupInfoClient from '../Popup/PopupInfoClient';
 import PopupInfoDriver from '../Popup/PopupInfoDriver';
@@ -339,7 +339,8 @@ case "Stores name":
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 
                 src={tires}
-                className={`circle ${type}`}
+                className={val.alertTIERS ? "circle oui":"circle non"}
+
                 width="20"
                 height="20"
                 alt=""/>           
@@ -351,7 +352,7 @@ case "Stores name":
                 alt=""/>
                   <img 
                 src={oil}
-                className={`circle ${type}`}
+                className={val.alertOIL ? "circle oui":"circle non"}
                 width="27"
                 height="27"
                 alt=""/>
@@ -379,7 +380,7 @@ case "Stores name":
                   </div>
                   <i class="material-icons" onClick={() => Display(val)}>info_outline</i>
                   <div className="popeditfleet"> 
-                  <PopupInfoFleet trigger={InfoPopupFleet} setTrigger={setInfoPopupFleet} data={ROW}/>
+                  <PopupInfoFleet trigger={InfoPopupFleet} setTrigger={setInfoPopupFleet} data={ROW} id={val._id}/>
                   <PopupInfoStore trigger={InfoPopupStore} setTrigger={setInfoPopupStore} data={ROW}/>
                   <PopupInfoClient trigger={InfoPopupClient} setTrigger={setInfoPopupClient} data={ROW}/>
                   <PopupInfoDriver trigger={InfoPopupDriver} setTrigger={setInfoPopupDriver} data={ROW}/>

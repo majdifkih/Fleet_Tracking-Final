@@ -1,6 +1,7 @@
 import React from "react";
 import "./Popupform.scss";
 import axios from 'axios';
+import { useEffect,useState } from 'react';
 import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
 import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
@@ -14,13 +15,27 @@ function PopupFleet(props){
     const [Vstatus,setVstatus] = React.useState("");
     const [Vmatricule,setVmatricule] = React.useState("");
     const [Vdriver,setdriver] = React.useState("");
+    const [Drivers,setDrivers] = React.useState({});
+    const getDriver=()=>{
+        axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
+          if(res.data.success){
+            setDrivers( res.data.existingPosts);
+            
+            console.log(Drivers)
+          }
+        })
+      } 
+      useEffect(()=>{
+        getDriver() 
+      
+      } ,[]);  
     const dataV = {
         name:Vname,
         status:Vstatus ,
         Matricule:Vmatricule ,
         Maintenance:Vmaintenance,
         Category:Vcategory,
-        driver:Vdriver,    
+        Driver:Vdriver,    
         }
         const addVehicule = async () => {
             try {
@@ -56,16 +71,21 @@ function PopupFleet(props){
             </div>
             </div>
             
-            
             <div className="form">
             <label for="namea"/>Driver
             <div className="formicon">
-            <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setdriver(event.target.value);}} >
+            
+
+            <PersonOutlineIcon className="iconselect" fontSize="small"/>
+            
+            <div className="formselect"><select id="select" className="select" onChange={(event)=> {setdriver(event.target.value);}} >
                 <option disabled selected>Choose Driver</option>
-                <option value="Online">Online</option>
-                
+                {Drivers.map((val,key) => (
+                <option value={val._id}>{val.name}</option>
+                ))}
                 </select>
                 </div>
+                
             </div>
             </div>
             </div>

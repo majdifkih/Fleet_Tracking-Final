@@ -5,7 +5,24 @@ import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
+import axios from "axios";
+import {useEffect} from "react";
 function PopupInfoFleet(props){
+    
+    // const getChauffeur=(ID)=>{
+    //             axios.get(`http://localhost:3001/VehiculeAPI/single?id=${ID}`).then(res=>{
+
+    //         if(res.data.success){
+    //             console.log(res.data.existingPosts)
+
+    //         }
+    //     }
+    //     )
+    // }
+    // useEffect(()=>{
+    //     getChauffeur(props.id)
+
+    // } ,[])
     return (props.trigger) ? (
         <div className="popupinfo">
             <div className="popup-innerinfo">
@@ -33,7 +50,7 @@ function PopupInfoFleet(props){
                 <div className="infoname">
             <DirectionsCarFilledOutlinedIcon className="iconinfo" fontSize="small"/><span>Driver:</span>
             </div>
-            <div className="attribinfo">{props.data.driver}</div>
+            <div className="attribinfo">{props.data.Driver.name}</div>
             </div>
             </div>
             <div className="formright">
@@ -48,7 +65,7 @@ function PopupInfoFleet(props){
                 <div className="infoname">
             <CarCrashOutlinedIcon className="iconinfo" fontSize="small"/><span>Last maintenance:</span>
             </div>
-            <div className="attribinfo">{props.data.maintenance}</div>
+            <div className="attribinfo">{props.data.Maintenance}</div>
             </div>
             <div className="forminfo">
                 <div className="infoname">

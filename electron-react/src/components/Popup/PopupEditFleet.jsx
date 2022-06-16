@@ -46,7 +46,7 @@ function PopupEditFleet(props){
             <label for="namea" />Category
             <div className="formicon">
             <LocalOfferOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="selectcat">
-                <option selected>Choose Category</option>
+                <option selected disabled>Choose Category</option>
                 <option>Camion</option>
                 <option>Car</option>
                 </select>
@@ -63,7 +63,7 @@ function PopupEditFleet(props){
             <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select">
-                <option selected>Choose status</option>
+                <option selected disabled>Choose status</option>
                 <option>Online</option>
                 <option>Offline</option>
                 </select>

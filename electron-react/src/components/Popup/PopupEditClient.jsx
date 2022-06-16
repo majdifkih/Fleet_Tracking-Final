@@ -70,7 +70,7 @@ function PopupEditClient(props){
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {
       setnewclientStatus(event.target.value);
     }} >
-                <option selected>Choose status</option>
+                <option selected disabled>Choose status</option>
                 <option>regular</option>
                 <option>NonReg</option>
                 </select>

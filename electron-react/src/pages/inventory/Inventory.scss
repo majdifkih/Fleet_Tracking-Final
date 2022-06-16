@@ -99,17 +99,16 @@
   font-size: 80%;
   font-weight: bold;
   color: white;
+  text-align: center;
   &.GOOD { 
     background: #29CC97;
-    padding: 1% 4% 0%;
-    height: 2%;
+    padding: 1% 0% 1% 0%;
+   
   }
-  &.LOW {
-    
+  &.LOW { 
     background: #FEC400;
-    
     padding: 1% 6% 0%;
-    height: 2%;
+  
   }
   
 }
@@ -117,11 +116,10 @@
  .tabEnd{
    display: flex;
 
-  
  .icons{
   display: flex;
   gap: 20%;
-  padding-left: 30%;
+  padding-left: 40%;
  .material-icons{
     color: rgb(74, 72, 72);
     cursor: pointer;

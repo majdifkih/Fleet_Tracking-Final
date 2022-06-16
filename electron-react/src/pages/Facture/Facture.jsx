@@ -115,27 +115,18 @@ function createData(name, date, status) {
 }
 
 const rows = [
-  createData('Chocotom','22/02/2022','Done','1.500'),
-  createData('SAFIA eau','22/02/2022','Done','3.650'),
-  createData('Saida biscuit','22/02/2022','Done','7.500'),
-  createData('Maestro','22/02/2022','Done'),
-  createData('Saida','22/02/2022','Done'),
-  createData('Crostina','22/02/2022','Done'),
-  createData('Ice cream','22/02/2022','Done'),
-  createData('Fidji','22/02/2022','Done'),
-  createData('Cupcake','22/02/2022','Done'),
-  createData('Chocolat','22/02/2022','Done'),
-  createData('Coca cola','22/02/2022','Done'),
-  createData('Fanta','22/02/2022','Done'),
-  createData('Apla','22/02/2022','Done'),
-  createData('kaki','22/02/2022','Done'),
-  createData('Gaucho ','22/02/2022','Done'),
+  createData('E33','22/02/2022','Done','1.500'),
+  createData('P99','22/02/2022','Done','3.650'),
+  createData('F11','22/02/2022','Done','7.500'),
+  createData('K09','22/02/2022','Done'),
+  createData('Y77','22/02/2022','Done'),
+
 ];
  function Facture() {
   const[searchTerm,setSearchTerm]=useState("");
 
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const navigate=useNavigate()
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
@@ -187,9 +178,9 @@ const rows = [
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet"/><label for="store">Facture name</label></StyledTableCell>
-            <StyledTableCell className="date" align="center" >Date</StyledTableCell>
-            <StyledTableCell  className="status" align="right">Status</StyledTableCell>
+            <StyledTableCell   ><input type="radio" name="fleet" /><label for="store">Invoice reference </label></StyledTableCell>
+            <StyledTableCell  align="center" >Date</StyledTableCell>
+            <StyledTableCell align="center">Status</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -209,9 +200,10 @@ const rows = [
               <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{val.name}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="quantity" >{val.quantity}</StyledTableCell>
-
-              <StyledTableCell className="total" >{val.Total}</StyledTableCell>
+              
+              <StyledTableCell  align="center">{val.date}</StyledTableCell>
+              <StyledTableCell  align="center" className={`status ${val.status}`}>{val.status}</StyledTableCell>
+              <StyledTableCell   align="right"><Link to="/infofacture"><i class="material-icons" >info_outline</i></Link></StyledTableCell>
               
             </StyledTableRow>
           ))}

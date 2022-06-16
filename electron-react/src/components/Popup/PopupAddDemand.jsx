@@ -18,7 +18,7 @@ function PopupAddDemand(props){
         }
         const addProduct = async () => {
             try {
-                await axios.post('http://localhost:3001/ProductAPI/products',dataI ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/ProductAPI/products',dataI ).then((res) => {
 
                         if (res.data.status === 'success') {    
                             console.log("ok")

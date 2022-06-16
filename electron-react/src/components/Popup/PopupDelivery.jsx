@@ -13,14 +13,20 @@ function PopupDelivery(props){
             <h3> Add Delivery</h3>
                 <div className="formulera">
                 <div className="formleft">
+
+
+
+               
+
                 <div className="form">
             <label for="namea"/>Store
             <div className="formicon">
-            <StorefrontIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setstore(event.target.value);}} >
+            <StorefrontIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Store"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setstore(event.target.value);}} >
                 <option disabled selected>Choose Store</option>
                 <option value="Online">Online</option>
                 
                 </select>
+                </div>
                 </div>
             </div>
             </div>
@@ -32,11 +38,12 @@ function PopupDelivery(props){
             <div className="form">
             <label for="namea"/>Vehicle
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setstore(event.target.value);}} >
+            <DirectionsCarFilledOutlinedIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Vehicle"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setstore(event.target.value);}} >
                 <option disabled selected>Choose Vehicle</option>
                 <option value="Online">Online</option>
                 
                 </select>
+                </div>
                 </div>
             </div>
             </div>

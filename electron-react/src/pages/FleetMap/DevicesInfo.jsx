@@ -13,12 +13,13 @@ import TableMap from "../../components/table/TableMap";
 import truck from './truck1.png'
 import Popup from "../../components/Popup/Popup";
 import PopupFleet from "../../components/Popup/PopupAddFleet";
+import { Link } from "react-router-dom";
 
  function DeviceInfo() {
   const [rowss, setRowss] = useState([])
 
   const getVehicule=()=>{
-    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
       if(res.data.success){
         setRowss( res.data.existingPosts);
         
@@ -32,7 +33,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   const [rows,setRows] = useState([]);
 
   const getStore=()=>{
-    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
       if(res.data.success){
         setRows( res.data.existingPosts);
         
@@ -45,7 +46,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   });   
  
  
-
+const [searchTerm,setSearchTerm]=useState("");
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupfleet, setAddPopupfleet] = useState(false);
   return (
@@ -57,7 +58,9 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 <div className="headfleet">
       <div className="titledeviceinfo">
       Fleet
-      <div class="input-icone"><input type="Search" placeholder="Search..." className="rech"/>
+      <div class="input-icone"><input  onChange={(event)=>{
+          setSearchTerm(event.target.value);
+        }} type="Search" placeholder="Search..." className="rech"/>
 <i><SearchIcon/></i></div>
 </div>
 <div className="buttondevice">
@@ -118,7 +121,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
         <div className="headlistStore">
         <div className="storedevice">
         <div className="listTitl">Stores <span>(20)</span></div>
-        <a href="#">See All</a>
+        <Link to="/storetable">See All</Link>
         </div>
         <div className="input">        <div class="input-icone">
 <input type="Search" placeholder="Search..."/>
@@ -131,7 +134,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 </div>
   </div>
   <div className="tabdevic">
-  <FullTable ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non"  />
+  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non"  />
   </div>
   </div>
   </div>

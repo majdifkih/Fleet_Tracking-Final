@@ -112,8 +112,8 @@ TablePaginationActions.propTypes = {
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
-function createData(name, Quantity, Price, Total) {
-  return { name, Quantity, Price, Total};
+function createData(name, quantity) {
+  return { name, quantity};
 }
 
 const rows = [
@@ -124,18 +124,11 @@ const rows = [
   createData('Saida','226','4.000DT','4.100'),
   createData('Crostina','172','4.000DT','2.700'),
   createData('Ice cream','147','4.000DT','1.800'),
-  createData('Fidji','391','4.000DT','800'),
-  createData('Cupcake','973','4.000DT','900'),
-  createData('Chocolat','537','4.000DT','700'),
-  createData('Coca cola','876','4.000DT','2000'),
-  createData('Fanta','314','4.000DT','1.100'),
-  createData('Apla','555','4.000DT','5.500'),
-  createData('kaki','222','4.000DT','4.500'),
-  createData('Gaucho ','231','4.000DT','2.500'),
+
 ];
  function InfoDemand() {
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(3);
+  const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const navigate=useNavigate()
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =

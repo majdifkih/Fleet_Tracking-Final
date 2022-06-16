@@ -5,6 +5,7 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableContainer from "@mui/material/TableContainer";
 import TableRow from "@mui/material/TableRow";
+import { Link } from "react-router-dom";
 const TableOrder = () => {
   const rows = [
     {
@@ -67,7 +68,7 @@ const TableOrder = () => {
       <div className="titleDema">Demands
         <span className="tolal">Total:60</span>
         </div>
-        <a href="#">See All</a>
+        <Link to="/demand">See All</Link>
         </div>
 
       <TableContainer  className="tab">

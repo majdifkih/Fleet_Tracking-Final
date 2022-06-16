@@ -23,7 +23,7 @@ function PopupEditClient(props){
             address:newclientAddress,
           
             }
-       await axios.put(`http://localhost:3001/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
+       await axios.put(`https://qlogisticsapp.herokuapp.com/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
                 if (res.data.status === 'success') {
                   console.log("ok")
                 }
@@ -70,8 +70,8 @@ function PopupEditClient(props){
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {
       setnewclientStatus(event.target.value);
     }} >
-                <option selected>Choose status</option>
-                <option>Reguler</option>
+                <option selected disabled>Choose status</option>
+                <option>regular</option>
                 <option>NonReg</option>
                 </select>
                 </div>

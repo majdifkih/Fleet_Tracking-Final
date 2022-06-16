@@ -18,7 +18,7 @@ function PopupAddStock(props){
         }
         const addProduct = async () => {
             try {
-                await axios.post('http://localhost:3001/ProductAPI/products',dataI ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/ProductAPI/products',dataI ).then((res) => {
 
                         if (res.data.status === 'success') {    
                             console.log("ok")
@@ -40,11 +40,12 @@ function PopupAddStock(props){
                 <div className="form">
             <label for="namea"/>Product
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
+            <Inventory2OutlinedIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setproduct(event.target.value);}} >
                 <option disabled selected>Choose Product</option>
                 <option value="Online">Online</option>
 
                 </select>
+                </div>
                 </div>
             </div>
             </div>

@@ -30,11 +30,12 @@ function PopupEditFleet(props){
             <div className="form">
             <label for="namea"/>Driver
             <div className="formicon">
-            <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {seteditdriver(event.target.value);}} >
+            <PersonOutlineIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {seteditdriver(event.target.value);}}  >
                 <option disabled selected>Choose Driver</option>
                 <option value="Online">Online</option>
                 
                 </select>
+                </div>
                 </div>
             </div>
             </div>
@@ -45,7 +46,7 @@ function PopupEditFleet(props){
             <label for="namea" />Category
             <div className="formicon">
             <LocalOfferOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="selectcat">
-                <option selected>Choose Category</option>
+                <option selected disabled>Choose Category</option>
                 <option>Camion</option>
                 <option>Car</option>
                 </select>
@@ -62,7 +63,7 @@ function PopupEditFleet(props){
             <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select">
-                <option selected>Choose status</option>
+                <option selected disabled>Choose status</option>
                 <option>Online</option>
                 <option>Offline</option>
                 </select>

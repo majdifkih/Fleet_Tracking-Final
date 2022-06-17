@@ -19,7 +19,7 @@ function PopupEditProvider(props){
             productCategory:newProviderCategory,
             address:newProviderAddress,
             }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers?id=${ID}`,dataP).then((res) => {
+       await axios.put(`http://localhost:3001/SupplierAPI/suppliers?id=${ID}`,dataP).then((res) => {
                 if (res.data.status === 'success') {
                   console.log("ok")
                 }

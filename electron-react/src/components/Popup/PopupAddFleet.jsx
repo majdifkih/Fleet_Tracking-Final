@@ -39,7 +39,7 @@ function PopupFleet(props){
         }
         const addVehicule = async () => {
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules',dataV ).then((res) => {
+                await axios.post('http://localhost:3001/VehiculeAPI/vehicules',dataV ).then((res) => {
 
                         if (res.data.status === 'success') {    
                             console.log("ok")

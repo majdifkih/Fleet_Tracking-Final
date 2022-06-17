@@ -12,7 +12,8 @@ function PopupClient(props){
     const [clientName, setclientName] = useState("");
     const [clientAddress, setclientAddress] = useState("");
     const [clientphone, setclientphone] = useState("");
-    const dataC = {name:clientName,
+    const dataC = {
+        name:clientName,
         telf:clientphone ,
         status:clientStatus ,
         address:clientAddress
@@ -20,7 +21,7 @@ function PopupClient(props){
         }
         const addclient = async () => {
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/ClientAPI/clients',dataC ).then((res) => {
+                await axios.post('http://localhost:3001/ClientAPI/clients',dataC ).then((res) => {
                     
                       if (res.data.status === 'success') {
                          console.log("ok")
@@ -77,8 +78,8 @@ function PopupClient(props){
         
         
                 <option selected disabled> status</option>
-                <option>regular</option>
-                <option>NonReg</option>
+                <option value="regular">regular</option>
+                <option value="NonReg">NonReg</option>
                 </select>
                 </div>
             </div>

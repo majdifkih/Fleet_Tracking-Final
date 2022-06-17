@@ -27,7 +27,7 @@ function Store() {
   const [rows,setRows] = useState([]);
   const navigate=useNavigate()
   const getStore=()=>{
-    axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
+    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
       if(res.data.success){
         setRows( res.data.existingPosts);
         

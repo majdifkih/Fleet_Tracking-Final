@@ -1,6 +1,7 @@
 import "./InfoDemand.scss";
 import * as React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
 import PropTypes from 'prop-types';
 import { styled } from '@mui/material/styles';
 import Table from '@mui/material/Table';
@@ -142,7 +143,20 @@ const rows = [
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  
+  const [clientt, setClientt] = useState({});
+  const getClient=()=>{
+    axios.get("http://localhost:3001/ClientAPI/clients").then(res=>{
+      if(res.data.success){
+        setClientt( res.data.existingPosts);
+        
+        console.log(clientt)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getClient() 
+  } ,[]); 
+
   const [addPopupinfodemand, setAddPopupinfodemand] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
   const[BtnConfirmer,setBtnConfirmer] = useState(false);
@@ -168,7 +182,9 @@ const rows = [
             <div className="formicon">
             <PersonOutlineIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setclient(event.target.value);}} >
                 <option disabled selected>Choose Client</option>
-                <option value="Online" className="optionclient">Online</option>
+                {Object.keys(clientt).map((val,key) => (
+                <option value={clientt[val]._id}>{clientt[val].name}</option>
+                ))}
                 
                 </select>
                 </div>

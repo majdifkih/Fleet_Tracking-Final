@@ -24,7 +24,7 @@ function PopupEditInventory(props){
             category:newPcategory,
             alertCondition:newalertNum
             }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/ProductAPI/products?id=${ID}`,dataD).then((res) => {
+       await axios.put(`http://localhost:3001/ProductAPI/products?id=${ID}`,dataD).then((res) => {
                 if (res.data.status === 'success') {
                   console.log("ok")
                 }

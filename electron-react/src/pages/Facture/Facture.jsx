@@ -116,7 +116,7 @@ function createData(name, date, status) {
 
 const rows = [
   createData('E33','22/02/2022','Done','1.500'),
-  createData('P99','22/02/2022','Done','3.650'),
+  createData('P99','22/02/2022','Incomplete','3.650'),
   createData('F11','22/02/2022','Done','7.500'),
   createData('K09','22/02/2022','Done'),
   createData('Y77','22/02/2022','Done'),
@@ -197,7 +197,7 @@ const rows = [
             }
           }).map((val,key) => (
             <StyledTableRow className="row" key={key}>
-              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{val.name}</label>
+              <StyledTableCell  width={"20%"} height={"1%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{val.name}</label>
                 
               </StyledTableCell>
               

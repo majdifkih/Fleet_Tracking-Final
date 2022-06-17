@@ -23,7 +23,7 @@ function PopupEditStore(props){
             address:newStoreAddress,
             owner:newStoreOwner
         }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/StoreAPI/stores?id=${ID}`,dataS).then((res) => {
+       await axios.put(`http://localhost:3001/StoreAPI/stores?id=${ID}`,dataS).then((res) => {
                 if (res.data.status === 'success') {
                   console.log("ok")
                 }

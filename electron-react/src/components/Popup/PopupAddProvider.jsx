@@ -20,7 +20,7 @@ function PopupProvider(props){
         }
         const addProvider = async () => {
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers',dataP ).then((res) => {
+                await axios.post('http://localhost:3001/SupplierAPI/suppliers',dataP ).then((res) => {
                     
                       if (res.data.status === 'success') {
                          console.log("ok")

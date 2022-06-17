@@ -23,7 +23,7 @@ function PopupEditClient(props){
             address:newclientAddress,
           
             }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
+       await axios.put(`http://localhost:3001/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
                 if (res.data.status === 'success') {
                   console.log("ok")
                 }

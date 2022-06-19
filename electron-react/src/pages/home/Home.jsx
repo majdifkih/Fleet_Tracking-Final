@@ -161,7 +161,7 @@ const Home = () => {
         </div>
         <div className="charts">
        
-         <div className="char"> <Chart  title="Revenues  " /></div>
+         <div className="char"> <Chart  title="Revenues" /></div>
         
         </div>
           </div>

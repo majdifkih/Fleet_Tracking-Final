@@ -23,7 +23,7 @@ function PopupEditUser(props){
             address:newUaddress,
             password:newUpassword,
             }
-       await axios.put(`http://localhost:3001/UserAPI/users?id=${ID}`,dataU).then((res) => {
+       await axios.put(`https://qlogisticsapp.herokuapp.com/UserAPI/users?id=${ID}`,dataU).then((res) => {
                 if (res.data.status === 'success') {
                   console.log("ok")
                 }

@@ -20,7 +20,7 @@ import { Visibility } from "@mui/icons-material";
   const [Users, setUsers] = useState([]);
 
   const getUser=()=>{
-    axios.get("http://localhost:3001/UserAPI/users").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/UserAPI/users").then(res=>{
       if(res.data.success){
         setUsers( res.data.existingPosts);
         console.log(Users)

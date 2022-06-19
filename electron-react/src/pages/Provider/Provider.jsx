@@ -17,7 +17,7 @@ import axios from "axios";
    const [APIs, setAPIs] = useState('suppliers');
   const [Providers, setProviders] = useState([]);
   const getProvider=()=>{
-    axios.get("http://localhost:3001/SupplierAPI/suppliers").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers").then(res=>{
       if(res.data.success){
         setProviders( res.data.existingPosts);
         

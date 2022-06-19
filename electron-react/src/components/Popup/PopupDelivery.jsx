@@ -16,7 +16,7 @@ function PopupDelivery(props){
     }
     const AddDelivery = () => {
         console.log(DATAd)
-        axios.post("http://localhost:3001/DeliveryAPI/deliveries",
+        axios.post("https://qlogisticsapp.herokuapp.com/DeliveryAPI/deliveries",
             DATAd
         ).then(res=>{
             if(res.data.success){
@@ -28,7 +28,7 @@ function PopupDelivery(props){
 
 
     const getvehicule=()=>{
-        axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+        axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
             if(res.data.success){
                 setveh( res.data.existingPosts);
 
@@ -39,7 +39,7 @@ function PopupDelivery(props){
     }
     const [sto,setSto] = useState({});
     const getStore=()=>{
-        axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+        axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
             if(res.data.success){
                 setSto( res.data.existingPosts);
                  

@@ -17,7 +17,7 @@ function PopupFleet(props){
     const [Vdriver,setdriver] = React.useState("");
     const [Drivers,setDrivers] = React.useState({});
     const getDriver=()=>{
-        axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
+        axios.get("https://qlogisticsapp.herokuapp.com/DriverAPI/drivers").then(res=>{
           if(res.data.success){
             setDrivers( res.data.existingPosts);
             
@@ -39,7 +39,7 @@ function PopupFleet(props){
         }
         const addVehicule = async () => {
             try {
-                await axios.post('http://localhost:3001/VehiculeAPI/vehicules',dataV ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules',dataV ).then((res) => {
 
                         if (res.data.status === 'success') {    
                             console.log("ok")

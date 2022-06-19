@@ -23,7 +23,7 @@ function PopupDriver(props){
         }
         const addDriver = async () => {
             try {
-                await axios.post('http://localhost:3001/DriverAPI/drivers',dataD ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/DriverAPI/drivers',dataD ).then((res) => {
 
                         if (res.data.status === 'success') {    
                             console.log("ok")

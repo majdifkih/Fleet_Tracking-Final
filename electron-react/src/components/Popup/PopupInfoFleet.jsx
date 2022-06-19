@@ -9,20 +9,20 @@ import axios from "axios";
 import {useEffect} from "react";
 function PopupInfoFleet(props){
     
-    // const getChauffeur=(ID)=>{
-    //             axios.get(`http://localhost:3001/VehiculeAPI/single?id=${ID}`).then(res=>{
+    const getChauffeur=(ID)=>{
+                axios.get(`http://localhost:3001/VehiculeAPI/single?id=${ID}`).then(res=>{
 
-    //         if(res.data.success){
-    //             console.log(res.data.existingPosts)
+            if(res.data.success){
+                console.log(res.data.existingPosts)
 
-    //         }
-    //     }
-    //     )
-    // }
-    // useEffect(()=>{
-    //     getChauffeur(props.id)
+            }
+        }
+        )
+    }
+    useEffect(()=>{
+        getChauffeur(props.id)
 
-    // } ,[])
+    } ,[])
     return (props.trigger) ? (
         <div className="popupinfo">
             <div className="popup-innerinfo">

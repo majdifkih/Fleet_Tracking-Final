@@ -27,6 +27,7 @@ import { Link } from "react-router-dom";
 import Popup from "../../components/Popup/Popup";
 import AddTaskIcon from '@mui/icons-material/AddTask';
 import PopupDelivery from "../../components/Popup/PopupDelivery";
+import axios from "axios";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -111,27 +112,7 @@ TablePaginationActions.propTypes = {
   rowsPerPage: PropTypes.number.isRequired,
 };
 
-function createData(name,position, date, status) {
-  return { name,position, date, status };
-}
 
-const rows = [
-  createData('Baraka','Mahdia','22/3/2022','Incomplete'),
-  createData('Hanout','Rcharcha','22/3/2022','Done'),
-  createData('Carrefour','Ksour Essef','22/3/2022','Done'),
-  createData('Mahida shop','Maloulech','22/3/2022','Done'),
-  createData('Aotriya','Souasi','22/3/2022','Incomplete'),
-  createData('Hanout lhoma','Monastir','22/3/2022','Incomplete'),
-  createData('Magasin','Sousse','22/3/2022','Done'),
-  createData('Store','Sfax','22/3/2022','Done'),
-  createData('Drugstore','Rajich','22/3/2022','Done'),
-  createData('Magasin','Mahdia','22/3/2022','Incomplete'),
-  createData('Mahida drugstore','Monastir','22/3/2022','Incomplete'),
-  createData('Store','Rajich','22/3/2022','Done'),
-  createData('Mahida shop','Sousse','22/3/2022','Done'),
-  createData('Hanout','Mahdia','22/3/2022','Done'),
-  createData('Aotriya','Mahdia','22/3/2022','Incomplete'),
-];
  function DeliveryListe() {
    
   const[searchTerm,setSearchTerm]=useState("");
@@ -152,7 +133,7 @@ const handleChangeRowsPerPage = (event) => {
   setPage(0);
 };
 const [API, setAPI] = useState("Delivery");
-const [APIs, setAPIs] = useState("deliverys");
+const [APIs, setAPIs] = useState("deliveries");
 const [buttonPopup, setButtonPopup] = useState(false);
 const [addPopupdelivery, setAddPopupdelivery] = useState(false);
 const [DID, setDID] = useState("");
@@ -163,6 +144,26 @@ const Delete = (name,ID) => {
   setDname(name);
   setdeletePopup(true)
 }
+const [rows, setRows] = useState([]);
+
+const getDelivery = () => {
+  axios.get('http://localhost:3001/Deliveryapi/deliveries')
+  .then(res => {
+    setRows(res.data.existingPosts);
+    
+  }
+  )
+  .catch(err => {
+    console.log(err);
+  }
+  )
+  console.log(rows)
+}
+useEffect(() => {
+  getDelivery();
+} 
+)
+
   return (
 
   <div className="deliverymain">
@@ -216,10 +217,10 @@ const Delete = (name,ID) => {
             }
           }).map((val,key) => (
               <StyledTableRow className="row" key={key}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.name}</label>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.store.name}</label>
                   
                 </StyledTableCell>
-                <StyledTableCell className ="circle">{val.position} </StyledTableCell>
+                <StyledTableCell className ="circle">{val.store.address} </StyledTableCell>
                 <StyledTableCell className ="circle" align="center">{val.date} </StyledTableCell>
                 <StyledTableCell className="line"  >
                  <div className={`reguliere ${val.status}`}>{val.status}</div>

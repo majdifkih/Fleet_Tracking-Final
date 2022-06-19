@@ -1,5 +1,5 @@
 import "./widget.scss";
-const Widget = ({ type }) => {
+const Widget = ({ type,count }) => {
   let data;
 
   //temporary
@@ -20,7 +20,7 @@ const Widget = ({ type }) => {
         title: "Active Drivers",
         isMoney: false,
         
-        amount:16,
+        amount:count,
         
           
       };
@@ -30,7 +30,7 @@ const Widget = ({ type }) => {
         title: "Warnings",
         isMoney: false,
        
-        amount:4,
+        amount:count,
         
       };
       break;
@@ -39,7 +39,7 @@ const Widget = ({ type }) => {
         title: "Connected Devices",
         isMoney: false,
       
-        amount:16,
+        amount:count,
         
       };
       break;

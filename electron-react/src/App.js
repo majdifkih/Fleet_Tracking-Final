@@ -30,7 +30,7 @@ function App() {
           <Route exact path="/" element={<Login />} />
             <Route path="/">
             <Route path="home" index element={<Home />} />
-            <Route path="fleet" element={<FleetMap />}/>
+            <Route path="fleet/:lat/:lon" exact element={<FleetMap />}/>
             <Route path="store" element={<Store />}/>
             <Route path="storetable" element={<StoreTable />}/>
             <Route path="devicelist" element={<DeviceListe/>} />

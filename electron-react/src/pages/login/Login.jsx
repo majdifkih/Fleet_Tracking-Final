@@ -25,7 +25,7 @@ function Login () {
                 localStorage.setItem('token', res.data.token);
                 localStorage.setItem('user', res.data.details.name);
                 localStorage.setItem('role ', res.data.isAdmin);
-                
+                alert('Login Successful');
                 
                 navigate('/home');
             } else {

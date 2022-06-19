@@ -20,13 +20,16 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PopupFleet from "../../components/Popup/PopupAddFleet";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useNavigate} from "react-router-dom";
 
-const center = { lat: 35.523916, lng: 11.030870 }
 
 function FleetMap() {
   
+  const {lat,lon}=useParams();
+  const [lati,setLati] = useState(lat);
+  const [lngi,setLngi] = useState(lon);
+
   const [addPopupMapfleet, setAddPopupMapfleet] = useState(false);
   const [rows, setRows] = useState([])
   const getVehicule=()=>{
@@ -38,8 +41,15 @@ function FleetMap() {
       }
     })
   } 
+  const center = {
+    lat: parseFloat(lati),
+    lng: parseFloat(lngi)
+  }
   useEffect(()=>{
     getVehicule() 
+    const center = {lat:lati,lng:lngi};
+
+    console.log(lati,lngi)
   });
   let navigate = useNavigate();
 
@@ -120,7 +130,7 @@ function FleetMap() {
         </div>
         </div>
         
-        <TableMap rows={rows}/>
+        <TableMap rows={rows} setlat={setLati} setlon={setLngi}/>
         
         </div>
      </div>

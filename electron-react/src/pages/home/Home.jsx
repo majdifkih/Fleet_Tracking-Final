@@ -1,7 +1,7 @@
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import "./home.scss";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Widget from "../../components/widget/Widget";
 import TableOrder from "../../components/table/TableOrder";
 import Chart from "../../components/chart/Chart";
@@ -9,141 +9,55 @@ import TableMap from "../../components/table/TableMap";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import PopupFleet from "../../components/Popup/PopupAddFleet";
 import { Link } from "react-router-dom";
+import axios from "axios";
 const Home = () => {
-  const rows = [
-    {
-      id: 1143155,
-      product: "IVECO",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "IVECO",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 2235235,
-      product: "Playstation 5",
-      img: "https://m.media-amazon.com/images/I/31JaiPXYI8L._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "TOYOTA",
-      date: "1 March",
-      amount: 900,
-      method: "Online Payment",
-      status: "Offline",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "VOLVO",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "Offline",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "SCANIA",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "NISSAN",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "MERCEDES",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "Offline",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "RENAULT",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 2342353,
-      product: "Redragon S101",
-      img: "https://m.media-amazon.com/images/I/71kr3WAj1FL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 35,
-      method: "Cash on Delivery",
-      status: "Offline",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-    {
-      id: 1143155,
-      product: "Acer Nitro 5",
-      img: "https://m.media-amazon.com/images/I/81bc8mA3nKL._AC_UY327_FMwebp_QL65_.jpg",
-      customer: "John Smith",
-      date: "1 March",
-      amount: 785,
-      method: "Cash on Delivery",
-      status: "Online",
-    },
-  ];
+  const{item,setItem}=useState("");
+  const [Drivers, setDrivers] = useState([]);
+const [num, setNum] = useState(0);
+  const getDriver=()=>{
+    axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
+      if(res.data.success){
+        setDrivers( res.data.existingPosts);
+     
+        console.log(Drivers)
+       
+      }
+    })
+  } 
+
+
+  const [vehicule, setVehicule] = useState([]);
+  const getVehicule=()=>{
+    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+      if(res.data.success){
+        setVehicule( res.data.existingPosts);
+        
+        console.log(vehicule)
+         const t=(vehicule.filter(item => item.alertOIL === true || item.alertTIERS===true)).length;
+        setItem(t)
+        // {  vehicule.map(element, => { 
+        //   if (element[i].alertOIL==true || element[i].alertTIERS==true) {
+        //     console.log(element.alertOIL)
+        //     setNum(num+1);
+            
+        //   }
+
+        //   i++
+        // })} 
+        
+      
+       
+      }
+    })
+  } 
+  useEffect(()=>{
+    getVehicule() 
+    getDriver()
+  });
+  
   const [addPopupfleet, setAddPopupfleet] = useState(false);
   return (
+    
     <div className="home">
       <div className="side"><Sidebar/>
 </div>
@@ -155,9 +69,9 @@ const Home = () => {
           <div className="leftt">
         <div className="widgets">
           <Widget type="demande" />
-          <Widget type="active" />
-          <Widget type="avertissement" />
-          <Widget type="apareil" />
+          <Widget type="active" count={Drivers.length} />
+          <Widget type="avertissement" count={item} />
+          <Widget type="apareil" count={vehicule.length} />
         </div>
         <div className="charts">
        
@@ -170,7 +84,7 @@ const Home = () => {
         <div className="listContainer">
         <div className="headTab" >
         <div className="listTitleApp">
-          <div className="listTitle" >Devices <span>(20)</span></div>
+          <div className="listTitle" >Devices <span>({vehicule.length})</span></div>
         <Link to="/devicelist">See All</Link>
 
         </div>
@@ -182,7 +96,7 @@ const Home = () => {
         </div>
         </div>
         </div>
-        <TableMap rows={rows.slice(0,3)} />
+        <TableMap rows={vehicule.slice(0,3)} />
       </div>
       
       <div className="listContainer2">

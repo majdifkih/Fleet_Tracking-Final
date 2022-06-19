@@ -40,6 +40,8 @@ import PopupInfoProvider from '../Popup/PopupInfoProvider';
 import PopupInfoUser from '../Popup/PopupInfoUser';
 import PopupInfoStore from '../Popup/PopupInfoStore';
 import PopupInfoInventory from '../Popup/PopupInfoInventory';
+import { position } from '@chakra-ui/react';
+import axios from 'axios';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -123,6 +125,15 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
+  const Position =(id) => {
+  axios.get(`http://localhost:3001/PositionAPI/positions?id=${id}`).then(res => {
+    console.log(res.data)
+    window.location.href = `#/fleet/${res.data.existingPositions.latitude}/${res.data.existingPositions.longitude}`
+    
+  }
+  )
+  }
+
     const {rows,type,title,stat,icon,pos,ink,add,search}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
     const [deletePopup, setdeletePopup] = useState(false);
@@ -364,7 +375,7 @@ case "Stores name":
                   <Link to="/stockvehicle"><AddShoppingCartIcon className="material-icons" /></Link>
                   </div>
                   <div className={`lik ${pos}`}>
-                  <Link to={ink}><i class={`material-icons `}>pin_drop</i></Link>
+                  <i onClick={()=>Position(val._id)} class={`material-icons `}>pin_drop</i>
                   </div>
                     <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>
                   <i className="material-icons" onClick={()=>Edit(val.name,val._id)} >border_color</i>

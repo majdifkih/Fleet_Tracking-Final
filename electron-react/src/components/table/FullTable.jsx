@@ -42,6 +42,7 @@ import PopupInfoStore from '../Popup/PopupInfoStore';
 import PopupInfoInventory from '../Popup/PopupInfoInventory';
 import { position } from '@chakra-ui/react';
 import axios from 'axios';
+import PopupAlert from '../Popup/AlertVehicle/PopupAlert';
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
       backgroundColor: theme.palette.common.white,
@@ -231,7 +232,7 @@ case "Stores name":
     const [InfoPopupDriver, setInfoPopupDriver] = useState(false);
     const [InfoPopupProvider, setInfoPopupProvider] = useState(false);
     const [InfoPopupUser, setInfoPopupUser] = useState(false);
- 
+    const [alertbuttonPopup, setalertbuttonPopup] = useState(false);
    
   
     const [ROW, setROW] = useState([]);
@@ -354,19 +355,19 @@ case "Stores name":
 
                 width="20"
                 height="20"
-                alt=""/>           
+                alt="" onClick={() => setalertbuttonPopup(true) }/>           
                 <img 
                 src={engine}
                 className={`circle ${type}`}
                 width="27"
                 height="27"
-                alt=""/>
+                alt="" onClick={() => setalertbuttonPopup(true)}/>
                   <img 
                 src={oil}
                 className={val.alertOIL ? "circle oui":"circle non"}
                 width="27"
                 height="27"
-                alt=""/>
+                alt="" onClick={() => setalertbuttonPopup(true)}/>
                 
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
@@ -397,7 +398,7 @@ case "Stores name":
                   <PopupInfoDriver trigger={InfoPopupDriver} setTrigger={setInfoPopupDriver} data={ROW}/>
                   <PopupInfoProvider trigger={InfoPopupProvider} setTrigger={setInfoPopupProvider} data={ROW}/>
                   <PopupInfoUser trigger={InfoPopupUser} setTrigger={setInfoPopupUser} data={ROW}/>
-                 
+                  <PopupAlert trigger={alertbuttonPopup} setTrigger={setalertbuttonPopup} />
 
                   </div>
                   

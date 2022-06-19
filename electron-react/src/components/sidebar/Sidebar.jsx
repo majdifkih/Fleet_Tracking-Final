@@ -14,8 +14,10 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AirlineSeatReclineNormalIcon from '@mui/icons-material/AirlineSeatReclineNormal';
 import CoPresentIcon from '@mui/icons-material/CoPresent';
 import SpatialAudioOffIcon from '@mui/icons-material/SpatialAudioOff';
+import PopupLogout from "../Popup/PopupLogout";
+import { useState } from "react";
 const Sidebar = () => {
- 
+ const [buttonlogout ,setbuttonlogout]=useState(false);
   return (
     <div id="wrapper" className="toggled">
         <div id="sidebar-wrapper">
@@ -93,11 +95,13 @@ const Sidebar = () => {
             <CoPresentIcon className="iconlist" fontSize="small"/> Delivery
               </Link>
             </li>
-            <li>
+            <li >
             <Link to="/logout" >
             <LogoutIcon className="iconlist" fontSize="small" /> Log out
               </Link>
             </li>
+          
+
           </ul>
         </div>
     </div>

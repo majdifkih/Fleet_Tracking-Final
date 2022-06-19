@@ -95,14 +95,12 @@ const Sidebar = () => {
             <CoPresentIcon className="iconlist" fontSize="small"/> Delivery
               </Link>
             </li>
-            <li onClick={() => setbuttonlogout(true)}>
-            <Link to="/delivery" >
+            <li >
+            <Link to="/logout" >
             <LogoutIcon className="iconlist" fontSize="small" /> Log out
               </Link>
             </li>
-            <div className="poplogout">
-            <PopupLogout trigger={buttonlogout} setTrigger={setbuttonlogout}/>
-            </div>
+          
 
           </ul>
         </div>

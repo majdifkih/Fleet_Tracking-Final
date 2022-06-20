@@ -224,8 +224,10 @@ useEffect(() => {
                 <StyledTableCell className ="circle" align="center">{val.date} </StyledTableCell>
                 <StyledTableCell className="line"  >
                  <div className={`reguliere ${val.status}`}>{val.status}</div>
-                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>
+                <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>
+                <div className="popdelivery">
                  <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
+                 </div>
                  </StyledTableCell>
                  </StyledTableRow>
             ))}

@@ -17,12 +17,14 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import TableMap from "../../components/table/TableMap";
 import SearchIcon from '@mui/icons-material/Search';
-import { Link } from "react-router-dom";
+import { Link,useParams } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate } from "react-router-dom";
-const center = { lat: 35.523916, lng: 11.030870 }
 
 function Store() {
+  const {lat,lon}=useParams();
+  const [lati,setLati] = useState(lat);
+  const [lngi,setLngi] = useState(lon);
 
   const [rows,setRows] = useState([]);
   const navigate=useNavigate()
@@ -35,8 +37,14 @@ function Store() {
       }
     })
   } 
+  const center = {
+    lat: parseFloat(lati),
+    lng: parseFloat(lngi)
+  }
   useEffect(()=>{
     getStore() 
+    const center = {lat:lati,lng:lngi};
+
   });   
 
 
@@ -116,7 +124,7 @@ function Store() {
 </div></div>
 
         </div>
-        <TableMap rows={rows}/>
+        <TableMap rows={rows} type={'store'} setlat={setLati} setlon={setLngi}/>
         
         </div>
         </div>

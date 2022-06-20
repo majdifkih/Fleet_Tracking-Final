@@ -8,19 +8,36 @@ import axios from "axios";
 
 
 const List = (props) => {
-  const {rows,setlat,setlon} = props;
-const getMap = (id) => {
-  axios.get('http://localhost:3001/PositionAPI/positions?id=' + id).then(res => {
-    if (res.data.success) {
-      console.log(res.data.existingPositions);
-      
-    setlat(res.data.existingPositions.latitude);
-    setlon(res.data.existingPositions.longitude);
-    }
-  },
-  console.log(props.center) 
-  )
-}
+  const {rows,setlat,setlon,type} = props;
+const getMap = (id,type) => {
+  switch (type) {
+    case "fleet":
+      axios.get('http://localhost:3001/PositionAPI/positions?id=' + id).then(res => {
+        if (res.data.success) {
+          console.log(res.data.existingPositions);
+          
+        setlat(res.data.existingPositions.latitude);
+        setlon(res.data.existingPositions.longitude);
+        }
+      },
+      console.log(props.center) 
+      )
+      break;
+    case "store":
+      axios.get('http://localhost:3001/StoreAPI/single?id=' + id).then(res => {
+        if (res.data.success) {
+          console.log(res.data.existingPositions);
+          
+        setlat(res.data.existingPositions.positionStore.latitude);
+        setlon(res.data.existingPositions.positionStore.longitude);
+        }
+      },
+      console.log(props.center) 
+      );
+    default:
+      return "";
+  }}
+
 
   return (
     <TableContainer  className="tableMap" >
@@ -35,7 +52,7 @@ const getMap = (id) => {
           {rows.map((row) => (
             <TableRow key={row._id} className="flex">
               
-              <TableCell className="tableCell"><input type="radio" value={row._id} className="radio" name="appareilles" onChange={()=>getMap(row._id)}/>{row.name}</TableCell>
+              <TableCell className="tableCell"><input type="radio" value={row._id} className="radio" name="appareilles" onChange={()=>getMap(row._id,type)}/>{row.name}</TableCell>
               
               <TableCell className="tableCell" align="right">
                 <span className={`status ${row.status}`}>{row.status}</span>

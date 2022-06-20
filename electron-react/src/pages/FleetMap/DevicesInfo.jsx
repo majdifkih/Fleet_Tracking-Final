@@ -30,6 +30,8 @@ import { Link } from "react-router-dom";
   useEffect(()=>{
     getVehicule() 
   });
+  const [KM, setMileageV] = useState("0");
+  const [NameV,setNameV] = useState("????");
   const [rows,setRows] = useState([]);
 
   const getStore=()=>{
@@ -75,13 +77,13 @@ const [searchTerm,setSearchTerm]=useState("");
 <div className="info">
   
 <div className="deviceinfo" >
-<div className="titleinfo" align="center">IVECO</div>
+<div className="titleinfo" align="center">{NameV}</div>
 <div className="infocenter">
 <div className="carte" >
   <div className="cartetop" >
 <div className="carteCenter" >
   <div className="carteTitle">Distance total</div>
-  <div className="carteNumber">19802 Km</div>
+  <div className="carteNumber">{KM} Km</div>
   </div>
 <div className="carteCenter">
 <div className="carteTitle">Heures actif</div>
@@ -134,7 +136,7 @@ const [searchTerm,setSearchTerm]=useState("");
 </div>
   </div>
   <div className="tabdevic">
-  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non"  />
+  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" setNameV={setNameV} setKM={setMileageV}  />
   </div>
   </div>
   </div>

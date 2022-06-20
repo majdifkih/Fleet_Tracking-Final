@@ -38,6 +38,7 @@ function PopupFleet(props){
         Driver:Vdriver,    
         }
         const addVehicule = async () => {
+             console.log(dataV)
             try {
                 await axios.post('https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules',dataV ).then((res) => {
 

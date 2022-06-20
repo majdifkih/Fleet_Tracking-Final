@@ -130,7 +130,7 @@ function FleetMap() {
         </div>
         </div>
         
-        <TableMap rows={rows} setlat={setLati} setlon={setLngi}/>
+        <TableMap rows={rows} setlat={setLati} setlon={setLngi} type={'fleet'}/>
         
         </div>
      </div>

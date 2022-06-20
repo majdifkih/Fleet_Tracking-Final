@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
+import moment from 'moment';
 import TableFooter from '@mui/material/TableFooter';
 import Box from '@mui/material/Box';
 import TablePagination from '@mui/material/TablePagination';
@@ -126,14 +127,88 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
-  const Position =(id) => {
-  axios.get(`http://localhost:3001/PositionAPI/positions?id=${id}`).then(res => {
-    console.log(res.data)
-    window.location.href = `#/fleet/${res.data.existingPositions.latitude}/${res.data.existingPositions.longitude}`
-    
-  }
-  )
-  }
+  const Position =(id,title) => {
+    switch(title){
+      case "Devices":
+        axios.get(`http://localhost:3001/PositionAPI/positions?id=${id}`).then(res => {
+          console.log(res.data)
+          window.location.href = `#/fleet/${res.data.existingPositions.latitude}/${res.data.existingPositions.longitude}`
+          
+        }
+        )
+  break;
+  case "Stores name":
+    axios.get(`http://localhost:3001/StoreAPI/single?id=${id}`).then(res => {
+      console.log(res.data)
+      window.location.href = `#/store/${res.data.existingPositions.positionStore.latitude}/${res.data.existingPositions.positionStore.longitude}`
+     `/alerts/${res.data.existingPositions.positionStore.latitude}/${res.data.existingPositions.positionStore.longitude}`
+
+      
+    })
+  }}
+
+  const today= new Date();
+  const calcDate = (date1, date2)=>{
+      /*
+      * calcDate() : Calculates the difference between two dates
+      * @date1 : "First Date in the format M-D-Y"
+      * @date2 : "Second Date in the format M-D-Y"
+      * return : Array
+      */
+      //Initiate date object
+      const dt_date1 = new Date(date1);
+      const dt_date2= new Date(date2);
+      console.log(dt_date1,"dt_date1")
+      console.log(dt_date2,"dt_date2")
+      //Get the Timestamp
+      var date1 =dt_date1.getTime();
+      var date2 = dt_date2.getTime();
+      
+      var calc;
+      //Check which timestamp is greater
+      if (date1 > date2){
+          calc = new Date(date1 - date2) ;
+      }else{
+          calc = new Date(date2 - date1) ;
+      }
+      //Retrieve the date, month and year
+      var calcFormatTmp = calc.getDate() + '-' + (calc.getMonth()+1)+ '-'+calc.getFullYear();
+      //Convert to an array and store
+      var calcFormat = calcFormatTmp.split("-");
+      //Subtract each member of our array from the default date
+      var days_passed = parseInt(Math.abs(calcFormat[0]) - 1);
+      var months_passed = parseInt(Math.abs(calcFormat[1]) - 1);
+      var years_passed = parseInt(Math.abs(calcFormat[2] -   1970));
+      
+      //Set up custom text
+      const yrsTxt =["year", "years"];
+      const mnthsTxt = ["month", "months"];
+      const daysTxt = ["day", "days"]; 
+      
+      //Convert to days and sum together
+      var total_days = (years_passed * 365) + (months_passed * 30.417) + days_passed;
+      
+      //display result with custom text
+      const result = ((years_passed == 1) ? years_passed+ ' '+ yrsTxt[0] + ' ' : (years_passed > 1 )  ? 
+      years_passed+ ' ' + yrsTxt[1] + ' ' : '') + 
+      ((months_passed == 1) ? months_passed+ ' ' + mnthsTxt[0] :  (months_passed > 1) ? 
+       months_passed+ ' ' + mnthsTxt[1] + ' ' : '') +
+      ((days_passed == 1) ? days_passed+ ' ' + daysTxt[0] : (days_passed > 1) ? 
+      days_passed+ ' ' + daysTxt[1] : '' );
+      
+      //Build our return value
+      const retval = {
+          "total_days" : Math.round(total_days),
+          "result" :  result
+      }
+      //return the result
+      console.log(retval);
+      if (retval.total_days > 90){
+        return true}
+        else{
+          return false
+        }
+      }
 
     const {rows,type,title,stat,icon,pos,ink,add,search}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
@@ -161,6 +236,28 @@ function FullTable(props) {
    const [infoPopup, setInfoPopup] = useState(false);
 const [API, setAPI] = useState("false");
 const [APIs, setAPIs] = useState("false");
+const oilP="oil";
+const tiers="tiers";
+const maint="maint";
+const [IDA, setIDA] = useState("");
+const [ALERTF, setALERTF] = useState("");
+const alertPop = (id,alert) => {
+switch(alert){
+  case oilP:
+    setALERTF("OIL");
+  break;
+  case tiers:
+    setALERTF("TIERS");
+  break;
+  case maint:
+    setALERTF("MAINTENANCE");
+  break;
+}
+setIDA(id);
+  setalertbuttonPopup(true);
+}
+
+
 // const [URL, SetURL] = useState("h");
 const url = (title) => {
   console.log(title);
@@ -264,6 +361,16 @@ case "Stores name":
           console.log(`Sorry, we are out of ${title}.`);
       }
     }
+    const getINFO = (name,mileage,id) => {
+      if (title==="Livreur") {
+        props.setNameV(name)
+      props.setKM(mileage)
+        axios.get(`http://localhost:3001/PositionAPI/heures?id=${id}`).then(res => {
+          console.log(res.data);
+          props.setDriver(res.data);
+        }
+        )
+      }}
     const Edit = (name,ID) => {
   
 
@@ -320,6 +427,7 @@ case "Stores name":
     setPage(0);
   };
   const navigate=useNavigate();
+  
   return (
     <div className="tabdevice">
     <TableContainer component={Paper}>
@@ -346,28 +454,28 @@ case "Stores name":
             }
           }).map((val,key) => (
               <StyledTableRow className="row" key={key}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.name}</label>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" onChange={()=>getINFO(val.name,val.Mileage,val._id)} className="radio" /><label for="name">{val.name}</label>
                   
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 
                 src={tires}
-                className={val.alertTIERS ? "circle oui":"circle non"}
+                className={val.alertTIRES ? "circle oui":"circle non"}
 
                 width="20"
                 height="20"
-                alt="" onClick={() => setalertbuttonPopup(true) }/>           
+                alt="" onClick={() => alertPop(val._id,tiers) }/>           
                 <img 
                 src={engine}
-                className={`circle ${type}`}
+                className={calcDate(moment(val.Maintenance).format("MM-DD-YYYY"),moment(today).format("MM-DD-YYYY")) ?`circle oui`:`circle non`}
                 width="27"
                 height="27"
-                alt="" onClick={() => setalertbuttonPopup(true)}/>
+                alt="" onClick={() => alertPop(val._id,maint)}/>
                   <img 
                 src={oil}
                 className={val.alertOIL ? "circle oui":"circle non"}
                 width="27"
                 height="27"
-                alt="" onClick={() => setalertbuttonPopup(true)}/>
+                alt="" onClick={() => alertPop(val._id,oilP)}/>
                 
                 </StyledTableCell>
                 <StyledTableCell className="line"  >
@@ -376,7 +484,7 @@ case "Stores name":
                   <Link to="/stockvehicle"><AddShoppingCartIcon className="material-icons" /></Link>
                   </div>
                   <div className={`lik ${pos}`}>
-                  <i onClick={()=>Position(val._id)} class={`material-icons `}>pin_drop</i>
+                  <i onClick={()=>Position(val._id,title)} class={`material-icons `}>pin_drop</i>
                   </div>
                     <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>
                   <i className="material-icons" onClick={()=>Edit(val.name,val._id)} >border_color</i>
@@ -398,7 +506,7 @@ case "Stores name":
                   <PopupInfoDriver trigger={InfoPopupDriver} setTrigger={setInfoPopupDriver} data={ROW}/>
                   <PopupInfoProvider trigger={InfoPopupProvider} setTrigger={setInfoPopupProvider} data={ROW}/>
                   <PopupInfoUser trigger={InfoPopupUser} setTrigger={setInfoPopupUser} data={ROW}/>
-                  <PopupAlert trigger={alertbuttonPopup} setTrigger={setalertbuttonPopup} />
+                  <PopupAlert trigger={alertbuttonPopup} setTrigger={setalertbuttonPopup} type={ALERTF} id={IDA} />
 
                   </div>
                   

@@ -12,6 +12,7 @@ import FullTable from "../../components/table/FullTable";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Visibility } from "@mui/icons-material";
+import UserBlock from "./UserBlock";
 
  function UserTable(props) {
   const[searchTerm,setSearchTerm]=useState("");
@@ -64,6 +65,6 @@ const navigate = useNavigate();
   </div>
   </div>
   
-  ):(window.location.href="/#/home");
+  ):<UserBlock/>;
 }
 export default UserTable

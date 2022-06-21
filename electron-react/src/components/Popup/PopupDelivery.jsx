@@ -16,7 +16,7 @@ function PopupDelivery(props){
     }
     const AddDelivery = () => {
         console.log(DATAd)
-        axios.post("https://qlogisticsapp.herokuapp.com/DeliveryAPI/deliveries",
+        axios.post("http://localhost:3001/DeliveryAPI/deliveries",
             DATAd
         ).then(res=>{
             if(res.data.success){

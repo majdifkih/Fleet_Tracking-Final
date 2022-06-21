@@ -16,7 +16,7 @@ function PopupInfoFleet(props){
     //             axios.get(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/single?id=${ID}`).then(res=>{
 
             if(res.data.success){
-                console.log(res.data.existingPosts)
+                console.log(res.data.vehicule);
 
             }
         }
@@ -91,8 +91,9 @@ function PopupInfoFleet(props){
 // }
     useEffect(()=>{
         getChauffeur(props.id)
-        calcDate(moment(props.data.Maintenance).format("MM-DD-YYYY"),moment(today).format("MM-DD-YYYY"))
-    } )
+    //     calcDate(moment(props.data.Maintenance).format("MM-DD-YYYY"),moment(today).format("MM-DD-YYYY"))
+    // } )
+    })
     return (props.trigger) ? (
         <div className="popupinfo">
             <div className="popup-innerinfo">

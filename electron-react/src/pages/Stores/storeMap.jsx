@@ -25,9 +25,9 @@ function Store() {
   const {lat,lon}=useParams();
   const [lati,setLati] = useState(lat);
   const [lngi,setLngi] = useState(lon);
+  const navigate=useNavigate()
 
   const [rows,setRows] = useState([]);
-  const navigate=useNavigate()
   const getStore=()=>{
     axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
       if(res.data.success){

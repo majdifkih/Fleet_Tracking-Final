@@ -25,7 +25,7 @@ import LastPageIcon from '@mui/icons-material/LastPage';
 import Popup from "../../components/Popup/Popup";
 import AddIcon from '@mui/icons-material/Add';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import PopupAddStock from "../../components/Popup/PopupAddStock";
 import PopupEditstock from "../../components/Popup/PopupEditstock";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
@@ -123,6 +123,9 @@ const rows = [
   
 ];
  function StockVehicle() {
+   const [items, setItems] = useState([]);
+   const {ID}=useParams();
+
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const navigate=useNavigate()
@@ -219,7 +222,7 @@ const rows = [
   
   <button className="addprod" onClick={() => setAddPopupstockvehicle(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupAddStock trigger={addPopupstockvehicle} setTrigger={setAddPopupstockvehicle}/>
+<PopupAddStock trigger={addPopupstockvehicle} setTrigger={setAddPopupstockvehicle} id={ID}/>
 </div>
  
   

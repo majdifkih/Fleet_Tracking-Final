@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Popupform.scss";
 import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/ProductionQuantityLimitsOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
@@ -6,21 +6,32 @@ import axios from 'axios';
 import { useState } from "react";
 
 function PopupAddStock(props){
+    const getProduct = async () => {
+        axios.get('http://localhost:3001/ProductAPI/products').then(res => {
+            if (res.data.success) {
+                setProductlist(res.data.existingPosts);
+            }
+            else {
+                alert("Error");
+            }
+        }
+        )
+    }
+    const [productlist, setProductlist] = useState([]);
 
     const [Pqnty, setPqnty] = useState("");
     const [product, setproduct] = useState("");
-    const [productclient, setclient] = useState("");
     const dataI = {
-        product:product ,
-        productQuantity:Pqnty,
-        productclient:productclient ,
+        vehicule:props.id,
+        stock :[{products:product,quantity:Pqnty}]
 
         }
         const addProduct = async () => {
+            console.log(dataI)
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/ProductAPI/products',dataI ).then((res) => {
+                await axios.post('http://localhost:3001/VanAPI/vans',dataI ).then((res) => {
 
-                        if (res.data.status === 'success') {    
+                        if (res.data.success) {    
                             console.log("ok")
                         }
                     }
@@ -31,6 +42,11 @@ function PopupAddStock(props){
                 }
             }
         }
+        useEffect(() => {
+            getProduct();
+        }
+            );
+
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
@@ -42,7 +58,9 @@ function PopupAddStock(props){
             <div className="formicon">
             <Inventory2OutlinedIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setproduct(event.target.value);}} >
                 <option disabled selected>Choose Product</option>
-                <option value="Online">Online</option>
+                {(productlist).map((pr) => (
+                <option value={pr._id}>{pr.productName}</option>
+                ))}
 
                 </select>
                 </div>

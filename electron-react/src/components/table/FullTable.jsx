@@ -141,7 +141,6 @@ function FullTable(props) {
     axios.get(`http://localhost:3001/StoreAPI/single?id=${id}`).then(res => {
       console.log(res.data)
       window.location.href = `#/store/${res.data.existingPositions.positionStore.latitude}/${res.data.existingPositions.positionStore.longitude}`
-     `/alerts/${res.data.existingPositions.positionStore.latitude}/${res.data.existingPositions.positionStore.longitude}`
 
       
     })
@@ -149,6 +148,7 @@ function FullTable(props) {
 
   const today= new Date();
   const calcDate = (date1, date2)=>{
+    if (title==="Devices"){
       /*
       * calcDate() : Calculates the difference between two dates
       * @date1 : "First Date in the format M-D-Y"
@@ -207,7 +207,7 @@ function FullTable(props) {
         return true}
         else{
           return false
-        }
+        }}
       }
 
     const {rows,type,title,stat,icon,pos,ink,add,search}=props;
@@ -361,10 +361,11 @@ case "Stores name":
           console.log(`Sorry, we are out of ${title}.`);
       }
     }
-    const getINFO = (name,mileage,id) => {
+    const getINFO = (name,mileage,id,h) => {
       if (title==="Livreur") {
         props.setNameV(name)
       props.setKM(mileage)
+      props.sethour(h)
         axios.get(`http://localhost:3001/PositionAPI/heures?id=${id}`).then(res => {
           console.log(res.data);
           props.setDriver(res.data);
@@ -454,7 +455,7 @@ case "Stores name":
             }
           }).map((val,key) => (
               <StyledTableRow className="row" key={key}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" onChange={()=>getINFO(val.name,val.Mileage,val._id)} className="radio" /><label for="name">{val.name}</label>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" onChange={()=>getINFO(val.name,val.Mileage,val._id,val.hours)} className="radio" /><label for="name">{val.name}</label>
                   
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 
@@ -481,7 +482,7 @@ case "Stores name":
                 <StyledTableCell className="line"  >
                   <div className={`icons ${icon}`}>
                   <div className={`shop ${add}`}>
-                  <Link to="/stockvehicle"><AddShoppingCartIcon className="material-icons" /></Link>
+                  <Link to={`/stockvehicle/${val._id}`}><AddShoppingCartIcon className="material-icons" /></Link>
                   </div>
                   <div className={`lik ${pos}`}>
                   <i onClick={()=>Position(val._id,title)} class={`material-icons `}>pin_drop</i>

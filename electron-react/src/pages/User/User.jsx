@@ -10,11 +10,12 @@ import PopupUser from "../../components/Popup/PopupAddUser";
 import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
 import FullTable from "../../components/table/FullTable";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Visibility } from "@mui/icons-material";
 
  function UserTable(props) {
   const[searchTerm,setSearchTerm]=useState("");
-
+const navigate = useNavigate();
    const[API,setAPI]=useState("User");
     const [APIs, setAPIs] = useState('users');
   const [Users, setUsers] = useState([]);
@@ -35,7 +36,7 @@ import { Visibility } from "@mui/icons-material";
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupuser, setAddPopupuser] = useState(false);
 
-  return (localStorage.getItem("user")==="iheb")?(
+  return (localStorage.getItem("user")==="HEB")?(
   <div className="Tabusermain">
     <div className="side"><Sidebar/></div>
     <div className="Tabuser">
@@ -59,10 +60,10 @@ import { Visibility } from "@mui/icons-material";
 </div>
 </div>
 
- <FullTable ink={""} rows={Users} type="non" stat="status" title="Users name" pos={"non"} add={"non"} search={searchTerm}/>
+ <FullTable ink={""} rows={Users} type="non" stat="" title="Users name" pos={"non"} add={"non"} search={searchTerm} />
   </div>
   </div>
   
-  ):"";
+  ):(window.location.href="/#/home");
 }
 export default UserTable

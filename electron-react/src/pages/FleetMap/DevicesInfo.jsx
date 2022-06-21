@@ -32,6 +32,7 @@ import { Link } from "react-router-dom";
   });
   const [KM, setMileageV] = useState("0");
   const [NameV,setNameV] = useState("????");
+  const [Hour,setHour] = useState("0");
   const [rows,setRows] = useState([]);
 
   const getStore=()=>{
@@ -87,7 +88,7 @@ const [searchTerm,setSearchTerm]=useState("");
   </div>
 <div className="carteCenter">
 <div className="carteTitle">Heures actif</div>
-  <div className="carteNumber">1292 H</div>
+  <div className="carteNumber">{(Hour /60).toFixed(2)} H</div>
 </div>
 </div>
 <div div className="cartebottom">
@@ -136,7 +137,7 @@ const [searchTerm,setSearchTerm]=useState("");
 </div>
   </div>
   <div className="tabdevic">
-  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" setNameV={setNameV} setKM={setMileageV}  />
+  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" setNameV={setNameV} setKM={setMileageV} sethour={setHour} />
   </div>
   </div>
   </div>

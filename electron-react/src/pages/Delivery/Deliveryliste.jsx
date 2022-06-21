@@ -1,5 +1,6 @@
 import "./Deliveryliste.scss";
 import * as React from 'react';
+import moment from "moment";
 import { useState,useEffect } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SearchIcon from '@mui/icons-material/Search';
@@ -114,7 +115,7 @@ TablePaginationActions.propTypes = {
 
 
  function DeliveryListe() {
-   
+   const[TheAddress,setTheAddress] = useState("")
   const[searchTerm,setSearchTerm]=useState("");
 
 
@@ -145,7 +146,10 @@ const Delete = (name,ID) => {
   setdeletePopup(true)
 }
 const [rows, setRows] = useState([]);
-
+const address= (lat,lon) => {
+  axios.get(`http://api.positionstack.com/v1/reverse?access_key=e7b7c50f25c942f3c3bf52e1cf825d3b&query=${lat},${lon}`).then(res => {
+    setTheAddress(res.data.data[0].county);
+})}
 const getDelivery = () => {
   axios.get('http://localhost:3001/Deliveryapi/deliveries')
   .then(res => {
@@ -161,7 +165,8 @@ const getDelivery = () => {
 }
 useEffect(() => {
   getDelivery();
-} 
+}
+
 )
 
   return (
@@ -220,8 +225,8 @@ useEffect(() => {
                 <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.store.name}</label>
                   
                 </StyledTableCell>
-                <StyledTableCell className ="circle">{val.store.address} </StyledTableCell>
-                <StyledTableCell className ="circle" align="center">{val.date} </StyledTableCell>
+                <StyledTableCell className ="circle" value={address(val.store.positionStore.latitude,val.store.positionStore.longitude)} > {TheAddress} </StyledTableCell>
+                <StyledTableCell className ="circle" align="center">{moment(val.date).format("DD/MM/YYYY")} </StyledTableCell>
                 <StyledTableCell className="line"  >
                  <div className={`reguliere ${val.status}`}>{val.status}</div>
                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>

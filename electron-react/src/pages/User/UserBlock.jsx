@@ -7,7 +7,7 @@ function UserBlock(){
     return (
         <div className="pageuser-main">
             <div className="pageuser">
-            <h1> The responsible cannot access this page</h1>
+            <h1> This page private to the administrator</h1>
                 
                 <button  onClick={() => navigate(-1)} className="return-btn">Return </button>
                 

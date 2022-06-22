@@ -22,14 +22,16 @@ function PopupAddStock(props){
     const [Pqnty, setPqnty] = useState("");
     const [product, setproduct] = useState("");
     const dataI = {
-        vehicule:props.id,
-        stock :[{products:product,quantity:Pqnty}]
+    
+        products:product,
+        quantity:Pqnty,
+        status:"GOOD"
 
         }
-        const addProduct = async () => {
+        const addProduct = async (IDP) => {
             console.log(dataI)
             try {
-                await axios.post('http://localhost:3001/VanAPI/vans',dataI ).then((res) => {
+                await axios.put(`http://localhost:3001/VanAPI/vans?id=${IDP}`,dataI ).then((res) => {
 
                         if (res.data.success) {    
                             console.log("ok")
@@ -83,7 +85,7 @@ function PopupAddStock(props){
             </div>
                 <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btna" onClick={addProduct} >Add</button>
+                <button className="btna" onClick={()=>addProduct(props.id)} >Add</button>
                 </div>
 
             </div>

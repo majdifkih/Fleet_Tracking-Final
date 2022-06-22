@@ -15,20 +15,7 @@ function PopupFleet(props){
     const [Vstatus,setVstatus] = React.useState("");
     const [Vmatricule,setVmatricule] = React.useState("");
     const [Vdriver,setdriver] = React.useState("");
-    const [Drivers,setDrivers] = React.useState({});
-    const getDriver=()=>{
-        axios.get("https://qlogisticsapp.herokuapp.com/DriverAPI/drivers").then(res=>{
-          if(res.data.success){
-            setDrivers( res.data.existingPosts);
-            
-            console.log(Drivers)
-          }
-        })
-      } 
-      useEffect(()=>{
-        getDriver() 
-      
-      } ,[]);  
+    
     const dataV = {
         name:Vname,
         status:Vstatus ,
@@ -40,10 +27,11 @@ function PopupFleet(props){
         const addVehicule = async () => {
              console.log(dataV)
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules',dataV ).then((res) => {
+                await axios.post('http://localhost:3001/VehiculeAPI/vehicules',dataV ).then((res) => {
 
-                        if (res.data.status === 'success') {    
+                        if (res.data.success === true) {    
                             console.log("ok")
+                            props.setTrigger(!props.trigger);
                         }
                     }
                 );
@@ -53,6 +41,7 @@ function PopupFleet(props){
                 }
             }
         }
+       
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
@@ -77,7 +66,7 @@ function PopupFleet(props){
             <div className="formicon">
             <PersonOutlineIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setdriver(event.target.value);}} >
                 <option disabled selected>Choose Driver</option>
-                {Drivers.map((val,key) => (
+                {props.Drivers?.map((val,key) => (
                 <option value={val._id}>{val.name}</option>
                 ))}
                 </select>

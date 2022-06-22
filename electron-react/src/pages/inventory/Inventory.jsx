@@ -241,7 +241,7 @@ const [IDI,setIDI]=useState("");
                 </div>
                 </StyledTableCell>
                 <StyledTableCell className="stat"  >
-              <div className={`statuss ${val.status}`}>{val.status}</div>
+              <div className={`statuss ${val.Quantityalert>val.productQuantity?'LOW':'GOOD'}`}>{val.Quantityalert>val.productQuantity?'LOW':'GOOD'}</div>
               </StyledTableCell >
             </StyledTableRow>
           ))}

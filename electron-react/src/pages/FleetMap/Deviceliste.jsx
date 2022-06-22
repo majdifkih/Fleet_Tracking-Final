@@ -14,6 +14,21 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 
 
  function DeviceListe() {
+  const [Drivers,setDrivers] = React.useState([]);
+
+  const getDriver=()=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/DriverAPI/drivers").then(res=>{
+      if(res.data.success){
+        setDrivers( res.data.existingPosts);
+        
+        console.log(Drivers)
+      }
+    })
+  } 
+  useEffect(()=>{
+    getDriver()
+  }
+  ,[])
   const[searchTerm,setSearchTerm]=useState("");
   const [vehicule, setVehicule] = useState([]);
   const getVehicule=()=>{
@@ -49,7 +64,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 <div className="buttonfleet">
 <button className="addfleet" onClick={() => setAddPopupfleet(true)}><img src={truck} width="20" height="20" className="iconfleet"/>Add</button>
 <div className="popfleet"> 
-<PopupFleet trigger={addPopupfleet} setTrigger={setAddPopupfleet}/>
+<PopupFleet trigger={addPopupfleet} setTrigger={setAddPopupfleet} Drivers={Drivers}/>
 </div>
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
@@ -58,7 +73,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
 </div>
 </div>
 
- <FullTable ink={"/fleet"} rows={vehicule} type="oui" title="Devices" stat="Online" search={searchTerm} />
+ <FullTable ink={"/fleet"} rows={vehicule} type="oui" title="Devices" stat="Online" search={searchTerm} Drivers={Drivers}/>
   </div>
   </div>
   

@@ -10,18 +10,18 @@ import axios from "axios";
 import {useEffect} from "react";
 function PopupInfoFleet(props){
     
-    const getChauffeur=(ID)=>{
-                axios.get(`http://localhost:3001/VehiculeAPI/single?id=${ID}`).then(res=>{
     // const getChauffeur=(ID)=>{
     //             axios.get(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/single?id=${ID}`).then(res=>{
+    // // const getChauffeur=(ID)=>{
+    // //             axios.get(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/single?id=${ID}`).then(res=>{
 
-            if(res.data.success){
-                console.log(res.data.vehicule);
+    //         if(res.data.success){
+    //             console.log(res.data.vehicule);
 
-            }
-        }
-        )
-    }
+    //         }
+    //     }
+    //     )
+    // }
     const today= new Date();
     const calcDate = (date1, date2)=>{
         /*
@@ -89,11 +89,7 @@ function PopupInfoFleet(props){
 //     var Difference_In_Days = Difference_In_Time / (1000 * 3600 * 24);
 //     console.log(Difference_In_Days)
 // }
-    useEffect(()=>{
-        getChauffeur(props.id)
-    //     calcDate(moment(props.data.Maintenance).format("MM-DD-YYYY"),moment(today).format("MM-DD-YYYY"))
-    // } )
-    })
+    
     return (props.trigger) ? (
         <div className="popupinfo">
             <div className="popup-innerinfo">
@@ -121,7 +117,7 @@ function PopupInfoFleet(props){
                 <div className="infoname">
             <DirectionsCarFilledOutlinedIcon className="iconinfo" fontSize="small"/><span>Driver:</span>
             </div>
-            <div className="attribinfo">{props.data.Driver.name}</div>
+            <div className="attribinfo">{(props.data.Driver==null) ? "without Driver":props.data.Driver.name}</div>
             </div>
             </div>
             <div className="formright">

@@ -31,7 +31,7 @@ const editVehicule = async (ID) => {
     try {
         console.log(dataV)
         
-        await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
+        await axios.put(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
             if (res.data.status === 'SUCCESS') {
                 console.log("ok")
                 props.setTrigger(!props.trigger);
@@ -44,7 +44,7 @@ const editVehicule = async (ID) => {
         }
     }
 
-    // await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
+    // await axios.put(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
     //         console.log(dataV)
     //             if (res.data.status === 'SUCCESS') {
     //                 props.setTrigger(!props.trigger);
@@ -81,13 +81,12 @@ const editVehicule = async (ID) => {
             <div className="form">
             <label for="namea"/>Driver
             <div className="formicon">
-            <PersonOutlineIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setEdriver(event.target.value);}}  >
+            <LocalOfferOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setEdriver(event.target.value);}}  >
                 <option disabled selected>Choose Driver</option>
                 {props.drivers.map((val,key) => (
                 <option value={val._id}>{val.name}</option>
                 ))}                
                 </select>
-                </div>
                 </div>
             </div>
             </div>

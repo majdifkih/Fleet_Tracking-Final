@@ -5,7 +5,7 @@ import "./PopupAlert.scss";
 function PopupAlert(props){
     const fixed = (id,type)=>{
        const date=new Date();
-        axios.get(`http://localhost:3001/VehiculeAPI/alerts?id=${id}&type=${type}&date=${date}`).then(res=>{
+        axios.get(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/alerts?id=${id}&type=${type}&date=${date}`).then(res=>{
             if(res.data.success){
                 console.log(res.data.alerts);
             }

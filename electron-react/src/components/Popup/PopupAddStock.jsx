@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function PopupAddStock(props){
     const getProduct = async () => {
-        axios.get('http://localhost:3001/ProductAPI/products').then(res => {
+        axios.get('https://qlogisticsapp.herokuapp.com/ProductAPI/products').then(res => {
             if (res.data.success) {
                 setProductlist(res.data.existingPosts);
 
@@ -39,7 +39,7 @@ function PopupAddStock(props){
             
 
             try {
-                await axios.put(`http://localhost:3001/VanAPI/vans?id=${IDP}`,dataI ).then((res) => {
+                await axios.put(`https://qlogisticsapp.herokuapp.com/VanAPI/vans?id=${IDP}`,dataI ).then((res) => {
 
                         if (res.data.success) {    
                             console.log("ok")
@@ -66,15 +66,14 @@ function PopupAddStock(props){
                 <div className="form">
             <label for="namea"/>Product
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setproduct(event.target.value);}} >
+            <select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
                 <option disabled selected>Choose Product</option>
                 {(productlist).map((pr) => (
                 <option value={pr._id}>{pr.productName}</option>
                 ))}
 
                 </select>
-                </div>
-                </div>
+                
             </div>
             </div>
 

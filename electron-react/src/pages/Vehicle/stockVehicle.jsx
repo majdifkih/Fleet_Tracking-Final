@@ -117,7 +117,7 @@ const [rows,setRows] = useState([]);
 const {id}=useParams();
 
   const getVans = async (id) => {
-    await axios.get(`http://localhost:3001/VanAPI/vans?id=${id}`)
+    await axios.get(`https://qlogisticsapp.herokuapp.com/VanAPI/vans?id=${id}`)
     .then(res => {
       setRows(res.data.existingPosts[0].stock)
       console.log(res.data.existingPosts[0].stock);
@@ -131,7 +131,7 @@ const {id}=useParams();
   const Delete = (id,pr) => {
     console.log(id);
     console.log(pr);
-    axios.delete(`http://localhost:3001/VanAPI/vans?id=${id}&pd=${pr}`)
+    axios.delete(`https://qlogisticsapp.herokuapp.com/VanAPI/vans?id=${id}&pd=${pr}`)
     .then(res => {
       console.log(res);
       getVans(id);

@@ -27,7 +27,7 @@ function PopupFleet(props){
         const addVehicule = async () => {
              console.log(dataV)
             try {
-                await axios.post('http://localhost:3001/VehiculeAPI/vehicules',dataV ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules',dataV ).then((res) => {
 
                         if (res.data.success === true) {    
                             console.log("ok")
@@ -64,13 +64,12 @@ function PopupFleet(props){
             <div className="form">
             <label for="namea"/>Driver
             <div className="formicon">
-            <PersonOutlineIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Driver"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setdriver(event.target.value);}} >
+            <PersonOutlineIcon  className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setdriver(event.target.value);}} >
                 <option disabled selected>Choose Driver</option>
                 {props.Drivers?.map((val,key) => (
                 <option value={val._id}>{val.name}</option>
                 ))}
                 </select>
-                </div>
                 </div>
             </div>
             </div>

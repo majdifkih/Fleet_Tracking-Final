@@ -16,7 +16,7 @@ function PopupDelivery(props){
     }
     const AddDelivery = () => {
         console.log(DATAd)
-        axios.post("http://localhost:3001/DeliveryAPI/deliveries",
+        axios.post("https://qlogisticsapp.herokuapp.com/DeliveryAPI/deliveries",
             DATAd
         ).then(res=>{
             if(res.data.success){
@@ -59,38 +59,32 @@ function PopupDelivery(props){
                 <div className="formulera">
                 <div className="formleft">
 
-
-
-               
-
                 <div className="form">
             <label for="namea"/>Store
             <div className="formicon">
-            <StorefrontIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Store"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setstore(event.target.value);}} >
+            <StorefrontIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setstore(event.target.value);}} >
                 <option disabled selected>Choose Store</option>{Object.keys(sto).map((val,key) => (
                 <option value={sto[val]._id}>{sto[val].name}</option>
                 ))}
                 
                 </select>
                 </div>
-                </div>
+              
             </div>
             </div>
-         
             </div>
-            <div className="formright">
             
+            <div className="formright">
             
             <div className="form">
             <label for="namea"/>Vehicle
             <div className="formicon">
-            <DirectionsCarFilledOutlinedIcon className="iconselectsearch" fontSize="small"/><div className="formselect"><div className="searchdrive"><input type="search" placeholder="Search Vehicle"  className="inputsearch"/><select id="select" className="selectsearch" onChange={(event)=> {setVehD(event.target.value);}} >
+            <DirectionsCarFilledOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setVehD(event.target.value);}} >
                 <option disabled selected>Choose Vehicle</option>
                 {Object.keys(veh).map((vl,key) => (
                 <option value={veh[vl]._id}>{veh[vl].name}</option>
                 ))}
                 </select>
-                </div>
                 </div>
             </div>
             </div>

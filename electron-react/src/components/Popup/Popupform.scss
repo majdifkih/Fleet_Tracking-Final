@@ -26,84 +26,53 @@
     
     .formleft{
         display: flex;
-    flex-direction: column;
-    width: 50%;
-    padding-top:2% ;
-  .form{
-    display: flex;
-    flex-direction: column;
-    padding-top: 15%;
-  }
-  .formicon{
-      position: relative;
-      display: flex;
-      .searchdrive{
-        display: flex;
         flex-direction: column;
-       .inputsearch{
-        border: 1px solid #c3cad2;
-        //font-size: 100%;
-       }
-      }
-      input{
-          width: 80%;
-          margin-left: 15%;
-          border: none;
-      }
-      .icona{
-          position:absolute;
-          color: #535454;
-          padding: 3% 0% 0% 2%;
-         
-      }
-      .iconselect{
-        position:absolute;
-        color: #535454;
-        padding: 3% 0% 0% 2%;
-        
-    }
-    .iconselectsearch{
-        position:absolute;
-        color: #535454;
-        padding: 12% 0% 0% 2%;
-    }
-    .icondate{
-        position:absolute;
-        color: #535454;
-        padding: 3% 3% 0% 1%;
-    }
-  }
-  .forma{
-        
-    border: 1px solid rgb(139, 135, 135);
-    border-radius: 5px;
-    padding: 2%;
-   
-}
-.formselect{
-   
- 
-    .select{
-        
-        padding: 5% 0% 4% 22%;
-        width: 190%;
-        border-radius: 5px;
-    }
-    .selectsearch{
-        padding: 5% 0% 4% 22%;
-        width: 125%;
-        border-radius: 5px;
-    }
-}
-.formdate{
-    border: 1px solid rgb(139, 135, 135);
-    border-radius: 5px;
-    width: 80%;
-.inputdate{
-padding: 1% 0% 3% 2%;
-border-radius: 5px;
-}
-}
+        width: 50%;
+        padding-top:2% ;
+        .form{
+            display: flex;
+            flex-direction: column;
+            padding-top: 15%;
+        }
+        .formselect{
+       
+               .select{
+               
+                   padding: 5% 0% 4% 22%;
+                   width: 173%;
+                   border-radius: 5px;
+               }
+             
+           }
+        .formicon{
+            position: relative;
+            display: flex;
+          
+       
+            input{
+                width: 80%;
+                margin-left: 15%;
+                border: none;
+            }
+            
+            .icona{
+                position:absolute;
+                color: #535454;
+                padding: 3% 0% 0% 2%;
+            }
+            .iconselect{
+                position:absolute;
+                color: #535454;
+                padding: 3% 0% 0% 2%;
+                
+            }
+          
+            .icondate{
+                position:absolute;
+                color: #535454;
+                padding: 3% 3% 0% 1%;
+            }
+        }
   
     }
     .formright{
@@ -120,14 +89,7 @@ border-radius: 5px;
     .formicon{
         position: relative;
         display: flex;
-        .searchdrive{
-            display: flex;
-            flex-direction: column;
-           .inputsearch{
-            border: 1px solid #c3cad2;
-            //font-size: 100%;
-           }
-          }
+      
    
         input{
             width: 80%;
@@ -146,11 +108,7 @@ border-radius: 5px;
             padding: 3% 0% 0% 2%;
             
         }
-        .iconselectsearch{
-            position:absolute;
-            color: #535454;
-            padding: 12% 0% 0% 2%;
-        }
+      
         .icondate{
             position:absolute;
             color: #535454;
@@ -169,7 +127,7 @@ border-radius: 5px;
        
      .selectcat{
         padding: 5% 0% 4% 22%;
-            width: 150%;
+            width: 160%;
             border-radius: 5px;
      }
         .select{
@@ -178,16 +136,12 @@ border-radius: 5px;
             width: 180%;
             border-radius: 5px;
         }
-        .selectsearch{
-            padding: 5% 0% 4% 22%;
-            width: 125%;
-            border-radius: 5px;
-        }
+      
     }
     .formdate{
         border: 1px solid rgb(139, 135, 135);
         border-radius: 5px;
-        width: 80%;
+        width: 90%;
 .inputdate{
     padding: 1% 0% 3% 2%;
     border-radius: 5px;

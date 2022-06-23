@@ -28,6 +28,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useNavigate,useParams } from "react-router-dom";
 import PopupAddStock from "../../components/Popup/PopupAddStock";
 import PopupEditstock from "../../components/Popup/PopupEditstock";
+import axios from "axios";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -110,21 +111,43 @@ TablePaginationActions.propTypes = {
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
-function createData(name, Quantity, Price, Total) {
-  return { name, Quantity, Price, Total};
-}
 
-const rows = [
-  createData('Chocotom','111','4.000DT','1.500'),
-  createData('SAFIA eau','386','4.000DT','3.650'),
-  createData('Saida biscuit','696','4.000DT','7.500'),
-  createData('Maestro','672','4.000DT','4000'),
-  createData('Saida','226','4.000DT','4.100'),
-  
-];
  function StockVehicle() {
-   const [items, setItems] = useState([]);
-   const {ID}=useParams();
+const [rows,setRows] = useState([]);
+const {id}=useParams();
+
+  const getVans = async (id) => {
+    await axios.get(`http://localhost:3001/VanAPI/vans?id=${id}`)
+    .then(res => {
+      setRows(res.data.existingPosts[0].stock)
+      console.log(res.data.existingPosts[0].stock);
+      
+    })
+    .catch(err => {
+      console.log(err);
+    }
+    );
+  }
+  const Delete = (id,pr) => {
+    console.log(id);
+    console.log(pr);
+    axios.delete(`http://localhost:3001/VanAPI/vans?id=${id}&pd=${pr}`)
+    .then(res => {
+      console.log(res);
+      getVans(id);
+    }
+    )
+    .catch(err => {
+      console.log(err);
+    }
+    );
+  }
+
+  React.useEffect(() => {
+    getVans(id);
+  });
+
+   const [van, setVan] = useState([]);
 
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -180,16 +203,18 @@ const rows = [
         </TableHead>
         <TableBody>
           {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            ? rows?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
           ).map((row) => (
             <StyledTableRow className="row" key={row.name}>
-              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
-                
+              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/>
+              
+              <label for="name">{row.products.productName}</label>
+               
               </StyledTableCell>
               <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
               <StyledTableCell align="right"  ><i className="material-icons" onClick={() => setBtnEditConfirmer(true)}>border_color</i>
-              <DeleteIcon className="material-icons" onClick={() => setButtonPopup(true)}/>
+              <DeleteIcon className="material-icons" onClick={() => Delete(id,row._id)}/>
               </StyledTableCell>
               
             </StyledTableRow>
@@ -201,7 +226,7 @@ const rows = [
             <TablePagination
               rowsPerPageOptions={[3, 5, 10, { label: 'All', value: -1 }]}
               colSpan={7}
-              count={rows.length}
+              count={rows?.length}
               rowsPerPage={rowsPerPage}
               page={page}
               SelectProps={{
@@ -222,7 +247,7 @@ const rows = [
   
   <button className="addprod" onClick={() => setAddPopupstockvehicle(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupAddStock trigger={addPopupstockvehicle} setTrigger={setAddPopupstockvehicle} id={ID}/>
+<PopupAddStock trigger={addPopupstockvehicle} setTrigger={setAddPopupstockvehicle} id={id}/>
 </div>
  
   

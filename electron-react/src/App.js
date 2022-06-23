@@ -45,7 +45,7 @@ function App() {
             <Route path="demand" element={<DemandTable/>}/>
             <Route path="infodemand" element={<InfoDemand/>}/>
             <Route path="logout" element={<Logout/>} />
-            <Route path="stockvehicle/:ID" element={<StockVehicle/>}/>
+            <Route path="stockvehicle/:id" element={<StockVehicle/>}/>
             <Route path="infofacture" element={<InfoFacture/>}/>
             </Route> 
         </Routes>

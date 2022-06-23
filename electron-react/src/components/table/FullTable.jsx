@@ -127,6 +127,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
     rowsPerPage: PropTypes.number.isRequired,
   };
 function FullTable(props) {
+  const {Drivers} = props;
   const Position =(id,title) => {
     switch(title){
       case "Devices":
@@ -209,6 +210,8 @@ function FullTable(props) {
           return false
         }}
       }
+
+   
 
     const {rows,type,title,stat,icon,pos,ink,add,search}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
@@ -491,7 +494,7 @@ case "Stores name":
                   <i className="material-icons" onClick={()=>Edit(val.name,val._id)} >border_color</i>
                   <div className="popeditfleet"> 
                   <Popup trigger={deletePopup} setTrigger={setdeletePopup} id={DID} name={Dname} API={API} APIs={APIs}/>
-                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF}/>
+                  <PopupEditFleet trigger={editPopupfleet} setTrigger={setEditPopupfleet} id={IDF} name={isemF} drivers={Drivers}/>
                   <PopupEditUser trigger={editPopupuser} setTrigger={setEditPopupuser} id={IDU} name={isemU}/>
                   <PopupEditStore trigger={editPopupstore} setTrigger={setEditPopupstore} id={IDe} name={isem}/>
                   <PopupEditProvider trigger={editPopupprovider} setTrigger={setEditPopupprovider} id={IDP} name={isemP}/>
@@ -501,7 +504,7 @@ case "Stores name":
                   </div>
                   <i class="material-icons" onClick={() => Display(val)}>info_outline</i>
                   <div className="popeditfleet"> 
-                  <PopupInfoFleet trigger={InfoPopupFleet} setTrigger={setInfoPopupFleet} data={ROW} id={val._id}/>
+                  <PopupInfoFleet trigger={InfoPopupFleet} setTrigger={setInfoPopupFleet} data={ROW} id={val._id} drivers={Drivers}/>
                   <PopupInfoStore trigger={InfoPopupStore} setTrigger={setInfoPopupStore} data={ROW}/>
                   <PopupInfoClient trigger={InfoPopupClient} setTrigger={setInfoPopupClient} data={ROW}/>
                   <PopupInfoDriver trigger={InfoPopupDriver} setTrigger={setInfoPopupDriver} data={ROW}/>

@@ -6,7 +6,7 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
-import { axios} from "axios";
+import axios from "axios";
 import {useState } from "react";
 function PopupEditFleet(props){
     const [EVname,setEVMarque] = useState("");
@@ -16,7 +16,6 @@ function PopupEditFleet(props){
     const [EVmatricule,setEVmatricule] = useState("");
     const [EVdriver,setEdriver] = useState("");
 
-const editVehicule = async (ID) => {
     const dataV = {
         name:EVname,
         status:EVstatus ,
@@ -26,10 +25,13 @@ const editVehicule = async (ID) => {
         Driver:EVdriver,
         
     }
+const editVehicule = async (ID) => {
+   
    
     try {
+        console.log(dataV)
         
-        await axios.put(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules/${ID}`,dataV ).then((res) => {
+        await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
             if (res.data.status === 'SUCCESS') {
                 console.log("ok")
                 props.setTrigger(!props.trigger);

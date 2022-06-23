@@ -10,6 +10,7 @@ function PopupAddStock(props){
         axios.get('http://localhost:3001/ProductAPI/products').then(res => {
             if (res.data.success) {
                 setProductlist(res.data.existingPosts);
+
             }
             else {
                 alert("Error");
@@ -29,7 +30,14 @@ function PopupAddStock(props){
 
         }
         const addProduct = async (IDP) => {
-            console.log(dataI)
+            console.log(product)
+            var item = productlist.find(item => item._id = product);
+            if (item.productQuantity < Pqnty) {
+                alert("Not enough quantity");
+            }
+            else {
+            
+
             try {
                 await axios.put(`http://localhost:3001/VanAPI/vans?id=${IDP}`,dataI ).then((res) => {
 
@@ -42,7 +50,7 @@ function PopupAddStock(props){
                 if (error.response) {
                     console.log(error.response.data);
                 }
-            }
+            }}
         }
         useEffect(() => {
             getProduct();

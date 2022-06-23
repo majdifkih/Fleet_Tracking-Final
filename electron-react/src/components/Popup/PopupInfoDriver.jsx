@@ -27,14 +27,14 @@ function PopupInfoDriver(props){
                 <div className="infoname">
             <LockIcon className="iconinfo" fontSize="small"/><span>Password:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.password}</div>
             </div>
 
             <div className="forminfo">
                 <div className="infoname">
             <MailOutlineIcon className="iconinfo" fontSize="small"/><span>Email:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.email}</div>
             </div>
             </div>
             <div className="formright">
@@ -43,13 +43,13 @@ function PopupInfoDriver(props){
                 <div className="infoname">
             <PersonPinCircleIcon className="iconinfo" fontSize="small"/><span>Address:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.address}</div>
             </div>
             <div className="forminfo">
                 <div className="infoname">
             <PhoneIphoneIcon className="iconinfo" fontSize="small"/><span>Phone Number:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.telf}</div>
             </div>
             
             </div>

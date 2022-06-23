@@ -26,7 +26,7 @@ function PopupInfoClient(props){
                 <div className="infoname">
             <PersonPinCircleIcon className="iconinfo" fontSize="small"/><span>Address:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.address}</div>
             </div>
             </div>
             <div className="formright">
@@ -35,13 +35,13 @@ function PopupInfoClient(props){
                 <div className="infoname">
             <PhoneIphoneIcon className="iconinfo" fontSize="small"/><span>Phone Number:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.telf}</div>
             </div>
             <div className="forminfo">
                 <div className="infoname">
             <HelpOutlineOutlinedIcon className="iconinfo" fontSize="small"/><span>Status:</span>
             </div>
-            <div className="attribinfo">{props.data.name}</div>
+            <div className="attribinfo">{props.data.status}</div>
             </div>
             
             </div>

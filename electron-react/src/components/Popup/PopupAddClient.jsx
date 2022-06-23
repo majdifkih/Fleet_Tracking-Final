@@ -68,22 +68,20 @@ function PopupClient(props){
     }} /></div>
             </div>
             </div>
+
             <div className="form">
             <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {
-      setclientStatus(event.target.value);
-    }} >
-        
-        
-        
-                <option selected disabled> status</option>
+      setclientStatus(event.target.value);}}>
+                <option selected disabled>Choose status</option>
                 <option value="regular">regular</option>
                 <option value="NonReg">NonReg</option>
                 </select>
                 </div>
             </div>
             </div>
+   
             </div>
             </div>
                 <div className="buttonpopa">

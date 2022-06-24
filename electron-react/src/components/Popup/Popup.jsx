@@ -4,7 +4,7 @@ import "./Popup.scss";
 
 function Popup(props){
     const Delete = (id,api,apis) => {
-        axios.delete(`https://qlogisticsapp.herokuapp.com/${api}API/${apis}?id=${id}`) 
+        axios.delete(`http://localhost:3001/${api}API/${apis}?id=${id}`) 
 props.setTrigger(!props.trigger)
     }
     return (props.trigger) ? (

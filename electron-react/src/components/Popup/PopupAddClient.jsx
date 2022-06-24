@@ -1,4 +1,5 @@
 import React from "react";
+import Swal from "sweetalert2";
 import "./Popupform.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
@@ -20,10 +21,26 @@ function PopupClient(props){
        
         }
         const addclient = async () => {
+            if (clientName === "" || clientAddress === "" || clientphone === "" || clientStatus === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+                      
+                    })}
+                    else {
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/ClientAPI/clients',dataC ).then((res) => {
+                await axios.post('http://localhost:3001/ClientAPI/clients',dataC ).then((res) => {
                     
-                      if (res.data.status === 'success') {
+                      if (res.data.success) {
+                        props.setTrigger(!props.trigger);
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: 'Your client has been saved',
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
                          console.log("ok")
                        }});
                   
@@ -31,7 +48,7 @@ function PopupClient(props){
                   if (error.response) {
                       console.log(error.response.data);
                   }
-              }
+              }}
           }
     return (props.trigger) ? (
         <div className="popupa">

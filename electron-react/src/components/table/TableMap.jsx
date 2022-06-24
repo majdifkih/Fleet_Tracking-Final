@@ -12,7 +12,7 @@ const List = (props) => {
 const getMap = (id,type) => {
   switch (type) {
     case "fleet":
-      axios.get('https://qlogisticsapp.herokuapp.com/PositionAPI/positions?id=' + id).then(res => {
+      axios.get('http://localhost:3001/PositionAPI/positions?id=' + id).then(res => {
         if (res.data.success) {
           console.log(res.data.existingPositions);
           
@@ -24,7 +24,7 @@ const getMap = (id,type) => {
       )
       break;
     case "store":
-      axios.get('https://qlogisticsapp.herokuapp.com/StoreAPI/single?id=' + id).then(res => {
+      axios.get('http://localhost:3001/StoreAPI/single?id=' + id).then(res => {
         if (res.data.success) {
           console.log(res.data.existingPositions);
           

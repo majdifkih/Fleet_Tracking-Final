@@ -1,5 +1,6 @@
 import React from "react";
 import "./Popupform.scss";
+import Swal from "sweetalert2";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import LockIcon from '@mui/icons-material/Lock';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
@@ -21,10 +22,26 @@ function PopupUser(props){
         password:Upassword
         }
         const addUser = async () => {
+            if (Uname === "" || Uaddress === "" || Utelf === "" || Uemail === "" || Upassword === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+                })
+            }
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/UserAPI/users',dataU ).then((res) => {
+                await axios.post('http://localhost:3001/UserAPI/users',dataU ).then((res) => {
 
-                        if (res.data.status === 'success') {    
+                        if (res.data.success) {
+                            props.setTrigger(!props.trigger);
+    
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your user has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
                             console.log("ok")
                         }
                     }

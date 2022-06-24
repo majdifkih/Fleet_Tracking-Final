@@ -1,5 +1,6 @@
 import React from "react";
 import "./Popupform.scss";
+import Swal from 'sweetalert2';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import StorefrontIcon from '@mui/icons-material/Storefront';
@@ -23,11 +24,29 @@ function PopupEditClient(props){
             address:newclientAddress,
           
             }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
-                if (res.data.status === 'success') {
+            if (newclientName === "" || newclientAddress === "" || newclientphone === "" || newclientStatus === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+
+                })}
+                else {
+       await axios.put(`http://localhost:3001/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
+                if (res.data.success ) {
+                    props.setTrigger(!props.trigger);
+
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your client has been updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+
                   console.log("ok")
                 }
-                 }   ).catch((err) => {  console.log(err) }  )
+                 }   ).catch((err) => {  console.log(err) }  )}
           }
     
     return (props.trigger) ? (

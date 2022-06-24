@@ -151,7 +151,7 @@ const address= (lat,lon) => {
     setTheAddress(res.data.data[0].county);
 })}
 const getDelivery = () => {
-  axios.get('https://qlogisticsapp.herokuapp.com/Deliveryapi/deliveries')
+  axios.get('http://localhost:3001/Deliveryapi/deliveries')
   .then(res => {
     setRows(res.data.existingPosts);
     

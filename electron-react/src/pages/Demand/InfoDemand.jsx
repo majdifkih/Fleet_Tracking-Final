@@ -145,7 +145,7 @@ const rows = [
   };
   const [clientt, setClientt] = useState({});
   const getClient=()=>{
-    axios.get("https://qlogisticsapp.herokuapp.com/ClientAPI/clients").then(res=>{
+    axios.get("http://localhost:3001/ClientAPI/clients").then(res=>{
       if(res.data.success){
         setClientt( res.data.existingPosts);
         

@@ -4,7 +4,7 @@ import ProductionQuantityLimitsOutlinedIcon from '@mui/icons-material/Production
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
 import axios from 'axios';
 import { useState,useEffect } from "react";
-
+import Swal from "sweetalert2";
 function PopupAddDemand(props){
     
 
@@ -19,10 +19,22 @@ function PopupAddDemand(props){
         
         }
         const addProduct = async () => {
+            if (product === "" || Pqnty === "") {
+                Swal.fire({
+                    title: "Error",
+                    text: "Please fill all fields",
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                });
+            }
+            else {
+
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/ProductAPI/products',dataI ).then((res) => {
+                await axios.post('http://localhost:3001/ProductAPI/products',dataI ).then((res) => {
 
                         if (res.data.status === 'success') {    
+                            props.setTrigger(!props.trigger);
+
                             console.log("ok")
                         }
                     }
@@ -31,7 +43,7 @@ function PopupAddDemand(props){
                 if (error.response) {
                     console.log(error.response.data);
                 }
-            }
+            }}
         }
     return (props.trigger) ? (
         <div className="popupa">

@@ -2,6 +2,7 @@ import React from "react";
 import "./Popupform.scss";
 import axios from "axios";
 import { useState } from "react";
+import Swal from "sweetalert2";
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import Inventory2OutlinedIcon from '@mui/icons-material/Inventory2Outlined';
@@ -24,11 +25,29 @@ function PopupEditInventory(props){
             category:newPcategory,
             alertCondition:newalertNum
             }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/ProductAPI/products?id=${ID}`,dataD).then((res) => {
-                if (res.data.status === 'success') {
+            if (newPname === "" || newbarCode === "" || newPqnty === "" || newPrice === "" || newPcategory === "" || newalertNum === "") {
+                Swal.fire({
+
+                    title: "Error",
+                    text: "Please fill all the fields",
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                });
+            }
+            else {
+       await axios.put(`http://localhost:3001/ProductAPI/products?id=${ID}`,dataD).then((res) => {
+                if (res.data.success) {
+                  props.setTrigger(!props.trigger);
+
+                    Swal.fire({
+                        title: "Success",
+                        text: "Product updated successfully",
+                        icon: "success",
+                        confirmButtonText: "Ok"
+                    });
                   console.log("ok")
                 }
-                 }   ).catch((err) => {  console.log(err) }  )
+                 }   ).catch((err) => {  console.log(err) }  )}
           }
     return (props.trigger) ? (
         <div className="popupa">

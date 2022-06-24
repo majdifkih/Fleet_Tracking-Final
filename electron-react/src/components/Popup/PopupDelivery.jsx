@@ -5,6 +5,7 @@ import { useState,useEffect } from "react";
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import PointOfSaleIcon from '@mui/icons-material/PointOfSale';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
+import Swal from "sweetalert2";
 function PopupDelivery(props){
         const [Vstore,setstore] = React.useState("");
 
@@ -15,20 +16,32 @@ function PopupDelivery(props){
         store:Vstore    
     }
     const AddDelivery = () => {
+        if (VehD === "" || Vstore === "") {
+            alert("Please fill all fields");
+        }
+        else {
         console.log(DATAd)
-        axios.post("https://qlogisticsapp.herokuapp.com/DeliveryAPI/deliveries",
+        axios.post("http://localhost:3001/DeliveryAPI/deliveries",
             DATAd
         ).then(res=>{
             if(res.data.success){
+                props.setTrigger(!props.trigger);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your Delivery has been saved',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
                 console.log(res.data.vehicle);
             }
         }
-        )
+        )}
     }
 
 
     const getvehicule=()=>{
-        axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
+        axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
             if(res.data.success){
                 setveh( res.data.existingPosts);
 
@@ -39,7 +52,7 @@ function PopupDelivery(props){
     }
     const [sto,setSto] = useState({});
     const getStore=()=>{
-        axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
+        axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
             if(res.data.success){
                 setSto( res.data.existingPosts);
                  

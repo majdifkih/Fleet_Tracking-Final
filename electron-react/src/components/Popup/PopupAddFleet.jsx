@@ -1,6 +1,7 @@
 import React from "react";
 import "./Popupform.scss";
 import axios from 'axios';
+import Swal from "sweetalert2";
 import { useEffect,useState } from 'react';
 import EightMpOutlinedIcon from '@mui/icons-material/EightMpOutlined';
 import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
@@ -25,13 +26,30 @@ function PopupFleet(props){
         Driver:Vdriver,    
         }
         const addVehicule = async () => {
+            if
+            (Vname === "" || Vcategory === "" || Vmaintenance === "" || Vstatus === "" || Vmatricule === "" || Vdriver === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+                    
+                  })}
+                  else {
              console.log(dataV)
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules',dataV ).then((res) => {
+                await axios.post('http://localhost:3001/VehiculeAPI/vehicules',dataV ).then((res) => {
 
                         if (res.data.success === true) {    
-                            console.log("ok")
                             props.setTrigger(!props.trigger);
+
+                            console.log("ok")
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your Vehicle has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                              })
                         }
                     }
                 );
@@ -39,7 +57,7 @@ function PopupFleet(props){
                 if (error.response) {
                     console.log(error.response.data);
                 }
-            }
+            }}
         }
        
     return (props.trigger) ? (

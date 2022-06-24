@@ -1,5 +1,6 @@
 import React from "react";
 import "./Popupform.scss";
+import Swal from "sweetalert2";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LockIcon from '@mui/icons-material/Lock';
@@ -22,11 +23,34 @@ function PopupEditDriver(props){
             address:newDaddress,
             password:newDpassword,
             }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/DriverAPI/drivers?id=${ID}`,dataD).then((res) => {
-                if (res.data.status === 'success') {
+            if (newDname === "" || newDaddress === "" || newDtelf === "" || newDemail === "" || newDpassword === "") {
+
+                Swal.fire({
+
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+                })
+            }
+            else {
+       await axios.put(`http://localhost:3001/DriverAPI/drivers?id=${ID}`,dataD).then((res) => {
+                if (res.data.success) {
+                  props.setTrigger(!props.trigger);
+
+
+                    Swal.fire({
+                        
+
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your driver has been updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+
                   console.log("ok")
                 }
-                 }   ).catch((err) => {  console.log(err) }  )
+                 }   ).catch((err) => {  console.log(err) }  )}
           }
     
     return (props.trigger) ? (

@@ -4,6 +4,7 @@ import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
+import Swal from "sweetalert2";
 import axios from "axios";
 import { useState } from "react";
 
@@ -19,11 +20,30 @@ function PopupEditProvider(props){
             productCategory:newProviderCategory,
             address:newProviderAddress,
             }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers?id=${ID}`,dataP).then((res) => {
-                if (res.data.status === 'success') {
+            if (newNameprovider === "" || newProviderPhone === "" || newProviderCategory === "" || newProviderAddress === "") {
+
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+                })
+            }
+            else {
+       await axios.put(`http://localhost:3001/SupplierAPI/suppliers?id=${ID}`,dataP).then((res) => {
+                if (res.data.success) {
+                  props.setTrigger(!props.trigger);
+
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your provider has been updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
+
                   console.log("ok")
                 }
-                 }   ).catch((err) => {  console.log(err) }  )
+                 }   ).catch((err) => {  console.log(err) }  )}
           }
     
     return (props.trigger) ? (

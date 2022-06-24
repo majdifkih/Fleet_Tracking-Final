@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect,useState } from "react";
+import axios from "axios";
+
 import "./PopupInfo.scss";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -6,7 +8,18 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
 function PopupInfoStore(props){
-    
+    const [theaddress, setTheaddress] = useState("");
+    const address= (lat,lon) => {
+        console.log(lat,lon)
+        axios.get(`http://api.positionstack.com/v1/reverse?access_key=e7b7c50f25c942f3c3bf52e1cf825d3b&query=${lat},${lon}`).then(res => {
+            setTheaddress(res.data.data[0].county);
+      })}
+      const [pos, setPos] = useState('')
+    useEffect(() => {
+        // setPos(props.data.positionStore.latitude)
+
+        // address(34,12)
+    }, [])
 
     return (props.trigger) ? (
         <div className="popupinfo">
@@ -48,7 +61,7 @@ function PopupInfoStore(props){
                 <div className="infoname">
             <RoomOutlinedIcon className="iconinfo" fontSize="small"/><span>Address:</span>
             </div>
-            <div className="attribinfo">{props.data.address}</div>
+            <div className="attribinfo" value={address(props.data.positionStore.latitude,props.data.positionStore.longitude)}  >{theaddress}</div>
             </div>
             
             </div>

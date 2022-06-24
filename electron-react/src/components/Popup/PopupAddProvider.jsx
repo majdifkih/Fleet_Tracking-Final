@@ -5,6 +5,7 @@ import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import axios from "axios";
+import Swal from 'sweetalert2';
 import { useState } from "react";
 function PopupProvider(props){
     const [ProviderAddress, setProviderAddress] = useState("");
@@ -19,10 +20,27 @@ function PopupProvider(props){
         address:ProviderAddress
         }
         const addProvider = async () => {
+            if (Nameprovider === "" || ProviderPhone === "" || ProviderCategory === "" || ProviderAddress === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+                })
+            }
+            else {
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers',dataP ).then((res) => {
+                await axios.post('http://localhost:3001/SupplierAPI/suppliers',dataP ).then((res) => {
                     
-                      if (res.data.status === 'success') {
+                      if (res.data.success) {
+                        props.setTrigger(!props.trigger);
+
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your provider has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
                          console.log("ok")
                        }});
                   
@@ -30,7 +48,7 @@ function PopupProvider(props){
                   if (error.response) {
                       console.log(error.response.data);
                   }
-              }
+              }}
           }
     return (props.trigger) ? (
         <div className="popupa">

@@ -7,6 +7,7 @@ import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFi
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import axios from "axios";
+import Swal from "sweetalert2";
 import {useState } from "react";
 function PopupEditFleet(props){
     const [EVname,setEVMarque] = useState("");
@@ -26,13 +27,30 @@ function PopupEditFleet(props){
         
     }
 const editVehicule = async (ID) => {
-   
+   if (EVname === "" || EVcategory === "" || EVmaintenance === "" || EVstatus === "" || EVmatricule === "" || EVdriver === "") {
+         Swal.fire({
+                icon: 'error',  
+                title: 'Oops...',
+                text: 'Please fill all the fields'
+
+                })}
+                else {
+
    
     try {
         console.log(dataV)
         
-        await axios.put(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
+        await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
             if (res.data.status === 'SUCCESS') {
+                props.setTrigger(!props.trigger);
+
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your Vehicle has been updated',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
                 console.log("ok")
                 props.setTrigger(!props.trigger);
             }
@@ -42,9 +60,9 @@ const editVehicule = async (ID) => {
         if (error) {
             console.log(error);
         }
-    }
+    }}
 
-    // await axios.put(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
+    // await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
     //         console.log(dataV)
     //             if (res.data.status === 'SUCCESS') {
     //                 props.setTrigger(!props.trigger);

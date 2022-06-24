@@ -8,6 +8,7 @@ import StorefrontIcon from '@mui/icons-material/Storefront';
 import BadgeOutlinedIcon from '@mui/icons-material/BadgeOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import Swal from "sweetalert2";
 function PopupStore(props){
     
     const [storeName, setStoreName] = useState("");
@@ -26,10 +27,27 @@ function PopupStore(props){
         }
 
     const addstore = async () => {
+        if (storeName === "" || storeAddress === "" || storeContact === "" || storeOwner === "" || storeType === "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please fill all the fields'
+            })
+        }
+        else {
       try {
-          await axios.post('https://qlogisticsapp.herokuapp.com/StoreAPI/stores',data ).then((res) => {
+          await axios.post('http://localhost:3001/StoreAPI/stores',data ).then((res) => {
               
-                if (res.data.status === 'success') {
+                if (res.data.success) {
+                    props.setTrigger(!props.trigger);
+
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your store has been saved',
+                        showConfirmButton: false,
+                        timer: 1500
+                        })
                    console.log("ok")
                  }});
             
@@ -37,7 +55,7 @@ function PopupStore(props){
             if (error.response) {
                 console.log(error.response.data);
             }
-        }
+        }}
     }
     return (props.trigger) ? (
         <div className="popupa">

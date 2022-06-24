@@ -8,6 +8,7 @@ import QrCode2OutlinedIcon from '@mui/icons-material/QrCode2Outlined';
 import CampaignIcon from '@mui/icons-material/Campaign';
 import axios from 'axios';
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 function PopupInventory(props){
     const [Pname, setPname] = useState("");
@@ -27,10 +28,28 @@ function PopupInventory(props){
         
         }
         const addProduct = async () => {
+            if (Pname === "" || barCode === "" || Pqnty === "" || Price === "" || Pcategory === "") {
+                Swal.fire({
+                    title: "Error",
+                    text: "Please fill all the fields",
+                    icon: "error",
+                    confirmButtonText: "Ok"
+                });
+            }
+            else {
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/ProductAPI/products',dataI ).then((res) => {
+                await axios.post('http://localhost:3001/ProductAPI/products',dataI ).then((res) => {
 
-                        if (res.data.status === 'success') {    
+                        if (res.data.success) { 
+                            props.setTrigger(!props.trigger);
+
+                            Swal.fire({
+                                    
+                                    title: "Success",
+                                    text: "Product added successfully",
+                                    icon: "success",
+                                    confirmButtonText: "Ok"
+                                });
                             console.log("ok")
                         }
                     }
@@ -39,7 +58,7 @@ function PopupInventory(props){
                 if (error.response) {
                     console.log(error.response.data);
                 }
-            }
+            }}
         }
     return (props.trigger) ? (
         <div className="popupa">

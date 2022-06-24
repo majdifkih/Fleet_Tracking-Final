@@ -131,7 +131,7 @@ function FullTable(props) {
   const Position =(id,title) => {
     switch(title){
       case "Devices":
-        axios.get(`https://qlogisticsapp.herokuapp.com/PositionAPI/positions?id=${id}`).then(res => {
+        axios.get(`http://localhost:3001/PositionAPI/positions?id=${id}`).then(res => {
           console.log(res.data)
           window.location.href = `#/fleet/${res.data.existingPositions.latitude}/${res.data.existingPositions.longitude}`
           
@@ -139,7 +139,7 @@ function FullTable(props) {
         )
   break;
   case "Stores name":
-    axios.get(`https://qlogisticsapp.herokuapp.com/StoreAPI/single?id=${id}`).then(res => {
+    axios.get(`http://localhost:3001/StoreAPI/single?id=${id}`).then(res => {
       console.log(res.data)
       window.location.href = `#/store/${res.data.existingPositions.positionStore.latitude}/${res.data.existingPositions.positionStore.longitude}`
 
@@ -369,7 +369,7 @@ case "Stores name":
         props.setNameV(name)
       props.setKM(mileage)
       props.sethour(h)
-        axios.get(`https://qlogisticsapp.herokuapp.com/PositionAPI/heures?id=${id}`).then(res => {
+        axios.get(`http://localhost:3001/PositionAPI/heures?id=${id}`).then(res => {
           console.log(res.data);
           props.setDriver(res.data);
         }

@@ -14,11 +14,13 @@ import axios from 'axios';
 
  function StoreTable() {
   const[searchTerm,setSearchTerm]=useState("");
+  const [theaddress, setTheaddress] = useState('');
+
 
   const [store,setStore] = useState([]);
 
   const getStore=()=>{
-    axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
+    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
       if(res.data.success){
         setStore( res.data.existingPosts);
         

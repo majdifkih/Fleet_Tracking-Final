@@ -7,7 +7,7 @@ import { useState } from "react";
 
 function PopupAddStock(props){
     const getProduct = async () => {
-        axios.get('https://qlogisticsapp.herokuapp.com/ProductAPI/products').then(res => {
+        axios.get('http://localhost:3001/ProductAPI/products').then(res => {
             if (res.data.success) {
                 setProductlist(res.data.existingPosts);
 
@@ -39,7 +39,7 @@ function PopupAddStock(props){
             
 
             try {
-                await axios.put(`https://qlogisticsapp.herokuapp.com/VanAPI/vans?id=${IDP}`,dataI ).then((res) => {
+                await axios.put(`http://localhost:3001/VanAPI/vans?id=${IDP}`,dataI ).then((res) => {
 
                         if (res.data.success) {    
                             console.log("ok")

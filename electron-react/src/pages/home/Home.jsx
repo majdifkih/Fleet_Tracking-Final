@@ -15,7 +15,7 @@ const Home = () => {
   const [Drivers, setDrivers] = useState([]);
 const [num, setNum] = useState(0);
   const getDriver=()=>{
-    axios.get("https://qlogisticsapp.herokuapp.com/DriverAPI/drivers").then(res=>{
+    axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
       if(res.data.success){
         setDrivers( res.data.existingPosts);
      
@@ -28,7 +28,7 @@ const [num, setNum] = useState(0);
 
   const [vehicule, setVehicule] = useState([]);
   const getVehicule=()=>{
-    axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
+    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
       if(res.data.success){
         setVehicule( res.data.existingPosts);
         

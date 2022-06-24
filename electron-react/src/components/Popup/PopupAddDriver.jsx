@@ -6,6 +6,7 @@ import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import PersonPinCircleIcon from '@mui/icons-material/PersonPinCircle';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useState } from "react";
 function PopupDriver(props){
     const [Demail, setDemail] = useState("");
@@ -22,10 +23,27 @@ function PopupDriver(props){
         password:Dpassword
         }
         const addDriver = async () => {
+            if (Dname === "" || Daddress === "" || Dtelf === "" || Demail === "" || Dpassword === "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please fill all the fields'
+                })
+            }
+            else {
             try {
-                await axios.post('https://qlogisticsapp.herokuapp.com/DriverAPI/drivers',dataD ).then((res) => {
+                await axios.post('http://localhost:3001/DriverAPI/drivers',dataD ).then((res) => {
 
-                        if (res.data.status === 'success') {    
+                        if (res.data.success) {    
+                            props.setTrigger(!props.trigger);
+
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your driver has been saved',
+                                showConfirmButton: false,
+                                timer: 1500
+                                })
                             console.log("ok")
                         }
                     }
@@ -34,7 +52,7 @@ function PopupDriver(props){
                 if (error.response) {
                     console.log(error.response.data);
                 }
-            }
+            }}
         }
          
     return (props.trigger) ? (

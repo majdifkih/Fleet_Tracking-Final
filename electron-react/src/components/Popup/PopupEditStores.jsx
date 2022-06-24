@@ -7,6 +7,7 @@ import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import StorefrontIcon from '@mui/icons-material/Storefront';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import RoomOutlinedIcon from '@mui/icons-material/RoomOutlined';
+import Swal from "sweetalert2";
 function PopupEditStore(props){
 
     const [newStoreName, setnewStoreName] = useState("");
@@ -23,11 +24,29 @@ function PopupEditStore(props){
             address:newStoreAddress,
             owner:newStoreOwner
         }
-       await axios.put(`https://qlogisticsapp.herokuapp.com/StoreAPI/stores?id=${ID}`,dataS).then((res) => {
-                if (res.data.status === 'success') {
+        if (newStoreName === "" || newStoreAddress === "" || newStoreContact === "" || newStoreOwner === "" || newStoreType === "") {
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Please fill all the fields'
+            })
+        }
+        else {
+       await axios.put(`http://localhost:3001/StoreAPI/stores?id=${ID}`,dataS).then((res) => {
+                if (res.data.status === 'SUCCESS') {
+                  props.setTrigger(!props.trigger);
+
+                  Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Your store has been updated',
+                    showConfirmButton: false,
+                    timer: 1500
+                    })
+                
                   console.log("ok")
                 }
-                 }   ).catch((err) => {  console.log(err) }  )
+                 }   ).catch((err) => {  console.log(err) }  )}
           }
     
 

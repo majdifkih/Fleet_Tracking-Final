@@ -203,7 +203,6 @@ useEffect(() => {
             <TableRow className="row" >
                 
               <StyledTableCell  align="left" ><input type="radio" name="fleet" className="radio"/><label for="store">Stores</label></StyledTableCell>
-              <StyledTableCell  className="circle" >Positions</StyledTableCell>
               <StyledTableCell  className="circle" align="center">Date</StyledTableCell>
               <StyledTableCell align="center"  className="stat">Status</StyledTableCell>
             </TableRow>
@@ -225,7 +224,7 @@ useEffect(() => {
                 <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.store.name}</label>
                   
                 </StyledTableCell>
-                <StyledTableCell className ="circle" value={address(val.store.positionStore.latitude,val.store.positionStore.longitude)} > {TheAddress} </StyledTableCell>
+                {/* <StyledTableCell className ="circle" value={address(val.store.positionStore.latitude,val.store.positionStore.longitude)} > {TheAddress} </StyledTableCell> */}
                 <StyledTableCell className ="circle" align="center">{moment(val.date).format("DD/MM/YYYY")} </StyledTableCell>
                 <StyledTableCell className="line"  >
                  <div className={`reguliere ${val.status}`}>{val.status}</div>

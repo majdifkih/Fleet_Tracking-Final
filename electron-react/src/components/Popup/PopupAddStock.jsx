@@ -63,20 +63,19 @@ function PopupAddStock(props){
             <h3> Add</h3>
                 <div className="formulera">
                 <div className="formleft">
+
                 <div className="form">
             <label for="namea"/>Product
             <div className="formicon">
-            <select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
-                <option disabled selected>Choose Product</option>
+            <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
+            <option disabled selected>Choose Product</option>
                 {(productlist).map((pr) => (
-                <option value={pr._id}>{pr.productName}</option>
-                ))}
-
+                <option value={pr._id}>{pr.productName}</option>  ))}
                 </select>
+                </div>
+            </div>
+            </div>
                 
-            </div>
-            </div>
-
             </div>
             <div className="formright">
             <div className="form">

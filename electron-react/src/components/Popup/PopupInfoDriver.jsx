@@ -23,12 +23,7 @@ function PopupInfoDriver(props){
             <div className="attribinfo">{props.data.name}</div>
             </div>
            
-            <div className="forminfo">
-                <div className="infoname">
-            <LockIcon className="iconinfo" fontSize="small"/><span>Password:</span>
-            </div>
-            <div className="attribinfo">{props.data.password}</div>
-            </div>
+          
 
             <div className="forminfo">
                 <div className="infoname">

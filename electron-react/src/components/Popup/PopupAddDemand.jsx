@@ -7,44 +7,27 @@ import { useState,useEffect } from "react";
 import Swal from "sweetalert2";
 function PopupAddDemand(props){
     
+    const addProduct = (r,q,InventoryQ,id,p) => {
+       
+        console.log(r,q,InventoryQ,id,p)
+        if (q > InventoryQ) {
+            Swal.fire({
+                title: "Not enough quantity",
+                text: "quantity is greater than the quantity limit",
+                icon: "error",
+                confirmButtonText: "OK"
+            });
+        
+        
 
+        }else{
+            props.setTrigger(!props.trigger);
+        props.setData(current => [...current ,{name:r,price:p*q,products:id,quantity:q}])}}
 
     const [Pqnty, setPqnty] = useState("");
     const [product, setproduct] = useState("");
-   
-    const dataI = {
-        product:product ,
-        productQuantity:Pqnty,
-    
-        
-        }
-        const addProduct = async () => {
-            if (product === "" || Pqnty === "") {
-                Swal.fire({
-                    title: "Error",
-                    text: "Please fill all fields",
-                    icon: "error",
-                    confirmButtonText: "Ok"
-                });
-            }
-            else {
-
-            try {
-                await axios.post('http://localhost:3001/ProductAPI/products',dataI ).then((res) => {
-
-                        if (res.data.status === 'success') {    
-                            props.setTrigger(!props.trigger);
-
-                            console.log("ok")
-                        }
-                    }
-                );
-            } catch (error) {
-                if (error.response) {
-                    console.log(error.response.data);
-                }
-            }}
-        }
+  
+     
     return (props.trigger) ? (
         <div className="popupa">
             <div className="popup-innera">
@@ -54,9 +37,14 @@ function PopupAddDemand(props){
                 <div className="form">
             <label for="namea"/>Product
             <div className="formicon">
-            <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setproduct(event.target.value);}} >
-                <option disabled selected>Choose Product</option>
-                <option value="Online">Online</option>
+            <Inventory2OutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {const list = props.ro.filter((val)=>  val._id == event.target.value)
+                console.log(list);
+                 setproduct(list);}} >
+
+                <option selected>Choose Product</option>
+                {(props.ro).map((srow) => (
+                <option value={srow._id}>{srow.productName}</option> 
+                ))}
                 
                 </select>
                 </div>
@@ -80,7 +68,7 @@ function PopupAddDemand(props){
             </div>
                 <div className="buttonpopa">
                 <button className="cancel-btn" onClick={() => props.setTrigger(false)}>Cancel </button>
-                <button className="btna" onClick={addProduct} >Add</button>
+                <button className="btna" onClick={()=>addProduct(product[0].productName,Pqnty,product[0].productQuantity,product[0]._id,product[0]?.productPrice)} >Add</button>
                 </div>
                 
             </div>

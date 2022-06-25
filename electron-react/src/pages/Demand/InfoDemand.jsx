@@ -31,6 +31,8 @@ import PopupConfirmer from "../../components/Popup/PopupConfirmeDemand";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PopupAddDemand from "../../components/Popup/PopupAddDemand";
 import PopupEditDemand from "../../components/Popup/PopupEditDemand";
+import Swal from "sweetalert2";
+import { Toll } from "@mui/icons-material";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -113,24 +115,76 @@ TablePaginationActions.propTypes = {
   page: PropTypes.number.isRequired,
   rowsPerPage: PropTypes.number.isRequired,
 };
-function createData(name, quantity) {
-  return { name, quantity};
-}
+// function createData(name, quantity) {
+//   return { name, quantity};
+// }
 
-const rows = [
-  createData('Chocotom','111','4.000DT','1.500'),
-  createData('SAFIA eau','386','4.000DT','3.650'),
-  createData('Saida biscuit','696','4.000DT','7.500'),
-  createData('Maestro','672','4.000DT','4000'),
-  createData('Saida','226','4.000DT','4.100'),
-  createData('Crostina','172','4.000DT','2.700'),
-  createData('Ice cream','147','4.000DT','1.800'),
+// const rows = [
+//   createData('Chocotom','111','4.000DT','1.500'),
+//   createData('SAFIA eau','386','4.000DT','3.650'),
+//   createData('Saida biscuit','696','4.000DT','7.500'),
+//   createData('Maestro','672','4.000DT','4000'),
+//   createData('Saida','226','4.000DT','4.100'),
+//   createData('Crostina','172','4.000DT','2.700'),
+//   createData('Ice cream','147','4.000DT','1.800'),
 
-];
+// ];
  function InfoDemand() {
+
+  const addOrder=()=>{
+    console.log(rows)
+    if (productclient==="" || rows.length===0 ) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Veuillez remplir tous les champs',
+      })
+    }
+
+      
+                else{
+                  
+  
+    let data={
+      name:productclient,
+      stock:rows.map(({products, quantity}) => ({products, quantity})),
+      total:(total/1000).toFixed(3),
+    }
+    console.log(data)
+    
+    axios.post("http://localhost:3001/OrderAPI/orders",data).then(res=>{
+      if(res.data.success){
+        Swal.fire({
+          icon: 'success',
+          title: 'Success',
+          text: 'Commande ajoutée avec succès',
+        })
+        navigate("/demand")
+        console.log(res.data.order)
+      }}
+       
+      )  }
+  
+  }
+
+  const [items, setItems] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [rows,setRows] = useState([]);
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const navigate=useNavigate()
+  const getProduct = async () => {
+    axios.get('http://localhost:3001/ProductAPI/products').then(res => {
+        if (res.data.success) {
+          setItems(res.data.existingPosts);
+
+        }
+        else {
+            alert("Error");
+        }
+    }
+    )
+}
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -155,7 +209,10 @@ const rows = [
   } 
   useEffect(()=>{
     getClient() 
-  } ,[]); 
+    getProduct()
+    setTotal((rows.reduce((a,v) =>  a = a + v.price , 0 )))
+
+  } ); 
 
   const [addPopupinfodemand, setAddPopupinfodemand] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -255,10 +312,10 @@ const rows = [
   
   <button className="addprod" onClick={() => setAddPopupinfodemand(true)}><AddIcon/></button>
   <div className="popinvet">
-<PopupAddDemand trigger={addPopupinfodemand} setTrigger={setAddPopupinfodemand}/>
+<PopupAddDemand trigger={addPopupinfodemand} setTrigger={setAddPopupinfodemand} setData={setRows} ro={items} />
 </div>
  
-  <button className="confirmerPord" onClick={()=> setBtnConfirmer(true)}>Confirmer</button>
+  <button className="confirmerPord" onClick={addOrder}>Confirmer</button>
   <PopupConfirmer trigger={BtnConfirmer} setTrigger={setBtnConfirmer}/>
   </div>
   </div>

@@ -14,21 +14,24 @@ import { Link } from "react-router-dom";
  function DemandTable() {
   const[searchTerm,setSearchTerm]=useState("");
 
-   const[API,setAPI]=useState('Supplier');
-   const [APIs, setAPIs] = useState('suppliers');
-  const [Providers, setProviders] = useState([]);
-  const getProvider=()=>{
-    axios.get("https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers").then(res=>{
+  const[API,setAPI]=useState('Order');
+  const [APIs, setAPIs] = useState('orders');
+  const [Orders, setOrders] = useState([]);
+  const [Fullorder, setFullorder] = useState([]);
+  const getOrder=()=>{
+    axios.get("http://localhost:3001/OrderAPI/orders").then(res=>{
       if(res.data.success){
-        setProviders( res.data.existingPosts);
-        
-        console.log(Providers)
+        setOrders(res.data.existingPosts);
       }
     })
   } 
   useEffect(()=>{
-    getProvider() 
-  },[]);  
+    getOrder() 
+    console.log(Orders)
+    // setFullorder([{name:Orders.name,total:Orders.total,status:Orders.status}])
+    
+
+  },[] ) ;  
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupdemand, setAddPopupDemand] = useState(false);
   return (
@@ -54,7 +57,9 @@ import { Link } from "react-router-dom";
 </div>
 </div>
 
- <FullTable ink={""} pos={"non"} rows={Providers} type="non" stat="status" title="Demands" add={"non"} search={searchTerm}/>
+ <FullTable ink={""} pos={"non"} rows={Orders.map(obj => {
+   return obj.name
+})} type="non" stat="status" title="Demands" add={"non"} search={searchTerm}/>
   </div>
   </div>
   

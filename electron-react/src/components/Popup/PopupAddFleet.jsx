@@ -9,6 +9,7 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import ShareLocationIcon from '@mui/icons-material/ShareLocation';
 function PopupFleet(props){
     const [Vname,setVMarque] = React.useState("");
     const [Vcategory,setVcategory] = React.useState("");
@@ -16,7 +17,7 @@ function PopupFleet(props){
     const [Vstatus,setVstatus] = React.useState("");
     const [Vmatricule,setVmatricule] = React.useState("");
     const [Vdriver,setdriver] = React.useState("");
-    
+    const [Vdeviceid,setVdeviceid] = React.useState("");
     const dataV = {
         name:Vname,
         status:Vstatus ,
@@ -113,6 +114,13 @@ function PopupFleet(props){
             </div>
             </div>
             <div className="form">
+            <label for="namea"/>DeviceID
+            <div className="formicon">
+            <ShareLocationIcon className="icondate" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter ID" onChange={(event)=> {setVdeviceid(event.target.value);}} /></div>
+            </div>
+            </div>
+
+            {/* <div className="form">
             <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setVstatus(event.target.value);}} >
@@ -123,7 +131,7 @@ function PopupFleet(props){
                 </select>
                 </div>
             </div>
-            </div>
+            </div> */}
             </div>
             </div>
                 <div className="buttonpopa">

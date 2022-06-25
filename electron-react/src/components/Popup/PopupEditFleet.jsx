@@ -5,7 +5,7 @@ import CarCrashOutlinedIcon from '@mui/icons-material/CarCrashOutlined';
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import DirectionsCarFilledOutlinedIcon from '@mui/icons-material/DirectionsCarFilledOutlined';
 import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
-import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import ShareLocationIcon from '@mui/icons-material/ShareLocation';
 import axios from "axios";
 import Swal from "sweetalert2";
 import {useState } from "react";
@@ -16,7 +16,7 @@ function PopupEditFleet(props){
     const [EVstatus,setEVstatus] = useState("");
     const [EVmatricule,setEVmatricule] = useState("");
     const [EVdriver,setEdriver] = useState("");
-
+    const [Vdeviceid,setVdeviceid] = React.useState("");
     const dataV = {
         name:EVname,
         status:EVstatus ,
@@ -128,7 +128,18 @@ const editVehicule = async (ID) => {
             <CarCrashOutlinedIcon className="icondate" fontSize="small"/><div className="formdate"><input onChange={(event)=> {setEVmaintenance(event.target.value);}} type="date" className="inputdate" /></div>
             </div>
             </div>
+
             <div className="form">
+            <label for="namea"/>DeviceID
+            <div className="formicon">
+            <ShareLocationIcon className="icondate" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter ID" onChange={(event)=> {setVdeviceid(event.target.value);}} /></div>
+            </div>
+            </div>
+
+
+
+
+            {/* <div className="form">
             <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setEVstatus(event.target.value);}} >
@@ -139,7 +150,7 @@ const editVehicule = async (ID) => {
                 </select>
                 </div>
             </div>
-            </div>
+            </div> */}
             </div>
             </div>
                 <div className="buttonpopa">

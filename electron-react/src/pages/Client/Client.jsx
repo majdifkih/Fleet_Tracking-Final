@@ -15,7 +15,7 @@ import axios from "axios";
   const[searchTerm,setSearchTerm]=useState("");
   const [clients, setClients] = useState([]);
   const getClient=()=>{
-    axios.get("http://localhost:3001/ClientAPI/clients").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/ClientAPI/clients").then(res=>{
       if(res.data.success){
         setClients( res.data.existingPosts);
         
@@ -25,7 +25,7 @@ import axios from "axios";
   } 
   useEffect(()=>{
     getClient() 
-  });   
+  },[]);   
   
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupclient, setAddPopupclient] = useState(false);

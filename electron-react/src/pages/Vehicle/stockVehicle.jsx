@@ -117,7 +117,7 @@ const [rows,setRows] = useState([]);
 const {id}=useParams();
 
   const getVans = async (id) => {
-    await axios.get(`http://localhost:3001/VanAPI/vans?id=${id}`)
+    await axios.get(`https://qlogisticsapp.herokuapp.com/VanAPI/vans?id=${id}`)
     .then(res => {
       setRows(res.data.existingPosts[0].stock)
       console.log(res.data.existingPosts[0].stock);
@@ -131,7 +131,7 @@ const {id}=useParams();
   const Delete = (id,pr) => {
     console.log(id);
     console.log(pr);
-    axios.delete(`http://localhost:3001/VanAPI/vans?id=${id}&pd=${pr}`)
+    axios.delete(`https://qlogisticsapp.herokuapp.com/VanAPI/vans?id=${id}&pd=${pr}`)
     .then(res => {
       console.log(res);
       getVans(id);
@@ -145,7 +145,7 @@ const {id}=useParams();
 
   React.useEffect(() => {
     getVans(id);
-  });
+  },[]);
 
    const [van, setVan] = useState([]);
 
@@ -197,7 +197,7 @@ const {id}=useParams();
           <TableRow className="row" >
               
             <StyledTableCell   ><input type="radio" name="fleet" className="radio"/><label for="store">Product</label></StyledTableCell>
-            <StyledTableCell className="quantity" align="center">Quantity</StyledTableCell>
+            <StyledTableCell align="center">Quantity</StyledTableCell>
             
           </TableRow>
         </TableHead>
@@ -212,8 +212,9 @@ const {id}=useParams();
               <label for="name">{row.products.productName}</label>
                
               </StyledTableCell>
-              <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
-              <StyledTableCell align="right"  ><i className="material-icons" onClick={() => setBtnEditConfirmer(true)}>border_color</i>
+              <StyledTableCell align="center" >{row.quantity}</StyledTableCell>
+              <StyledTableCell align="right"  >
+                {/* <i className="material-icons" onClick={() => setBtnEditConfirmer(true)}>border_color</i> */}
               <DeleteIcon className="material-icons" onClick={() => Delete(id,row._id)}/>
               </StyledTableCell>
               

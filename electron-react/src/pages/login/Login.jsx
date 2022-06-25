@@ -17,7 +17,7 @@ function Login () {
   const navigate = useNavigate();
   const Auth = async() => {
     try {
-      await axios.post('http://localhost:3001/AuthAPI/login', {
+      await axios.post('https://qlogisticsapp.herokuapp.com/AuthAPI/login', {
             email: email,
             password: pwd
         }).then(res => {

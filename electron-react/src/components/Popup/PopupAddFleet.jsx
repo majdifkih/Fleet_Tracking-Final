@@ -38,7 +38,7 @@ function PopupFleet(props){
                   else {
              console.log(dataV)
             try {
-                await axios.post('http://localhost:3001/VehiculeAPI/vehicules',dataV ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules',dataV ).then((res) => {
 
                         if (res.data.success === true) {    
                             props.setTrigger(!props.trigger);
@@ -113,14 +113,9 @@ function PopupFleet(props){
             <CarCrashOutlinedIcon className="icondate" fontSize="small"/><div className="formdate"><input type="date" className="inputdate" onChange={(event)=> {setVmaintenance(event.target.value);}} /></div>
             </div>
             </div>
-            <div className="form">
-            <label for="namea"/>DeviceID
-            <div className="formicon">
-            <ShareLocationIcon className="icondate" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter ID" onChange={(event)=> {setVdeviceid(event.target.value);}} /></div>
-            </div>
-            </div>
+           
 
-            {/* <div className="form">
+            <div className="form">
             <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setVstatus(event.target.value);}} >
@@ -131,7 +126,7 @@ function PopupFleet(props){
                 </select>
                 </div>
             </div>
-            </div> */}
+            </div>
             </div>
             </div>
                 <div className="buttonpopa">

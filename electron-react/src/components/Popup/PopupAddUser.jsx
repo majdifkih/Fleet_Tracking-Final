@@ -30,7 +30,7 @@ function PopupUser(props){
                 })
             }
             try {
-                await axios.post('http://localhost:3001/UserAPI/users',dataU ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/UserAPI/users',dataU ).then((res) => {
 
                         if (res.data.success) {
                             props.setTrigger(!props.trigger);

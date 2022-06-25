@@ -18,6 +18,7 @@ import Logout from "./pages/login/logout";
 import InfoDemand from "./pages/Demand/InfoDemand";
 import StockVehicle from "./pages/Vehicle/stockVehicle";
 import InfoFacture from "./pages/Facture/FactureInfo";
+import CourbeTest from "./components/testcourbe/testpage";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
             <Route path="logout" element={<Logout/>} />
             <Route path="stockvehicle/:id" element={<StockVehicle/>}/>
             <Route path="infofacture" element={<InfoFacture/>}/>
+            <Route path="courbe" element={<CourbeTest/>}/>
             </Route> 
         </Routes>
         

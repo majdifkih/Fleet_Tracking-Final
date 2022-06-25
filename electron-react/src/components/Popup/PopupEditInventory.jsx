@@ -35,7 +35,7 @@ function PopupEditInventory(props){
                 });
             }
             else {
-       await axios.put(`http://localhost:3001/ProductAPI/products?id=${ID}`,dataD).then((res) => {
+       await axios.put(`https://qlogisticsapp.herokuapp.com/ProductAPI/products?id=${ID}`,dataD).then((res) => {
                 if (res.data.success) {
                   props.setTrigger(!props.trigger);
 

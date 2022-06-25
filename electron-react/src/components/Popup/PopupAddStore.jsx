@@ -36,7 +36,7 @@ function PopupStore(props){
         }
         else {
       try {
-          await axios.post('http://localhost:3001/StoreAPI/stores',data ).then((res) => {
+          await axios.post('https://qlogisticsapp.herokuapp.com/StoreAPI/stores',data ).then((res) => {
               
                 if (res.data.success) {
                     props.setTrigger(!props.trigger);

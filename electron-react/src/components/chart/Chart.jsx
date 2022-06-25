@@ -10,42 +10,37 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import axios from "axios";
 
 const Chart = ({title }) => {
-  const [Courbe, setCourbe] = useState([]);
+  const [Facture, setFacture] = useState([]);
   
-    const getProvider=()=>{
-      axios.get("http://127.0.0.1:3001/CourbeAPI/courbe").then(res=>{
+    const getTotal=()=>{
+      axios.get('https://qlogisticsapp.herokuapp.com/FactureAPI/factures').then(res=>{
         if(res.data.success){
-          setCourbe( res.data.existingPosts);
-          
-          console.log(Courbe)
+          setFacture( res.data.existingPosts);
+          console.log(Facture)
         }
       })
     } 
     useEffect(()=>{
-      getProvider() 
+      getTotal() 
     },[]);  
-    console.log(Courbe)
+    console.log(Facture)
   return (
     <div className="chart">
      <div className="courbe">
-      <div className="title">{title}<span>As of 31 May 2019,09:41PM</span></div> 
-      
+      <div className="title">{title}<span>As of 31 May 2022,09:41PM</span></div> 
       <ResponsiveContainer height="80%">
-       
         <LineChart
           width={500}
           height={300}
-          data={Courbe}
+          data={Facture}
           margin={{
             top: 20,
             right: 0,
             left: 13,
             bottom: 0,
-          }}
-        >
+          }}>
           <CartesianGrid strokeDasharray="3 3" />
-          
-          <XAxis dataKey="22" stroke="gray" />
+          <XAxis dataKey="date" stroke="gray" />
           <YAxis  stroke="gray"/>
           <Tooltip />
           <Legend />
@@ -59,7 +54,6 @@ const Chart = ({title }) => {
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
-     
               <TableCell className="tableCell"><span className="span1">Max en DT</span><span className="span2">31180</span>
               </TableCell>
 

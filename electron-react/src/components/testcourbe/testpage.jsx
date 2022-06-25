@@ -14,7 +14,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
     
     const [Courbe, setCourbe] = useState([]);
     const getProvider=()=>{
-      axios.get("http://127.0.0.1:3001/CourbeAPI/courbe").then(res=>{
+      axios.get("http://localhost:3001/CourbeAPI/courbe").then(res=>{
         if(res.data.success){
           setCourbe( res.data.existingPosts);
           

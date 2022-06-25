@@ -33,7 +33,7 @@ function PopupEditDriver(props){
                 })
             }
             else {
-       await axios.put(`http://localhost:3001/DriverAPI/drivers?id=${ID}`,dataD).then((res) => {
+       await axios.put(`https://qlogisticsapp.herokuapp.com/DriverAPI/drivers?id=${ID}`,dataD).then((res) => {
                 if (res.data.success) {
                   props.setTrigger(!props.trigger);
 

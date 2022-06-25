@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
   const [rowss, setRowss] = useState([])
 
   const getVehicule=()=>{
-    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
       if(res.data.success){
         setRowss( res.data.existingPosts);
         
@@ -29,14 +29,14 @@ import { Link } from "react-router-dom";
   } 
   useEffect(()=>{
     getVehicule() 
-  });
+  },[]);
   const [KM, setMileageV] = useState("0");
-  const [NameV,setNameV] = useState("????");
+  const [NameV,setNameV] = useState("Vehicle Name");
   const [Hour,setHour] = useState("0");
   const [rows,setRows] = useState([]);
 
   const getStore=()=>{
-    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
       if(res.data.success){
         setRows( res.data.existingPosts);
         
@@ -46,7 +46,7 @@ import { Link } from "react-router-dom";
   } 
   useEffect(()=>{
     getStore() 
-  });   
+  },[]);   
  
  
 const [searchTerm,setSearchTerm]=useState("");

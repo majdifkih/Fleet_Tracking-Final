@@ -18,7 +18,7 @@ import { Link } from "react-router-dom";
    const [APIs, setAPIs] = useState('suppliers');
   const [Providers, setProviders] = useState([]);
   const getProvider=()=>{
-    axios.get("http://localhost:3001/SupplierAPI/suppliers").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers").then(res=>{
       if(res.data.success){
         setProviders( res.data.existingPosts);
         
@@ -28,7 +28,7 @@ import { Link } from "react-router-dom";
   } 
   useEffect(()=>{
     getProvider() 
-  });  
+  },[]);  
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupdemand, setAddPopupDemand] = useState(false);
   return (
@@ -47,7 +47,7 @@ import { Link } from "react-router-dom";
       <i><SearchIcon/></i></div>
 </div>
 <div className="butt">
-<Link to="/testpage" style={{ textDecoration: 'none' }}><button className="add" ><AddCircleOutlineIcon fontSize="small"/>Add</button></Link>
+<Link to="/infodemand" style={{ textDecoration: 'none' }}><button className="add" ><AddCircleOutlineIcon fontSize="small"/>Add</button></Link>
 
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs}/>

@@ -40,7 +40,7 @@ const editVehicule = async (ID) => {
     try {
         console.log(dataV)
         
-        await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
+        await axios.put(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
             if (res.data.status === 'SUCCESS') {
                 props.setTrigger(!props.trigger);
 
@@ -62,7 +62,7 @@ const editVehicule = async (ID) => {
         }
     }}
 
-    // await axios.put(`http://localhost:3001/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
+    // await axios.put(`https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules?id=${ID}`,dataV ).then((res) => {
     //         console.log(dataV)
     //             if (res.data.status === 'SUCCESS') {
     //                 props.setTrigger(!props.trigger);
@@ -129,17 +129,11 @@ const editVehicule = async (ID) => {
             </div>
             </div>
 
+            
+
+
+
             <div className="form">
-            <label for="namea"/>DeviceID
-            <div className="formicon">
-            <ShareLocationIcon className="icondate" fontSize="small"/><div className="forma"><input type="text" placeholder="Enter ID" onChange={(event)=> {setVdeviceid(event.target.value);}} /></div>
-            </div>
-            </div>
-
-
-
-
-            {/* <div className="form">
             <label for="namea"/>Status
             <div className="formicon">
             <HelpOutlineOutlinedIcon className="iconselect" fontSize="small"/><div className="formselect"><select id="select" className="select" onChange={(event)=> {setEVstatus(event.target.value);}} >
@@ -150,7 +144,7 @@ const editVehicule = async (ID) => {
                 </select>
                 </div>
             </div>
-            </div> */}
+            </div>
             </div>
             </div>
                 <div className="buttonpopa">

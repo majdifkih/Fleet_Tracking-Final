@@ -152,7 +152,7 @@ TablePaginationActions.propTypes = {
     }
     console.log(data)
     
-    axios.post("http://localhost:3001/OrderAPI/orders",data).then(res=>{
+    axios.post("https://qlogisticsapp.herokuapp.com/OrderAPI/orders",data).then(res=>{
       if(res.data.success){
         Swal.fire({
           icon: 'success',
@@ -174,7 +174,7 @@ TablePaginationActions.propTypes = {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const navigate=useNavigate()
   const getProduct = async () => {
-    axios.get('http://localhost:3001/ProductAPI/products').then(res => {
+    axios.get('https://qlogisticsapp.herokuapp.com/ProductAPI/products').then(res => {
         if (res.data.success) {
           setItems(res.data.existingPosts);
 

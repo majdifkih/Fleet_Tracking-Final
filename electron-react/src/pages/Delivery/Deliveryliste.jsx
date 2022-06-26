@@ -204,11 +204,11 @@ useEffect(() => {
           <TableHead>
             <TableRow className="row" >
                 
-              <StyledTableCell  align="left" ><input type="radio" name="fleet" className="radio"/><label for="store">Stores</label></StyledTableCell>
-              <StyledTableCell  className="circle" align="center">Position</StyledTableCell>
-              <StyledTableCell  className="circle" align="center">Date</StyledTableCell>
+              <StyledTableCell  align="left" ><input type="radio" name="fleet" className="radio"/>Stores</StyledTableCell>
+              <StyledTableCell  align="center">Position</StyledTableCell>
+              <StyledTableCell  align="center">Date</StyledTableCell>
               
-              <StyledTableCell align="center"  className="stat">Status</StyledTableCell>
+              <StyledTableCell   className="stat">Status</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -225,11 +225,11 @@ useEffect(() => {
             }
           }).map((val,key) => (
               <StyledTableRow className="row" key={key}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" /><label for="name">{val.store.name}</label>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet"  className="radio" />{val.store.name}
                   
                 </StyledTableCell>
-                <StyledTableCell className ="circle" value={address(val.store.positionStore.latitude,val.store.positionStore.longitude)} > {TheAddress} </StyledTableCell>
-                <StyledTableCell className ="circle" align="center">{moment(val.date).format("DD/MM/YYYY")} </StyledTableCell>
+                <StyledTableCell align="center" value={address(val.store.positionStore.latitude,val.store.positionStore.longitude)} > {TheAddress} </StyledTableCell>
+                <StyledTableCell  align="center">{moment(val.date).format("DD/MM/YYYY")} </StyledTableCell>
                 <StyledTableCell className="line"  >
                  <div className={`reguliere ${val.status}`}>{val.status}</div>
                 <DeleteIcon className="material-icons" sx={{ fontSize: 27 }} onClick={()=> Delete(val.name,val._id)}/>

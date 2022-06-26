@@ -8,10 +8,10 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from "axios";
-
+import moment from "moment";
 const Chart = ({title }) => {
   const [Facture, setFacture] = useState([]);
-  
+ 
     const getTotal=()=>{
       axios.get('https://qlogisticsapp.herokuapp.com/FactureAPI/factures').then(res=>{
         if(res.data.success){
@@ -46,7 +46,7 @@ const Chart = ({title }) => {
           <Legend />
           
           <Line type="monotone" dataKey="total" stroke="blue" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="Yesterday" stroke="gray" />
+          {/* <Line type="monotone" dataKey="Yesterday" stroke="gray" /> */}
         </LineChart>
       </ResponsiveContainer>
       </div> 

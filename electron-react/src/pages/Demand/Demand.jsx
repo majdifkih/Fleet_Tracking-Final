@@ -19,7 +19,7 @@ import { Link } from "react-router-dom";
   const [Orders, setOrders] = useState([]);
   const [Fullorder, setFullorder] = useState([]);
   const getOrder=()=>{
-    axios.get("http://localhost:3001/OrderAPI/orders").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/OrderAPI/orders").then(res=>{
       if(res.data.success){
         setOrders(res.data.existingPosts);
       }

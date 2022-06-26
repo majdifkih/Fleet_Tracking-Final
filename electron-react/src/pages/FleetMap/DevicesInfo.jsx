@@ -116,7 +116,7 @@ const [searchTerm,setSearchTerm]=useState("");
 </div>
 <div className="carteCenter">
 <div className="carteTitle">Total revenu</div>
-  <div className="carteNumber">543 DT</div>
+  <div className="carteNumber">.. DT</div>
 </div>
 </div>
 </div>

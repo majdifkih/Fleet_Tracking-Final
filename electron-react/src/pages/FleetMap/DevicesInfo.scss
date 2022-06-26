@@ -148,6 +148,14 @@
             img{
               padding-left: 5%;
             }
+            .circle{
+              &.true{
+                visibility: hidden;
+              }
+              &.false{
+                visibility: visible;
+              }
+            }
           }
         }
       }

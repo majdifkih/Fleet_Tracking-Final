@@ -27,7 +27,8 @@ import Popup from "../../components/Popup/Popup";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NotesIcon from '@mui/icons-material/Notes';
 import PopupFacture from "../../components/Popup/PopupAddFacture";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -125,8 +126,21 @@ const rows = [
  function InfoFacture() {
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const [rows,setRows] = React.useState([]);
+const [ttl,setTtl] = React.useState(0);
   const navigate=useNavigate()
-  
+  const {id}= useParams()
+  const GETFACTURE =() => {
+    axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=One`).then(res => {
+      console.log(res.data.facture.stock)
+      setRows(res.data.facture.stock)
+      setTtl(res.data.facture.total)
+    }
+    )
+  }
+React.useEffect(() => {
+  GETFACTURE()
+})
   
   const [addPopupinfofacture, setAddPopupinfofacture] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
@@ -170,16 +184,16 @@ const rows = [
         </TableHead>
         <TableBody>
           {(rowsPerPage > 0
-            ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+            ? rows?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             : rows
-          ).map((row) => (
+          )?.map((row) => (
             <StyledTableRow className="row" key={row.name}>
-              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.name}</label>
+              <StyledTableCell  width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{row.products.productName}</label>
                 
               </StyledTableCell>
-              <StyledTableCell className="quantity" >{row.Quantity}</StyledTableCell>
+              <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
 
-              <StyledTableCell className="total" >{row.Total}</StyledTableCell>
+              <StyledTableCell className="total" >{row.quantity*row.products.productPrice}</StyledTableCell>
               
             </StyledTableRow>
           ))}
@@ -192,9 +206,8 @@ const rows = [
   
   
   <div className="devis">
-    <div className="deviscont">Sub Total:7.000 DT </div>
     <div className="deviscont">TVA:9% </div>
-    <div className="deviscont">Total 7.630 DT</div>
+    <div className="deviscont">Total {ttl} DT</div>
   </div>
 
   </div>

@@ -14,6 +14,7 @@ import truck from './truck1.png'
 import Popup from "../../components/Popup/Popup";
 import PopupFleet from "../../components/Popup/PopupAddFleet";
 import { Link } from "react-router-dom";
+import { Visibility } from "@mui/icons-material";
 
  function DeviceInfo() {
   const [rowss, setRowss] = useState([])
@@ -34,7 +35,10 @@ import { Link } from "react-router-dom";
   const [NameV,setNameV] = useState("????");
   const [Hour,setHour] = useState("0");
   const [rows,setRows] = useState([]);
-
+  const [Total,setTotal] = useState("0");
+const [alertO,setAlertO] = useState(false);
+const [alertT,setAlertT] = useState(false);
+const [alertM,setAlertM] = useState(false);
   const getStore=()=>{
     axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
       if(res.data.success){
@@ -95,20 +99,23 @@ const [searchTerm,setSearchTerm]=useState("");
 <div className="carteCenter">
 <div className="carteTitle">Averstissements</div>
   <div className="carteNumber"><img 
+  
+  
               src={tires}
-              className="circle"
+              className={`circle ${alertT}`}
               width="28"
               height="28"
               alt=""/>           
               <img 
               src={engine}
-              className="circle"
+              className={`circle ${alertM}`}
               width="33"
               height="33"
               alt=""/>
                 <img 
               src={oil}
-              className="circle"
+
+              className={`circle ${alertO}`}
               width="33"
               height="33"
               alt=""/>
@@ -116,7 +123,7 @@ const [searchTerm,setSearchTerm]=useState("");
 </div>
 <div className="carteCenter">
 <div className="carteTitle">Total revenu</div>
-  <div className="carteNumber">543 DT</div>
+  <div className="carteNumber">{Total} DT</div>
 </div>
 </div>
 </div>
@@ -137,7 +144,7 @@ const [searchTerm,setSearchTerm]=useState("");
 </div>
   </div>
   <div className="tabdevic">
-  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" setNameV={setNameV} setKM={setMileageV} sethour={setHour} />
+  <FullTable search={searchTerm} ink={""} rows={rowss} type="oui" title="Livreur" stat="Online" icon="non" setNameV={setNameV} setKM={setMileageV} sethour={setHour} setFact={setTotal} setAlertM={setAlertM} setAlertO={setAlertO} setAlertT={setAlertT}/>
   </div>
   </div>
   </div>

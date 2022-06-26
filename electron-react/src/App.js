@@ -40,13 +40,13 @@ function App() {
             <Route path="clients" element={<ClientTable/>}/>
             <Route path="drivers" element={<DriverTable/>}/>
             <Route path="users" element={<UserTable />}/>
-            <Route path="facture" element={<Facture/>}/>
+            <Route path="facture/:id" element={<Facture/>}/>
             <Route path="delivery" element={<DeliveryListe/>}/>
             <Route path="demand" element={<DemandTable/>}/>
             <Route path="infodemand" element={<InfoDemand/>}/>
             <Route path="logout" element={<Logout/>} />
             <Route path="stockvehicle/:id" element={<StockVehicle/>}/>
-            <Route path="infofacture" element={<InfoFacture/>}/>
+            <Route path="infofacture/:id" element={<InfoFacture/>}/>
             </Route> 
         </Routes>
         

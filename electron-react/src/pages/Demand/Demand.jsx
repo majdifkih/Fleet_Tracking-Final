@@ -53,13 +53,13 @@ import { Link } from "react-router-dom";
 <Link to="/testpage" style={{ textDecoration: 'none' }}><button className="add" ><AddCircleOutlineIcon fontSize="small"/>Add</button></Link>
 
 <button className="del" onClick={() => setButtonPopup(true)} ><DeleteIcon fontSize="small"/>Delete</button>
-<Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs}/>
+<Popup trigger={buttonPopup} setTrigger={setButtonPopup} API={API} APIs={APIs} />
 </div>
 </div>
 
- <FullTable ink={""} pos={"non"} rows={Orders.map(obj => {
-   return obj.name
-})} type="non" stat="status" title="Demands" add={"non"} search={searchTerm}/>
+ <FullTable ink={""} pos={"non"} rows={Orders.map(item=>{
+   return item.name
+ })} type="non" stat="status" title="Demands" add={"non"} search={searchTerm}/>
   </div>
   </div>
   

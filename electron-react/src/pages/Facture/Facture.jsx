@@ -13,6 +13,7 @@ import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
 import DeleteIcon from '@mui/icons-material/Delete';
+import moment from "moment";
 import Sidebar from "../../components/sidebar/Sidebar";
 import Navbar from "../../components/navbar/Navbar";
 import TableFooter from '@mui/material/TableFooter';
@@ -27,7 +28,8 @@ import Popup from "../../components/Popup/Popup";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import NotesIcon from '@mui/icons-material/Notes';
 import PopupFacture from "../../components/Popup/PopupAddFacture";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate,useParams } from "react-router-dom";
+import axios from "axios";
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.white,
@@ -124,7 +126,6 @@ const rows = [
 ];
  function Facture() {
   const[searchTerm,setSearchTerm]=useState("");
-
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const navigate=useNavigate()
@@ -140,11 +141,27 @@ const rows = [
     setRowsPerPage(parseInt(event.target.value, 10));
     setPage(0);
   };
-  
+ const [rows, setRows] = useState([]);
   const [addPopupfacture, setAddPopupfacture] = useState(false);
   const [buttonPopup, setButtonPopup] = useState(false);
+  const {id}=useParams()
+const getFacture=()=>{
+  axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=store`).then(res=>{
+    if (res.data.success){
+      console.log("ok")
+      console.log(res.data.existingPosts)
+      setRows(res.data.existingPosts)
+    }})}
+    React.useEffect
+    (()=>{
+      getFacture()
+    }
+    )
+      const tofact = (id) => {
+        navigate(`/infofacture/${id}`)
+      }
 
-  return (
+      return (
 
   <div className="facturemain">
     <div className="side"><Sidebar/></div>
@@ -166,7 +183,7 @@ const rows = [
 
 
 
-<div className="popinvet">
+<div className="popinvete">
 <PopupFacture trigger={addPopupfacture} setTrigger={setAddPopupfacture}/>
 <Popup trigger={buttonPopup} setTrigger={setButtonPopup}/>
 </div>
@@ -201,9 +218,9 @@ const rows = [
                 
               </StyledTableCell>
               
-              <StyledTableCell  align="center">{val.date}</StyledTableCell>
+              <StyledTableCell  align="center">{moment(val.date).format('YYYY/MM/DD')}</StyledTableCell>
               <StyledTableCell  align="center" className={`status ${val.status}`}>{val.status}</StyledTableCell>
-              <StyledTableCell   align="right"><Link to="/infofacture"><i class="material-icons" >info_outline</i></Link></StyledTableCell>
+              <StyledTableCell   align="right"><i class="material-icons" onClick={()=>tofact(val._id)}>info_outline</i></StyledTableCell>
               
             </StyledTableRow>
           ))}

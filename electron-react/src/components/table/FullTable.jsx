@@ -210,8 +210,11 @@ function FullTable(props) {
           return false
         }}
       }
-
-   
+  
+      useEffect(() => {
+        console.log(rows)
+      
+      }, [])
 
     const {rows,type,title,stat,icon,pos,ink,add,search}=props;
     const [editPopupfleet, setEditPopupfleet] = useState(false);
@@ -262,9 +265,9 @@ setIDA(id);
 
 
 // const [URL, SetURL] = useState("h");
-const url = (title) => {
+const url = (title,id) => {
   console.log(title);
-  (title==="Stores name") ? navigate("/facture"):window.location.reload();
+  (title==="Stores name") ? navigate(`/facture/${id}`):window.location.reload();
   // if(r==="fleet"){
   //   setAPI("/api/fleet/");
   // }
@@ -289,6 +292,7 @@ case "Stores name":
     
   }
    const Delete = (name,ID) => {
+ 
         setDID(ID);
         setDname(name);
         switch (title) {
@@ -316,6 +320,11 @@ case "Stores name":
             case 'Users name':
               setAPI("User")
               setAPIs("users")
+            break;
+            case 'Demands':
+              setAPI("Order")
+  
+              setAPIs("orders")
             break;
   
           default:
@@ -364,11 +373,23 @@ case "Stores name":
           console.log(`Sorry, we are out of ${title}.`);
       }
     }
-    const getINFO = (name,mileage,id,h) => {
+    let acc=0;
+    const getINFO = (name,mileage,id,h,alertOIL,alertTIERS,alertMAINT) => {
       if (title==="Livreur") {
         props.setNameV(name)
       props.setKM(mileage)
       props.sethour(h)
+props.alertO(alertOIL)
+props.alertT(alertTIERS)
+props.alertM(alertMAINT)
+      axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=vehicule`).then(res => {
+        console.log(res.data.existingPosts);
+        props.setFact((res.data.existingPosts.reduce((a,v) =>  a = a + v.total , 0 )));
+        
+          
+        // props.setFactures(res.data.existingPosts);
+      });
+
         axios.get(`http://localhost:3001/PositionAPI/heures?id=${id}`).then(res => {
           console.log(res.data);
           props.setDriver(res.data);
@@ -411,6 +432,8 @@ case "Stores name":
           setIsemU(name);
           setIDU(ID);
           break;
+       
+
 
         default:
           console.log(`Sorry, we are out of ${title}.`);
@@ -458,7 +481,7 @@ case "Stores name":
             }
           }).map((val,key) => (
               <StyledTableRow className="row" key={key}>
-                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" onChange={()=>getINFO(val.name,val.Mileage,val._id,val.hours)} className="radio" /><label for="name">{val.name}</label>
+                <StyledTableCell width={"20%"} height={"5%"} component="th" scope="row"><input type="radio" name="fleet" onChange={()=>getINFO(val.name,val.Mileage,val._id,val.hours  , val.alertOIL, val.alertTIRES,val.Maintenance)} className="radio" /><label for="name">{val.name}</label>
                   
                 </StyledTableCell>
                 <StyledTableCell className='alerts 'align="left"><img 
@@ -515,7 +538,7 @@ case "Stores name":
                   </div>
                   
                   </div>
-                <div className={`reguliere ${val.status}`} onClick={()=>url(title)}>{val.status}</div></StyledTableCell>
+                <div className={`reguliere ${val.status}`} onClick={()=>url(title,val._id)}>{(type==="Demands") ? ("processing") :val.status}</div></StyledTableCell>
               </StyledTableRow>
             ))}
             

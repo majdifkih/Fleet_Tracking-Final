@@ -278,7 +278,7 @@ TablePaginationActions.propTypes = {
                 
               </StyledTableCell>
               <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
-              <StyledTableCell align="right"  ><i className="material-icons" onClick={() => setBtnEditConfirmer(true)}>border_color</i>
+              <StyledTableCell align="right"  >
               <DeleteIcon className="material-icons" onClick={() => setButtonPopup(true)}/>
               </StyledTableCell>
               

@@ -24,10 +24,14 @@ const Chart = ({title }) => {
       getTotal() 
     },[]);  
     console.log(Facture)
+    function formatXAxis(tickItem) {
+      
+      return moment(tickItem).format(' DD ')
+      }
   return (
     <div className="chart">
      <div className="courbe">
-      <div className="title">{title}<span>As of 31 May 2022,09:41PM</span></div> 
+      <div className="title">{title}<span>Of {moment(Date.now()).format("MMM YYYY")}</span></div> 
       <ResponsiveContainer height="80%">
         <LineChart
           width={500}
@@ -40,7 +44,7 @@ const Chart = ({title }) => {
             bottom: 0,
           }}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="date" stroke="gray" />
+          <XAxis dataKey="date" tickFormatter={formatXAxis} stroke="gray" />
           <YAxis  stroke="gray"/>
           <Tooltip />
           <Legend />

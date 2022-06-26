@@ -120,7 +120,7 @@ TablePaginationActions.propTypes = {
   const [DID, setDID] = useState("");
     const [Dname, setDname] = useState("");
   const getProduct=()=>{
-    axios.get("http://localhost:3001/ProductAPI/products").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/ProductAPI/products").then(res=>{
       if(res.data.success){
         setrows( res.data.existingPosts);
         
@@ -130,7 +130,7 @@ TablePaginationActions.propTypes = {
   } 
   useEffect(()=>{
     getProduct() 
-  });  
+  },[]);  
   const [InfoPopupinventory, setInfoPopupinventory] = useState(false);
   const [Row, setRow] = useState([]);
 

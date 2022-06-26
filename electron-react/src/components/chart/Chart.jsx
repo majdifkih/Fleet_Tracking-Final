@@ -8,50 +8,67 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import axios from "axios";
-
+import moment from "moment";
 const Chart = ({title }) => {
-  const [Courbe, setCourbe] = useState([]);
-  
-    const getProvider=()=>{
-      axios.get("http://127.0.0.1:3001/CourbeAPI/courbe").then(res=>{
+  const [Facture, setFacture] = useState([]);
+  const [Min, setMin] = useState();
+ 
+  const [Max, setMax] = useState();
+ 
+ 
+    const getMinMax=()=>{
+      axios.post('https://qlogisticsapp.herokuapp.com/FactureAPI/minmax/').then(res=>{
         if(res.data.success){
-          setCourbe( res.data.existingPosts);
-          
-          console.log(Courbe)
+          setMin( res.data.min);
+          setMax( res.data.max);
+          console.log( res.data.min);
+          console.log(res.data.max)
+        }
+      })
+    } 
+    const getTotal =()=>{
+      axios.get('https://qlogisticsapp.herokuapp.com/FactureAPI/factures').then(res=>{
+        if(res.data.success){
+          setFacture( res.data.existingPosts);
+          console.log(Facture)
         }
       })
     } 
     useEffect(()=>{
-      getProvider() 
-    },[]);  
-    console.log(Courbe)
+      getTotal() ;
+      
+    },[]); 
+    useEffect(()=>{
+      getMinMax();
+      
+    }); 
+    function formatXAxis(tickItem) {
+      
+      return moment(tickItem).format(' DD ')
+      }
   return (
     <div className="chart">
      <div className="courbe">
-      <div className="title">{title}<span>As of 31 May 2019,09:41PM</span></div> 
-      
+      <div className="title">{title}<span>Of {moment(Date.now()).format("MMM YYYY")}</span></div> 
       <ResponsiveContainer height="80%">
-       
         <LineChart
           width={500}
           height={300}
-          data={Courbe}
+          data={Facture}
           margin={{
             top: 20,
             right: 0,
             left: 13,
             bottom: 0,
-          }}
-        >
+          }}>
           <CartesianGrid strokeDasharray="3 3" />
-          
-          <XAxis dataKey="22" stroke="gray" />
+          <XAxis dataKey="date" tickFormatter={formatXAxis} stroke="gray" />
           <YAxis  stroke="gray"/>
           <Tooltip />
           <Legend />
           
           <Line type="monotone" dataKey="total" stroke="blue" activeDot={{ r: 8 }} />
-          <Line type="monotone" dataKey="Yesterday" stroke="gray" />
+          {/* <Line type="monotone" dataKey="Yesterday" stroke="gray" /> */}
         </LineChart>
       </ResponsiveContainer>
       </div> 
@@ -59,8 +76,7 @@ const Chart = ({title }) => {
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
-     
-              <TableCell className="tableCell"><span className="span1">Max en DT</span><span className="span2">31180</span>
+              <TableCell className="tableCell"><span className="span1">Max en DT</span><span className="span2">{Max}</span>
               </TableCell>
 
           </TableRow>
@@ -68,7 +84,7 @@ const Chart = ({title }) => {
         <TableBody>
           
             <TableRow >
-            <TableCell className="tableCell"><span className="span1">Min en DT</span><span className="span2">3087</span></TableCell>
+            <TableCell className="tableCell"><span className="span1">Min en DT</span><span className="span2">{Min}</span></TableCell>
               
             </TableRow>
           
@@ -76,7 +92,7 @@ const Chart = ({title }) => {
         <TableBody>
           
             <TableRow >
-            <TableCell className="tableCell"><span className="span1">Moyenne en DT</span><span className="span2">23780</span></TableCell>
+            <TableCell className="tableCell"><span className="span1">Moyenne en DT</span><span className="span2">{(Min+Max)/2}</span></TableCell>
               
             </TableRow>
         </TableBody>

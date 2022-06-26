@@ -38,7 +38,7 @@ function PopupInventory(props){
             }
             else {
             try {
-                await axios.post('http://localhost:3001/ProductAPI/products',dataI ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/ProductAPI/products',dataI ).then((res) => {
 
                         if (res.data.success) { 
                             props.setTrigger(!props.trigger);

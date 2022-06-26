@@ -17,7 +17,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   const [Drivers,setDrivers] = React.useState([]);
 
   const getDriver=()=>{
-    axios.get("http://localhost:3001/DriverAPI/drivers").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/DriverAPI/drivers").then(res=>{
       if(res.data.success){
         setDrivers( res.data.existingPosts);
         
@@ -33,7 +33,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   const [vehicule, setVehicule] = useState([]);
   const getVehicule=()=>{
     
-    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
       if(res.data.success){
         setVehicule( res.data.existingPosts);
         
@@ -43,7 +43,7 @@ import PopupFleet from "../../components/Popup/PopupAddFleet";
   } 
   useEffect(()=>{
     getVehicule() 
-  });  
+  },[]);  
 
  const [buttonPopup, setButtonPopup] = useState(false);
  const [addPopupfleet, setAddPopupfleet] = useState(false);

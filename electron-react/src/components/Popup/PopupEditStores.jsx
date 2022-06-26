@@ -32,7 +32,7 @@ function PopupEditStore(props){
             })
         }
         else {
-       await axios.put(`http://localhost:3001/StoreAPI/stores?id=${ID}`,dataS).then((res) => {
+       await axios.put(`https://qlogisticsapp.herokuapp.com/StoreAPI/stores?id=${ID}`,dataS).then((res) => {
                 if (res.data.status === 'SUCCESS') {
                   props.setTrigger(!props.trigger);
 
@@ -59,25 +59,23 @@ function PopupEditStore(props){
             <div className="form">
             <label for="namea"/>Store Name
             <div className="formicon">
-            <StorefrontIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.name} onChange={(event)=> {
-      setnewStoreName(event.target.value);
-    }} /></div>
+            <StorefrontIcon className="icona" fontSize="small"/><div className="forma"><input type="text"  onChange={(event)=> {
+      setnewStoreName(event.target.value);}} placeholder="Edit Name"/>
+      </div>
             </div>
             </div>
             <div className="form">
             <label for="namea"/>Contact
             <div className="formicon">
-            <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.contact} onChange={(event)=> {
-      setnewStoreContact(event.target.value);
-    }}/></div>
+            <MailOutlineIcon   className="icona" fontSize="small"/><div className="forma"><input type="text"  onChange={(event)=> {
+      setnewStoreContact(event.target.value); }}placeholder="Edit Contact"/></div>
             </div>
             </div>
             <div className="form">
             <label for="namea"/>Store Owner
             <div className="formicon">
-            <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input type="text" placeholder={props.owner} onChange={(event)=> {
-      setnewStoreOwner(event.target.value);
-    }} /></div>
+            <PersonOutlineIcon className="icona" fontSize="small"/> <div className="forma"><input type="text"  onChange={(event)=> {
+      setnewStoreOwner(event.target.value);}} placeholder="Edit Owner"/></div>
             </div>
             </div>
             </div>
@@ -86,7 +84,7 @@ function PopupEditStore(props){
             <div className="form">
             <label for="namea"/>Type
             <div className="formicon">
-            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.type} onChange={(event)=> {
+            <LocalOfferOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder="Edit Type" onChange={(event)=> {
       setnewStoreType(event.target.value);
     }} /></div>
             </div>
@@ -94,9 +92,8 @@ function PopupEditStore(props){
             <div className="form">
             <label for="namea"/>Address
             <div className="formicon">
-            <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text" placeholder={props.address}  onChange={(event)=> {
-      setnewStoreAddress(event.target.value);
-    }}/></div>
+            <RoomOutlinedIcon className="icona" fontSize="small"/><div className="forma"><input type="text"  onChange={(event)=> {
+      setnewStoreAddress(event.target.value); }}placeholder="Edit Adress"/></div>
             </div>
             </div>
             </div>

@@ -32,7 +32,7 @@ function PopupEditClient(props){
 
                 })}
                 else {
-       await axios.put(`http://localhost:3001/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
+       await axios.put(`https://qlogisticsapp.herokuapp.com/ClientAPI/clients?id=${ID}`,dataC).then((res) => {
                 if (res.data.success ) {
                     props.setTrigger(!props.trigger);
 

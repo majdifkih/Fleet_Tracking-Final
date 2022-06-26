@@ -33,7 +33,7 @@ function FleetMap() {
   const [addPopupMapfleet, setAddPopupMapfleet] = useState(false);
   const [rows, setRows] = useState([])
   const getVehicule=()=>{
-    axios.get("http://localhost:3001/VehiculeAPI/vehicules").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/VehiculeAPI/vehicules").then(res=>{
       if(res.data.success){
         setRows( res.data.existingPosts);
         
@@ -50,7 +50,7 @@ function FleetMap() {
     const center = {lat:lati,lng:lngi};
 
     console.log(lati,lngi)
-  });
+  },[]);
   let navigate = useNavigate();
 
   const { isLoaded } = useJsApiLoader({

@@ -33,7 +33,7 @@ function PopupEditUser(props){
                 })
             }
             else {
-       await axios.put(`http://localhost:3001/UserAPI/users?id=${ID}`,dataU).then((res) => {
+       await axios.put(`https://qlogisticsapp.herokuapp.com/UserAPI/users?id=${ID}`,dataU).then((res) => {
                 if (res.data.success) {
                   props.setTrigger(!props.trigger);
 

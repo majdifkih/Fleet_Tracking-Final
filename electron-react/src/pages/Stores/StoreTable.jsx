@@ -20,7 +20,7 @@ import axios from 'axios';
   const [store,setStore] = useState([]);
 
   const getStore=()=>{
-    axios.get("http://localhost:3001/StoreAPI/stores").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/StoreAPI/stores").then(res=>{
       if(res.data.success){
         setStore( res.data.existingPosts);
         
@@ -30,7 +30,7 @@ import axios from 'axios';
   } 
   useEffect(()=>{
     getStore() 
-  });   
+  },[]);   
   
   const [buttonPopup, setButtonPopup] = useState(false);
   const [addPopupstore, setAddPopupstore] = useState(false);

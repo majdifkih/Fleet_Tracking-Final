@@ -152,7 +152,7 @@ TablePaginationActions.propTypes = {
     }
     console.log(data)
     
-    axios.post("http://localhost:3001/OrderAPI/orders",data).then(res=>{
+    axios.post("https://qlogisticsapp.herokuapp.com/OrderAPI/orders",data).then(res=>{
       if(res.data.success){
         Swal.fire({
           icon: 'success',
@@ -174,7 +174,7 @@ TablePaginationActions.propTypes = {
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
   const navigate=useNavigate()
   const getProduct = async () => {
-    axios.get('http://localhost:3001/ProductAPI/products').then(res => {
+    axios.get('https://qlogisticsapp.herokuapp.com/ProductAPI/products').then(res => {
         if (res.data.success) {
           setItems(res.data.existingPosts);
 
@@ -199,7 +199,7 @@ TablePaginationActions.propTypes = {
   };
   const [clientt, setClientt] = useState({});
   const getClient=()=>{
-    axios.get("http://localhost:3001/ClientAPI/clients").then(res=>{
+    axios.get("https://qlogisticsapp.herokuapp.com/ClientAPI/clients").then(res=>{
       if(res.data.success){
         setClientt( res.data.existingPosts);
         
@@ -278,7 +278,7 @@ TablePaginationActions.propTypes = {
                 
               </StyledTableCell>
               <StyledTableCell className="quantity" >{row.quantity}</StyledTableCell>
-              <StyledTableCell align="right"  ><i className="material-icons" onClick={() => setBtnEditConfirmer(true)}>border_color</i>
+              <StyledTableCell align="right"  >
               <DeleteIcon className="material-icons" onClick={() => setButtonPopup(true)}/>
               </StyledTableCell>
               

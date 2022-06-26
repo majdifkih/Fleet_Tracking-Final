@@ -29,7 +29,7 @@ function PopupProvider(props){
             }
             else {
             try {
-                await axios.post('http://localhost:3001/SupplierAPI/suppliers',dataP ).then((res) => {
+                await axios.post('https://qlogisticsapp.herokuapp.com/SupplierAPI/suppliers',dataP ).then((res) => {
                     
                       if (res.data.success) {
                         props.setTrigger(!props.trigger);

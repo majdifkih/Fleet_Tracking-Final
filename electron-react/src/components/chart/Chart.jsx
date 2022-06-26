@@ -17,7 +17,7 @@ const Chart = ({title }) => {
  
  
     const getTotal=()=>{
-      axios.post('http://127.0.0.1:3001/FactureAPI/minmax/').then(res=>{
+      axios.post('https://qlogisticsapp.herokuapp.com/FactureAPI/minmax/').then(res=>{
         if(res.data.success){
           setMin( res.data.min);
           setMax( res.data.max);

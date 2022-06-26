@@ -11,8 +11,22 @@ import axios from "axios";
 import moment from "moment";
 const Chart = ({title }) => {
   const [Facture, setFacture] = useState([]);
+  const [Min, setMin] = useState();
+ 
+  const [Max, setMax] = useState();
+ 
  
     const getTotal=()=>{
+      axios.post('http://127.0.0.1:3001/FactureAPI/minmax/').then(res=>{
+        if(res.data.success){
+          setMin( res.data.min);
+          setMax( res.data.max);
+          console.log( res.data.min);
+          console.log(res.data.max)
+        }
+      })
+    } 
+    const getMinMax=()=>{
       axios.get('https://qlogisticsapp.herokuapp.com/FactureAPI/factures').then(res=>{
         if(res.data.success){
           setFacture( res.data.existingPosts);
@@ -21,9 +35,13 @@ const Chart = ({title }) => {
       })
     } 
     useEffect(()=>{
-      getTotal() 
-    },[]);  
-    console.log(Facture)
+      getTotal() ;
+      
+    },[]); 
+    useEffect(()=>{
+      getMinMax();
+      
+    }); 
     function formatXAxis(tickItem) {
       
       return moment(tickItem).format(' DD ')
@@ -58,7 +76,7 @@ const Chart = ({title }) => {
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
-              <TableCell className="tableCell"><span className="span1">Max en DT</span><span className="span2">31180</span>
+              <TableCell className="tableCell"><span className="span1">Max en DT</span><span className="span2">{Max}</span>
               </TableCell>
 
           </TableRow>
@@ -66,7 +84,7 @@ const Chart = ({title }) => {
         <TableBody>
           
             <TableRow >
-            <TableCell className="tableCell"><span className="span1">Min en DT</span><span className="span2">3087</span></TableCell>
+            <TableCell className="tableCell"><span className="span1">Min en DT</span><span className="span2">{Min}</span></TableCell>
               
             </TableRow>
           
@@ -74,7 +92,7 @@ const Chart = ({title }) => {
         <TableBody>
           
             <TableRow >
-            <TableCell className="tableCell"><span className="span1">Moyenne en DT</span><span className="span2">23780</span></TableCell>
+            <TableCell className="tableCell"><span className="span1">Moyenne en DT</span><span className="span2">{(Min+Max)/2}</span></TableCell>
               
             </TableRow>
         </TableBody>

@@ -16,7 +16,7 @@ const Chart = ({title }) => {
   const [Max, setMax] = useState();
  
  
-    const getTotal=()=>{
+    const getMinMax=()=>{
       axios.post('https://qlogisticsapp.herokuapp.com/FactureAPI/minmax/').then(res=>{
         if(res.data.success){
           setMin( res.data.min);
@@ -26,7 +26,7 @@ const Chart = ({title }) => {
         }
       })
     } 
-    const getMinMax=()=>{
+    const getTotal =()=>{
       axios.get('https://qlogisticsapp.herokuapp.com/FactureAPI/factures').then(res=>{
         if(res.data.success){
           setFacture( res.data.existingPosts);

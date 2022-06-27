@@ -66,7 +66,7 @@ const TableOrder = (props) => {
   const [rows, setRows] = useState([]);
   const [Tt, setTt] = useState(0);
   const getOrder = () => {
-axios.get("http://localhost:3001/OrderAPI/orders").then(res=>{
+axios.get("https://qlogisticsapp.herokuapp.com/OrderAPI/orders").then(res=>{
   if(res.data.success){
     console.log(res.data.existingPosts)
     setRows(res.data.existingPosts)

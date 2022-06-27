@@ -12,6 +12,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 const Home = () => {
   const{item,setItem}=useState("");
+  const[T,setT]=useState(0)
   const [Drivers, setDrivers] = useState([]);
 const [num, setNum] = useState(0);
   const getDriver=()=>{
@@ -33,8 +34,16 @@ const [num, setNum] = useState(0);
         setVehicule( res.data.existingPosts);
         
         console.log(vehicule)
-         const t=(vehicule.filter(item => item.alertOIL === true || item.alertTIERS===true)).length;
-        setItem(t)
+
+      var result=  vehicule.filter(item => item.alertOIL).length
+
+    //  var   result = vehicule.filter(obj => {
+    //       return obj.alertOIL === true;
+    //     })
+        console.log(result)
+        //  const AA=(vehicule.map(item =>{ return item.alertOIL === true || item.alertTIERS===true}));
+        //  console.log(AA)
+        // setItem(AA)
         // {  vehicule.map(element, => { 
         //   if (element[i].alertOIL==true || element[i].alertTIERS==true) {
         //     console.log(element.alertOIL)
@@ -43,9 +52,9 @@ const [num, setNum] = useState(0);
         //   }
 
         //   i++
-        // })} 
+        // })}
         
-      
+       
        
       }
     })
@@ -53,7 +62,7 @@ const [num, setNum] = useState(0);
   useEffect(()=>{
     getVehicule() 
     getDriver()
-  } ,[]) ;
+  } ) ;
   
   const [addPopupfleet, setAddPopupfleet] = useState(false);
   return (
@@ -62,15 +71,15 @@ const [num, setNum] = useState(0);
       <div className="side"><Sidebar/>
 </div>
       <div className="homeContainer">
-        <Navbar/>
+        <Navbar avert={vehicule.filter(item => item.alertOIL).length}/>
         <span className="over">Overview</span>
 
         <div className="body">
           <div className="leftt">
         <div className="widgets">
-          <Widget type="demande" />
+          <Widget type="demande" count={T} />
           <Widget type="active" count={Drivers.length} />
-          <Widget type="avertissement" count={item} />
+          <Widget type="avertissement" count={vehicule.filter(item => item.alertOIL).length} />
           <Widget type="apareil" count={vehicule.length} />
         </div>
         <div className="charts">
@@ -101,7 +110,7 @@ const [num, setNum] = useState(0);
       
       <div className="listContainer2">
         
-      <TableOrder />
+      <TableOrder setT={setT}/>
       </div>
       </div>
         </div>

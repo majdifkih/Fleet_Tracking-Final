@@ -11,7 +11,7 @@ const Widget = ({ type,count }) => {
         title: "Demands",
         isMoney: false,
         
-        amount:60,
+        amount:count,
         
       };
       break;

@@ -8,7 +8,7 @@ import TableRow from "@mui/material/TableRow";
 import { Link } from "react-router-dom";
 import { useEffect ,useState} from "react";
 import axios from "axios";
-const TableOrder = () => {
+const TableOrder = (props) => {
   // const rows = [
   //   {
   //     id: 1143155,
@@ -64,11 +64,14 @@ const TableOrder = () => {
   // ];
   
   const [rows, setRows] = useState([]);
+  const [Tt, setTt] = useState(0);
   const getOrder = () => {
 axios.get("http://localhost:3001/OrderAPI/orders").then(res=>{
   if(res.data.success){
     console.log(res.data.existingPosts)
     setRows(res.data.existingPosts)
+    props.setT(res.data.existingPosts.length)
+    setTt(res.data.existingPosts.length)
   }
 }
 )}
@@ -83,7 +86,7 @@ axios.get("http://localhost:3001/OrderAPI/orders").then(res=>{
       
       <div className="title">   
       <div className="titleDema">Demands
-        <span className="tolal">Total:60</span>
+        <span className="tolal">Total:{Tt}</span>
         </div>
         <Link to="/demand">See All</Link>
         </div>

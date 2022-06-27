@@ -379,9 +379,7 @@ case "Stores name":
         props.setNameV(name)
       props.setKM(mileage)
       props.sethour(h)
-props.alertO(alertOIL)
-props.alertT(alertTIERS)
-props.alertM(alertMAINT)
+
       axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=vehicule`).then(res => {
         console.log(res.data.existingPosts);
         props.setFact((res.data.existingPosts.reduce((a,v) =>  a = a + v.total , 0 )));

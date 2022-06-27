@@ -6,7 +6,7 @@ import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNone
 
 
 
-const Navbar = () => {
+const Navbar = (props) => {
   
 
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
           
           <div className="item">
             <NotificationsNoneOutlinedIcon className="icon" />
-            <div className="counter">1</div>
+            <div className="counter">{props.avert}</div>
           </div>
           
           <div className="item">

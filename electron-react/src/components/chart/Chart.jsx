@@ -27,7 +27,7 @@ const Chart = ({title }) => {
       })
     } 
     const getTotal =()=>{
-      axios.get('http://localhost:3001/FactureAPI/factures').then(res=>{
+      axios.get('https://qlogisticsapp.herokuapp.com/FactureAPI/factures').then(res=>{
         if(res.data.success){
           setFacture( res.data.existingPosts);
           console.log(Facture)

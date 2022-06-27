@@ -380,7 +380,7 @@ case "Stores name":
       props.setKM(mileage)
       props.sethour(h)
 
-      axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=vehicule`).then(res => {
+      axios.get(`https://qlogisticsapp.herokuapp.com/FactureAPI/factures?id=${id}&type=vehicule`).then(res => {
         console.log(res.data.existingPosts);
         props.setFact((res.data.existingPosts.reduce((a,v) =>  a = a + v.total , 0 )));
         

@@ -195,7 +195,7 @@ const getFacture=()=>{
         <TableHead>
           <TableRow className="row" >
               
-            <StyledTableCell   ><input type="radio" name="fleet" /><label for="store">Invoice reference </label></StyledTableCell>
+            <StyledTableCell ><label for="store">Total </label></StyledTableCell>
             <StyledTableCell  align="center" >Date</StyledTableCell>
             <StyledTableCell align="center">Status</StyledTableCell>
           </TableRow>
@@ -214,7 +214,7 @@ const getFacture=()=>{
             }
           }).map((val,key) => (
             <StyledTableRow className="row" key={key}>
-              <StyledTableCell  width={"20%"} height={"1%"} component="th" scope="row"><input type="radio" name="fleet" className="radio"/><label for="name">{val.name}</label>
+              <StyledTableCell  width={"20%"} height={"1%"} component="th" scope="row"><label for="name">{val.total}</label>
                 
               </StyledTableCell>
               

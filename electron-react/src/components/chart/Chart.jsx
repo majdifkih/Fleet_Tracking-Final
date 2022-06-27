@@ -76,7 +76,7 @@ const Chart = ({title }) => {
       <Table  aria-label="simple table">
         <TableHead>
           <TableRow>
-              <TableCell className="tableCell"><span className="span1">Max en DT</span><span className="span2">{Max}</span>
+              <TableCell className="tableCell"><span className="span1">Max en DT</span><span className="span2">{Min}</span>
               </TableCell>
 
           </TableRow>
@@ -84,7 +84,7 @@ const Chart = ({title }) => {
         <TableBody>
           
             <TableRow >
-            <TableCell className="tableCell"><span className="span1">Min en DT</span><span className="span2">{Min}</span></TableCell>
+            <TableCell className="tableCell"><span className="span1">Min en DT</span><span className="span2">{Max}</span></TableCell>
               
             </TableRow>
           

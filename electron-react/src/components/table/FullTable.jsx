@@ -382,7 +382,7 @@ case "Stores name":
 props.alertO(alertOIL)
 props.alertT(alertTIERS)
 props.alertM(alertMAINT)
-      axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=vehicule`).then(res => {
+      axios.get(`https://qlogisticsapp.herokuapp.com/FactureAPI/factures?id=${id}&type=vehicule`).then(res => {
         console.log(res.data.existingPosts);
         props.setFact((res.data.existingPosts.reduce((a,v) =>  a = a + v.total , 0 )));
         
@@ -390,7 +390,7 @@ props.alertM(alertMAINT)
         // props.setFactures(res.data.existingPosts);
       });
 
-        axios.get(`http://localhost:3001/PositionAPI/heures?id=${id}`).then(res => {
+        axios.get(`https://qlogisticsapp.herokuapp.com/PositionAPI/heures?id=${id}`).then(res => {
           console.log(res.data);
           props.setDriver(res.data);
         }

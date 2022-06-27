@@ -146,7 +146,7 @@ const rows = [
   const [buttonPopup, setButtonPopup] = useState(false);
   const {id}=useParams()
 const getFacture=()=>{
-  axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=store`).then(res=>{
+  axios.get(`https://qlogisticsapp.herokuapp.com/FactureAPI/factures?id=${id}&type=store`).then(res=>{
     if (res.data.success){
       console.log("ok")
       console.log(res.data.existingPosts)

@@ -131,7 +131,7 @@ const [ttl,setTtl] = React.useState(0);
   const navigate=useNavigate()
   const {id}= useParams()
   const GETFACTURE =() => {
-    axios.get(`http://localhost:3001/FactureAPI/factures?id=${id}&type=One`).then(res => {
+    axios.get(`https://qlogisticsapp.herokuapp.com/FactureAPI/factures?id=${id}&type=One`).then(res => {
       console.log(res.data.facture.stock)
       setRows(res.data.facture.stock)
       setTtl(res.data.facture.total)
